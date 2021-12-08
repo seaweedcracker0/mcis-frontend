@@ -1,0 +1,254 @@
+.erecruit-form-container {
+  background-color: #dcdcdc;
+  padding: 20px;
+}
+
+.erecruit-form {  
+  padding: 20px 60px 20px 60px;
+  background-color: #ffffff;
+}
+
+#multiStepForm {
+  padding-top: 50px;
+}
+
+/* Multi Step styles */
+.erecruit-steps {
+  position: relative;
+  margin-bottom: 30px;
+  counter-reset: step;
+  
+}
+.erecruit-steps li {
+  list-style-type: none;
+  font-size: 12px;
+  text-align: center;
+  width: 20%;
+  position: relative;
+  float: left;
+}
+.erecruit-steps li:before {
+  display: block;
+  content: counter(step);
+  counter-increment: step;
+  width: 32px;
+  height: 32px;
+  background-color: #337ab7;
+  line-height: 32px;
+  border-radius: 32px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  font-weight: 500;
+  margin: 0 auto 8px auto;
+  position: relative;
+  z-index: 2;
+}
+.erecruit-steps li ~ li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #019875;
+  position: absolute;
+  left: -50%;
+  top: 15px;
+  z-index: 1;
+} 
+.erecruit-steps li.active{
+  color: #337ab7;
+}
+.erecruit-steps li.active:after {
+  background-color: #337ab7;  
+}
+.erecruit-steps li.active ~ li:before,
+.erecruit-steps li.active ~ li:after {
+  background-color: #777;
+}
+
+/* Accordion styles */
+.custom-check {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.tabs {
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+.tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+  background: #00386c;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 0px;
+  /* Icon */
+}
+.tab-label:hover {
+  background: #00386c;
+}
+/* .tab-label::after {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+} */
+.tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: #2c3e50;
+  background: white;
+  transition: all 0.35s;
+}
+.tab-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: #2c3e50;
+  cursor: pointer;
+}
+.tab-close:hover {
+  background: #1a252f;
+}
+
+input:checked + .tab-label {
+  background: #1a252f;
+}
+input:checked + .tab-label::after {
+  transform: rotate(90deg);
+}
+input:checked ~ .tab-content {
+  max-height: 100vh;
+  /* padding: 1em; */
+}
+
+/* e signature */
+.esign-modal{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 50%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+}
+.signature-pad {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.signature-pad::before,
+.signature-pad::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  width: 40%;
+  height: 10px;
+  bottom: 10px;
+  background: transparent;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.signature-pad::before {
+  left: 20px;
+  -webkit-transform: skew(-3deg) rotate(-3deg);
+          transform: skew(-3deg) rotate(-3deg);
+}
+
+.signature-pad::after {
+  right: 20px;
+  -webkit-transform: skew(3deg) rotate(3deg);
+          transform: skew(3deg) rotate(3deg);
+}
+
+.signature-pad--body {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid #f4f4f4;
+}
+
+.signature-pad--body
+canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+}
+
+.signature-pad--footer {
+  color: #C3C3C3;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 8px;
+}
+
+.signature-pad--actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 8px;
+}
+
+.section-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.custom-row-border {
+  background-color: #00386c;
+  padding: 15px 5px;
+}
+
+.esign-modal {
+  display: none;
+}
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pt-15 {
+  padding-top: 15px;
+}
+.border-top-left-right {
+  border: 1px solid #c2c2c2;
+  border-bottom: 0;
+}
+.border-bottom {
+  border-bottom: 1px solid #c2c2c2;
+}
