@@ -1,0 +1,42 @@
+/* .sortable.up:after {
+	content: "\0025B2";
+}
+
+.sortable.down:after {
+	content: "\0025BC";
+}
+
+.result-footer-pagination {
+	margin:0;
+	text-align:right;
+}
+
+.result-footer-pagination ul {
+	margin:0;
+}
+
+.remove-sorting .icon-arrow2_s, .remove-sorting .icon-arrow2_n {
+	display: none;
+}
+
+.remove-sorting {
+	background-color : red;
+}
+*/
+
+.fit-content {
+	white-space: nowrap;
+	width: 1%;
+}
+
+.text-align-left {
+	text-align: left;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.text-align-right {
+	text-align: right;
+}
