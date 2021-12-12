@@ -252,3 +252,41 @@ canvas {
 .border-bottom {
   border-bottom: 1px solid #c2c2c2;
 }
+
+.with-heading-wrapper {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.custom-mcis-file-input {
+  position: relative;
+}
+
+.custom-mcis-file-input .btn {
+  /* position: absolute;
+  top: 0; */
+  position: relative;
+  z-index: 1;
+  background-color: #FAFAFA;
+  color: #00386c;
+}
+
+.custom-mcis-file-input .form-control-mcis-file-input {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+}
+
+.employment-history-wrapper {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.tab-content {
+  overflow-y: hidden;
+}
+
+.tabs {
+  box-shadow: none;
+}
