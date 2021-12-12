@@ -290,3 +290,64 @@ canvas {
 .tabs {
   box-shadow: none;
 }
+
+/* .custom-inline-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+} */
+
+/* .custom-inline-form .form-group {
+  margin-bottom: 0
+} */
+
+.custom-inline-form .form-group, .custom-inline-form .form-group input {
+  width: auto!important
+}
+
+.custom-inline-form > span > * {
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.custom-inline-form > span > .form-group {
+  display: inline-block;
+}
+
+.form-control-mcis:disabled {
+  color: #808080!important;
+  background-color: #DFDFDF!important;
+}
+
+.custom-checkbox-mcis label{
+  position: relative
+}
+
+.custom-checkbox-mcis input {
+  display: none
+}
+
+.custom-checkbox-mcis label .custom-checkbox {
+  border: 1px solid #00386c;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0;
+}
+
+.custom-checkbox-mcis label::before {
+  content: "✓";
+  position: absolute;
+  left: 10px;
+  transform: translateX(-50%);
+  color: #00386c;
+}
+
+.custom-checkbox-mcis input:checked ~ label::before {
+  content: ""
+}
+
+.custom-checkbox-mcis label span {
+  padding-left: 1rem;
+}
