@@ -2,22 +2,23 @@
 <html lang="en" ng-app="MCIS">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eRecruit Form</title>
-  <link rel="stylesheet" href="bootstrap.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="simplesearch.css">
-  <link rel="stylesheet" href="jquery-ui.min.css">
-  <script src="signature_pad.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eRecruit Form</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="simplesearch.css">
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="signature_pad.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>    
 </head>
 
 <body>
   <div class="erecruit-form-container">
-    <div class="erecruit-form" ng-controller="formController" ng-init="init()">
+    <div class="erecruit-form" ng-controller="formController">
       <ul class="erecruit-steps">
         <li ng-class="stage == '' ? 'active' : ''">Agent Application</li>
         <li ng-class="stage == 'stage1' ? 'active' : ''">Liam COE and Conduct</li>
@@ -226,6 +227,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section1')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="signhere(); init();">Sign here Example</button>
                       <button type="button" class="btn btn-primary">Back</button>
                     </div>
                   </div>
@@ -2107,7 +2109,7 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nameNric" name="nameNric" disabled
+                            <input type="text" class="form-control-mcis uppercase" id="nameNric" name="nameNric" disabled
                               ng-model="formParams.nameNric">
                           </div>
                         </div>
@@ -2148,8 +2150,9 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
-                              ng-model="formParams.nric">
+                            <input type="text" class="form-control-mcis" id="nricNo" ng-pattern-restrict="^[0-9]*$" maxlength="12"
+                              name="nricNo" ng-model="formParams.nricNo" ng-change="textChanged(formParams.nricNo)"
+                              ng-class="{'input-error': formValidation && multiStepForm.nricNo.$error.required}" required>
                           </div>
                         </div>
                       </div>
@@ -2319,37 +2322,48 @@
               </div>
             </div>
           </div>
+
+          <input type="hidden" ng-model="formParams.esigndraw">
         </div>
       </form>
+    </div>
 
-      <div class="esign-modal">
-        <div id="signature-pad" class="signature-pad">
-          <div class="signature-pad--body">
-            <canvas width="830" style="touch-action: none;" height="466"></canvas>
-          </div>
-          <div class="signature-pad--footer">
-            <div class="description">Sign above</div>
-            <div class="signature-pad--actions">
-              <div>
-                <button type="button" class="btn btn-primary">Upload</button>
-                <button type="button" class="btn btn-primary">Clear</button>
-              </div>
+    <div id="esign-modal" class="esign-modal">
+      <h3>e-Signature</h3>
+      <div class="tabs">
+        <div class="tab" ng-click="modalStatus = 'draw'">
+          Draw
+        </div>
+        <div class="tab" ng-click="modalStatus = 'upload'">
+          Upload
+        </div>
+      </div>
+      <div id="signature-pad" ng-class="modalStatus == 'upload'? 'd-none' : ''" class="signature-pad">
+        <div class="signature-pad--body">
+          <canvas width="830" style="touch-action: none;" height="466"></canvas>
+        </div>
+        <div class="signature-pad--footer">
+          <div class="description">Sign above</div>
+          <div class="signature-pad--actions">
+            <div>
+              <button type="button" class="btn btn-primary">Upload</button>
+              <button type="button" class="btn btn-primary" data-action="clear">Clear</button>
             </div>
           </div>
         </div>
-        <div class="signature-upload">
-          <div class="upload-area">
+      </div>
+      <!-- <div class="signature-upload" ng-class="modalStatus == 'draw'? 'd-none': ''">
+        <div class="upload-area">
 
-          </div>
-          <input type="file">Drag a file into this area or select file (JEPG/JPG file only)
         </div>
-        <div>
-          <button type="button" class="btn btn-primary">CONFIRM & SUBMIT</button>
-        </div>
+        <input type="file">Drag a file into this area or select file (JEPG/JPG file only)
+      </div> -->
+      <div>
+        <button type="button" class="btn btn-primary" data-action="confirm">CONFIRM & SUBMIT</button>
       </div>
     </div>
   </div>
 </body>
-<script defer src="main.js"></script>
+<script src="main.js"></script>
 
 </html>

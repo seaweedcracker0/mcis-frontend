@@ -23,6 +23,7 @@ angular.module('MCIS', []).
     $scope.section = "";
     $scope.apiEndPoint = "";
     $scope.stagePolicy = false;
+    var inputMin = 12;
 
     $scope.init = function() {
         $scope.initSignaturePad();
@@ -98,15 +99,50 @@ angular.module('MCIS', []).
         }
     };
       
+    $scope.signhere = function () {
+        var sign = document.getElementById("esign-modal");
+        sign.classList.add('show');
+    }
+
+    $scope.signdone = function () {
+        var sign = document.getElementById("esign-modal");
+        sign.classList.remove('show');
+    }
+
     $scope.reset = function() {
     // Clean up scope before destorying
     $scope.formParams = {};
     $scope.stage = "";
     }
+    
+    $scope.textChanged = function(nric) {
+        if (nric.length >= inputMin) $scope.getICInfo(nric);
+    };
+
+    $scope.getICInfo = function(nric) {
+        $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'F' : 'M';
+        var dob = moment(nric.substring(0, 6), 'YYMMDD');
+        if (dob.isValid() && dob.isAfter(moment())) {
+            dob.subtract(100, 'years');
+        }
+        console.log(gender);
+
+        if (dob.isValid()){
+            console.log(dob);
+            console.log('YY:', dob.format('YYYY'));
+            console.log('DD:', dob.format('DD'));
+            console.log('MM:', dob.format('MM'));
+            $scope.formParams.personalDobDate = dob.format('DD');
+            $scope.formParams.personalDobMonth = dob.format('MM');
+            $scope.formParams.personalDobYear = dob.format('YYYY');            
+        }
+    }
 
     $scope.initSignaturePad = function() {
         var wrapper = document.getElementById("signature-pad");
+        var wrapper2 = document.getElementById("esign-modal");
         var clearButton = wrapper.querySelector("[data-action=clear]");
+        var confirmButton = wrapper2.querySelector("[data-action=confirm]");
         var canvas = wrapper.querySelector("canvas");
         var signaturePad = new SignaturePad(canvas, {
             // It's Necessary to use an opaque color when saving image as JPEG;
@@ -180,5 +216,16 @@ angular.module('MCIS', []).
         clearButton.addEventListener("click", function (event) {
             signaturePad.clear();
         });
+
+        confirmButton.addEventListener("click", function (event) {
+            if (signaturePad.isEmpty()) {
+                alert("Please provide a signature first.");
+              } else {
+                var dataURL = signaturePad.toDataURL();
+                $scope.formParams.esigndraw = dataURL;
+                console.log('eSign Base64: ', $scope.formParams.esigndraw);
+                $scope.signdone();
+              }
+        })
     }
 });

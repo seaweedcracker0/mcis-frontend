@@ -7,6 +7,9 @@
   padding: 20px 60px 20px 60px;
   background-color: #ffffff;
 }
+.uppercase {
+  text-transform: uppercase;
+}
 
 #multiStepForm {
   padding-top: 50px;
@@ -133,12 +136,16 @@ input:checked ~ .tab-content {
 
 /* e signature */
 .esign-modal{
+  background-color: #F7F7F7;
+  position: fixed;
+  top: 0;
+  z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   flex-direction: column;
-  height: 50vh;
-  width: 50%;
+  height: 70vh;
+  width: 100vw;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
