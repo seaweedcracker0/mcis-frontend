@@ -1845,10 +1845,10 @@
                           </div>
                           <div class="col-xs-12 col-md-5 pt-15">
                             <div class="form-group">
-                              <textarea name="agencyContractReasons" rows="10" id="agencyContractReasons" class="form-control-mcis"
-                                ng-model="formParams.agencyContractReasons"
+                              <textarea name="agencyContractReasons" rows="10" id="agencyContractReasons"
+                                class="form-control-mcis" ng-model="formParams.agencyContractReasons"
                                 ng-class="{'error': formValidation && multiStepForm.agencyContractReasons.$error.required}"
-                                ng-required="multiStepForm.heldAgencyContract.$viewValue == 'Yes'" ></textarea>
+                                ng-required="multiStepForm.heldAgencyContract.$viewValue == 'Yes'"></textarea>
                               <span ng-show="formValidation && multiStepForm.agencyContractReasons.$error.required"
                                 class="small text-danger">
                                 This field is required
@@ -1864,8 +1864,9 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextStep('stage1')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section3')">Back</button>
+                      <button type="button" class="btn btn-primary"
+                        ng-click="nextStep('stage1'); nextSection('section8')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section6')">Back</button>
                     </div>
                   </div>
                 </div>
@@ -1876,80 +1877,446 @@
           <!-- Liam COE and Conduct -->
           <div ng-switch-when="stage1">
             <div class="row">
-            </div>
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div class="form-group">
-                  <label for="tb-lname">Old NRIC No.</label><span>*</span>
-                  <input type="text" class="form-control" id="oldNric" name="oldNric" ng-maxlength="20"
-                    ng-model="formParams.oldNric"
-                    ng-class="{'error': formValidation && multiStepForm.oldNric.$error.required}" required>
-                  <span ng-show="multiStepForm.oldNric.$error.maxlength">
-                    Max character length reached.
-                  </span>
+              <div ng-switch on="section">
+                <div ng-switch-when="section8">
+                  <h3>CODE OF ETHICS AND CONDUCT</h3>
+                  <p>Life Insurance Association of Malaysia</p>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-xs-12 col-md-offset-3 col-md-7">
+                      <div class="custom-inline-form">
+                        <span>I, <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="salutation" name="salutation" disabled
+                              ng-model="formParams.salutation">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="nameNric" name="nameNric" disabled
+                              ng-model="formParams.nameNric">
+                          </div>
+                          Bearer of NRIC No.
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
+                              ng-model="formParams.nric">
+                          </div>
+                          being an
+                          <div class="form-group">
+                            <select name="codeEthicsRelationship" id="codeEthicsRelationship"
+                              class="form-control-mcis selectpicker" ng-model="formParams.codeEthicsRelationship"
+                              ng-class="{'error': formValidation && multiStepForm.codeEthicsRelationship.$error.required}"
+                              required>
+                              <option value="">Please Select</option>
+                              <option value="Intermediary">Intermediary</option>
+                            </select>
+                          </div>
+                          of
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="codeEthicsCompany" name="codeEthicsCompany"
+                              disabled ng-model="formParams.codeEthicsCompany" ng-value="'MCIS Insurance Berhad'">
+                          </div>
+                          hereby declare and confirm that I have read and understood the contents of the Code of Ethics
+                          and Conduct which are applicable
+                          to me, and further declare that I shall comply and abide by the rules contained therein.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row margin-top-25 margin-bottom-25">
+                    <div class="col-xs-12 col-md-offset-4 col-md-5">
+                      <div class="checkbox custom-checkbox-mcis">
+                        <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox">
+                        <label for="codeOfEthicsAgree">
+                          <div class="custom-checkbox"></div>
+                          <span>
+                            I hereby agree that my e-signature is required as a consent to the Code of Ethics and
+                            Conduct
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 d-flex-center">
+                      <button type="button" class="btn btn-primary"
+                        ng-click="nextStep('stage2'); nextSection('section9')">Accept &
+                        Continue</button>
+                      <button type="button" class="btn btn-primary"
+                        ng-click="backStep(''); backSection('section7')">Back</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div class="form-group">
-                  <label for="tb-email">Email:</label>
-                  <input type="email" class="form-control" id="email" name="email" ng-maxlength="100"
-                    ng-model="formParams.email"
-                    ng-class="{'error': formValidation && multiStepForm.email.$error.required}" required>
-                  <span ng-show="multiStepForm.email.$error.email">
-                    Incorrect email format.
-                  </span>
-                  <span ng-show="multiStepForm.email.$error.maxlength">
-                    Max character length reached.
-                  </span>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-info" ng-click="backStep('')">Back</button>
-            <button type="button" class="btn btn-primary" ng-click="nextStep('stage2')">Next</button>
           </div>
 
           <!-- Product Overview & CTF -->
           <div ng-switch-when="stage2">
-            <div class="form-group">
-              <select name="singleSelect" id="singleSelect" ng-model="formParams.singleSelect" required>
-                <option value="">---Please select---</option> <!-- not selected / blank option -->
-                <option value="option-1">Option 1</option>
-                <option value="option-2">Option 2</option>
-              </select>
+            <div class="row">
+              <div ng-switch on="section">
+                <div ng-switch-when="section9">
+                  <h3>CODE OF ETHICS AND CONDUCT</h3>
+                  <p>Life Insurance Association of Malaysia</p>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
+                      <div class="custom-inline-form">
+                        <span>I,
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="nameNric" name="nameNric" disabled
+                              ng-model="formParams.nameNric">
+                          </div>
+                          Bearer of NRIC No.
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
+                              ng-model="formParams.nric">
+                          </div>
+                          hereby confirmed that I have completed the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
+                          FACT FIND training provided by
+                          Leader Name:
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="leaderName" name="leaderName" disabled
+                              ng-model="formParams.leaderName" ng-value="'K KUMAR A/L K KARUPPAJAH'">
+                          </div>
+                          Agent Code:
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="agentCode" name="agentCode" disabled
+                              ng-model="formParams.agentCode" ng-value="'A1230860'">
+                          </div>
+                          Unit No:
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="unitNo" name="unitNo" disabled
+                              ng-model="formParams.unitNo" ng-value="'199'">
+                          </div>
+                          Branch:
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="branch" name="branch" disabled
+                              ng-model="formParams.branch" ng-value="'MCIS Melaka'">
+                          </div>
+                          on
+                          <div class="form-group">
+                            <select name="cffDeclareDate" id="cffDeclareDate" class="form-control-mcis selectpicker"
+                              ng-model="formParams.cffDeclareDate">
+                              <option value="">Date</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <select name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis selectpicker"
+                              ng-model="formParams.cffDeclareMonth">
+                              <option value="">Month</option>
+                              <option value="January">January</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <select name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis selectpicker"
+                              ng-model="formParams.cffDeclareYear">
+                              <option value="">Year</option>
+                              <option value="2021">2021</option>
+                            </select>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row margin-top-25 margin-bottom-25">
+                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                      <div class="checkbox custom-checkbox-mcis">
+                        <input id="cffAgree" name="cffAgree" type="checkbox">
+                        <label for="cffAgree">
+                          <div class="custom-checkbox"></div>
+                          <span>
+                            I hereby agree that my e-signature is required as a consent to the Declaration of Completion
+                            for Life Insurance Basic Product Overview and Customer Fact Find Form Training
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 d-flex-center">
+                      <button type="button" class="btn btn-primary"
+                        ng-click="nextStep('stage3'); nextSection('section10')">Accept &
+                        Continue</button>
+                      <button type="button" class="btn btn-primary"
+                        ng-click="backStep('stage1'); backSection('section8')">Back</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <input type="file" class="form-control" fileread="formParams.eSign" ng-model="formParams.eSign" id="eSign"
-                name="eSign" ng-class="{'error': formValidation && multiStepForm.eSign.$error.required}" required>
-            </div>
-            <div class="form-group">
-              <label for="ta-body">Message Body:</label>
-              <textarea class="form-control" rows="5" id="ta-body" ng-model="formParams.messageBody"
-                required></textarea>
-            </div>
-            <button type="button" class="btn btn-info" ng-click="backStep('stage1')">Back</button>
-            <button type="button" class="btn btn-primary" ng-click="nextStep('stage3')">Next</button>
           </div>
 
           <!-- Liam Movement -->
           <div ng-switch-when="stage3">
-            <h3>Summary</h3>
-            <p>First name: {{formParams.nameNric}}</p>
-            <p>Last name: {{formParams.oldNric}}</p>
-            <p>Email: {{formParams.email}}</p>
-            <p>Dropdown: {{formParams.singleSelect}}</p>
-            <p>Message Body: {{formParams.messageBody}}</p>
-            <button type="button" class="btn btn-info" ng-click="backStep('stage2')">Back</button>
-            <button type="button" class="btn btn-primary" ng-click="nextStep('stage4')">Next</button>
+            <div class="row">
+              <div ng-switch on="section">
+                <div ng-switch-when="section10">
+                  <h3>Liam Movement</h3>
+                  <p>Procedures for the Movement Of Agent</p>
+
+                  <hr>
+                  <h3 class="text-center employment-history-wrapper">Are you currently contracted with other insurers?
+                  </h3>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-md-12 d-flex-center">
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section11')">Yes</button>
+                      <button type="button" class="btn btn-primary">No</button>
+                      <button type="button" class="btn btn-primary"
+                        ng-click="backStep('stage2'); backSection('section9')">Back</button>
+                    </div>
+                  </div>
+                </div>
+                <div ng-switch-when="section11">
+                  <h3>LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
+                  <p>Procedures for the Movement Of Agent</p>
+
+                  <hr>
+
+                  <h3 class="text-center">Movement of Agent</h3>
+                  <p class="text-center margin-bottom-60">Section A</p>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label for="movementAgentTo">To</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
+                            <input class="form-control-mcis" id="movementAgentTo" name="movementAgentTo"
+                              value="MCIS Insurance Berhad" disabled>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label>Agent Name</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="nameNric" name="nameNric" disabled
+                              ng-model="formParams.nameNric">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label for="movementAgentDate">Date:</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="movementAgentDate" name="movementAgentDate"
+                              disabled ng-model="formParams.movementAgentDate">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label for="salutation">From <span class="text-danger">*</span></label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
+                            <input class="form-control-mcis" id="movementAgentFrom" name="movementAgentFrom"
+                              ng-model="formParams.movementAgentFrom" placeholder="Contracting Company">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label for="nric">NRIC No.</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
+                              ng-model="formParams.nric">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label for="registLetterCopy">Registration Letter Copy <span
+                                class="text-danger">*</span></label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group custom-mcis-file-input">
+                            <label for="registLetterCopy" class="btn btn-default">BROWSE...</label>
+                            <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
+                              id="registLetterCopy" ng-model="formParams.registLetterCopy">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="custom-inline-form">
+                        <span>
+                          I hereby notify you that I have resigned from
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis" disabled
+                              ng-model="formParams.movementAgentFrom">
+                          </div>
+                          with effect from
+                          <div class="form-group">
+                            <select name="moveAgentDate" id="moveAgentDate" class="form-control-mcis selectpicker"
+                              ng-model="formParams.moveAgentDate">
+                              <option value="">Date</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <select name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis selectpicker"
+                              ng-model="formParams.moveAgentMonth">
+                              <option value="">Month</option>
+                              <option value="January">January</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <select name="moveAgentYear" id="moveAgentYear" class="form-control-mcis selectpicker"
+                              ng-model="formParams.moveAgentYear">
+                              <option value="">Year</option>
+                              <option value="2021">2021</option>
+                            </select>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row margin-top-25 margin-bottom-25">
+                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                      <div class="checkbox custom-checkbox-mcis">
+                        <input id="movementAgree" name="movementAgree" type="checkbox">
+                        <label for="movementAgree">
+                          <div class="custom-checkbox"></div>
+                          <span>
+                            I hereby agree that my e-signature is required as a consent for the Liam Movement of Agent
+                            Form
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 d-flex-center">
+                      <button type="button" class="btn btn-primary"
+                        ng-click="nextStep('stage4'); nextSection('section12')">Yes</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section10')">Back</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Nomination -->
           <div ng-switch-when="stage4">
-            <div class="success-wrap">
-              <h2 class="confirmation-text">Thank you</h2>
-              <p>Your message has been sent.<br>You should receive a confirmation email.</p>
-              <div><button type="button" class="btn btn-success" ng-click="reset()">Send Another</button></div>
+            <div class="row">
+              <div ng-switch on="section">
+                <div ng-switch-when="section12">
+                  <h3>Applying for Nomination</h3>
+                  <hr>
+                  <input type="checkbox" id="nominationChoice" name="nominationChoice" value="group"> Group Life
+                  Insurance
+                  <input type="checkbox" id="nominationChoice" name="nominationChoice" value="agency"> Agency
+                  <input type="checkbox" id="nominationChoice" name="nominationChoice" value="commission"> Commission
+
+                  Agency Name
+                  <input type="text" id="agencyName" name="agencyName" ng-model="formParams.agencyName">
+
+                  Nominee Group Relationship 1
+                  <input type="text" id="nomineeGroupRelationship1" name="nomineeGroupRelationship1"
+                    ng-model="formParams.nomineeGroupRelationship1">
+                  Nominee Group Name 1
+                  <input type="text" id="nomineeGroupName1" name="nomineeGroupName1"
+                    ng-model="formParams.nomineeGroupName1">
+                  Nominee Group NRIC 1
+                  <input type="text" id="nomineeGroupNRIC1" name="nomineeGroupNRIC1"
+                    ng-model="formParams.nomineeGroupNRIC1">
+                  Nominee Group Share 1
+                  <input type="text" id="nomineeGroupShare1" name="nomineeGroupShare1"
+                    ng-model="formParams.nomineeGroupShare1">
+                  Nominee Group Applicant IC Copy
+                  <input type="file" id="nomineeGroupApplicantICCopy" name="nomineeGroupApplicantICCopy"
+                    ng-model="formParams.nomineeGroupApplicantICCopy">
+                  Nominee Group IC Copy
+                  <input type="file" id="nomineeGroupICCopy" name="nomineeGroupICCopy"
+                    ng-model="formParams.nomineeGroupICCopy">
+
+                  Nominee Agency Relationship
+                  <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
+                    ng-model="formParams.nomineeAgencyRelationship">
+                  Nominee Agency Name
+                  <input type="text" id="nomineeAgencyName" name="nomineeAgencyName"
+                    ng-model="formParams.nomineeAgencyName">
+                  Nominee Agency NRIC
+                  <input type="text" id="nomineeAgencyNRIC" name="nomineeAgencyNRIC"
+                    ng-model="formParams.nomineeAgencyNRIC">
+                  Nominee Agency Application IC Copy
+                  <input type="file" id="nomineeAgencyApplicantICCopy" name="nomineeAgencyApplicantICCopy"
+                    ng-model="formParams.nomineeAgencyApplicantICCopy">
+                  Nominee Agency IC Copy
+                  <input type="file" id="nomineeAgencyICCopy" name="nomineeAgencyICCopy"
+                    ng-model="formParams.nomineeAgencyICCopy">
+
+                  Nominee Commission Relationship
+                  <input type="text" id="nomineeCommissionRelationship" name="nomineeCommissionRelationship"
+                    ng-model="formParams.nomineeCommissionRelationship">
+                  Nominee Commission Name
+                  <input type="text" id="nomineeCommissionName" name="nomineeCommissionName"
+                    ng-model="formParams.nomineeCommissionName">
+                  Nominee Commission NRIC
+                  <input type="text" id="nomineeCommissionNRIC" name="nomineeCommissionNRIC"
+                    ng-model="formParams.nomineeCommissionNRIC">
+                  Nominee Commission Applicant IC Copy
+                  <input type="file" id="nomineeCommissionApplicantICCopy" name="nomineeCommissionApplicantICCopy"
+                    ng-model="formParams.nomineeCommissionApplicantICCopy">
+                  Nominee Commission IC Copy
+                  <input type="file" id="nomineeCommissionICCopy" name="nomineeCommissionICCopy"
+                    ng-model="formParams.nomineeCommissionICCopy">
+
+                  E sign
+                  <input type="file" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
+                  E sign Name
+                  <input type="text" id="esignName" name="esignName" ng-model="formParams.esignName">
+                  E sign NRIC
+                  <input type="text" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-md-12 d-flex-center">
+                      <button type="button" class="btn btn-primary" ng-click="submitForm()">SUBMIT</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
