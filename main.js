@@ -115,12 +115,16 @@ angular.module('MCIS', []).
     $scope.stage = "";
     }
     
-    $scope.textChanged = function(nric) {
-        if (nric.length >= inputMin) $scope.getICInfo(nric);
+    $scope.textChanged = function(nric, type) {
+        if (type == 'personal'){
+            if (nric.length >= inputMin) $scope.getICInfo(nric);
+        }else if (type == 'spouse'){
+            if (nric.length >= inputMin) $scope.getSpouseICInfo(nric);
+        }
     };
 
     $scope.getICInfo = function(nric) {
-        $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'F' : 'M';
+        $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'female' : 'male';
         var dob = moment(nric.substring(0, 6), 'YYMMDD');
         if (dob.isValid() && dob.isAfter(moment())) {
             dob.subtract(100, 'years');
@@ -135,6 +139,24 @@ angular.module('MCIS', []).
             $scope.formParams.personalDobDate = dob.format('DD');
             $scope.formParams.personalDobMonth = dob.format('MM');
             $scope.formParams.personalDobYear = dob.format('YYYY');            
+        }
+    }
+
+    $scope.getSpouseICInfo = function(nric) {
+        var dob = moment(nric.substring(0, 6), 'YYMMDD');
+        if (dob.isValid() && dob.isAfter(moment())) {
+            dob.subtract(100, 'years');
+        }
+        console.log(gender);
+
+        if (dob.isValid()){
+            console.log(dob);
+            console.log('YY:', dob.format('YYYY'));
+            console.log('DD:', dob.format('DD'));
+            console.log('MM:', dob.format('MM'));
+            $scope.formParams.spouseDobDate = dob.format('DD');
+            $scope.formParams.spouseDobMonth = dob.format('MM');
+            $scope.formParams.spouseDobYear = dob.format('YYYY');            
         }
     }
 
