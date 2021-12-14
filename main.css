@@ -344,7 +344,7 @@ canvas {
 }
 
 .custom-checkbox-mcis label::before {
-  content: "✓";
+  content: "";
   position: absolute;
   left: 10px;
   transform: translateX(-50%);
@@ -352,9 +352,28 @@ canvas {
 }
 
 .custom-checkbox-mcis input:checked ~ label::before {
-  content: ""
+  content: "✓"
 }
 
 .custom-checkbox-mcis label span {
   padding-left: 1rem;
+}
+
+.custom-inline {
+  display: flex;
+  align-items: center;
+}
+
+.custom-inline .custom-mcis-file-input {
+  margin: 0 1.75rem;
+  width: auto;
+}
+
+.custom-inline-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.custom-inline-checkbox .custom-checkbox-mcis{
+  margin: 0 1.75rem;
 }
