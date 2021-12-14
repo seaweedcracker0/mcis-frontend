@@ -344,7 +344,7 @@ canvas {
 }
 
 .custom-checkbox-mcis label::before {
-  content: "✓";
+  content: "";
   position: absolute;
   left: 10px;
   transform: translateX(-50%);
@@ -352,7 +352,7 @@ canvas {
 }
 
 .custom-checkbox-mcis input:checked ~ label::before {
-  content: ""
+  content: "✓"
 }
 
 .custom-checkbox-mcis label span {
