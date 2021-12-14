@@ -47,6 +47,418 @@
                 <div ng-switch-default>
                   <h3>Personal Details</h3>
 
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="custom-inline-checkbox">
+                        <span>Please tick the option where applicable: </span>
+                        <div class="checkbox custom-checkbox-mcis">
+                          <input id="groupBenefit" name="groupBenefit" type="checkbox">
+                          <label for="groupBenefit">
+                            <div class="custom-checkbox"></div>
+                            <span>Group Life Insurance</span>
+                          </label>
+                        </div>
+                        <div class="checkbox custom-checkbox-mcis">
+                          <input id="agencyBenefit" name="agencyBenefit" type="checkbox">
+                          <label for="agencyBenefit">
+                            <div class="custom-checkbox"></div>
+                            <span>Agency</span>
+                          </label>
+                        </div>
+                        <div class="checkbox custom-checkbox-mcis">
+                          <input id="commission" name="commission" type="checkbox">
+                          <label for="commission">
+                            <div class="custom-checkbox"></div>
+                            <span>Commission</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tabs margin-top-25 margin-bottom-45">
+                    <!-- Applicant Information -->
+                    <div class="tab">
+                      <input type="checkbox" id="applicantInformation" class="custom-check" checked>
+                      <label class="tab-label" for="applicantInformation">Applicant Information</label>
+                      <div class="tab-content">
+                        <h3>Applicant Information</h3>
+                        <div class="row border">
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label>Name as per NRIC</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-4 pt-15">
+                            <div class="form-group">
+                              <input type="text" class="form-control-mcis" name="nricName"
+                                ng-model="formParams.nricName" disabled>
+                            </div>
+                          </div>
+                          <!-- Agent Rank -->
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label for="agentRank">Agent Rank</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-1 pt-15">
+                            <div class="form-group">
+                              <input type="text" class="form-control-mcis" id="agentRank" name="agentRank"
+                                ng-model="formParams.agentRank" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row border">
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label>NRIC No.</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-4 pt-15">
+                            <div class="form-group">
+                              <input type="text" class="form-control-mcis" name="nric" ng-model="formParams.nric"
+                                disabled>
+                            </div>
+                          </div>
+                          <!-- Unit Code -->
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label for="unitCode">Unit Code</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-1 pt-15">
+                            <div class="form-group">
+                              <input type="text" class="form-control-mcis" id="unitCode" name="unitCode"
+                                ng-model="formParams.unitCode" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row border">
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label>Agent Code</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-4 pt-15">
+                            <div class="form-group">
+                              <input type="text" class="form-control-mcis" name="agentCode" disabled
+                                ng-model="formParams.agentCode">
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label>Mobile Number</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-4 pt-15">
+                            <div class="form-group">
+                              <input type="text" class="form-control-mcis" name="primaryHandphoneNo" disabled
+                                ng-model="formParams.primaryHandphoneNo">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row border">
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label>Agency Name</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-4 pt-15">
+                            <div class="form-group">
+                              <input type="text" class="form-control-mcis" id="agencyName" name="agencyName"
+                                ng-model="formParams.agencyName">
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label>Residential Address</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-4 pt-15">
+                            <div class="form-group">
+                              <textarea class="form-control-mcis"
+                                ng-value="multiStepForm.correspondenceAddress.$viewValue" disabled></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row border">
+                          <div class="col-xs-12 col-md-2 pt-15">
+                            <div class="form-group">
+                              <label>Email</label>
+                            </div>
+                          </div>
+                          <div class="col-xs-12 col-md-4 pt-15">
+                            <div class="form-group">
+                              <input type="email" class="form-control-mcis" name="emailAddress"
+                                ng-model="formParams.emailAddress" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Group Life Insurance Benefit -->
+                    <div class="tab">
+                      <input type="checkbox" id="groupLifeInsuranceTab" class="custom-check">
+                      <label class="tab-label" for="groupLifeInsuranceTab">Nominee(s) Information - Group Life Insurance
+                        Benefit</label>
+                      <div class="tab-content">
+                        <h3>Nominee(s) Information - Group Life Insurance Benefit</h3>
+                        <p>I hereby nominate the person(s) named below as Nominee(s) to receive the sum of all my Group
+                          Life Insurance Benefit:</p>
+
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <!-- Spouse Particulars -->
+                            <div class="with-heading-wrapper">
+                              <div class="row custom-row-border">
+                                <div class="col-xs-1 inblock-top">
+                                  <div class="section-label">
+                                    No.
+                                  </div>
+                                </div>
+                                <div class="col-xs-2 inblock-top">
+                                  <div class="section-label">
+                                    Relationship
+                                  </div>
+                                </div>
+                                <div class="col-xs-4 inblock-top">
+                                  <div class="section-label">
+                                    Name of Nominee (as per IC)
+                                  </div>
+                                </div>
+                                <div class="col-xs-3 inblock-top">
+                                  <div class="section-label">
+                                    NRIC No.
+                                  </div>
+                                </div>
+                                <div class="col-xs-1 inblock-top">
+                                  <div class="section-label">
+                                    Share (%)
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- 1 -->
+                              <div class="row border-top-left-right">
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <label for="nomineeGroupRelationship1">1 <span class="text-danger">*</span></label>
+                                  </div>
+                                </div>
+                                <div class="col-xs-2 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupRelationship1" name="nomineeGroupRelationship1"
+                                      ng-model="formParams.nomineeGroupRelationship1" class="form-control-mcis" required>
+                                    <span ng-show="formValidation && multiStepForm.nomineeGroupRelationship1.$error.required"
+                                      class="small text-danger">
+                                      This field is required
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-xs-4 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupName1" name="nomineeGroupName1"
+                                      ng-model="formParams.nomineeGroupName1" class="form-control-mcis" required>
+                                    <span ng-show="formValidation && multiStepForm.nomineeGroupName1.$error.required"
+                                      class="small text-danger">
+                                      This field is required
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-xs-3 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupNRIC1" name="nomineeGroupNRIC1"
+                                      ng-model="formParams.nomineeGroupNRIC1" class="form-control-mcis" required>
+                                    <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC1.$error.required"
+                                      class="small text-danger">
+                                      This field is required
+                                    </span>
+                                  </div>
+                                </div>
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupShare1" name="nomineeGroupShare1"
+                                      ng-model="formParams.nomineeGroupShare1" class="form-control-mcis" required>
+                                    <span ng-show="formValidation && multiStepForm.nomineeGroupShare1.$error.required"
+                                      class="small text-danger">
+                                      This field is required
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- 2 -->
+                              <div class="row border-top-left-right">
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <label for="nomineeGroupRelationship2">2</label>
+                                  </div>
+                                </div>
+                                <div class="col-xs-2 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupRelationship2" name="nomineeGroupRelationship2"
+                                      ng-model="formParams.nomineeGroupRelationship2" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-4 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupName2" name="nomineeGroupName2"
+                                      ng-model="formParams.nomineeGroupName2" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-3 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupNRIC2" name="nomineeGroupNRIC2"
+                                      ng-model="formParams.nomineeGroupNRIC2" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupShare2" name="nomineeGroupShare2"
+                                      ng-model="formParams.nomineeGroupShare2" class="form-control-mcis">
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- 3 -->
+                              <div class="row border-top-left-right">
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <label for="nomineeGroupRelationship3">3</label>
+                                  </div>
+                                </div>
+                                <div class="col-xs-2 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupRelationship3" name="nomineeGroupRelationship3"
+                                      ng-model="formParams.nomineeGroupRelationship3" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-4 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupName3" name="nomineeGroupName3"
+                                      ng-model="formParams.nomineeGroupName3" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-3 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupNRIC3" name="nomineeGroupNRIC3"
+                                      ng-model="formParams.nomineeGroupNRIC3" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupShare3" name="nomineeGroupShare3"
+                                      ng-model="formParams.nomineeGroupShare3" class="form-control-mcis">
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- 4 -->
+                              <div class="row border-bottom border-top-left-right">
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <label for="nomineeGroupRelationship4">4</label>
+                                  </div>
+                                </div>
+                                <div class="col-xs-2 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupRelationship4" name="nomineeGroupRelationship4"
+                                      ng-model="formParams.nomineeGroupRelationship4" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-4 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupName4" name="nomineeGroupName4"
+                                      ng-model="formParams.nomineeGroupName4" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-3 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupNRIC4" name="nomineeGroupNRIC4"
+                                      ng-model="formParams.nomineeGroupNRIC4" class="form-control-mcis">
+                                  </div>
+                                </div>
+                                <div class="col-xs-1 pt-15">
+                                  <div class="form-group">
+                                    <input type="text" id="nomineeGroupShare4" name="nomineeGroupShare4"
+                                      ng-model="formParams.nomineeGroupShare4" class="form-control-mcis">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <h5>Note:</h5>
+                                  <h6>1) If you are a Muslim, kindly inform you Nominee of their duties in accodance to the applicable Islamic Inheritance Laws.</h6>
+                                  <h6>2) Nominee(s) must be at least 18 years of age.</h6>
+                                  <h6>3) Photocopies of I/C (front & back) are required for both applicant and each Nominee(s).</h6>
+                                  <h6>4) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="custom-inline">
+                                    <span>Applicant IC Copy <span class="text-danger">*</span></span>
+                                    <div class="form-group custom-mcis-file-input">
+                                      <label for="rfpCert" class="btn btn-default">BROWSE...</label>
+                                      <input type="file" class="form-control-mcis-file-input" name="nomineeGroupApplicantICCopy" id="nomineeGroupApplicantICCopy"
+                                        ng-model="formParams.nomineeGroupApplicantICCopy">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="custom-inline margin-top-20">
+                                    <span>Nominee IC Copy <span class="text-danger">*</span></span>
+                                    <div class="form-group custom-mcis-file-input">
+                                      <label for="rfpCert" class="btn btn-default">BROWSE...</label>
+                                      <input type="file" class="form-control-mcis-file-input" name="nomineeGroupICCopy" id="nomineeGroupICCopy"
+                                        ng-model="formParams.nomineeGroupICCopy">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  Nominee Agency Relationship
+                  <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
+                    ng-model="formParams.nomineeAgencyRelationship">
+                  Nominee Agency Name
+                  <input type="text" id="nomineeAgencyName" name="nomineeAgencyName"
+                    ng-model="formParams.nomineeAgencyName">
+                  Nominee Agency NRIC
+                  <input type="text" id="nomineeAgencyNRIC" name="nomineeAgencyNRIC"
+                    ng-model="formParams.nomineeAgencyNRIC">
+                  Nominee Agency Application IC Copy
+                  <input type="file" id="nomineeAgencyApplicantICCopy" name="nomineeAgencyApplicantICCopy"
+                    ng-model="formParams.nomineeAgencyApplicantICCopy">
+                  Nominee Agency IC Copy
+                  <input type="file" id="nomineeAgencyICCopy" name="nomineeAgencyICCopy"
+                    ng-model="formParams.nomineeAgencyICCopy">
+
+                  Nominee Commission Relationship
+                  <input type="text" id="nomineeCommissionRelationship" name="nomineeCommissionRelationship"
+                    ng-model="formParams.nomineeCommissionRelationship">
+                  Nominee Commission Name
+                  <input type="text" id="nomineeCommissionName" name="nomineeCommissionName"
+                    ng-model="formParams.nomineeCommissionName">
+                  Nominee Commission NRIC
+                  <input type="text" id="nomineeCommissionNRIC" name="nomineeCommissionNRIC"
+                    ng-model="formParams.nomineeCommissionNRIC">
+                  Nominee Commission Applicant IC Copy
+                  <input type="file" id="nomineeCommissionApplicantICCopy" name="nomineeCommissionApplicantICCopy"
+                    ng-model="formParams.nomineeCommissionApplicantICCopy">
+                  Nominee Commission IC Copy
+                  <input type="file" id="nomineeCommissionICCopy" name="nomineeCommissionICCopy"
+                    ng-model="formParams.nomineeCommissionICCopy">
+
+                  E sign
+                  <input type="file" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
+                  E sign Name
+                  <input type="text" id="esignName" name="esignName" ng-model="formParams.esignName">
+                  E sign NRIC
+                  <input type="text" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
+
                   <!-- Salutation -->
                   <div class="row">
                     <div class="col-xs-12 col-md-3 inblock-top">
