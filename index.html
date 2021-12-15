@@ -50,13 +50,6 @@
                 <div ng-switch-default>
                   <h3>Personal Details</h3>
 
-                  E sign
-                  <input type="file" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
-                  E sign Name
-                  <input type="text" id="esignName" name="esignName" ng-model="formParams.esignName">
-                  E sign NRIC
-                  <input type="text" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
-
                   <!-- Salutation -->
                   <div class="row">
                     <div class="col-xs-12 col-md-3 inblock-top">
@@ -112,12 +105,12 @@
                         <label for="nric">NRIC No. <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-4 inblock-top">
+                    <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group">
-                        <input type="text" class="form-control-mcis" id="nricNo" ng-pattern-restrict="^[0-9]*$"
-                          maxlength="12" name="nricNo" ng-model="formParams.nricNo"
-                          ng-change="textChanged(formParams.nricNo, 'personal')"
-                          ng-class="{'input-error': formValidation && multiStepForm.nricNo.$error.required}" required>
+                        <input type="text" class="form-control-mcis" id="nric" ng-pattern-restrict="^[0-9]*$"
+                          maxlength="12" name="nric" ng-model="formParams.nric"
+                          ng-change="textChanged(formParams.nric, 'personal')"
+                          ng-class="{'input-error': formValidation && multiStepForm.nric.$error.required}" required>
                       </div>
                     </div>
                   </div>
@@ -1764,7 +1757,7 @@
                         <textarea name="physicalDeformitySpecify" rows="10" id="physicalDeformitySpecify" class="form-control-mcis"
                           ng-model="formParams.physicalDeformitySpecify"
                           ng-class="{'error': formValidation && multiStepForm.physicalDeformitySpecify.$error.required}"
-                          ng-required="multiStepForm.goodHealth.$viewValue == 'Yes'"></textarea>
+                          ng-required="multiStepForm.physicalDeformity.$viewValue == 'Yes'"></textarea>
                         <span ng-show="formValidation && multiStepForm.physicalDeformitySpecify.$error.required"
                           class="small text-danger">
                           This field is required
@@ -1807,7 +1800,7 @@
                         <textarea name="undischargedBankruptSpecify" rows="10" id="undischargedBankruptSpecify" class="form-control-mcis"
                           ng-model="formParams.undischargedBankruptSpecify"
                           ng-class="{'error': formValidation && multiStepForm.undischargedBankruptSpecify.$error.required}"
-                          ng-required="multiStepForm.goodHealth.$viewValue == 'Yes'"></textarea>
+                          ng-required="multiStepForm.undischargedBankrupt.$viewValue == 'Yes'"></textarea>
                         <span ng-show="formValidation && multiStepForm.undischargedBankruptSpecify.$error.required"
                           class="small text-danger">
                           This field is required
@@ -2210,9 +2203,7 @@
                           <div class="form-group">
                             <input type="text" class="form-control-mcis" id="nricNo" ng-pattern-restrict="^[0-9]*$"
                               maxlength="12" name="nricNo" ng-model="formParams.nricNo"
-                              ng-change="textChanged(formParams.nricNo)"
-                              ng-class="{'input-error': formValidation && multiStepForm.nricNo.$error.required}"
-                              required>
+                              ng-change="textChanged(formParams.nricNo)">
                           </div>
                         </div>
                       </div>
@@ -2352,8 +2343,8 @@
                           </div>
                           <div class="col-xs-12 col-md-4 pt-15">
                             <div class="form-group">
-                              <input type="text" class="form-control-mcis" name="nricName"
-                                ng-model="formParams.nricName" disabled>
+                              <input type="text" class="form-control-mcis" name="nameNric"
+                                ng-model="formParams.nameNric" disabled>
                             </div>
                           </div>
                           <!-- Agent Rank -->
@@ -2508,7 +2499,7 @@
                                 <div class="col-xs-2 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupRelationship1" name="nomineeGroupRelationship1"
-                                      ng-model="formParams.nomineeGroupRelationship1" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeGroupRelationship1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span
                                       ng-show="formValidation && multiStepForm.nomineeGroupRelationship1.$error.required"
@@ -2520,7 +2511,7 @@
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupName1" name="nomineeGroupName1"
-                                      ng-model="formParams.nomineeGroupName1" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeGroupName1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupName1.$error.required"
                                       class="small text-danger">
@@ -2531,7 +2522,7 @@
                                 <div class="col-xs-3 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupNRIC1" name="nomineeGroupNRIC1"
-                                      ng-model="formParams.nomineeGroupNRIC1" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeGroupNRIC1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC1.$error.required"
                                       class="small text-danger">
@@ -2542,7 +2533,7 @@
                                 <div class="col-xs-1 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupShare1" name="nomineeGroupShare1"
-                                      ng-model="formParams.nomineeGroupShare1" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeGroupShare1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupShare1.$error.required"
                                       class="small text-danger">
@@ -2741,41 +2732,28 @@
                               <div class="row border-bottom border-top-left-right">
                                 <div class="col-xs-1 pt-15">
                                   <div class="form-group">
-                                    <label for="nomineeAgencyRelationship">1 <span class="text-danger">*</span></label>
+                                    <label for="nomineeAgencyRelationship">1</label>
                                   </div>
                                 </div>
                                 <div class="col-xs-3 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
-                                      ng-model="formParams.nomineeAgencyRelationship" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeAgencyRelationship" class="form-control-mcis"
                                       ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
-                                    <span
-                                      ng-show="formValidation && multiStepForm.nomineeAgencyRelationship.$error.required"
-                                      class="small text-danger">
-                                      This field is required
-                                    </span>
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeAgencyName" name="nomineeAgencyName"
-                                      ng-model="formParams.nomineeAgencyName" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeAgencyName" class="form-control-mcis"
                                       ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
-                                    <span ng-show="formValidation && multiStepForm.nomineeAgencyName.$error.required"
-                                      class="small text-danger">
-                                      This field is required
-                                    </span>
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeAgencyNRIC" name="nomineeAgencyNRIC"
-                                      ng-model="formParams.nomineeAgencyNRIC" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeAgencyNRIC" class="form-control-mcis"
                                       ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
-                                    <span ng-show="formValidation && multiStepForm.nomineeAgencyNRIC.$error.required"
-                                      class="small text-danger">
-                                      This field is required
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -2791,7 +2769,7 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline">
-                                    <span>Applicant IC Copy <span class="text-danger">*</span></span>
+                                    <span>Applicant IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="rfpCert" class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
@@ -2805,7 +2783,7 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline margin-top-20">
-                                    <span>Nominee IC Copy <span class="text-danger">*</span></span>
+                                    <span>Nominee IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="rfpCert" class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input" name="nomineeAgencyICCopy"
@@ -2858,8 +2836,7 @@
                               <div class="row border-bottom border-top-left-right">
                                 <div class="col-xs-1 pt-15">
                                   <div class="form-group">
-                                    <label for="nomineeCommissionRelationship">1 <span
-                                        class="text-danger">*</span></label>
+                                    <label for="nomineeCommissionRelationship">1</label>
                                   </div>
                                 </div>
                                 <div class="col-xs-3 pt-15">
@@ -2867,36 +2844,21 @@
                                     <input type="text" id="nomineeCommissionRelationship"
                                       name="nomineeCommissionRelationship"
                                       ng-model="formParams.nomineeCommissionRelationship" class="form-control-mcis"
-                                      required ng-disabled="!multiStepForm.commission.$viewValue">
-                                    <span
-                                      ng-show="formValidation && multiStepForm.nomineeCommissionRelationship.$error.required"
-                                      class="small text-danger">
-                                      This field is required
-                                    </span>
+                                      ng-disabled="!multiStepForm.commission.$viewValue">
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeCommissionName" name="nomineeCommissionName"
-                                      ng-model="formParams.nomineeCommissionName" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeCommissionName" class="form-control-mcis"
                                       ng-disabled="!multiStepForm.commission.$viewValue">
-                                    <span
-                                      ng-show="formValidation && multiStepForm.nomineeCommissionName.$error.required"
-                                      class="small text-danger">
-                                      This field is required
-                                    </span>
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeCommissionNRIC" name="nomineeCommissionNRIC"
-                                      ng-model="formParams.nomineeCommissionNRIC" class="form-control-mcis" required
+                                      ng-model="formParams.nomineeCommissionNRIC" class="form-control-mcis"
                                       ng-disabled="!multiStepForm.commission.$viewValue">
-                                    <span
-                                      ng-show="formValidation && multiStepForm.nomineeCommissionNRIC.$error.required"
-                                      class="small text-danger">
-                                      This field is required
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -2912,7 +2874,7 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline">
-                                    <span>Applicant IC Copy <span class="text-danger">*</span></span>
+                                    <span>Applicant IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="rfpCert" class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
@@ -2926,7 +2888,7 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline margin-top-20">
-                                    <span>Nominee IC Copy <span class="text-danger">*</span></span>
+                                    <span>Nominee IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="rfpCert" class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
