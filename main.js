@@ -230,6 +230,18 @@ $scope.initSignaturePad = function() {
     return new Blob([uInt8Array], { type: contentType });
     }
 
+    function DataURIToBlob(dataURI) {
+        const splitDataURI = dataURI.split(',')
+        const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
+        const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
+
+        const ia = new Uint8Array(byteString.length)
+        for (let i = 0; i < byteString.length; i++)
+            ia[i] = byteString.charCodeAt(i)
+
+        return new Blob([ia], { type: mimeString })
+      }
+
     clearButton.addEventListener("click", function (event) {
         signaturePad.clear();
     });
@@ -239,8 +251,11 @@ $scope.initSignaturePad = function() {
             alert("Please provide a signature first.");
           } else {
             var dataURL = signaturePad.toDataURL();
-            $scope.formParams.esigndraw = dataURL;
-            console.log('eSign Base64: ', $scope.formParams.esigndraw);
+            // $scope.formParams.esigndraw = dataURL;
+            // console.log('eSign Base64: ', $scope.formParams.esigndraw);
+            var myform = document.getElementById('multiStepForm');
+            var form = new FormData(myform);
+            form.append("esignFile", DataURIToBlob(dataURL));
             $scope.signdone();
           }
     })
