@@ -19,8 +19,8 @@
 </head>
 
 <body>
-  <div class="erecruit-form-container">
-    <div class="erecruit-form" ng-controller="formController">
+  <div class="erecruit-form-container" ng-controller="formController">
+    <div class="erecruit-form">
       <ul class="erecruit-steps">
         <li ng-class="stage == '' ? 'active' : ''">Agent Application</li>
         <li ng-class="stage == 'stage1' ? 'active' : ''">Liam COE and Conduct</li>
@@ -28,11 +28,10 @@
         <li ng-class="stage == 'stage3' ? 'active' : ''">Liam Movement</li>
         <li ng-class="stage == 'stage4' ? 'active' : ''">Nomination</li>
       </ul>
-      <form name="multiStepForm" id="multiStepForm" action="" method="POST"
-       enctype="multipart/form-data" class="form-mcis form-validation"
-        ng-submit="submitForm($event)" role="form" novalidate>
+      <form name="multiStepForm" id="multiStepForm" action="" method="POST" enctype="multipart/form-data"
+        class="form-mcis form-validation" ng-submit="submitForm($event)" role="form" novalidate>
         <div class="animate-switch-container" ng-class="{forward: direction, backward:!direction}">
-        <div class="form-item-hidden">
+          <div class="form-item-hidden">
             <input type="hidden" name="mgnlModelExecutionUUID" value="${content.@id}" />
             <input type="hidden" name="field" value="" />
             [#if model.formState?has_content]
@@ -41,7 +40,7 @@
             [#if secfn.csrfEnabled]
             <input type="hidden" name="${secfn.csrfTokenName!}" value="${secfn.csrfTokenValue!}" />
             [/#if]
-        </div><!-- end form-item-hidden -->
+          </div><!-- end form-item-hidden -->
           <!-- Agent Application -->
           <div ng-if="stage == 'stage5' ||  stage == 'stage1'" ng-hide="stage == 'stage5'">
             <div class="row stage-policy" ng-hide="stagePolicy">
@@ -254,7 +253,8 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section2')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="signhere(); init();">Sign here
+                      <button type="button" class="btn btn-primary" ng-click="triggerModal()">Sign
+                        here
                         Example</button>
                       <button type="button" class="btn btn-primary">Back</button>
                     </div>
@@ -1764,8 +1764,8 @@
                     <div class="col-xs-12 col-md-3 inblock-top"></div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group margin-bottom-20">
-                        <textarea name="physicalDeformitySpecify" rows="10" id="physicalDeformitySpecify" class="form-control-mcis"
-                          ng-model="formParams.physicalDeformitySpecify"
+                        <textarea name="physicalDeformitySpecify" rows="10" id="physicalDeformitySpecify"
+                          class="form-control-mcis" ng-model="formParams.physicalDeformitySpecify"
                           ng-class="{'error': formValidation && multiStepForm.physicalDeformitySpecify.$error.required}"
                           ng-required="multiStepForm.physicalDeformity.$viewValue == 'Yes'"></textarea>
                         <span ng-show="formValidation && multiStepForm.physicalDeformitySpecify.$error.required"
@@ -1807,8 +1807,8 @@
                     <div class="col-xs-12 col-md-3 inblock-top"></div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group margin-bottom-20">
-                        <textarea name="undischargedBankruptSpecify" rows="10" id="undischargedBankruptSpecify" class="form-control-mcis"
-                          ng-model="formParams.undischargedBankruptSpecify"
+                        <textarea name="undischargedBankruptSpecify" rows="10" id="undischargedBankruptSpecify"
+                          class="form-control-mcis" ng-model="formParams.undischargedBankruptSpecify"
                           ng-class="{'error': formValidation && multiStepForm.undischargedBankruptSpecify.$error.required}"
                           ng-required="multiStepForm.undischargedBankrupt.$viewValue == 'Yes'"></textarea>
                         <span ng-show="formValidation && multiStepForm.undischargedBankruptSpecify.$error.required"
@@ -2509,7 +2509,8 @@
                                 <div class="col-xs-2 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupRelationship1" name="nomineeGroupRelationship1"
-                                      ng-model="formParams.nomineeGroupRelationship1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
+                                      ng-model="formParams.nomineeGroupRelationship1" class="form-control-mcis"
+                                      ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span
                                       ng-show="formValidation && multiStepForm.nomineeGroupRelationship1.$error.required"
@@ -2521,7 +2522,8 @@
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupName1" name="nomineeGroupName1"
-                                      ng-model="formParams.nomineeGroupName1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
+                                      ng-model="formParams.nomineeGroupName1" class="form-control-mcis"
+                                      ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupName1.$error.required"
                                       class="small text-danger">
@@ -2532,7 +2534,8 @@
                                 <div class="col-xs-3 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupNRIC1" name="nomineeGroupNRIC1"
-                                      ng-model="formParams.nomineeGroupNRIC1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
+                                      ng-model="formParams.nomineeGroupNRIC1" class="form-control-mcis"
+                                      ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC1.$error.required"
                                       class="small text-danger">
@@ -2543,7 +2546,8 @@
                                 <div class="col-xs-1 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupShare1" name="nomineeGroupShare1"
-                                      ng-model="formParams.nomineeGroupShare1" class="form-control-mcis" ng-required="multiStepForm.groupBenefit.$viewValue"
+                                      ng-model="formParams.nomineeGroupShare1" class="form-control-mcis"
+                                      ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupShare1.$error.required"
                                       class="small text-danger">
@@ -2933,7 +2937,8 @@
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary">CLICK HERE TO SIGN AS WITNESS</button>
                       <button type="submit" class="btn btn-primary">ACCEPT & CONTINUE</button>
-                      <button type="button" class="btn btn-primary" ng-click="backStep('stage4'); backSection('section12')">BACK</button>
+                      <button type="button" class="btn btn-primary"
+                        ng-click="backStep('stage4'); backSection('section12')">BACK</button>
                     </div>
                   </div>
                 </div>
@@ -2946,53 +2951,133 @@
       </form>
     </div>
 
-    <div id="esign-modal" class="esign-modal">
-      <h3>e-Signature</h3>
-      <div class="modal-tabs">
-        <div class="modal-tab" ng-click="modalStatus = 'draw'">
-          Draw
-        </div>
-        <div class="modal-tab" ng-click="modalStatus = 'upload'">
-          Upload
-        </div>
-      </div>
-      <div id="signature-pad" ng-class="modalStatus == 'upload'? 'd-none' : ''" class="signature-pad">
-        <div class="signature-pad--body">
-          <canvas width="830" style="touch-action: none;" height="466"></canvas>
-        </div>
-        <div class="signature-pad--footer">
-          <div class="signature-pad--actions">
+    <div class="modal fade" tabindex="-1" role="dialog" id="esign-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">e-Signature</h4>
+          </div>
+          <div class="modal-body margin-top-25">
             <div>
-              <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-              <button type="button" class="btn btn-primary" data-action="clear">Clear</button>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#draw" aria-controls="draw" role="tab"
+                    data-toggle="tab">Draw</a></li>
+                <li role="presentation"><a href="#upload" aria-controls="upload" role="tab" data-toggle="tab">Upload</a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="draw">
+
+                  <div id="signature-pad" class="signature-pad">
+                    <div class="signature-pad--body">
+                      <canvas style="touch-action: none;" height="400px"></canvas>
+                    </div>
+                    <div class="signature-pad--footer">
+                      <div class="signature-pad--actions">
+                        <div>
+                          <!-- <button type="button" class="btn btn-primary">Upload</button> -->
+                          <button type="button" class="btn btn-primary" data-action="clear">Clear</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="upload">
+                  <!-- <div class="signature-upload" ng-class="modalStatus == 'draw'? 'd-none': ''">
+                    <div class="upload-area">
+            
+                    </div>
+                    <input type="file">Drag a file into this area or select file (JEPG/JPG file only)
+                  </div> -->
+                </div>
+                <div class="esign-content">
+                  <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4 inblock-top">
+                      <div class="form-group text-right">
+                        <label for="nameNric">Name as per NRIC: <span class="text-danger">*</span></label>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-5 inblock-top">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="esignName" name="esignName" ng-maxlength="10"
+                          ng-model="formParams.esignName"
+                          ng-class="{'error': formValidation && multiStepForm.esignName.$error.required}" required>
+                        <span ng-show="formValidation && multiStepForm.esignName.$error.required"
+                          class="small text-danger">
+                          This field is required
+                        </span>
+                        <span ng-show="formValidation && multiStepForm.esignName.$error.maxlength"
+                          class="small text-danger">
+                          Max character length reached.
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4 inblock-top">
+                      <div class="form-group text-right">
+                        <label for="esignNRIC">NRIC: <span class="text-danger">*</span></label>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-5 inblock-top">
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="esignNRIC" name="esignNRIC" ng-maxlength="10"
+                          ng-model="formParams.esignNRIC"
+                          ng-class="{'error': formValidation && multiStepForm.esignNRIC.$error.required}" required>
+                        <span ng-show="formValidation && multiStepForm.esignNRIC.$error.required"
+                          class="small text-danger">
+                          This field is required
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4 inblock-top">
+                      <div class="form-group text-right">
+                        <label>Date:</label>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-5 inblock-top">
+                      <div class="form-group">
+                        <span>{{ currDate | date:'dd/MM/yyyy'}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row margin-bottom-25">
+                    <div class="col-xs-12">
+                      <div class="checkbox custom-checkbox-mcis">
+                        <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox">
+                        <label for="codeOfEthicsAgree">
+                          <div class="custom-checkbox"></div>
+                          <span class="small">
+                            By confirming the below, I agree that my electronic signature will be the representation of
+                            my
+                            signature in which I am the witness for this MCIS LIFE online application – nomination form.
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-action="confirm">CONFIRM & SUBMIT</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="signature-pad--footer-two">
-          E sign
-          <input type="file" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
-          E sign Name
-          <input type="text" id="esignName" name="esignName" ng-model="formParams.esignName">
-          E sign NRIC
-          <input type="text" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
-          <div>
-            <input type="checkbox">
-            <p>By confirming the below, I agree that my electronic signature will be the representation of my signature in which I am the witness for this MCIS LIFE online application – nomination form. </p>
-          </div>
-          <div class="text-center">
-            <button type="button" class="btn btn-primary" data-action="confirm">CONFIRM & SUBMIT</button>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="signature-upload" ng-class="modalStatus == 'draw'? 'd-none': ''">
-        <div class="upload-area">
-
-        </div>
-        <input type="file">Drag a file into this area or select file (JEPG/JPG file only)
-      </div> -->
-    </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </div>
 </body>
 <script src="main.js"></script>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
 
 </html>
