@@ -19,8 +19,8 @@ directive("fileread", [function () {
 }]).
 controller('formController', function($scope, $http) {
 $scope.formParams = {};
-$scope.stage = "";
-$scope.section = "";
+$scope.stage = "stage1";
+$scope.section = "section1";
 $scope.apiEndPoint = "";
 $scope.stagePolicy = false;
 var inputMin = 12;

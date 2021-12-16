@@ -31,7 +31,7 @@
       <form name="multiStepForm" id="multiStepForm" action="" method="POST"
        enctype="multipart/form-data" class="form-mcis form-validation"
         ng-submit="submitForm($event)" role="form" novalidate>
-        <div class="animate-switch-container" ng-switch on="stage" ng-class="{forward: direction, backward:!direction}">
+        <div class="animate-switch-container" ng-class="{forward: direction, backward:!direction}">
         <div class="form-item-hidden">
             <input type="hidden" name="mgnlModelExecutionUUID" value="${content.@id}" />
             <input type="hidden" name="field" value="" />
@@ -43,7 +43,7 @@
             [/#if]
         </div><!-- end form-item-hidden -->
           <!-- Agent Application -->
-          <div ng-switch-default>
+          <div ng-if="stage == 'stage5' ||  stage == 'stage1'" ng-hide="stage == 'stage5'">
             <div class="row stage-policy" ng-hide="stagePolicy">
               <div class="col-md-12">
                 <div>Have you been employed in the last 5 years?</div>
@@ -56,8 +56,8 @@
             </div>
 
             <div class="row" ng-show="stagePolicy">
-              <div ng-switch on="section">
-                <div ng-switch-default>
+              <div>
+                <div ng-if="section == 'section13' ||  section == 'section1'" ng-hide="section == 'section13'">
                   <h3>Personal Details</h3>
 
                   <!-- Salutation -->
@@ -253,14 +253,14 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section1')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section2')">Continue</button>
                       <button type="button" class="btn btn-primary" ng-click="signhere(); init();">Sign here
                         Example</button>
                       <button type="button" class="btn btn-primary">Back</button>
                     </div>
                   </div>
                 </div>
-                <div ng-switch-when="section1">
+                <div ng-if="section == 'section13' ||  section == 'section2'" ng-hide="section == 'section13'">
                   <h3>Personal Details</h3>
 
                   <!-- Correspondence Address -->
@@ -384,13 +384,13 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section2')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('')">Back</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section3')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section2')">Back</button>
                     </div>
                   </div>
 
                 </div>
-                <div ng-switch-when="section2">
+                <div ng-if="section == 'section13' ||  section == 'section3'" ng-hide="section == 'section13'">
                   <h3>Personal Details</h3>
 
                   <!-- Email -->
@@ -725,13 +725,13 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section3')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section1')">Back</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section4')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section2')">Back</button>
                     </div>
                   </div>
 
                 </div>
-                <div ng-switch-when="section3">
+                <div ng-if="section == 'section13' ||  section == 'section4'" ng-hide="section == 'section13'">
                   <h3>Personal Details</h3>
 
                   <!-- Religion -->
@@ -874,13 +874,13 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section4')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section2')">Back</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section5')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section3')">Back</button>
                     </div>
                   </div>
 
                 </div>
-                <div ng-switch-when="section4">
+                <div ng-if="section == 'section13' ||  section == 'section5'" ng-hide="section == 'section13'">
                   <h3>Licensing Details</h3>
 
                   <!-- To Do -->
@@ -1255,14 +1255,14 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section5')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section3')">Back</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section6')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section4')">Back</button>
                     </div>
                   </div>
                 </div>
 
                 <!-- Employment History -->
-                <div ng-switch-when="section5">
+                <div ng-if="section == 'section13' ||  section == 'section6'" ng-hide="section == 'section13'">
                   <h3>Employment History</h3>
                   <hr>
                   <h3 class="text-center employment-history-wrapper">Have you been employed in the last 5 years?</h3>
@@ -1270,13 +1270,13 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section6')">Yes</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section7')">Yes</button>
                       <button type="button" class="btn btn-primary">No</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section4')">Back</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section5')">Back</button>
                     </div>
                   </div>
                 </div>
-                <div ng-switch-when="section6">
+                <div ng-if="section == 'section13' ||  section == 'section7'" ng-hide="section == 'section13'">
                   <h3>Employment History</h3>
 
                   <div class="tabs margin-top-25 margin-bottom-45">
@@ -1684,15 +1684,15 @@
                   <hr>
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section7')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section5')">Back</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section8')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section6')">Back</button>
                     </div>
                   </div>
 
                 </div>
 
                 <!-- Health & Other Information -->
-                <div ng-switch-when="section7">
+                <div ng-if="section == 'section13' ||  section == 'section8'" ng-hide="section == 'section13'">
                   <h3>Health & Other Information</h3>
 
                   <!-- Good Health -->
@@ -1928,8 +1928,8 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
-                        ng-click="nextStep('stage1'); nextSection('section8')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section6')">Back</button>
+                        ng-click="nextStep('stage2'); nextSection('section9')">Continue</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section7')">Back</button>
                     </div>
                   </div>
                 </div>
@@ -1938,10 +1938,10 @@
           </div>
 
           <!-- Liam COE and Conduct -->
-          <div ng-switch-when="stage1">
+          <div ng-if="stage == 'stage5' ||  stage == 'stage2'" ng-hide="stage == 'stage5'">
             <div class="row">
-              <div ng-switch on="section">
-                <div ng-switch-when="section8">
+              <div>
+                <div ng-if="section == 'section13' ||  section == 'section9'" ng-hide="section == 'section13'">
                   <h3>CODE OF ETHICS AND CONDUCT</h3>
                   <p>Life Insurance Association of Malaysia</p>
                   <hr>
@@ -2003,10 +2003,10 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
-                        ng-click="nextStep('stage2'); nextSection('section9')">Accept &
+                        ng-click="nextStep('stage3'); nextSection('section10')">Accept &
                         Continue</button>
                       <button type="button" class="btn btn-primary"
-                        ng-click="backStep(''); backSection('section7')">Back</button>
+                        ng-click="backStep('stage1'); backSection('section8')">Back</button>
                     </div>
                   </div>
                 </div>
@@ -2015,10 +2015,10 @@
           </div>
 
           <!-- Product Overview & CTF -->
-          <div ng-switch-when="stage2">
+          <div ng-if="stage == 'stage5' ||  stage == 'stage3'" ng-hide="stage == 'stage5'">
             <div class="row">
-              <div ng-switch on="section">
-                <div ng-switch-when="section9">
+              <div>
+                <div ng-if="section == 'section13' ||  section == 'section10'" ng-hide="section == 'section13'">
                   <h3>CODE OF ETHICS AND CONDUCT</h3>
                   <p>Life Insurance Association of Malaysia</p>
                   <hr>
@@ -2106,10 +2106,10 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
-                        ng-click="nextStep('stage3'); nextSection('section10')">Accept &
+                        ng-click="nextStep('stage4'); nextSection('section11')">Accept &
                         Continue</button>
                       <button type="button" class="btn btn-primary"
-                        ng-click="backStep('stage1'); backSection('section8')">Back</button>
+                        ng-click="backStep('stage2'); backSection('section9')">Back</button>
                     </div>
                   </div>
                 </div>
@@ -2118,10 +2118,10 @@
           </div>
 
           <!-- Liam Movement -->
-          <div ng-switch-when="stage3">
+          <div ng-if="stage == 'stage5' ||  stage == 'stage4'" ng-hide="stage == 'stage5'">
             <div class="row">
-              <div ng-switch on="section">
-                <div ng-switch-when="section10">
+              <div>
+                <div ng-if="section == 'section13' ||  section == 'section11'" ng-hide="section == 'section13'">
                   <h3>Liam Movement</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
@@ -2132,14 +2132,14 @@
 
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section11')">Yes</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section12')">Yes</button>
                       <button type="button" class="btn btn-primary">No</button>
                       <button type="button" class="btn btn-primary"
-                        ng-click="backStep('stage2'); backSection('section9')">Back</button>
+                        ng-click="backStep('stage3'); backSection('section9')">Back</button>
                     </div>
                   </div>
                 </div>
-                <div ng-switch-when="section11">
+                <div ng-if="section == 'section13' ||  section == 'section12'" ng-hide="section == 'section13'">
                   <h3>LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
@@ -2291,8 +2291,8 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
-                        ng-click="nextStep('stage4'); nextSection('section12')">Yes</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section10')">Back</button>
+                        ng-click="nextStep('stage5'); nextSection('section13')">Yes</button>
+                      <button type="button" class="btn btn-primary" ng-click="backSection('section11')">Back</button>
                     </div>
                   </div>
                 </div>
@@ -2301,10 +2301,10 @@
           </div>
 
           <!-- Nomination -->
-          <div ng-switch-when="stage4">
+          <div ng-if="stage == 'stage5'">
             <div class="row">
-              <div ng-switch on="section">
-                <div ng-switch-when="section12">
+              <div>
+                <div ng-if="section == 'section13'">
                   <h3>Applying for Nomination</h3>
                   <hr>
 
@@ -2933,7 +2933,7 @@
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary">CLICK HERE TO SIGN AS WITNESS</button>
                       <button type="submit" class="btn btn-primary">ACCEPT & CONTINUE</button>
-                      <button type="button" class="btn btn-primary" ng-click="backStep('stage3'); backSection('section11')">BACK</button>
+                      <button type="button" class="btn btn-primary" ng-click="backStep('stage4'); backSection('section12')">BACK</button>
                     </div>
                   </div>
                 </div>
