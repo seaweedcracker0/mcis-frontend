@@ -157,7 +157,7 @@ $scope.initSignaturePad = function() {
     var wrapper = document.getElementById("signature-pad");
     var wrapper2 = document.getElementById("esign-modal");
     var clearButton = wrapper.querySelector("[data-action=clear]");
-    // var confirmButton = wrapper2.querySelector("[data-action=confirm]");
+    var confirmButton = wrapper2.querySelector("[data-action=confirm]");
     var canvas = wrapper.querySelector("canvas");
     var signaturePad = new SignaturePad(canvas, {
         // It's Necessary to use an opaque color when saving image as JPEG;
