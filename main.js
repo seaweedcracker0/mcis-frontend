@@ -23,7 +23,18 @@ $scope.stage = "stage1";
 $scope.section = "section1";
 $scope.apiEndPoint = "";
 $scope.stagePolicy = false;
+$scope.esignInit = false;
+$scope.currDate = new Date().getTime()
 var inputMin = 12;
+
+$scope.triggerModal = function() {
+    $('#esign-modal').on('shown.bs.modal', function () {
+        if(!$scope.esignInit) {
+            $scope.init();
+        }
+    })
+    $('#esign-modal').modal({show: true})
+}
 
 $scope.init = function() {
     $scope.initSignaturePad();
@@ -82,6 +93,10 @@ $scope.signhere = function () {
 }
 
 $scope.signdone = function () {
+    $scope.closeModal()
+}
+
+$scope.closeModal = function () {
     var sign = document.getElementById("esign-modal");
     sign.classList.remove('show');
 }
@@ -138,10 +153,11 @@ $scope.getSpouseICInfo = function(nric) {
 }
 
 $scope.initSignaturePad = function() {
+    $scope.esignInit = true
     var wrapper = document.getElementById("signature-pad");
     var wrapper2 = document.getElementById("esign-modal");
     var clearButton = wrapper.querySelector("[data-action=clear]");
-    var confirmButton = wrapper2.querySelector("[data-action=confirm]");
+    // var confirmButton = wrapper2.querySelector("[data-action=confirm]");
     var canvas = wrapper.querySelector("canvas");
     var signaturePad = new SignaturePad(canvas, {
         // It's Necessary to use an opaque color when saving image as JPEG;
@@ -159,8 +175,10 @@ $scope.initSignaturePad = function() {
         var ratio =  Math.max(window.devicePixelRatio || 1, 1);
 
         // This part causes the canvas to be cleared
-        canvas.width = canvas.offsetWidth * ratio;
-        canvas.height = canvas.offsetHeight * ratio;
+        // console.log(canvas.width)
+        canvas.width = $(".signature-pad--body")[0].offsetWidth * ratio;
+        // console.log(canvas.height)
+        canvas.height = ($(".signature-pad--body")[0].offsetHeight - 5) * ratio;
         canvas.getContext("2d").scale(ratio, ratio);
 
         // This library does not listen for canvas changes, so after the canvas is automatically

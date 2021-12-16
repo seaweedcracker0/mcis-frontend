@@ -112,13 +112,13 @@
   text-align: center;
   transition: all 0.35s;
 } */
-.tab-content {
+/* .tab-content {
   max-height: 0;
   padding: 0 1em;
   color: #2c3e50;
   background: white;
   transition: all 0.35s;
-}
+} */
 .tab-close {
   display: flex;
   justify-content: flex-end;
@@ -143,7 +143,7 @@ input:checked ~ .tab-content {
 }
 
 /* e signature */
-.esign-modal{
+/* .esign-modal{
   background-color: #DCDCDC;
   position: absolute;
   top: 0;
@@ -160,8 +160,27 @@ input:checked ~ .tab-content {
   margin: 0;
   padding: 20px;
 }
+
+.esign-modal .modal {
+  background: white;
+}
+
+.esign-modal .modal .modal-header {
+  display: flex;
+  align-items: center;
+} */
+
+.esign-content {
+  padding: 12px;
+}
+
+.esign-content .checkbox label span{
+  display: block;
+  padding-left: 20px;
+}
+
 .signature-pad {
-  display: -webkit-box;
+  /* display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
@@ -169,70 +188,73 @@ input:checked ~ .tab-content {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  height: 100%;
-  border: 1px solid #e8e8e8;
-  background-color: #fff;
+  height: 100%; */
+  /* border: 1px solid #e8e8e8; */
+  /* background-color: #fff; */
   /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset; */
-  padding: 50px;
+  /* padding: 50px; */
 }
 
 .signature-pad::before,
 .signature-pad::after {
-  position: absolute;
+  /* position: absolute;
   z-index: -1;
   content: "";
   width: 40%;
   height: 10px;
   bottom: 10px;
   background: transparent;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); */
 }
 
 .signature-pad::before {
-  left: 20px;
+  /* left: 20px;
   -webkit-transform: skew(-3deg) rotate(-3deg);
-          transform: skew(-3deg) rotate(-3deg);
+          transform: skew(-3deg) rotate(-3deg); */
 }
 
 .signature-pad::after {
-  right: 20px;
+  /* right: 20px;
   -webkit-transform: skew(3deg) rotate(3deg);
-          transform: skew(3deg) rotate(3deg);
+          transform: skew(3deg) rotate(3deg); */
 }
 
 .signature-pad--body {
-  position: relative;
+  /* position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
-          flex: 1;
+          flex: 1; */
+  width: 100%;
 }
 
 .signature-pad--body
 canvas {
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  top: 0;
+  top: 0; */
   width: 100%;
   height: 100%;
-  border-radius: 4px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset; */
 }
 
 .signature-pad--footer {
-  color: #C3C3C3;
-  text-align: center;
-  font-size: 1.2em;
-  background-color: #DCDCDC;
-  /* margin-top: 8px; */
-}
-
-.signature-pad--actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
-          justify-content: end;
+          justify-content: flex-end;
+  color: #C3C3C3;
+  text-align: center;
+  font-size: 1.2em;
+  background-color: #DCDCDC;
+  margin-top: -5px;
+  padding-top: 5px;
+}
+
+.signature-pad--actions {
   margin-top: 8px;
 }
 
@@ -310,13 +332,13 @@ canvas {
   padding-bottom: 10rem;
 }
 
-.tab-content {
+/* .tab-content {
   overflow-y: hidden;
-}
+} */
 
-.tabs {
+/* .tabs {
   box-shadow: none;
-}
+} */
 
 /* .custom-inline-form {
   display: flex;
@@ -396,4 +418,8 @@ canvas {
 
 .custom-inline-checkbox .custom-checkbox-mcis{
   margin: 0 1.75rem;
+}
+
+label {
+  font-weight: normal
 }
