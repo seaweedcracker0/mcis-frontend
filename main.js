@@ -17,6 +17,20 @@ directive("fileread", [function () {
         }
     }
 }]).
+directive('validFile',function(){
+return {
+    require:'ngModel',
+    link:function(scope,el,attrs,ngModel){
+    //change event is fired when file is selected
+    el.bind('change',function(){
+        scope.$apply(function(){
+        ngModel.$setViewValue(el.val());
+        ngModel.$render();
+        });
+    });
+    }
+}
+}).
 controller('formController', function($scope, $http) {
 $scope.formParams = {};
 $scope.stage = "stage1";
@@ -86,6 +100,7 @@ $scope.backStep = function (stage) {
 
 $scope.submitForm = function (e) {
     // var wsUrl = "http://localhost:8080/iweb-manager/user/ERecruit-Test-Page.html";
+    $scope.formValidation = true;
 
     // Check form validity and submit data using $http
     if (!$scope.multiStepForm.$valid) {
@@ -122,18 +137,14 @@ $scope.textChanged = function(nric, type) {
 };
 
 $scope.getICInfo = function(nric) {
-    $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'female' : 'male';
+    $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'F' : 'M';
     var dob = moment(nric.substring(0, 6), 'YYMMDD');
     if (dob.isValid() && dob.isAfter(moment())) {
         dob.subtract(100, 'years');
     }
-    console.log(gender);
 
     if (dob.isValid()){
         console.log(dob);
-        console.log('YY:', dob.format('YYYY'));
-        console.log('DD:', dob.format('DD'));
-        console.log('MM:', dob.format('MM'));
         $scope.formParams.personalDobDate = dob.format('DD');
         $scope.formParams.personalDobMonth = dob.format('MM');
         $scope.formParams.personalDobYear = dob.format('YYYY');            
@@ -145,13 +156,9 @@ $scope.getSpouseICInfo = function(nric) {
     if (dob.isValid() && dob.isAfter(moment())) {
         dob.subtract(100, 'years');
     }
-    console.log(gender);
 
     if (dob.isValid()){
         console.log(dob);
-        console.log('YY:', dob.format('YYYY'));
-        console.log('DD:', dob.format('DD'));
-        console.log('MM:', dob.format('MM'));
         $scope.formParams.spouseDobDate = dob.format('DD');
         $scope.formParams.spouseDobMonth = dob.format('MM');
         $scope.formParams.spouseDobYear = dob.format('YYYY');            
@@ -236,6 +243,18 @@ $scope.initSignaturePad = function() {
     return new Blob([uInt8Array], { type: contentType });
     }
 
+    function DataURIToBlob(dataURI) {
+        const splitDataURI = dataURI.split(',')
+        const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
+        const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
+
+        const ia = new Uint8Array(byteString.length)
+        for (let i = 0; i < byteString.length; i++)
+            ia[i] = byteString.charCodeAt(i)
+
+        return new Blob([ia], { type: mimeString })
+      }
+
     clearButton.addEventListener("click", function (event) {
         signaturePad.clear();
     });
@@ -245,8 +264,11 @@ $scope.initSignaturePad = function() {
             alert("Please provide a signature first.");
           } else {
             var dataURL = signaturePad.toDataURL();
-            $scope.formParams.esigndraw = dataURL;
-            console.log('eSign Base64: ', $scope.formParams.esigndraw);
+            // $scope.formParams.esigndraw = dataURL;
+            // console.log('eSign Base64: ', $scope.formParams.esigndraw);
+            var myform = document.getElementById('multiStepForm');
+            var form = new FormData(myform);
+            form.append("esignFile", DataURIToBlob(dataURL));
             $scope.signdone();
             $scope.$apply();
           }
