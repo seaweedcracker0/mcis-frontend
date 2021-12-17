@@ -279,11 +279,7 @@ $scope.initSignaturePad = function(id) {
             alert("Please provide a signature first.");
           } else {
             var dataURL = signaturePad.toDataURL();
-            // $scope.formParams.esigndraw = dataURL;
-            // console.log('eSign Base64: ', $scope.formParams.esigndraw);
-            var myform = document.getElementById('multiStepForm');
-            var form = new FormData(myform);
-            form.append("esignFile", DataURIToBlob(dataURL));
+                $scope.formParams.esignFile = DataURIToBlob(dataURL);
             $scope.signdone();
             $scope.$apply();
           }

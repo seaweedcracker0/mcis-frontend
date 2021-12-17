@@ -212,8 +212,8 @@
                           ng-model="formParams.salutation"
                           ng-class="{'error': formValidation && multiStepForm.nameNric.$error.required}" required>
                           <option value="">Please Select</option>
-                          <option value="salutation-mr">MR</option>
-                          <option value="salutation-mr">MS</option>
+                          <option value="mr">MR</option>
+                          <option value="ms">MS</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.salutation.$error.required"
                           class="small text-danger">
@@ -698,7 +698,7 @@
                   </div>
 
                   <!-- Spouse Particulars -->
-                  <div class="with-heading-wrapper" ng-hide="multiStepForm.maritalStatus.$viewValue != 'Married'">
+                  <div class="with-heading-wrapper" ng-hide="multiStepForm.maritalStatus.$viewValue != '2'">
                     <div class="row custom-row-border">
                       <div class="col-xs-12 col-md-12 inblock-top">
                         <div class="section-label">
@@ -3280,7 +3280,7 @@
             </div>
           </div>
 
-          <input type="hidden" id="esigndraw" name="esigndraw" ng-model="formParams.esigndraw">
+          <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
           <input type="file" class="hidden" id="esignFileUpload" name="esignFileUpload"
             ng-model="formParams.esignFileUpload">
 
@@ -3373,8 +3373,8 @@
                     </div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="esignNRIC" name="esignNRIC" ng-maxlength="10"
-                          ng-model="formParams.esignNRIC"
+                        <input type="text" class="form-control" id="esignNRIC" name="esignNRIC" maxlength="12"
+                          ng-model="formParams.esignNRIC" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                           ng-class="{'error': formValidation && multiStepForm.esignNRIC.$error.required}" required>
                         <span ng-show="formValidation && multiStepForm.esignNRIC.$error.required"
                           class="small text-danger">
