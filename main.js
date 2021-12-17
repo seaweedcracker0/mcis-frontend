@@ -37,6 +37,7 @@ $scope.stage = "stage1";
 $scope.section = "section1";
 $scope.apiEndPoint = "";
 $scope.stagePolicy = false;
+$scope.stagePdpa = false;
 $scope.esignInit = false;
 $scope.currDate = new Date().getTime()
 var inputMin = 12;
@@ -58,8 +59,13 @@ $scope.stagePolicyFn = function() {
     $scope.stagePolicy = true;
 }
 
+$scope.stagePdpaFn = function() {
+    $scope.stagePdpa = true;
+}
+
 $scope.nextSection = function(section) {
     $scope.formValidation = true;
+    console.log($scope.multiStepForm)
 
     if ($scope.multiStepForm.$valid) {
         $scope.direction = 1;
@@ -264,6 +270,7 @@ $scope.initSignaturePad = function() {
             var form = new FormData(myform);
             form.append("esignFile", DataURIToBlob(dataURL));
             $scope.signdone();
+            $scope.$apply();
           }
     })
 }

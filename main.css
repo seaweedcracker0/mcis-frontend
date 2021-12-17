@@ -1,5 +1,5 @@
 .erecruit-form-container {
-  background-color: #dcdcdc;
+  
   padding: 20px;
 }
 
@@ -12,7 +12,7 @@
 }
 
 #multiStepForm {
-  padding-top: 50px;
+  /* padding-top: 50px; */
 }
 
 /* Multi Step styles */
@@ -334,10 +334,14 @@ canvas {
   color: #00386c;
 }
 
+.btn {
+  min-width: 150px;
+}
+
 .custom-mcis-file-input .form-control-mcis-file-input {
   position: absolute;
   top: 50%;
-  left: 2px;
+  left: 73px;
   transform: translateY(-50%);
 }
 
@@ -364,8 +368,9 @@ canvas {
   margin-bottom: 0
 } */
 
-.custom-inline-form .form-group, .custom-inline-form .form-group input {
-  width: auto!important
+.custom-inline-form .form-group, .custom-inline-form .form-group input, .custom-inline-form .form-group select {
+  width: auto!important;
+  min-width: 200px;
 }
 
 .custom-inline-form > span > * {
@@ -446,5 +451,45 @@ canvas {
 }
 
 label {
-  font-weight: normal
+  font-weight: normal;
+}
+
+.form-group:not(.custom-mcis-file-input) label {
+  /* transform: translateY(50%); */
+} 
+
+.width-100 {
+  width: 100%;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-50 {
+  flex-basis: 50%;
+  padding: 0 16px;
+}
+
+.margin-right-0 {
+  margin-right: 0;
+}
+
+.agreement-section .scrollable-section{
+  max-height: 35vh;
+  overflow-y: scroll;
+  background-color: #dcdcdc;
+  padding: 4px 10px 4px 8px;
+}
+
+.agreement-section .scrollable-section p{
+  margin-bottom: 20px;
 }
