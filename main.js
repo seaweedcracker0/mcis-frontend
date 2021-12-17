@@ -95,7 +95,7 @@ $scope.backStep = function (stage) {
 $scope.submitForm = function (e) {
     // var wsUrl = "http://localhost:8080/iweb-manager/user/ERecruit-Test-Page.html";
     $scope.formValidation = true;
-    
+
     // Check form validity and submit data using $http
     if (!$scope.multiStepForm.$valid) {
         e.preventDefault()
@@ -131,18 +131,14 @@ $scope.textChanged = function(nric, type) {
 };
 
 $scope.getICInfo = function(nric) {
-    $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'female' : 'male';
+    $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'F' : 'M';
     var dob = moment(nric.substring(0, 6), 'YYMMDD');
     if (dob.isValid() && dob.isAfter(moment())) {
         dob.subtract(100, 'years');
     }
-    console.log(gender);
 
     if (dob.isValid()){
         console.log(dob);
-        console.log('YY:', dob.format('YYYY'));
-        console.log('DD:', dob.format('DD'));
-        console.log('MM:', dob.format('MM'));
         $scope.formParams.personalDobDate = dob.format('DD');
         $scope.formParams.personalDobMonth = dob.format('MM');
         $scope.formParams.personalDobYear = dob.format('YYYY');            
@@ -154,13 +150,9 @@ $scope.getSpouseICInfo = function(nric) {
     if (dob.isValid() && dob.isAfter(moment())) {
         dob.subtract(100, 'years');
     }
-    console.log(gender);
 
     if (dob.isValid()){
         console.log(dob);
-        console.log('YY:', dob.format('YYYY'));
-        console.log('DD:', dob.format('DD'));
-        console.log('MM:', dob.format('MM'));
         $scope.formParams.spouseDobDate = dob.format('DD');
         $scope.formParams.spouseDobMonth = dob.format('MM');
         $scope.formParams.spouseDobYear = dob.format('YYYY');            
