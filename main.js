@@ -39,20 +39,32 @@ $scope.apiEndPoint = "";
 $scope.stagePolicy = false;
 $scope.stagePdpa = false;
 $scope.esignInit = false;
+$scope.applicantEsignInit = false;
 $scope.currDate = new Date().getTime()
 var inputMin = 12;
 
 $scope.triggerModal = function() {
     $('#esign-modal').on('shown.bs.modal', function () {
         if(!$scope.esignInit) {
-            $scope.init();
+            $scope.esignInit = true
+            $scope.init("signature-pad");
         }
     })
     $('#esign-modal').modal({show: true})
 }
 
-$scope.init = function() {
-    $scope.initSignaturePad();
+$scope.triggerApplicantModal = function() {
+    $('#applicant-esign-modal').on('shown.bs.modal', function () {
+        if(!$scope.applicantEsignInit) {
+            $scope.applicantEsignInit = true
+            $scope.init("applicant-signature-pad");
+        }
+    })
+    $('#applicant-esign-modal').modal({show: true})
+}
+
+$scope.init = function(id) {
+    $scope.initSignaturePad(id);
 }
 
 $scope.stagePolicyFn = function() {
@@ -65,7 +77,7 @@ $scope.stagePdpaFn = function() {
 
 $scope.nextSection = function(section) {
     $scope.formValidation = true;
-    console.log($scope.multiStepForm)
+    console.log($scope.formParams)
 
     if ($scope.multiStepForm.$valid) {
         $scope.direction = 1;
@@ -97,6 +109,10 @@ $scope.backStep = function (stage) {
     $scope.direction = 0;
     $scope.stage = stage;
 };
+
+$scope.triggerSubmit = function() {
+    $("#multiStepForm").submit()
+}
 
 $scope.submitForm = function (e) {
     // var wsUrl = "http://localhost:8080/iweb-manager/user/ERecruit-Test-Page.html";
@@ -165,9 +181,8 @@ $scope.getSpouseICInfo = function(nric) {
     }
 }
 
-$scope.initSignaturePad = function() {
-    $scope.esignInit = true
-    var wrapper = document.getElementById("signature-pad");
+$scope.initSignaturePad = function(id) {
+    var wrapper = document.getElementById(id);
     var wrapper2 = document.getElementById("esign-modal");
     var clearButton = wrapper.querySelector("[data-action=clear]");
     var confirmButton = wrapper2.querySelector("[data-action=confirm]");
@@ -189,9 +204,9 @@ $scope.initSignaturePad = function() {
 
         // This part causes the canvas to be cleared
         // console.log(canvas.width)
-        canvas.width = $(".signature-pad--body")[0].offsetWidth * ratio;
+        canvas.width = wrapper.querySelector(".signature-pad--body").offsetWidth * ratio;
         // console.log(canvas.height)
-        canvas.height = ($(".signature-pad--body")[0].offsetHeight - 5) * ratio;
+        canvas.height = (wrapper.querySelector(".signature-pad--body").offsetHeight - 5) * ratio;
         canvas.getContext("2d").scale(ratio, ratio);
 
         // This library does not listen for canvas changes, so after the canvas is automatically
