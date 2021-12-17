@@ -269,8 +269,8 @@
                           ng-model="formParams.gender"
                           ng-class="{'error': formValidation && multiStepForm.gender.$error.required}" required>
                           <option value="">Please Select</option>
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
+                          <option value="M">Male</option>
+                          <option value="F">Female</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.gender.$error.required"
                           class="small text-danger">
@@ -521,8 +521,8 @@
                           ng-model="formParams.citizen"
                           ng-class="{'error': formValidation && multiStepForm.citizen.$error.required}" required>
                           <option value="">Please Select</option>
-                          <option value="true">Yes</option>
-                          <option value="false">No</option>
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.citizen.$error.required"
                           class="small text-danger">
@@ -735,8 +735,8 @@
                             ng-model="formParams.isImmediatelyFamily"
                             ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
                             <option value="">Please Select</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
                           </select>
                           <span ng-show="formValidation && multiStepForm.isImmediatelyFamily.$error.required"
                             class="small text-danger">
@@ -745,12 +745,12 @@
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-4 pt-15"
-                        ng-hide="multiStepForm.isImmediatelyFamily.$viewValue != 'Yes'">
+                        ng-hide="multiStepForm.isImmediatelyFamily.$viewValue != '1'">
                         <div class="form-group">
                           <input type="text" class="form-control-mcis" maxlength="100" id="immediateFamily"
                             name="immediateFamily" ng-model="formParams.immediateFamily"
                             ng-class="{'error': formValidation && multiStepForm.immediateFamily.$error.required}"
-                            ng-required="multiStepForm.isImmediatelyFamily.$viewValue == 'Yes'">
+                            ng-required="multiStepForm.isImmediatelyFamily.$viewValue == '1'">
                           <span ng-show="formValidation && multiStepForm.immediateFamily.$error.required"
                             class="small text-danger">
                             This field is required
@@ -1395,7 +1395,7 @@
                   <div class="tabs margin-top-25 margin-bottom-45">
                     <!-- Employment History 1 -->
                     <div class="tab">
-                      <input type="checkbox" id="eh1" class="custom-check" checked>
+                      <input type="checkbox" id="eh1" class="custom-check" ng-true-value="1" ng-false-value="0" checked>
                       <label class="tab-label" for="eh1">Employment History 1</label>
                       <div class="tab-content custom-tab-content">
                         <!-- Company Name -->
@@ -1560,7 +1560,7 @@
                     </div>
                     <!-- Employment History 2 -->
                     <div class="tab">
-                      <input type="checkbox" id="eh2" class="custom-check">
+                      <input type="checkbox" id="eh2" class="custom-check" ng-true-value="1" ng-false-value="0">
                       <label class="tab-label" for="eh2">Employment History 2</label>
                       <div class="tab-content custom-tab-content">
                         <!-- Company Name -->
@@ -1677,7 +1677,7 @@
                     </div>
                     <!-- Employment History 3 -->
                     <div class="tab">
-                      <input type="checkbox" id="eh3" class="custom-check">
+                      <input type="checkbox" id="eh3" class="custom-check" ng-true-value="1" ng-false-value="0">
                       <label class="tab-label" for="eh3">Employment History 3</label>
                       <div class="tab-content custom-tab-content">
                         <!-- Company Name -->
@@ -1821,8 +1821,8 @@
                           ng-model="formParams.goodHealth"
                           ng-class="{'error': formValidation && multiStepForm.goodHealth.$error.required}" required>
                           <option value="">Please Select</option>
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.goodHealth.$error.required"
                           class="small text-danger">
@@ -1831,14 +1831,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row" ng-show="multiStepForm.goodHealth.$viewValue == 'No'">
+                  <div class="row" ng-show="multiStepForm.goodHealth.$viewValue == '0'">
                     <div class="col-xs-12 col-md-3 inblock-top"></div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group margin-bottom-20">
                         <textarea name="goodHealthSpecify" rows="10" id="goodHealthSpecify" class="form-control-mcis"
                           ng-model="formParams.goodHealthSpecify" maxlength="100"
                           ng-class="{'error': formValidation && multiStepForm.goodHealthSpecify.$error.required}"
-                          ng-required="multiStepForm.goodHealth.$viewValue == 'No'"></textarea>
+                          ng-required="multiStepForm.goodHealth.$viewValue == '0'"></textarea>
                         <span ng-show="formValidation && multiStepForm.goodHealthSpecify.$error.required"
                           class="small text-danger">
                           This field is required
@@ -1863,8 +1863,8 @@
                           ng-class="{'error': formValidation && multiStepForm.physicalDeformity.$error.required}"
                           required>
                           <option value="">Please Select</option>
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.physicalDeformity.$error.required"
                           class="small text-danger">
@@ -1873,14 +1873,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row" ng-show="multiStepForm.physicalDeformity.$viewValue == 'Yes'">
+                  <div class="row" ng-show="multiStepForm.physicalDeformity.$viewValue == '1'">
                     <div class="col-xs-12 col-md-3 inblock-top"></div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group margin-bottom-20">
                         <textarea name="physicalDeformitySpecify" rows="10" id="physicalDeformitySpecify"
                           class="form-control-mcis" ng-model="formParams.physicalDeformitySpecify" maxlength="100"
                           ng-class="{'error': formValidation && multiStepForm.physicalDeformitySpecify.$error.required}"
-                          ng-required="multiStepForm.physicalDeformity.$viewValue == 'Yes'"></textarea>
+                          ng-required="multiStepForm.physicalDeformity.$viewValue == '1'"></textarea>
                         <span ng-show="formValidation && multiStepForm.physicalDeformitySpecify.$error.required"
                           class="small text-danger">
                           This field is required
@@ -1906,8 +1906,8 @@
                           ng-class="{'error': formValidation && multiStepForm.undischargedBankrupt.$error.required}"
                           required>
                           <option value="">Please Select</option>
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.undischargedBankrupt.$error.required"
                           class="small text-danger">
@@ -1916,14 +1916,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row" ng-show="multiStepForm.undischargedBankrupt.$viewValue == 'Yes'">
+                  <div class="row" ng-show="multiStepForm.undischargedBankrupt.$viewValue == '1'">
                     <div class="col-xs-12 col-md-3 inblock-top"></div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group margin-bottom-20">
                         <textarea name="undischargedBankruptSpecify" rows="10" id="undischargedBankruptSpecify"
                           class="form-control-mcis" ng-model="formParams.undischargedBankruptSpecify" maxlength="100"
                           ng-class="{'error': formValidation && multiStepForm.undischargedBankruptSpecify.$error.required}"
-                          ng-required="multiStepForm.undischargedBankrupt.$viewValue == 'Yes'"></textarea>
+                          ng-required="multiStepForm.undischargedBankrupt.$viewValue == '1'"></textarea>
                         <span ng-show="formValidation && multiStepForm.undischargedBankruptSpecify.$error.required"
                           class="small text-danger">
                           This field is required
@@ -1948,8 +1948,8 @@
                           ng-class="{'error': formValidation && multiStepForm.heldAgencyContract.$error.required}"
                           required>
                           <option value="">Please Select</option>
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
+                          <option value="1">Yes</option>
+                          <option value="0">No</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.heldAgencyContract.$error.required"
                           class="small text-danger">
@@ -1958,7 +1958,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row" ng-show="multiStepForm.heldAgencyContract.$viewValue == 'Yes'">
+                  <div class="row" ng-show="multiStepForm.heldAgencyContract.$viewValue == '1'">
                     <div class="col-xs-12 col-md-3 inblock-top"></div>
                     <div class="col-xs-12 col-md-9 inblock-top">
                       <!-- Insurance Company Details -->
@@ -1983,7 +1983,7 @@
                               <input name="insuranceCompanyName" id="insuranceCompanyName" class="form-control-mcis"
                                 ng-model="formParams.insuranceCompanyName"
                                 ng-class="{'error': formValidation && multiStepForm.insuranceCompanyName.$error.required}"
-                                ng-required="multiStepForm.heldAgencyContract.$viewValue == 'Yes'" />
+                                ng-required="multiStepForm.heldAgencyContract.$viewValue == '1'" />
                               <span ng-show="formValidation && multiStepForm.insuranceCompanyName.$error.required"
                                 class="small text-danger">
                                 This field is required
@@ -2003,7 +2003,7 @@
                               <input name="positionHeld" id="positionHeld" class="form-control-mcis"
                                 ng-model="formParams.positionHeld"
                                 ng-class="{'error': formValidation && multiStepForm.positionHeld.$error.required}"
-                                ng-required="multiStepForm.heldAgencyContract.$viewValue == 'Yes'" />
+                                ng-required="multiStepForm.heldAgencyContract.$viewValue == '1'" />
                               <span ng-show="formValidation && multiStepForm.positionHeld.$error.required"
                                 class="small text-danger">
                                 This field is required
@@ -2024,7 +2024,7 @@
                               <textarea name="agencyContractReasons" rows="10" id="agencyContractReasons"
                                 class="form-control-mcis" ng-model="formParams.agencyContractReasons"
                                 ng-class="{'error': formValidation && multiStepForm.agencyContractReasons.$error.required}"
-                                ng-required="multiStepForm.heldAgencyContract.$viewValue == 'Yes'"></textarea>
+                                ng-required="multiStepForm.heldAgencyContract.$viewValue == '1'"></textarea>
                               <span ng-show="formValidation && multiStepForm.agencyContractReasons.$error.required"
                                 class="small text-danger">
                                 This field is required
@@ -2082,7 +2082,8 @@
                               ng-class="{'error': formValidation && multiStepForm.codeEthicsRelationship.$error.required}"
                               required>
                               <option value="">Please Select</option>
-                              <option value="Intermediary">Intermediary</option>
+                              <option value="1">Employee</option>
+                              <option value="2">Intermediary</option>
                             </select>
                           </div>
                           of
@@ -2433,7 +2434,7 @@
                         <span>Please tick the option where applicable: </span>
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="groupBenefit" name="groupBenefit" ng-model="formParams.groupBenefit"
-                            type="checkbox">
+                            type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="groupBenefit">
                             <div class="custom-checkbox"></div>
                             <span>Group Life Insurance</span>
@@ -2441,14 +2442,14 @@
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="agencyBenefit" name="agencyBenefit" ng-model="formParams.agencyBenefit"
-                            type="checkbox">
+                            type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="agencyBenefit">
                             <div class="custom-checkbox"></div>
                             <span>Agency</span>
                           </label>
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
-                          <input id="commission" name="commission" ng-model="formParams.commission" type="checkbox">
+                          <input id="commission" name="commission" ng-model="formParams.commission" type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="commission">
                             <div class="custom-checkbox"></div>
                             <span>Commission</span>
@@ -2460,7 +2461,7 @@
                   <div class="tabs margin-top-25 margin-bottom-45">
                     <!-- Applicant Information -->
                     <div class="tab">
-                      <input type="checkbox" id="applicantInformation" class="custom-check" checked>
+                      <input type="checkbox" id="applicantInformation" class="custom-check" ng-true-value="1" ng-false-value="0" checked>
                       <label class="tab-label" for="applicantInformation">Applicant Information</label>
                       <div class="tab-content custom-tab-content">
                         <h3>Applicant Information</h3>
@@ -2579,7 +2580,7 @@
                     </div>
                     <!-- Group Life Insurance Benefit -->
                     <div class="tab">
-                      <input type="checkbox" id="groupLifeInsuranceTab" class="custom-check">
+                      <input type="checkbox" id="groupLifeInsuranceTab" ng-true-value="1" ng-false-value="0" class="custom-check">
                       <label class="tab-label" for="groupLifeInsuranceTab">Nominee(s) Information - Group Life Insurance
                         Benefit</label>
                       <div class="tab-content custom-tab-content">
@@ -2828,7 +2829,7 @@
                     </div>
                     <!-- Agency Retirement Benefit -->
                     <div class="tab">
-                      <input type="checkbox" id="agencyRetirementBenefitTab" class="custom-check">
+                      <input type="checkbox" ng-true-value="1" ng-false-value="0" id="agencyRetirementBenefitTab" class="custom-check">
                       <label class="tab-label" for="agencyRetirementBenefitTab">Nominee Information - Agency Retirement
                         Benefit</label>
                       <div class="tab-content custom-tab-content">
@@ -2933,7 +2934,7 @@
                     </div>
                     <!-- Commission-->
                     <div class="tab">
-                      <input type="checkbox" id="agencyNominationTab" class="custom-check">
+                      <input type="checkbox" id="agencyNominationTab" ng-true-value="1" ng-false-value="0" class="custom-check">
                       <label class="tab-label" for="agencyNominationTab">Nominee Information - Commission</label>
                       <div class="tab-content custom-tab-content">
                         <h3>Nominee Information - Commission</h3>
