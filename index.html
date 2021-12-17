@@ -22,7 +22,7 @@
   <div class="erecruit-form-container" ng-controller="formController"
     ng-style="stagePdpa && {'background-color': '#dcdcdc'}">
     <div class="erecruit-form">
-      <ul class="erecruit-steps" ng-if="stagePolicy && section == 'section14'">
+      <ul class="erecruit-steps" ng-if="stagePolicy && section != 'section14'">
         <li ng-class="stage == 'stage1' ? 'active' : ''">Agent Application</li>
         <li ng-class="stage == 'stage2' ? 'active' : ''">Liam COE and Conduct</li>
         <li ng-class="stage == 'stage3' ? 'active' : ''">Product Overview & CTF</li>
@@ -2698,7 +2698,7 @@
                           <div class="col-xs-12 col-md-4 pt-15">
                             <div class="form-group">
                               <textarea class="form-control-mcis"
-                                ng-value="multiStepForm.correspondenceAddress.$viewValue + ', ' + multiStepForm.correspondenceAddress1.$viewValue + ', ' + multiStepForm.correspondenceAddress2.$viewValue"
+                                ng-value="formParams.correspondenceAddress + ', ' + formParams.correspondenceAddress1 + ', ' + formParams.correspondenceAddress2"
                                 disabled></textarea>
                             </div>
                           </div>
@@ -3200,8 +3200,7 @@
                       <button type="button" class="btn btn-primary" ng-click="triggerModal()"
                       ng-disabled="!multiStepForm.nominationAgree.$viewValue">CLICK HERE TO SIGN AS
                         WITNESS</button>
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section14')" 
-                      ng-disabled="!multiStepForm.esigndraw.$viewValue && !multiStepForm.esignFileUpload.$viewValue">ACCEPT & CONTINUE</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section14')">ACCEPT & CONTINUE</button>
                       <button type="button" class="btn btn-primary"
                         ng-click="backStep('stage4'); backSection('section12')">BACK</button>
                     </div>
