@@ -1395,7 +1395,7 @@
                     <div class="tab">
                       <input type="checkbox" id="eh1" class="custom-check" checked>
                       <label class="tab-label" for="eh1">Employment History 1</label>
-                      <div class="tab-content">
+                      <div class="tab-content custom-tab-content">
                         <!-- Company Name -->
                         <div class="row border">
                           <div class="col-xs-12 col-md-3 pt-15">
@@ -1560,7 +1560,7 @@
                     <div class="tab">
                       <input type="checkbox" id="eh2" class="custom-check">
                       <label class="tab-label" for="eh2">Employment History 2</label>
-                      <div class="tab-content">
+                      <div class="tab-content custom-tab-content">
                         <!-- Company Name -->
                         <div class="row border">
                           <div class="col-xs-12 col-md-3 pt-15">
@@ -1677,7 +1677,7 @@
                     <div class="tab">
                       <input type="checkbox" id="eh3" class="custom-check">
                       <label class="tab-label" for="eh3">Employment History 3</label>
-                      <div class="tab-content">
+                      <div class="tab-content custom-tab-content">
                         <!-- Company Name -->
                         <div class="row border">
                           <div class="col-xs-12 col-md-3 pt-15">
@@ -2454,7 +2454,7 @@
                     <div class="tab">
                       <input type="checkbox" id="applicantInformation" class="custom-check" checked>
                       <label class="tab-label" for="applicantInformation">Applicant Information</label>
-                      <div class="tab-content">
+                      <div class="tab-content custom-tab-content">
                         <h3>Applicant Information</h3>
                         <div class="row border">
                           <div class="col-xs-12 col-md-2 pt-15">
@@ -2574,7 +2574,7 @@
                       <input type="checkbox" id="groupLifeInsuranceTab" class="custom-check">
                       <label class="tab-label" for="groupLifeInsuranceTab">Nominee(s) Information - Group Life Insurance
                         Benefit</label>
-                      <div class="tab-content">
+                      <div class="tab-content custom-tab-content">
                         <h3>Nominee(s) Information - Group Life Insurance Benefit</h3>
                         <p>I hereby nominate the person(s) named below as Nominee(s) to receive the sum of all my Group
                           Life Insurance Benefit:</p>
@@ -2823,7 +2823,7 @@
                       <input type="checkbox" id="agencyRetirementBenefitTab" class="custom-check">
                       <label class="tab-label" for="agencyRetirementBenefitTab">Nominee Information - Agency Retirement
                         Benefit</label>
-                      <div class="tab-content">
+                      <div class="tab-content custom-tab-content">
                         <h3>Nominee Information - Agency Retirement Benefit</h3>
                         <p>I hereby nominate the person named below as Nominee to receive the sum of all my Agency
                           Retirement Benefit:</p>
@@ -2927,7 +2927,7 @@
                     <div class="tab">
                       <input type="checkbox" id="agencyNominationTab" class="custom-check">
                       <label class="tab-label" for="agencyNominationTab">Nominee Information - Commission</label>
-                      <div class="tab-content">
+                      <div class="tab-content custom-tab-content">
                         <h3>Nominee Information - Commission</h3>
                         <p>I hereby nominate the person named below as Nominee to receive the sum of all my of
                           commission:</p>
@@ -3099,15 +3099,23 @@
                   </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="upload">
-                  <!-- <div class="signature-upload" ng-class="modalStatus == 'draw'? 'd-none': ''">
-                    <div class="upload-area">
-            
+                  <div class="signature-pad">
+                    <label class="signature-pad--body upload-pad--body">
+                      drag a file into this area or select a file
+                    </label>
+                    <div class="signature-pad--footer">
+                      <div class="signature-pad--actions">
+                        <div>
+                          <!-- <button type="button" class="btn btn-primary">Upload</button> -->
+                          <label for="esignFileUpload" class="btn btn-primary">Upload</label>
+                        </div>
+                      </div>
                     </div>
-                    <input type="file">Drag a file into this area or select file (JEPG/JPG file only)
-                  </div> -->
+                  </div>
                 </div>
                 <div class="esign-content">
                   <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
+                  <input type="file" class="hidden" id="esignFileUpload" name="esignFileUpload" ng-model="formParams.esignFileUpload">
                   <div class="row">
                     <div class="col-xs-12 col-md-4 inblock-top">
                       <div class="form-group text-right">
