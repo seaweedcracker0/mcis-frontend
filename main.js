@@ -40,7 +40,8 @@ $scope.stagePolicy = false;
 $scope.stagePdpa = false;
 $scope.esignInit = false;
 $scope.applicantEsignInit = false;
-$scope.currDate = new Date().getTime()
+$scope.currDate = new Date().getTime();
+$scope.currDateObj = new Date();
 var inputMin = 12;
 
 $scope.triggerModal = function() {
@@ -71,8 +72,16 @@ $scope.stagePolicyFn = function() {
     $scope.stagePolicy = true;
 }
 
+$scope.goBackPdpaFn = function() {
+    $scope.stagePolicy = false;
+}
+
 $scope.stagePdpaFn = function() {
     $scope.stagePdpa = true;
+}
+
+$scope.goBackLandingFn = function() {
+    $scope.stagePdpa = false;
 }
 
 $scope.nextSection = function(section) {

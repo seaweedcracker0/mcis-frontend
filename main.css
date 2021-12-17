@@ -493,3 +493,7 @@ label {
 .agreement-section .scrollable-section p{
   margin-bottom: 20px;
 }
+
+.d-block-important {
+  display: block!important
+}
