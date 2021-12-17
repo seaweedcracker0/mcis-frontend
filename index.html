@@ -212,8 +212,8 @@
                           ng-model="formParams.salutation"
                           ng-class="{'error': formValidation && multiStepForm.nameNric.$error.required}" required>
                           <option value="">Please Select</option>
-                          <option value="mr">MR</option>
-                          <option value="ms">MS</option>
+                          <option value="MR">MR</option>
+                          <option value="MS">MS</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.salutation.$error.required"
                           class="small text-danger">
@@ -522,7 +522,22 @@
                           ng-model="formParams.state"
                           ng-class="{'error': formValidation && multiStepForm.state.$error.required}" required>
                           <option value="">Please Select</option>
-                          <option value="Wilayah Persekutuan">Wilayah Persekutuan</option>
+                          <option value="Wilayah Persekutuan Kuala Lumpur">Wilayah Persekutuan Kuala Lumpur</option>
+                          <option value="Wilayah Persekutuan Labuan">Wilayah Persekutuan Labuan</option>
+                          <option value="Wilayah Persekutuan Putrajaya">Wilayah Persekutuan Putrajaya</option>
+                          <option value="Johor">Johor</option>
+                          <option value="Kedah">Kedah</option>
+                          <option value="Kelantan">Kelantan</option>
+                          <option value="Melaka">Melaka</option>
+                          <option value="Negeri Sembilan">Negeri Sembilan</option>
+                          <option value="Pahang">Pahang</option>
+                          <option value="Perak">Perak</option>
+                          <option value="Perlis">Perlis</option>
+                          <option value="Pulau Pinang">Pulau Pinang</option>
+                          <option value="Sabah">Sabah</option>
+                          <option value="Sarawak">Sarawak</option>
+                          <option value="Selangor">Selangor</option>
+                          <option value="Terengganu">Terengganu</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.state.$error.required" class="small text-danger">
                           This field is required
@@ -720,8 +735,8 @@
                             ng-class="{'error': formValidation && multiStepForm.spouseSalutation.$error.required}"
                             ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
                             <option value="">Please Select</option>
-                            <option value="salutation-mr">MR</option>
-                            <option value="salutation-mr">MS</option>
+                            <option value="MR">MR</option>
+                            <option value="MS">MS</option>
                           </select>
                           <span ng-show="formValidation && multiStepForm.spouseSalutation.$error.required"
                             class="small text-danger">
@@ -1592,8 +1607,8 @@
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.required}"
                                     required>
                                     <option value="">Month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.required"
@@ -1641,8 +1656,8 @@
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.required}"
                                     required>
                                     <option value="">Month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.required"
@@ -1742,8 +1757,8 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh2EmploymentPeriodFromMonth">
                                     <option value="">Month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
                                   </select>
                                 </div>
                               </div>
@@ -1776,8 +1791,8 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh2EmploymentPeriodToMonth">
                                     <option value="">Month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
                                   </select>
                                 </div>
                               </div>
@@ -1859,8 +1874,8 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh3EmploymentPeriodFromMonth">
                                     <option value="">Month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
                                   </select>
                                 </div>
                               </div>
@@ -1893,8 +1908,8 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh3EmploymentPeriodToMonth">
                                     <option value="">Month</option>
-                                    <option value="January">January</option>
-                                    <option value="February">February</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
                                   </select>
                                 </div>
                               </div>
@@ -2326,7 +2341,7 @@
                             <select name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis selectpicker"
                               ng-model="formParams.cffDeclareMonth">
                               <option value="">Month</option>
-                              <option value="January">January</option>
+                              <option value="1">January</option>
                             </select>
                           </div>
                           <div class="form-group">
@@ -2483,7 +2498,7 @@
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group custom-mcis-file-input">
                             <label for="registLetterCopy" class="btn btn-default" ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.registLetterCopy.$error.required)}">BROWSE...</label>
-                            <input type="file" class="form-control-mcis-file-input" name="registLetterCopy" required valid-file
+                            <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
                               id="registLetterCopy" ng-model="formParams.registLetterCopy">
                           </div>
                         </div>
@@ -2514,7 +2529,7 @@
                             <select name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis selectpicker"
                               ng-model="formParams.moveAgentMonth">
                               <option value="">Month</option>
-                              <option value="January">January</option>
+                              <option value="1">January</option>
                             </select>
                           </div>
                           <div class="form-group">
@@ -3342,7 +3357,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="esign-content">
+                <div class="esign-content form-mcis" ng-form="subForm">
                   <div class="row">
                     <div class="col-xs-12 col-md-4 inblock-top">
                       <div class="form-group text-right">
@@ -3351,16 +3366,12 @@
                     </div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="esignName" name="esignName" ng-maxlength="10"
+                        <input type="text" class="form-control uppercase" id="esignName" name="esignName"
                           ng-model="formParams.esignName"
-                          ng-class="{'error': formValidation && multiStepForm.esignName.$error.required}" required>
-                        <span ng-show="formValidation && multiStepForm.esignName.$error.required"
+                          ng-class="{'error': formModalValidation && subForm.esignName.$error.required}" required>
+                        <span ng-show="formModalValidation && subForm.esignName.$error.required"
                           class="small text-danger">
                           This field is required
-                        </span>
-                        <span ng-show="formValidation && multiStepForm.esignName.$error.maxlength"
-                          class="small text-danger">
-                          Max character length reached.
                         </span>
                       </div>
                     </div>
@@ -3375,8 +3386,8 @@
                       <div class="form-group">
                         <input type="text" class="form-control" id="esignNRIC" name="esignNRIC" maxlength="12"
                           ng-model="formParams.esignNRIC" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                          ng-class="{'error': formValidation && multiStepForm.esignNRIC.$error.required}" required>
-                        <span ng-show="formValidation && multiStepForm.esignNRIC.$error.required"
+                          ng-class="{'error': formModalValidation && subForm.esignNRIC.$error.required}" required>
+                        <span ng-show="formModalValidation && subForm.esignNRIC.$error.required"
                           class="small text-danger">
                           This field is required
                         </span>
@@ -3399,9 +3410,9 @@
                     <div class="col-xs-12">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="codeOfEthicsAgreeEsign" name="codeOfEthicsAgreeEsign" type="checkbox"
-                          ng-model="formParams.codeOfEthicsAgreeEsign" ng-true-value="1" ng-false-value="0">
+                          ng-model="formParams.codeOfEthicsAgreeEsign" ng-true-value="1" ng-false-value="0" required>
                         <label for="codeOfEthicsAgreeEsign">
-                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.codeOfEthicsAgreeEsign.$error.required}"></div>
+                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formModalValidation && subForm.codeOfEthicsAgreeEsign.$error.required}"></div>
                           <span class="small">
                             By confirming the below, I agree that my electronic signature will be the representation of
                             my
@@ -3412,7 +3423,7 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.codeOfEthicsAgreeEsign" data-dismiss="modal" data-action="confirm">CONFIRM &
+                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.codeOfEthicsAgreeEsign" data-action="confirm">CONFIRM &
                       SUBMIT</button>
                   </div>
                 </div>

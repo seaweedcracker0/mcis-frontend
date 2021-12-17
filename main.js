@@ -130,13 +130,13 @@ $scope.signhere = function () {
 }
 
 $scope.signdone = function () {
-    $scope.closeModal()
+    $('#esign-modal').modal('hide');
 }
 
-$scope.closeModal = function () {
-    var sign = document.getElementById("esign-modal");
-    sign.classList.remove('show');
-}
+// $scope.closeModal = function () {
+//     var sign = document.getElementById("esign-modal");
+//     sign.classList.remove('show');
+// }
 
 $scope.reset = function() {
 // Clean up scope before destorying
@@ -268,21 +268,27 @@ $scope.initSignaturePad = function(id) {
             ia[i] = byteString.charCodeAt(i)
 
         return new Blob([ia], { type: mimeString })
-      }
+    }
 
     clearButton.addEventListener("click", function (event) {
         signaturePad.clear();
     });
 
     confirmButton.addEventListener("click", function (event) {
-        if (signaturePad.isEmpty()) {
-            alert("Please provide a signature first.");
-          } else {
-            var dataURL = signaturePad.toDataURL();
+        $scope.formModalValidation = true;
+
+        if ($scope.subForm.$valid) {
+            if (signaturePad.isEmpty()) {
+                alert("Please provide a signature first.");
+            } else {
+                var dataURL = signaturePad.toDataURL();
                 $scope.formParams.esignFile = DataURIToBlob(dataURL);
-            $scope.signdone();
-            $scope.$apply();
-          }
+                $scope.signdone();
+                $scope.formModalValidation = false;                
+            }
+        }
+        
+        $scope.$apply();
     })
 }
 });
