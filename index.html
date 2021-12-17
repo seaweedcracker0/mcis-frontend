@@ -545,11 +545,11 @@
                           ng-model="formParams.maritalStatus"
                           ng-class="{'error': formValidation && multiStepForm.maritalStatus.$error.required}" required>
                           <option value="">Please Select</option>
-                          <option value="Single">Single</option>
-                          <option value="Married">Married</option>
-                          <option value="Widow">Widow</option>
-                          <option value="Widower">Widower</option>
-                          <option value="Divorced">Divorced</option>
+                          <option value="1">Single</option>
+                          <option value="2">Married</option>
+                          <option value="3">Widow</option>
+                          <option value="4">Widower</option>
+                          <option value="5">Divorced</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.maritalStatus.$error.required"
                           class="small text-danger">
@@ -948,12 +948,12 @@
                           ng-class="{'error': formValidation && multiStepForm.highestEducation.$error.required}"
                           required>
                           <option value="">Please Select</option>
-                          <option value="University">University</option>
-                          <option value="College">College</option>
-                          <option value="STPM">STPM</option>
-                          <option value="SPM">SPM</option>
-                          <option value="PT3">PT3</option>
-                          <option value="Others">Others</option>
+                          <option value="1">University</option>
+                          <option value="2">College</option>
+                          <option value="3">STPM</option>
+                          <option value="4">SPM</option>
+                          <option value="5">PT3</option>
+                          <option value="6">Others</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.highestEducation.$error.required"
                           class="small text-danger">
@@ -1065,11 +1065,13 @@
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
-                          <label for="pcePcilCert" class="btn btn-default">BROWSE...</label>
-                          <input type="file" class="form-control-mcis-file-input" name="pcePcilCert" id="pcePcilCert"
+                          <label for="pcePcilCert" class="btn btn-default" 
+                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.pcePcilCert.$error.required)}">BROWSE...</label>
+                          <input type="file" class="form-control-mcis-file-input" 
+                            name="pcePcilCert" id="pcePcilCert" required valid-file
                             ng-model="formParams.pcePcilCert">
                         </div>
-                        <span ng-show="formValidation && (multiStepForm.pcePcilCert.$error.required)"
+                        <!-- <span ng-show="formValidation && (multiStepForm.pcePcilCert.$error.required)"
                           class="small text-danger">
                           This field is required
                         </span>
@@ -1078,7 +1080,7 @@
                         </span>
                         <div ng-show="formValidation && (multiStepForm.pcePcilCert.$error.size)">
                             Size limit
-                        </div>                        
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -2100,9 +2102,11 @@
                   <div class="row margin-top-25 margin-bottom-25">
                     <div class="col-xs-12 col-md-offset-4 col-md-5">
                       <div class="checkbox custom-checkbox-mcis">
-                        <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox" required>
+                        <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox" 
+                          ng-model="formParams.codeOfEthicsAgree" ng-true-value="1" ng-false-value="0"
+                          ng-required="!multiStepForm.codeOfEthicsAgree.$viewValue">
                         <label for="codeOfEthicsAgree">
-                          <div class="custom-checkbox"></div>
+                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.codeOfEthicsAgree.$error.required}"></div>
                           <span>
                             I hereby agree that my e-signature is required as a consent to the Code of Ethics and
                             Conduct
@@ -2203,9 +2207,11 @@
                   <div class="row margin-top-25 margin-bottom-25">
                     <div class="col-xs-12 col-md-offset-3 col-md-6">
                       <div class="checkbox custom-checkbox-mcis">
-                        <input id="cffAgree" name="cffAgree" type="checkbox" ng-class="{'checkbox-error' : multiStepForm.cffAgree.$error.required}" ng-model="cffAgree" ng-required="!cffAgree">
+                        <input id="cffAgree" name="cffAgree" type="checkbox"
+                          ng-model="formParams.cffAgree" ng-true-value="1" ng-false-value="0"
+                          ng-required="!multiStepForm.cffAgree.$viewValue">
                         <label for="cffAgree">
-                          <div class="custom-checkbox"></div>
+                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.cffAgree.$error.required}"></div>
                           <span>
                             I hereby agree that my e-signature is required as a consent to the Declaration of Completion
                             for Life Insurance Basic Product Overview and Customer Fact Find Form Training
@@ -2322,7 +2328,7 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nricNo" ng-pattern-restrict="^[0-9]*$"
+                            <input type="text" class="form-control-mcis" id="nricNo" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                               maxlength="12" name="nricNo" ng-model="formParams.nricNo"
                               ng-change="textChanged(formParams.nricNo)">
                           </div>
@@ -2337,8 +2343,8 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group custom-mcis-file-input">
-                            <label for="registLetterCopy" class="btn btn-default">BROWSE...</label>
-                            <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
+                            <label for="registLetterCopy" class="btn btn-default" ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.registLetterCopy.$error.required)}">BROWSE...</label>
+                            <input type="file" class="form-control-mcis-file-input" name="registLetterCopy" required valid-file
                               id="registLetterCopy" ng-model="formParams.registLetterCopy">
                           </div>
                         </div>
@@ -2388,9 +2394,11 @@
                   <div class="row margin-top-25 margin-bottom-25">
                     <div class="col-xs-12 col-md-offset-3 col-md-6">
                       <div class="checkbox custom-checkbox-mcis">
-                        <input id="movementAgree" name="movementAgree" type="checkbox">
+                        <input id="movementAgree" name="movementAgree" type="checkbox"
+                          ng-model="formParams.movementAgree" ng-true-value="1" ng-false-value="0"
+                          ng-required="!multiStepForm.movementAgree.$viewValue">
                         <label for="movementAgree">
-                          <div class="custom-checkbox"></div>
+                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.movementAgree.$error.required}"></div>
                           <span>
                             I hereby agree that my e-signature is required as a consent for the Liam Movement of Agent
                             Form
@@ -3034,9 +3042,11 @@
                   <div class="row margin-top-25 margin-bottom-25">
                     <div class="col-xs-12 col-md-offset-3 col-md-6">
                       <div class="checkbox custom-checkbox-mcis">
-                        <input id="nominationAgree" name="nominationAgree" type="checkbox">
+                        <input id="nominationAgree" name="nominationAgree" type="checkbox"
+                        ng-model="formParams.nominationAgree" ng-true-value="1" ng-false-value="0"
+                        ng-required="!multiStepForm.nominationAgree.$viewValue">
                         <label for="nominationAgree">
-                          <div class="custom-checkbox"></div>
+                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.nominationAgree.$error.required}"></div>
                           <span>
                             I hereby agree that my e-signature is required as a consent for the nomination form
                           </span>
@@ -3171,9 +3181,10 @@
                   <div class="row margin-bottom-25">
                     <div class="col-xs-12">
                       <div class="checkbox custom-checkbox-mcis">
-                        <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" required type="checkbox" ng-true-value="1" ng-false-value="0">
-                        <label for="codeOfEthicsAgree">
-                          <div class="custom-checkbox"></div>
+                        <input id="codeOfEthicsAgreeEsign" name="codeOfEthicsAgreeEsign" type="checkbox"
+                          ng-model="formParams.codeOfEthicsAgreeEsign" ng-true-value="1" ng-false-value="0">
+                        <label for="codeOfEthicsAgreeEsign">
+                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.codeOfEthicsAgreeEsign.$error.required}"></div>
                           <span class="small">
                             By confirming the below, I agree that my electronic signature will be the representation of
                             my

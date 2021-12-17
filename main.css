@@ -402,6 +402,9 @@ canvas {
   height: 20px;
   left: 0;
 }
+.custom-checkbox-mcis label .custom-checkbox.custom-checkbox-error {
+  border-color: #f44b53;
+}
 
 .custom-checkbox-mcis label::before {
   content: "";
@@ -436,6 +439,10 @@ canvas {
 
 .custom-inline-checkbox .custom-checkbox-mcis{
   margin: 0 1.75rem;
+}
+
+.custom-upload-error-mcis {
+  border-color: #f44b53;
 }
 
 label {

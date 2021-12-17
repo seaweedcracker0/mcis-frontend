@@ -17,6 +17,20 @@ directive("fileread", [function () {
         }
     }
 }]).
+directive('validFile',function(){
+return {
+    require:'ngModel',
+    link:function(scope,el,attrs,ngModel){
+    //change event is fired when file is selected
+    el.bind('change',function(){
+        scope.$apply(function(){
+        ngModel.$setViewValue(el.val());
+        ngModel.$render();
+        });
+    });
+    }
+}
+}).
 controller('formController', function($scope, $http) {
 $scope.formParams = {};
 $scope.stage = "stage1";
@@ -80,7 +94,8 @@ $scope.backStep = function (stage) {
 
 $scope.submitForm = function (e) {
     // var wsUrl = "http://localhost:8080/iweb-manager/user/ERecruit-Test-Page.html";
-
+    $scope.formValidation = true;
+    
     // Check form validity and submit data using $http
     if (!$scope.multiStepForm.$valid) {
         e.preventDefault()
