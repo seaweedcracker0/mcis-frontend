@@ -31,6 +31,37 @@ return {
     }
 }
 }).
+directive('dropzone', ['$http', function($http) {
+    return {
+        restrict: 'A',
+        replace: true,
+        scope: false,
+        link: function(scope, element, attrs, ngModel) {
+            // console.log("HOHO", scope.multiStepForm[attrs.inputBinding], scope.formParams)
+            element.on('dragover', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            element.on('dragenter', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            element.on('drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (e.dataTransfer){
+                    if (e.dataTransfer.files.length > 0) {
+                        // console.log(e.dataTransfer.files[0])
+                        scope.formParams[attrs.inputBinding] = e.dataTransfer.files[0];
+                        // console.log(scope.formParams)
+                        scope.$apply()
+                    }
+                }
+                return false;
+            });
+        }
+    };
+}]).
 controller('formController', function($scope, $http) {
 $scope.formParams = {};
 $scope.stage = "stage1";
@@ -40,10 +71,17 @@ $scope.stagePolicy = false;
 $scope.stagePdpa = false;
 $scope.esignInit = false;
 $scope.applicantEsignInit = false;
-$scope.currDate = new Date().getTime()
+$scope.currDate = new Date().getTime();
+$scope.currDateObj = new Date();
 var inputMin = 12;
 
+$scope.signaturePadObj = {}
+
 $scope.triggerModal = function() {
+    $scope.formParams.esignFile = null
+    if($scope.signaturePadObj['signature-pad']) {
+        $scope.clearSignaturePad('signature-pad')
+    }
     $('#esign-modal').on('shown.bs.modal', function () {
         if(!$scope.esignInit) {
             $scope.esignInit = true
@@ -54,6 +92,10 @@ $scope.triggerModal = function() {
 }
 
 $scope.triggerApplicantModal = function() {
+    $scope.formParams.applicantEsigndraw = null
+    if($scope.signaturePadObj['applicant-signature-pad']) {
+        $scope.clearSignaturePad('applicant-signature-pad')
+    }
     $('#applicant-esign-modal').on('shown.bs.modal', function () {
         if(!$scope.applicantEsignInit) {
             $scope.applicantEsignInit = true
@@ -71,13 +113,21 @@ $scope.stagePolicyFn = function() {
     $scope.stagePolicy = true;
 }
 
+$scope.goBackPdpaFn = function() {
+    $scope.stagePolicy = false;
+}
+
 $scope.stagePdpaFn = function() {
     $scope.stagePdpa = true;
 }
 
+$scope.goBackLandingFn = function() {
+    $scope.stagePdpa = false;
+}
+
 $scope.nextSection = function(section) {
     $scope.formValidation = true;
-    console.log($scope.formParams)
+    // console.log($scope.formParams)
 
     if ($scope.multiStepForm.$valid) {
         $scope.direction = 1;
@@ -258,7 +308,7 @@ $scope.initSignaturePad = function(id) {
     return new Blob([uInt8Array], { type: contentType });
     }
 
-    function DataURIToBlob(dataURI) {
+    $scope.DataURIToBlob = function(dataURI) {
         const splitDataURI = dataURI.split(',')
         const byteString = splitDataURI[0].indexOf('base64') >= 0 ? atob(splitDataURI[1]) : decodeURI(splitDataURI[1])
         const mimeString = splitDataURI[0].split(':')[1].split(';')[0]
@@ -270,25 +320,71 @@ $scope.initSignaturePad = function(id) {
         return new Blob([ia], { type: mimeString })
     }
 
-    clearButton.addEventListener("click", function (event) {
-        signaturePad.clear();
-    });
+    $scope.signaturePadObj[id] = signaturePad
 
-    confirmButton.addEventListener("click", function (event) {
+    // clearButton.addEventListener("click", function (event) {
+    //     signaturePad.clear();
+    // });
+
+    // confirmButton.addEventListener("click", function (event) {
+    //     $scope.formModalValidation = true;
+
+    //     if ($scope.subForm.$valid) {
+    //         if ($scope.formParams.esignFile || !signaturePad.isEmpty()) {
+    //             if(!$scope.formParams.esignFile) {
+    //                 var dataURL = signaturePad.toDataURL();
+    //                 $scope.formParams.esignFile = DataURIToBlob(dataURL);
+    //                 console.log(DataURIToBlob(dataURL))
+    //                 $scope.$apply()
+    //             }
+    //             $scope.signdone();
+    //             $scope.formModalValidation = false;    
+    //         } else {            
+    //             alert("Please provide a signature first.");
+    //         }
+    //     }
+        
+    //     $scope.$apply();
+    // })
+}
+
+$scope.clearSignaturePad = function(id) {
+    $scope.signaturePadObj[id].clear()
+}
+
+$scope.confirmESign = function(id) {
+    if(id == 'signature-pad') {
         $scope.formModalValidation = true;
-
         if ($scope.subForm.$valid) {
-            if (signaturePad.isEmpty()) {
-                alert("Please provide a signature first.");
-            } else {
-                var dataURL = signaturePad.toDataURL();
-                $scope.formParams.esignFile = DataURIToBlob(dataURL);
+            if ($scope.formParams.esignFile || ! $scope.signaturePadObj[id].isEmpty()) {
+                if(!$scope.formParams.esignFile) {
+                    var dataURL =  $scope.signaturePadObj[id].toDataURL();
+                    $scope.formParams.esignFile = $scope.DataURIToBlob(dataURL);
+                    // console.log($scope.DataURIToBlob(dataURL))
+                    // $scope.$apply()
+                }
                 $scope.signdone();
-                $scope.formModalValidation = false;                
+                $scope.formModalValidation = false; 
+            }  else {
+                alert("Please provide a signature first.");
             }
         }
-        
-        $scope.$apply();
-    })
+    }  
+    else {
+        if ($scope.formParams.applicantEsigndraw || ! $scope.signaturePadObj[id].isEmpty()) {
+            if(!$scope.formParams.applicantEsigndraw) {
+                var dataURL =  $scope.signaturePadObj[id].toDataURL();
+                $scope.formParams.applicantEsigndraw = $scope.DataURIToBlob(dataURL);
+            }
+            $scope.triggerSubmit()
+        }  else {
+            alert("Please provide a signature first.");
+        }
+    }
+}
+
+$scope.fileUploaded = function(ev) {
+    $scope.formParams[ev.target.name] = ev.target.files[0]
+    $scope.$apply()
 }
 });
