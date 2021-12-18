@@ -3279,7 +3279,7 @@
                       <button type="button" class="btn btn-primary" ng-click="triggerModal()"
                       ng-disabled="!multiStepForm.nominationAgree.$viewValue">CLICK HERE TO SIGN AS
                         WITNESS</button>
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section14')">ACCEPT & CONTINUE</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section14')" ng-disabled="!formParams.esignFile">ACCEPT & CONTINUE</button>
                       <button type="button" class="btn btn-primary"
                         ng-click="backStep('stage4'); backSection('section12')">BACK</button>
                     </div>
@@ -3359,13 +3359,13 @@
             </div>
           </div>
 
-          <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
-          <input type="file" class="hidden" id="esignFileUpload" name="esignFileUpload"
-            ng-model="formParams.esignFileUpload">
+          <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile" onchange="angular.element(this).scope().fileUploaded(event)">
+          <!-- <input type="file" class="hidden" id="esignFileUpload" name="esignFileUpload"
+            ng-model="formParams.esignFileUpload"> -->
 
-          <input type="hidden" id="applicantEsigndraw" name="applicantEsigndraw" ng-model="formParams.applicantEsigndraw">
-          <input type="file" class="hidden" id="applicantEsignFileUpload" name="applicantEsignFileUpload"
-            ng-model="formParams.applicantEsignFileUpload">
+          <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw" ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)">
+          <!-- <input type="file" class="hidden" id="applicantEsignFileUpload" name="applicantEsignFileUpload"
+            ng-model="formParams.applicantEsignFileUpload"> -->
         </div>
       </form>
     </div>
@@ -3382,15 +3382,15 @@
             <div>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#draw" aria-controls="draw" role="tab"
+                <li role="presentation" class="active"><a href="#witness-draw" aria-controls="draw" role="tab"
                     data-toggle="tab">Draw</a></li>
-                <li role="presentation"><a href="#upload" aria-controls="upload" role="tab" data-toggle="tab">Upload</a>
+                <li role="presentation"><a href="#witness-upload" aria-controls="upload" role="tab" data-toggle="tab">Upload</a>
                 </li>
               </ul>
 
               <!-- Tab panes -->
               <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="draw">
+                <div role="tabpanel" class="tab-pane active" id="witness-draw">
 
                   <div id="signature-pad" class="signature-pad">
                     <div class="signature-pad--body">
@@ -3400,22 +3400,22 @@
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <button type="button" class="btn btn-primary" data-action="clear">Clear</button>
+                          <button type="button" class="btn btn-primary" ng-click="clearSignaturePad('signature-pad')">Clear</button>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="upload">
+                <div role="tabpanel" class="tab-pane" id="witness-upload">
                   <div class="signature-pad">
-                    <label class="signature-pad--body upload-pad--body">
-                      drag a file into this area or select a file
+                    <label class="signature-pad--body upload-pad--body" dropzone input-binding="esignFile">
+                      {{ formParams.esignFile ? formParams.esignFile.name : 'Drag a file into this area or select a file'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <label for="esignFileUpload" class="btn btn-primary">Upload</label>
+                          <label for="esignFile" class="btn btn-primary">Upload</label>
                         </div>
                       </div>
                     </div>
@@ -3487,7 +3487,7 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.codeOfEthicsAgreeEsign" data-action="confirm">CONFIRM &
+                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.codeOfEthicsAgreeEsign" ng-click="confirmESign('signature-pad')">CONFIRM &
                       SUBMIT</button>
                   </div>
                 </div>
@@ -3528,7 +3528,7 @@
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <button type="button" class="btn btn-primary" data-action="clear">Clear</button>
+                          <button type="button" class="btn btn-primary" ng-click="clearSignaturePad('applicant-signature-pad')">Clear</button>
                         </div>
                       </div>
                     </div>
@@ -3536,14 +3536,14 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="upload">
                   <div class="signature-pad">
-                    <label class="signature-pad--body upload-pad--body">
-                      drag a file into this area or select a file
+                    <label class="signature-pad--body upload-pad--body" dropzone input-binding="applicantEsigndraw">
+                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this area or select a file'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <label for="esignFileUpload" class="btn btn-primary">Upload</label>
+                          <label for="applicantEsigndraw" class="btn btn-primary">Upload</label>
                         </div>
                       </div>
                     </div>
@@ -3603,7 +3603,7 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.applicantAgreeEsign" ng-click="triggerSubmit()">CONFIRM &
+                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.applicantAgreeEsign" ng-click="confirmESign('applicant-signature-pad')">CONFIRM &
                       SUBMIT</button>
                   </div>
                 </div>
