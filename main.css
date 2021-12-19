@@ -1,6 +1,5 @@
-.erecruit-form-container {
-  
-  padding: 20px;
+.erecruit-form-container {  
+  padding: 5%;
 }
 
 .erecruit-form {  
@@ -341,7 +340,7 @@ canvas {
 .custom-mcis-file-input .form-control-mcis-file-input {
   position: absolute;
   top: 50%;
-  left: 73px;
+  width: 30px;
   transform: translateY(-50%);
 }
 
