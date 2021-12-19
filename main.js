@@ -19,13 +19,45 @@ directive("fileread", [function () {
 }]).
 directive('validFile',function(){
 return {
-    require:'ngModel',
-    link:function(scope,el,attrs,ngModel){
+    restrict: 'A',
+    require: "ngModel",
+    scope: {
+      extension: '=',
+      size: '='
+    },
+    link:function(scope, el, attrs, ngModel){
     //change event is fired when file is selected
     el.bind('change',function(){
         scope.$apply(function(){
-        ngModel.$setViewValue(el.val());
-        ngModel.$render();
+            var files = el[0].files[0];
+            // var fileSize = ((files.size/1024)/1024).toFixed(4);
+            var fileExt = files.name.slice((files.name.lastIndexOf(".") - 1 >>> 0) + 2);
+            fileExt = fileExt.toLowerCase();
+            var extensions = scope.extension ? scope.extension.split(',') : [];
+
+            // Convert all format string to Lower case and compare.
+            if (extensions.length > 0){
+                for (i = 0; i < extensions.length; i++) {
+                  extensions[i] = extensions[i].toLowerCase();
+                }
+            }
+
+            ngModel.$setViewValue(files);
+            ngModel.$setValidity('size', true);
+            ngModel.$setValidity('format', true);
+
+            // if (parseInt(scope.size) && parseInt(fileSize) > parseInt(scope.size)) {              
+            //     ngModel.$setValidity('size', false);
+            //     ngModel.$setTouched();
+            //     ngModel.$setViewValue('');
+            // }
+            if (scope.extension && extensions.indexOf(fileExt) == -1) {
+                ngModel.$setValidity('format', false);
+                ngModel.$setTouched();
+                ngModel.$setViewValue('');
+            }            
+
+            ngModel.$render();
         });
     });
     }
