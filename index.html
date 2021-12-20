@@ -64,7 +64,8 @@
                 <div ng-hide="stagePolicy || stagePdpa">
                   <div class="d-flex align-items-center">
                     <div class="flex-50 height-100">
-                      <img class="width-100" src="./preview-image.jpg">
+                      [#assign imageERecruitMcis = damfn.getAsset("jcr", "iweb/photo/preview-image.jpg")!]
+                      <img class="width-100" src="${imageERecruitMcis.getLink()}">
                     </div>
                     <div class="flex-50 height-100">
                       <div class="agent-rank-wrapper">
@@ -275,12 +276,16 @@
                           maxlength="12" name="nric" ng-model="formParams.nric"
                           ng-minlength="12"
                           ng-change="textChanged(formParams.nric, 'personal')"
-                          ng-class="{'input-error': formValidation && multiStepForm.nric.$error.required}" required>
-                      </div>
-                      <span ng-show="formValidation && multiStepForm.nameNric.$error.minlength"
-                        class="small text-danger">
-                        Please enter 12 digits NRIC number
-                      </span>                      
+                          ng-class="{'input-error': formValidation && multiStepForm.nric.$error.required}" required>                      
+                        <span ng-show="formValidation && multiStepForm.nric.$error.required"
+                          class="small text-danger">
+                          Please enter 12 digits NRIC number.
+                        </span>                      
+                        <span ng-show="formValidation && multiStepForm.nric.$error.minlength"
+                          class="small text-danger">
+                          Please enter 12 digits NRIC number
+                        </span> 
+                      </div>                   
                     </div>
                   </div>
 
