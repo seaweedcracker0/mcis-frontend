@@ -136,7 +136,7 @@ input:checked + .tab-label {
 input:checked + .tab-label::after {
   transform: rotate(90deg);
 }
-input:checked ~ .tab-content {
+input:checked ~ .tab-content.custom-tab-content {
   max-height: 100vh;
   /* padding: 1em; */
 }
@@ -349,7 +349,7 @@ canvas {
   padding-bottom: 10rem;
 }
 
-.tab-content {
+.tab-content.custom-tab-content {
   overflow-y: hidden;
 }
 
