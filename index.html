@@ -28,7 +28,7 @@
   </div>
   <div class="erecruit-form-container" ng-controller="formController"
     ng-style="stagePdpa && {'background-color': '#dcdcdc'}">
-    <div class="margin-bottom-25" ng-if="stagePolicy && section != 'section14'">
+    <div class="margin-bottom-25 page-title" ng-if="stagePolicy && section != 'section14'">
       <h3 ng-if="stage == 'stage1'">Agent Application</h3>
       <h3 ng-if="stage == 'stage2'">Liam Code of Ethics and Conduct</h3>
       <h3 ng-if="stage == 'stage3'">Declaration of Life Insurance Product Overview & CFF Training</h3>
@@ -376,6 +376,11 @@
                           ng-class="{'error': formValidation && multiStepForm.personalDobYear.$error.required}"
                           required>
                           <option value="">Year</option>
+                          <option value="2022">2022</option>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                          <option value="2019">2019</option>
+                          <option value="2018">2018</option>
                           <option value="2017">2017</option>
                           <option value="2016">2016</option>
                           <option value="2015">2015</option>
@@ -443,7 +448,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section2')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="goBackPdpaFn()">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="goBackPdpaFn()">Back</button>
                     </div>
                   </div>
                 </div>
@@ -588,7 +593,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section3')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section1')">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="backSection('section1')">Back</button>
                     </div>
                   </div>
 
@@ -835,11 +840,37 @@
                             ng-model="formParams.spouseDobDate"
                             ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
                             <option value="">Date</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
                           </select>
                         </div>
                       </div>
@@ -872,11 +903,36 @@
                             ng-model="formParams.spouseDobYear"
                             ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
                             <option value="">Year</option>
+                            <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
@@ -937,7 +993,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section4')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section2')">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="backSection('section2')">Back</button>
                     </div>
                   </div>
 
@@ -1150,7 +1206,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section5')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section3')">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="backSection('section3')">Back</button>
                     </div>
                   </div>
 
@@ -1188,11 +1244,37 @@
                             ng-class="{'error': formValidation && multiStepForm.pcePcilCertDate.$error.required}"
                             required>
                             <option value="">Date</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
                           </select>
                         </div>
                       </div>
@@ -1225,11 +1307,36 @@
                             ng-class="{'error': formValidation && multiStepForm.pcePcilCertYear.$error.required}"
                             required>
                             <option value="">Year</option>
+                            <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
@@ -1285,11 +1392,37 @@
                             ng-class="{'error': formValidation && multiStepForm.ceilliCertDate.$error.required}"
                             ng-required="multiStepForm.ceilli.$viewValue">
                             <option value="">Date</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
                           </select>
                         </div>
                       </div>
@@ -1322,11 +1455,36 @@
                             ng-class="{'error': formValidation && multiStepForm.ceilliCertYear.$error.required}"
                             ng-required="multiStepForm.ceilli.$viewValue">
                             <option value="">Year</option>
+                            <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
@@ -1371,11 +1529,37 @@
                             ng-class="{'error': formValidation && multiStepForm.bamcCertDate.$error.required}"
                             ng-required="multiStepForm.bamc.$viewValue">
                             <option value="">Date</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
                           </select>
                         </div>
                       </div>
@@ -1408,11 +1592,36 @@
                             ng-class="{'error': formValidation && multiStepForm.bamcCertYear.$error.required}"
                             ng-required="multiStepForm.bamc.$viewValue">
                             <option value="">Year</option>
+                            <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
@@ -1458,11 +1667,37 @@
                             ng-class="{'error': formValidation && multiStepForm.rfpCertDate.$error.required}"
                             ng-required="multiStepForm.rfp.$viewValue">
                             <option value="">Date</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
                           </select>
                         </div>
                       </div>
@@ -1495,11 +1730,36 @@
                             ng-class="{'error': formValidation && multiStepForm.rfpCertYear.$error.required}"
                             ng-required="multiStepForm.rfp.$viewValue">
                             <option value="">Year</option>
+                            <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
@@ -1549,11 +1809,37 @@
                             ng-class="{'error': formValidation && multiStepForm.othersCertDate.$error.required}"
                             ng-required="multiStepForm.others.$viewValue">
                             <option value="">Date</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
                           </select>
                         </div>
                       </div>
@@ -1586,11 +1872,36 @@
                             ng-class="{'error': formValidation && multiStepForm.othersCertYear.$error.required}"
                             ng-required="multiStepForm.others.$viewValue">
                             <option value="">Year</option>
+                            <option value="2022">2022</option>
                             <option value="2021">2021</option>
                             <option value="2020">2020</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                            <option value="1999">1999</option>
+                            <option value="1998">1998</option>
+                            <option value="1997">1997</option>
+                            <option value="1996">1996</option>
+                            <option value="1995">1995</option>
+                            <option value="1994">1994</option>
+                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
@@ -1614,13 +1925,13 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section6')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section4')">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="backSection('section4')">Back</button>
                     </div>
                   </div>
                 </div>
 
                 <!-- Employment History -->
-                <div ng-if="section == 'section14' ||  section == 'section6'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipEmploymentHistory) ||  section == 'section6'" ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-45">Employment History</h3>
                   <hr>
                   <h3 class="text-center employment-history-wrapper">Have you been employed in the last 5 years?</h3>
@@ -1629,12 +1940,12 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section7')">Yes</button>
-                      <button type="button" class="btn btn-primary">No</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section5')">Back</button>
+                      <button type="button" class="btn btn-primary" ng-click="noEmployed()">No</button>
+                      <button type="button" class="btn btn-default" ng-click="backSection('section5')">Back</button>
                     </div>
                   </div>
                 </div>
-                <div ng-if="section == 'section14' ||  section == 'section7'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipEmploymentHistory) ||  section == 'section7'" ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-45">Employment History</h3>
 
                   <div class="tabs margin-top-25 margin-bottom-45">
@@ -1703,6 +2014,16 @@
                                     <option value="">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.required"
@@ -1719,8 +2040,36 @@
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.required}"
                                     required>
                                     <option value="">Year</option>
+                                    <option value="2022">2022</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.required"
@@ -1752,6 +2101,16 @@
                                     <option value="">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.required"
@@ -1768,8 +2127,36 @@
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.required}"
                                     required>
                                     <option value="">Year</option>
+                                    <option value="2022">2022</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.required"
@@ -1853,6 +2240,16 @@
                                     <option value="">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
                                   </select>
                                 </div>
                               </div>
@@ -1862,8 +2259,36 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh2EmploymentPeriodFromYear">
                                     <option value="">Year</option>
+                                    <option value="2022">2022</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -1887,6 +2312,16 @@
                                     <option value="">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
                                   </select>
                                 </div>
                               </div>
@@ -1896,8 +2331,36 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh2EmploymentPeriodToYear">
                                     <option value="">Year</option>
+                                    <option value="2022">2022</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -1970,6 +2433,16 @@
                                     <option value="">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
                                   </select>
                                 </div>
                               </div>
@@ -1979,8 +2452,36 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh3EmploymentPeriodFromYear">
                                     <option value="">Year</option>
+                                    <option value="2022">2022</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -2004,6 +2505,16 @@
                                     <option value="">Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
                                   </select>
                                 </div>
                               </div>
@@ -2013,8 +2524,36 @@
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh3EmploymentPeriodToYear">
                                     <option value="">Year</option>
+                                    <option value="2022">2022</option>
                                     <option value="2021">2021</option>
                                     <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -2043,7 +2582,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section8')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section6')">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="backSection('section6')">Back</button>
                     </div>
                   </div>
 
@@ -2287,7 +2826,7 @@
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
                         ng-click="nextStep('stage2'); nextSection('section9')">Continue</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section7')">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="goBackHealthInfo()">Back</button>
                     </div>
                   </div>
                 </div>
@@ -2367,7 +2906,7 @@
                         ng-click="nextStep('stage3'); nextSection('section10')"
                         ng-disabled="!multiStepForm.codeOfEthicsAgree.$viewValue">Accept &
                         Continue</button>
-                      <button type="button" class="btn btn-primary"
+                      <button type="button" class="btn btn-default"
                         ng-click="backStep('stage1'); backSection('section8')">Back</button>
                     </div>
                   </div>
@@ -2424,10 +2963,37 @@
                             <select name="cffDeclareDate" id="cffDeclareDate" class="form-control-mcis selectpicker"
                               ng-model="formParams.cffDeclareDate">
                               <option value="">Date</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                              <option value="01">01</option>
+                              <option value="02">02</option>
+                              <option value="03">03</option>
+                              <option value="04">04</option>
+                              <option value="05">05</option>
+                              <option value="06">06</option>
+                              <option value="07">07</option>
+                              <option value="08">08</option>
+                              <option value="09">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                              <option value="21">21</option>
+                              <option value="22">22</option>
+                              <option value="23">23</option>
+                              <option value="24">24</option>
+                              <option value="25">25</option>
+                              <option value="26">26</option>
+                              <option value="27">27</option>
+                              <option value="28">28</option>
+                              <option value="29">29</option>
+                              <option value="30">30</option>
+                              <option value="31">31</option>
                             </select>
                           </div>
                           <div class="form-group">
@@ -2435,13 +3001,53 @@
                               ng-model="formParams.cffDeclareMonth">
                               <option value="">Month</option>
                               <option value="1">January</option>
+                              <option value="2">February</option>
+                              <option value="3">March</option>
+                              <option value="4">April</option>
+                              <option value="5">May</option>
+                              <option value="6">June</option>
+                              <option value="7">July</option>
+                              <option value="8">August</option>
+                              <option value="9">September</option>
+                              <option value="10">October</option>
+                              <option value="11">November</option>
+                              <option value="12">December</option>
                             </select>
                           </div>
                           <div class="form-group">
                             <select name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis selectpicker"
                               ng-model="formParams.cffDeclareYear">
                               <option value="">Year</option>
+                              <option value="2022">2022</option>
                               <option value="2021">2021</option>
+                              <option value="2020">2020</option>
+                              <option value="2019">2019</option>
+                              <option value="2018">2018</option>
+                              <option value="2017">2017</option>
+                              <option value="2016">2016</option>
+                              <option value="2015">2015</option>
+                              <option value="2014">2014</option>
+                              <option value="2013">2013</option>
+                              <option value="2012">2012</option>
+                              <option value="2011">2011</option>
+                              <option value="2010">2010</option>
+                              <option value="2009">2009</option>
+                              <option value="2008">2008</option>
+                              <option value="2007">2007</option>
+                              <option value="2006">2006</option>
+                              <option value="2005">2005</option>
+                              <option value="2004">2004</option>
+                              <option value="2003">2003</option>
+                              <option value="2002">2002</option>
+                              <option value="2001">2001</option>
+                              <option value="2000">2000</option>
+                              <option value="1999">1999</option>
+                              <option value="1998">1998</option>
+                              <option value="1997">1997</option>
+                              <option value="1996">1996</option>
+                              <option value="1995">1995</option>
+                              <option value="1994">1994</option>
+                              <option value="1993">1993</option>
                             </select>
                           </div>
                         </span>
@@ -2472,7 +3078,7 @@
                         ng-click="nextStep('stage4'); nextSection('section11')"
                         ng-disabled="!multiStepForm.cffAgree.$viewValue">Accept &
                         Continue</button>
-                      <button type="button" class="btn btn-primary"
+                      <button type="button" class="btn btn-default"
                         ng-click="backStep('stage2'); backSection('section9')">Back</button>
                     </div>
                   </div>
@@ -2485,7 +3091,7 @@
           <div ng-if="stage == 'stage5' ||  stage == 'stage4'" ng-hide="stage == 'stage5'">
             <div class="row">
               <div class="col-xs-12">
-                <div ng-if="section == 'section14' ||  section == 'section11'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipContracted) ||  section == 'section11'" ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-25">LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
@@ -2497,13 +3103,13 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section12')">Yes</button>
-                      <button type="button" class="btn btn-primary">No</button>
-                      <button type="button" class="btn btn-primary"
+                      <button type="button" class="btn btn-primary" ng-click="noContractInsurer()">No</button>
+                      <button type="button" class="btn btn-default"
                         ng-click="backStep('stage3'); backSection('section10')">Back</button>
                     </div>
                   </div>
                 </div>
-                <div ng-if="section == 'section14' ||  section == 'section12'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipContracted) ||  section == 'section12'" ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-25">LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
@@ -2616,10 +3222,37 @@
                             <select name="moveAgentDate" id="moveAgentDate" class="form-control-mcis selectpicker"
                               ng-model="formParams.moveAgentDate">
                               <option value="">Date</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                              <option value="01">01</option>
+                              <option value="02">02</option>
+                              <option value="03">03</option>
+                              <option value="04">04</option>
+                              <option value="05">05</option>
+                              <option value="06">06</option>
+                              <option value="07">07</option>
+                              <option value="08">08</option>
+                              <option value="09">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                              <option value="21">21</option>
+                              <option value="22">22</option>
+                              <option value="23">23</option>
+                              <option value="24">24</option>
+                              <option value="25">25</option>
+                              <option value="26">26</option>
+                              <option value="27">27</option>
+                              <option value="28">28</option>
+                              <option value="29">29</option>
+                              <option value="30">30</option>
+                              <option value="31">31</option>
                             </select>
                           </div>
                           <div class="form-group">
@@ -2627,13 +3260,53 @@
                               ng-model="formParams.moveAgentMonth">
                               <option value="">Month</option>
                               <option value="1">January</option>
+                              <option value="2">February</option>
+                              <option value="3">March</option>
+                              <option value="4">April</option>
+                              <option value="5">May</option>
+                              <option value="6">June</option>
+                              <option value="7">July</option>
+                              <option value="8">August</option>
+                              <option value="9">September</option>
+                              <option value="10">October</option>
+                              <option value="11">November</option>
+                              <option value="12">December</option>
                             </select>
                           </div>
                           <div class="form-group">
                             <select name="moveAgentYear" id="moveAgentYear" class="form-control-mcis selectpicker"
                               ng-model="formParams.moveAgentYear">
                               <option value="">Year</option>
+                              <option value="2022">2022</option>
                               <option value="2021">2021</option>
+                              <option value="2020">2020</option>
+                              <option value="2019">2019</option>
+                              <option value="2018">2018</option>
+                              <option value="2017">2017</option>
+                              <option value="2016">2016</option>
+                              <option value="2015">2015</option>
+                              <option value="2014">2014</option>
+                              <option value="2013">2013</option>
+                              <option value="2012">2012</option>
+                              <option value="2011">2011</option>
+                              <option value="2010">2010</option>
+                              <option value="2009">2009</option>
+                              <option value="2008">2008</option>
+                              <option value="2007">2007</option>
+                              <option value="2006">2006</option>
+                              <option value="2005">2005</option>
+                              <option value="2004">2004</option>
+                              <option value="2003">2003</option>
+                              <option value="2002">2002</option>
+                              <option value="2001">2001</option>
+                              <option value="2000">2000</option>
+                              <option value="1999">1999</option>
+                              <option value="1998">1998</option>
+                              <option value="1997">1997</option>
+                              <option value="1996">1996</option>
+                              <option value="1995">1995</option>
+                              <option value="1994">1994</option>
+                              <option value="1993">1993</option>
                             </select>
                           </div>
                         </span>
@@ -2663,7 +3336,7 @@
                       <button type="button" class="btn btn-primary"
                         ng-click="nextStep('stage5'); nextSection('section13')"
                         ng-disabled="!multiStepForm.movementAgree.$viewValue">Yes</button>
-                      <button type="button" class="btn btn-primary" ng-click="backSection('section11')">Back</button>
+                      <button type="button" class="btn btn-default" ng-click="backSection('section11')">Back</button>
                     </div>
                   </div>
                 </div>
@@ -3328,8 +4001,8 @@
                       ng-disabled="!multiStepForm.nominationAgree.$viewValue">CLICK HERE TO SIGN AS
                         WITNESS</button>
                       <button type="button" class="btn btn-primary" ng-click="nextSection('section14')" ng-disabled="!formParams.esignFile">ACCEPT & CONTINUE</button>
-                      <button type="button" class="btn btn-primary"
-                        ng-click="backStep('stage4'); backSection('section12')">BACK</button>
+                      <button type="button" class="btn btn-default"
+                        ng-click="goBackNomination()">BACK</button>
                     </div>
                   </div>
                 </div>
