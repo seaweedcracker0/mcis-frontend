@@ -1,9 +1,13 @@
+.page-title h3 {
+  margin-top: 0;
+}
+
 .erecruit-form-container {  
   padding: 2% 5% 5%;
 }
 
 .erecruit-form {  
-  padding: 20px 60px 20px 60px;
+  padding: 20px 60px 15px 60px;
   background-color: #ffffff;
 }
 .uppercase {
@@ -17,7 +21,8 @@
 /* Multi Step styles */
 .erecruit-steps {
   position: relative;
-  margin-bottom: 80px;
+  margin-top: 20px;
+  margin-bottom: 100px;
   counter-reset: step;
   
 }

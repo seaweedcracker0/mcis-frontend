@@ -105,6 +105,8 @@ $scope.esignInit = false;
 $scope.applicantEsignInit = false;
 $scope.currDate = new Date().getTime();
 $scope.currDateObj = new Date();
+$scope.skipEmploymentHistory = false;
+$scope.skipContracted = false;
 var inputMin = 12;
 
 $scope.signaturePadObj = {}
@@ -159,7 +161,7 @@ $scope.goBackLandingFn = function() {
 
 $scope.nextSection = function(section) {
     $scope.formValidation = true;
-    // console.log($scope.formParams)
+    // console.log($scope.multiStepForm)
 
     if ($scope.multiStepForm.$valid) {
         $scope.direction = 1;
@@ -418,5 +420,37 @@ $scope.confirmESign = function(id) {
 $scope.fileUploaded = function(ev) {
     $scope.formParams[ev.target.name] = ev.target.files[0]
     $scope.$apply()
+}
+
+$scope.noEmployed = function() {
+    $scope.skipEmploymentHistory = true
+    $scope.nextSection('section8')
+}
+
+$scope.goBackHealthInfo = function() {
+    if($scope.skipEmploymentHistory) {
+        $scope.skipEmploymentHistory = false
+        $scope.backSection('section6')
+    }else {
+        $scope.backSection('section7')
+    }
+}
+
+$scope.noContractInsurer = function() {
+    $scope.skipContracted = true
+    $scope.nextStep('stage5'); 
+    $scope.nextSection('section13')
+}
+
+$scope.goBackNomination = function() {
+    if($scope.skipContracted) {
+        console.log("come here")
+        $scope.skipContracted = false
+        $scope.backStep('stage4'); 
+        $scope.backSection('section11')
+    }else {
+        $scope.backStep('stage4'); 
+        $scope.backSection('section12')
+    }
 }
 });
