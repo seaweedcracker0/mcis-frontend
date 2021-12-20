@@ -19,8 +19,22 @@
 </head>
 
 <body>
+  <div class="agent-details-wrapper margin-top-35 margin-bottom-25">
+    <div class="agent-details margin-right-45">
+      <div>Recruiter's Name: Jeevanantham A/L Subramaniam</div>
+      <div class="margin-left-35 margin-right-35">|</div>
+      <div>Unit: 199</div>
+    </div>
+  </div>
   <div class="erecruit-form-container" ng-controller="formController"
     ng-style="stagePdpa && {'background-color': '#dcdcdc'}">
+    <div class="margin-bottom-25" ng-if="stagePolicy && section != 'section14'">
+      <h3 ng-if="stage == 'stage1'">Agent Application</h3>
+      <h3 ng-if="stage == 'stage2'">Liam Code of Ethics and Conduct</h3>
+      <h3 ng-if="stage == 'stage3'">Declaration of Life Insurance Product Overview & CFF Training</h3>
+      <h3 ng-if="stage == 'stage4'">Liam Movement of Agents</h3>
+      <h3 ng-if="stage == 'stage5'">Nomination Form</h3>
+    </div>
     <div class="erecruit-form">
       <ul class="erecruit-steps" ng-if="stagePolicy && section != 'section14'">
         <li ng-class="stage == 'stage1' ? 'active' : ''">Agent Application</li>
@@ -558,7 +572,7 @@
                       <div class="form-group margin-bottom-20">
                         <select name="country" id="country" class="form-control-mcis selectpicker"
                           ng-model="formParams.country"
-                          ng-class="{'error': formValidation && multiStepForm.country.$error.required}" required>
+                          ng-class="{'error': formValidation && multiStepForm.country.$error.required}" required ng-init="formParams.country = 'Malaysia'">
                           <option value="">Please Select</option>
                           <option value="Malaysia">Malaysia</option>
                         </select>
@@ -2286,12 +2300,12 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section9'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">CODE OF ETHICS AND CONDUCT</h3>
+                  <h3 class="margin-bottom-25">CODE OF ETHICS AND CONDUCT</h3>
                   <p>Life Insurance Association of Malaysia</p>
                   <hr>
 
                   <div class="row">
-                    <div class="col-xs-12 col-md-offset-3 col-md-7">
+                    <div class="col-xs-12 col-md-offset-1 col-md-10">
                       <div class="custom-inline-form">
                         <span>I, <div class="form-group">
                             <input type="text" class="form-control-mcis" id="salutation" name="salutation" disabled
@@ -2367,12 +2381,11 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section10'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">CODE OF ETHICS AND CONDUCT</h3>
-                  <p>Life Insurance Association of Malaysia</p>
+                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br> Overview and Customer Fact Find Form Training</h3>
                   <hr>
 
                   <div class="row">
-                    <div class="col-xs-12 col-md-offset-2 col-md-8">
+                    <div class="col-xs-12 col-md-offset-1 col-md-10">
                       <div class="custom-inline-form">
                         <span>I,
                           <div class="form-group">
@@ -2473,7 +2486,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section11'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">Liam Movement</h3>
+                  <h3 class="margin-bottom-25">LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
                   <hr>
@@ -2491,7 +2504,7 @@
                   </div>
                 </div>
                 <div ng-if="section == 'section14' ||  section == 'section12'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
+                  <h3 class="margin-bottom-25">LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
                   <hr>
@@ -2675,7 +2688,7 @@
                             type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="groupBenefit">
                             <div class="custom-checkbox"></div>
-                            <span>Group Life Insurance</span>
+                            <span>Group Life Insurance Benefit</span>
                           </label>
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
@@ -2683,7 +2696,7 @@
                             type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="agencyBenefit">
                             <div class="custom-checkbox"></div>
-                            <span>Agency</span>
+                            <span>Agency Retirement Benefit</span>
                           </label>
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
@@ -3047,7 +3060,8 @@
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeGroupApplicantICCopy" id="nomineeGroupApplicantICCopy"
                                         ng-model="formParams.nomineeGroupApplicantICCopy" valid-file data-extension="'jpeg,png,pdf'"
-                                        ng-disabled="!multiStepForm.groupBenefit.$viewValue">
+                                        ng-disabled="!multiStepForm.groupBenefit.$viewValue"
+                                        ng-required="multiStepForm.groupBenefit.$viewValue">
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload in PDF, JPG or JPEG format only.
@@ -3062,9 +3076,11 @@
                                     <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeGroupICCopy" class="btn btn-default">BROWSE...</label>
-                                      <input type="file" class="form-control-mcis-file-input" name="nomineeGroupICCopy"
-                                        id="nomineeGroupICCopy" ng-model="formParams.nomineeGroupICCopy" required valid-file data-extension="'jpeg,png,pdf'"
-                                        ng-disabled="!multiStepForm.groupBenefit.$viewValue">
+                                      <input type="file" class="form-control-mcis-file-input" 
+                                        name="nomineeGroupICCopy" id="nomineeGroupICCopy" 
+                                        ng-model="formParams.nomineeGroupICCopy" valid-file data-extension="'jpeg,png,pdf'"
+                                        ng-disabled="!multiStepForm.groupBenefit.$viewValue"
+                                        ng-required="multiStepForm.groupBenefit.$viewValue">
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload in PDF, JPG or JPEG format only.
@@ -3384,7 +3400,7 @@
                     <button type="button" class="btn btn-primary"
                       ng-disabled="!multiStepForm.declarationPolicyAgree.$viewValue || !multiStepForm.declarationConfirmAgree.$viewValue"
                       ng-click="triggerApplicantModal()">ACCEPT & SIGN</button>
-                    <button type="button" class="btn btn-default">DECLINE</button>
+                    <button type="button" class="btn btn-default" ng-click="backSection('section13')">DECLINE</button>
                   </div>
                 </div>
               </div>

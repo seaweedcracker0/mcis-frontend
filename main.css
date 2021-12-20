@@ -1,5 +1,5 @@
 .erecruit-form-container {  
-  padding: 5%;
+  padding: 2% 5% 5%;
 }
 
 .erecruit-form {  
@@ -17,7 +17,7 @@
 /* Multi Step styles */
 .erecruit-steps {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
   counter-reset: step;
   
 }
@@ -369,7 +369,7 @@ canvas {
 
 .custom-inline-form .form-group, .custom-inline-form .form-group input, .custom-inline-form .form-group select {
   width: auto!important;
-  min-width: 200px;
+  /* min-width: 200px; */
 }
 
 .custom-inline-form > span > * {
@@ -495,4 +495,15 @@ label {
 
 .d-block-important {
   display: block!important
+}
+
+.agent-details-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.agent-details-wrapper .agent-details {
+  display: flex;
+  align-items: center;
+  color: #707070;
 }
