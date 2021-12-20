@@ -273,19 +273,16 @@
                       <div class="form-group">
                         <input type="text" class="form-control-mcis" id="nric"
                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                          maxlength="12" name="nric" ng-model="formParams.nric"
-                          ng-minlength="12"
+                          maxlength="12" name="nric" ng-model="formParams.nric" ng-minlength="12"
                           ng-change="textChanged(formParams.nric, 'personal')"
-                          ng-class="{'input-error': formValidation && multiStepForm.nric.$error.required}" required>                      
-                        <span ng-show="formValidation && multiStepForm.nric.$error.required"
-                          class="small text-danger">
+                          ng-class="{'input-error': formValidation && multiStepForm.nric.$error.required}" required>
+                        <span ng-show="formValidation && multiStepForm.nric.$error.required" class="small text-danger">
                           Please enter 12 digits NRIC number.
-                        </span>                      
-                        <span ng-show="formValidation && multiStepForm.nric.$error.minlength"
-                          class="small text-danger">
+                        </span>
+                        <span ng-show="formValidation && multiStepForm.nric.$error.minlength" class="small text-danger">
                           Please enter 12 digits NRIC number
-                        </span> 
-                      </div>                   
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -410,7 +407,7 @@
                           <option value="1996">1996</option>
                           <option value="1995">1995</option>
                           <option value="1994">1994</option>
-                          <option value="1993">1993</option>  
+                          <option value="1993">1993</option>
                         </select>
                       </div>
                     </div>
@@ -474,10 +471,10 @@
                           name="correspondenceAddress" ng-model="formParams.correspondenceAddress"
                           ng-class="{'error': formValidation && multiStepForm.correspondenceAddress.$error.required}"
                           required>
-                          <span ng-show="formValidation && multiStepForm.correspondenceAddress.$error.required"
-                            class="small text-danger">
-                            Please enter your correspondence address.
-                          </span>                          
+                        <span ng-show="formValidation && multiStepForm.correspondenceAddress.$error.required"
+                          class="small text-danger">
+                          Please enter your correspondence address.
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -529,7 +526,8 @@
                         <input type="text" class="form-control-mcis" id="postcode" name="postcode"
                           ng-model="formParams.postcode" maxlength="5" ng-minlength="5"
                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                          ng-class="{'error': formValidation && multiStepForm.postcode.$error.required || multiStepForm.postcode.$error.minlength}" required>
+                          ng-class="{'error': formValidation && multiStepForm.postcode.$error.required || multiStepForm.postcode.$error.minlength}"
+                          required>
                         <span ng-show="formValidation && multiStepForm.postcode.$error.required"
                           class="small text-danger">
                           Please enter postcode.
@@ -537,7 +535,7 @@
                         <span ng-show="formValidation && multiStepForm.postcode.$error.minlength"
                           class="small text-danger">
                           Please enter postcode.
-                        </span>                        
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -586,7 +584,8 @@
                       <div class="form-group margin-bottom-20">
                         <select name="country" id="country" class="form-control-mcis selectpicker"
                           ng-model="formParams.country"
-                          ng-class="{'error': formValidation && multiStepForm.country.$error.required}" required ng-init="formParams.country = 'Malaysia'">
+                          ng-class="{'error': formValidation && multiStepForm.country.$error.required}" required
+                          ng-init="formParams.country = 'Malaysia'">
                           <option value="Malaysia">Malaysia</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.country.$error.required"
@@ -657,11 +656,11 @@
                           maxlength="10" ng-model="formParams.primaryHandphoneNo"
                           ng-class="{'error': formValidation && multiStepForm.primaryHandphoneNo.$error.required}"
                           required>
-                          <span
+                        <span
                           ng-show="formValidation && (multiStepForm.primaryHandphoneNo.$error.required || multiStepForm.primaryHandphoneNoPrefix.$error.required)"
                           class="small text-danger">
                           Please enter your primary handphone no.
-                        </span>                          
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -763,7 +762,7 @@
                           <select name="spouseSalutation" id="spouseSalutation" class="form-control-mcis selectpicker"
                             ng-model="formParams.spouseSalutation"
                             ng-class="{'error': formValidation && multiStepForm.spouseSalutation.$error.required}"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                             <option value="">Please Select</option>
                             <option value="MR">MR</option>
                             <option value="MS">MS</option>
@@ -787,7 +786,7 @@
                           <input type="text" class="form-control-mcis uppercase" id="spouseNameNric"
                             name="spouseNameNric" ng-model="formParams.spouseNameNric"
                             ng-class="{'error': formValidation && multiStepForm.spouseNameNric.$error.required}"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                           <span ng-show="formValidation && multiStepForm.spouseNameNric.$error.required"
                             class="small text-danger">
                             This field is required
@@ -809,7 +808,7 @@
                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                             ng-change="textChanged(formParams.spouseNricNo, 'spouse')"
                             ng-class="{'error': formValidation && multiStepForm.spouseNricNo.$error.required}"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                           <span ng-show="formValidation && multiStepForm.spouseNricNo.$error.required"
                             class="small text-danger">
                             This field is required
@@ -844,7 +843,7 @@
                           <select name="spouseDobDate" id="spouseDobDate" class="form-control-mcis selectpicker"
                             ng-class="{'error': formValidation && multiStepForm.spouseDobDate.$error.required}"
                             ng-model="formParams.spouseDobDate"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                             <option value="">Date</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
@@ -885,7 +884,7 @@
                           <select name="spouseDobMonth" id="spouseDobMonth" class="form-control-mcis selectpicker"
                             ng-class="{'error': formValidation && multiStepForm.spouseDobMonth.$error.required}"
                             ng-model="formParams.spouseDobMonth"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                             <option value="">Month</option>
                             <option value="1">January</option>
                             <option value="2">February</option>
@@ -907,7 +906,7 @@
                           <select name="spouseDobYear" id="spouseDobYear" class="form-control-mcis selectpicker"
                             ng-class="{'error': formValidation && multiStepForm.spouseDobYear.$error.required}"
                             ng-model="formParams.spouseDobYear"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                             <option value="">Year</option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
@@ -967,14 +966,14 @@
                           <select name="isImmediatelyFamily" class="form-control-mcis selectpicker"
                             ng-class="{'error': formValidation && multiStepForm.isImmediatelyFamily.$error.required}"
                             ng-model="formParams.isImmediatelyFamily"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == 'Married'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                             <option value="">Please Select</option>
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                           </select>
                           <span ng-show="formValidation && multiStepForm.isImmediatelyFamily.$error.required"
                             class="small text-danger">
-                            This field is required
+                            Please specify
                           </span>
                         </div>
                       </div>
@@ -984,7 +983,7 @@
                           <input type="text" class="form-control-mcis" maxlength="100" id="immediateFamily"
                             name="immediateFamily" ng-model="formParams.immediateFamily"
                             ng-class="{'error': formValidation && multiStepForm.immediateFamily.$error.required}"
-                            ng-required="multiStepForm.isImmediatelyFamily.$viewValue == '1'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2' && multiStepForm.isImmediatelyFamily.$viewValue == '1'">
                           <span ng-show="formValidation && multiStepForm.immediateFamily.$error.required"
                             class="small text-danger">
                             This field is required
@@ -1028,7 +1027,7 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.religion.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please specify
                         </span>
                       </div>
                     </div>
@@ -1064,7 +1063,7 @@
                           <option valie="Others">Others</option>
                         </select>
                         <span ng-show="formValidation && multiStepForm.race.$error.required" class="small text-danger">
-                          This field is required
+                          Please specify
                         </span>
                       </div>
                     </div>
@@ -1104,7 +1103,7 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.relationship.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please specify
                         </span>
                       </div>
                     </div>
@@ -1146,7 +1145,7 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.relationshipLeader.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please specify
                         </span>
                       </div>
                     </div>
@@ -1189,17 +1188,17 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.highestEducation.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please specify
                         </span>
                       </div>
                     </div>
                     <div class="col-xs-12 col-md-4 inblock-top"
-                      ng-show="multiStepForm.highestEducation.$viewValue == 'Others'">
+                      ng-show="multiStepForm.highestEducation.$viewValue == '6'">
                       <div class="form-group margin-bottom-20">
                         <input name="highestEducationOthers" id="highestEducationOthers" class="form-control-mcis"
                           ng-model="formParams.highestEducationOthers" maxlength="100"
                           ng-class="{'error': formValidation && multiStepForm.highestEducationOthers.$error.required}"
-                          ng-required="multiStepForm.highestEducation.$viewValue == 'Others'" />
+                          ng-required="multiStepForm.highestEducation.$viewValue == '6'" />
                         <span ng-show="formValidation && multiStepForm.highestEducationOthers.$error.required"
                           class="small text-danger">
                           This field is required
@@ -1336,23 +1335,15 @@
                             <option value="2002">2002</option>
                             <option value="2001">2001</option>
                             <option value="2000">2000</option>
-                            <option value="1999">1999</option>
-                            <option value="1998">1998</option>
-                            <option value="1997">1997</option>
-                            <option value="1996">1996</option>
-                            <option value="1995">1995</option>
-                            <option value="1994">1994</option>
-                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
-                          <label for="pcePcilCert" class="btn btn-default" 
+                          <label for="pcePcilCert" class="btn btn-default"
                             ng-class="{'custom-upload-error-mcis': formValidation && multiStepForm.pcePcilCert.$error.required}">BROWSE...</label>
-                          <input type="file" class="form-control-mcis-file-input" 
-                            name="pcePcilCert" id="pcePcilCert" required valid-file data-extension="'jpeg,png,pdf'"
-                            ng-model="formParams.pcePcilCert">
+                          <input type="file" class="form-control-mcis-file-input" name="pcePcilCert" id="pcePcilCert"
+                            required valid-file data-extension="'jpeg,png,pdf'" ng-model="formParams.pcePcilCert">
                         </div>
                         <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.format"
                           class="small text-danger">
@@ -1377,8 +1368,7 @@
                       <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <div class="checkbox custom-checkbox-mcis">
-                            <input id="ceilli" name="ceilli" type="checkbox" 
-                              ng-model="formParams.ceilli">
+                            <input id="ceilli" name="ceilli" type="checkbox" ng-model="formParams.ceilli">
                             <label for="ceilli">
                               <div class="custom-checkbox"></div>
                               <span>CEILLI</span>
@@ -1484,27 +1474,20 @@
                             <option value="2002">2002</option>
                             <option value="2001">2001</option>
                             <option value="2000">2000</option>
-                            <option value="1999">1999</option>
-                            <option value="1998">1998</option>
-                            <option value="1997">1997</option>
-                            <option value="1996">1996</option>
-                            <option value="1995">1995</option>
-                            <option value="1994">1994</option>
-                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="ceilliCert" class="btn btn-default"
-                          ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.ceilliCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.ceilliCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="ceilliCert" id="ceilliCert"
                             ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,png,pdf'"
-                            ng-required="multiStepForm.ceilli.$viewValue">                            
-                            <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
-                              class="small text-danger">
-                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
-                            </span>
+                            ng-required="multiStepForm.ceilli.$viewValue">
+                          <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
+                            class="small text-danger">
+                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1514,8 +1497,7 @@
                       <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <div class="checkbox custom-checkbox-mcis">
-                            <input id="bamc" name="bamc" type="checkbox" 
-                              ng-model="formParams.bamc">
+                            <input id="bamc" name="bamc" type="checkbox" ng-model="formParams.bamc">
                             <label for="bamc">
                               <div class="custom-checkbox"></div>
                               <span>BAMC</span>
@@ -1621,28 +1603,20 @@
                             <option value="2002">2002</option>
                             <option value="2001">2001</option>
                             <option value="2000">2000</option>
-                            <option value="1999">1999</option>
-                            <option value="1998">1998</option>
-                            <option value="1997">1997</option>
-                            <option value="1996">1996</option>
-                            <option value="1995">1995</option>
-                            <option value="1994">1994</option>
-                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="bamcCert" class="btn btn-default"
-                          ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.bamcCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.bamcCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="bamcCert" id="bamcCert"
-                            ng-model="formParams.bamcCert"
-                            ng-required="multiStepForm.bamc.$viewValue"
-                            valid-file data-extension="'jpeg,png,pdf'">
-                            <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
-                              class="small text-danger">
-                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
-                            </span>
+                            ng-model="formParams.bamcCert" ng-required="multiStepForm.bamc.$viewValue" valid-file
+                            data-extension="'jpeg,png,pdf'">
+                          <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
+                            class="small text-danger">
+                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1652,8 +1626,7 @@
                       <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <div class="checkbox custom-checkbox-mcis">
-                            <input id="rfp" name="rfp" type="checkbox" 
-                              ng-model="formParams.rfp">
+                            <input id="rfp" name="rfp" type="checkbox" ng-model="formParams.rfp">
                             <label for="rfp">
                               <div class="custom-checkbox"></div>
                               <span>RFP</span>
@@ -1759,27 +1732,20 @@
                             <option value="2002">2002</option>
                             <option value="2001">2001</option>
                             <option value="2000">2000</option>
-                            <option value="1999">1999</option>
-                            <option value="1998">1998</option>
-                            <option value="1997">1997</option>
-                            <option value="1996">1996</option>
-                            <option value="1995">1995</option>
-                            <option value="1994">1994</option>
-                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="rfpCert" class="btn btn-default"
-                          ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.rfpCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.rfpCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="rfpCert" id="rfpCert"
                             ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,png,pdf'"
                             ng-required="multiStepForm.rfp.$viewValue">
-                            <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
-                              class="small text-danger">
-                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
-                            </span>                            
+                          <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
+                            class="small text-danger">
+                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1789,13 +1755,13 @@
                       <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <div class="checkbox custom-checkbox-mcis d-flex margin-top-0">
-                            <input id="others" name="others" type="checkbox" 
-                              ng-model="formParams.others">
+                            <input id="others" name="others" type="checkbox" ng-model="formParams.others">
                             <label for="others">
                               <div class="custom-checkbox"></div>
                             </label>
-                            <input type="text" class="form-control-mcis margin-left-15 d-block-important" id="othersQualifications"
-                              name="othersQualifications" ng-model="formParams.othersQualifications" placeholder="Others"
+                            <input type="text" class="form-control-mcis margin-left-15 d-block-important"
+                              id="othersQualifications" name="othersQualifications"
+                              ng-model="formParams.othersQualifications" placeholder="Others"
                               ng-class="{'error': formValidation && multiStepForm.othersQualifications.$error.required}"
                               ng-required="multiStepForm.others.$viewValue">
                           </div>
@@ -1901,27 +1867,20 @@
                             <option value="2002">2002</option>
                             <option value="2001">2001</option>
                             <option value="2000">2000</option>
-                            <option value="1999">1999</option>
-                            <option value="1998">1998</option>
-                            <option value="1997">1997</option>
-                            <option value="1996">1996</option>
-                            <option value="1995">1995</option>
-                            <option value="1994">1994</option>
-                            <option value="1993">1993</option>
                           </select>
                         </div>
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="othersCert" class="btn btn-default"
-                          ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.othersCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.othersCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="othersCert" id="othersCert"
                             ng-model="formParams.othersCert" valid-file data-extension="'jpeg,png,pdf'"
                             ng-required="multiStepForm.others.$viewValue">
-                            <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
-                              class="small text-danger">
-                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
-                            </span>                              
+                          <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
+                            class="small text-danger">
+                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1937,7 +1896,8 @@
                 </div>
 
                 <!-- Employment History -->
-                <div ng-if="(section == 'section14' && !skipEmploymentHistory) ||  section == 'section6'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipEmploymentHistory) ||  section == 'section6'"
+                  ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-45">Employment History</h3>
                   <hr>
                   <h3 class="text-center employment-history-wrapper">Have you been employed in the last 5 years?</h3>
@@ -1951,7 +1911,8 @@
                     </div>
                   </div>
                 </div>
-                <div ng-if="(section == 'section14' && !skipEmploymentHistory) ||  section == 'section7'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipEmploymentHistory) ||  section == 'section7'"
+                  ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-45">Employment History</h3>
 
                   <div class="tabs margin-top-25 margin-bottom-45">
@@ -1975,7 +1936,7 @@
                                 required>
                               <span ng-show="formValidation && multiStepForm.eh1CompanyName.$error.required"
                                 class="small text-danger">
-                                This field is required
+                                Please enter the company name.
                               </span>
                             </div>
                           </div>
@@ -1995,7 +1956,7 @@
                                 required>
                               <span ng-show="formValidation && multiStepForm.eh1PositionHeld.$error.required"
                                 class="small text-danger">
-                                This field is required
+                                Please enter your position held.
                               </span>
                             </div>
                           </div>
@@ -2034,7 +1995,7 @@
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.required"
                                     class="small text-danger">
-                                    This field is required
+                                    Please select month and year.
                                   </span>
                                 </div>
                               </div>
@@ -2069,18 +2030,11 @@
                                     <option value="2002">2002</option>
                                     <option value="2001">2001</option>
                                     <option value="2000">2000</option>
-                                    <option value="1999">1999</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1995">1995</option>
-                                    <option value="1994">1994</option>
-                                    <option value="1993">1993</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.required"
                                     class="small text-danger">
-                                    This field is required
+                                    Please select month and year.
                                   </span>
                                 </div>
                               </div>
@@ -2121,7 +2075,7 @@
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.required"
                                     class="small text-danger">
-                                    This field is required
+                                    Please select month and year.
                                   </span>
                                 </div>
                               </div>
@@ -2156,18 +2110,11 @@
                                     <option value="2002">2002</option>
                                     <option value="2001">2001</option>
                                     <option value="2000">2000</option>
-                                    <option value="1999">1999</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1995">1995</option>
-                                    <option value="1994">1994</option>
-                                    <option value="1993">1993</option>
                                   </select>
                                   <span
                                     ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.required"
                                     class="small text-danger">
-                                    This field is required
+                                    Please select month and year.
                                   </span>
                                 </div>
                               </div>
@@ -2189,7 +2136,7 @@
                                 required></textarea>
                               <span ng-show="formValidation && multiStepForm.eh1Reasons.$error.required"
                                 class="small text-danger">
-                                This field is required
+                                Please enter your reason for leaving.
                               </span>
                             </div>
                           </div>
@@ -2288,13 +2235,6 @@
                                     <option value="2002">2002</option>
                                     <option value="2001">2001</option>
                                     <option value="2000">2000</option>
-                                    <option value="1999">1999</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1995">1995</option>
-                                    <option value="1994">1994</option>
-                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -2360,13 +2300,6 @@
                                     <option value="2002">2002</option>
                                     <option value="2001">2001</option>
                                     <option value="2000">2000</option>
-                                    <option value="1999">1999</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1995">1995</option>
-                                    <option value="1994">1994</option>
-                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -2481,13 +2414,6 @@
                                     <option value="2002">2002</option>
                                     <option value="2001">2001</option>
                                     <option value="2000">2000</option>
-                                    <option value="1999">1999</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1995">1995</option>
-                                    <option value="1994">1994</option>
-                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -2553,13 +2479,6 @@
                                     <option value="2002">2002</option>
                                     <option value="2001">2001</option>
                                     <option value="2000">2000</option>
-                                    <option value="1999">1999</option>
-                                    <option value="1998">1998</option>
-                                    <option value="1997">1997</option>
-                                    <option value="1996">1996</option>
-                                    <option value="1995">1995</option>
-                                    <option value="1994">1994</option>
-                                    <option value="1993">1993</option>
                                   </select>
                                 </div>
                               </div>
@@ -2616,7 +2535,7 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.goodHealth.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please Specify.
                         </span>
                       </div>
                     </div>
@@ -2658,7 +2577,7 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.physicalDeformity.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please Specify.
                         </span>
                       </div>
                     </div>
@@ -2701,7 +2620,7 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.undischargedBankrupt.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please Specify.
                         </span>
                       </div>
                     </div>
@@ -2743,7 +2662,7 @@
                         </select>
                         <span ng-show="formValidation && multiStepForm.heldAgencyContract.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please Specify.
                         </span>
                       </div>
                     </div>
@@ -2776,7 +2695,7 @@
                                 ng-required="multiStepForm.heldAgencyContract.$viewValue == '1'" />
                               <span ng-show="formValidation && multiStepForm.insuranceCompanyName.$error.required"
                                 class="small text-danger">
-                                This field is required
+                                Please enter the company name.
                               </span>
                             </div>
                           </div>
@@ -2796,7 +2715,7 @@
                                 ng-required="multiStepForm.heldAgencyContract.$viewValue == '1'" />
                               <span ng-show="formValidation && multiStepForm.positionHeld.$error.required"
                                 class="small text-danger">
-                                This field is required
+                                Please enter your position held.
                               </span>
                             </div>
                           </div>
@@ -2817,7 +2736,7 @@
                                 ng-required="multiStepForm.heldAgencyContract.$viewValue == '1'"></textarea>
                               <span ng-show="formValidation && multiStepForm.agencyContractReasons.$error.required"
                                 class="small text-danger">
-                                This field is required
+                                Please enter your reason for leaving.
                               </span>
                             </div>
                           </div>
@@ -2893,11 +2812,13 @@
                   <div class="row margin-top-25 margin-bottom-25">
                     <div class="col-xs-12 col-md-offset-4 col-md-5">
                       <div class="checkbox custom-checkbox-mcis">
-                        <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox" 
+                        <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox"
                           ng-model="formParams.codeOfEthicsAgree" ng-true-value="1" ng-false-value="0"
                           ng-required="!multiStepForm.codeOfEthicsAgree.$viewValue">
                         <label for="codeOfEthicsAgree">
-                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.codeOfEthicsAgree.$error.required}"></div>
+                          <div class="custom-checkbox"
+                            ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.codeOfEthicsAgree.$error.required}">
+                          </div>
                           <span>
                             I hereby agree that my e-signature is required as a consent to the Code of Ethics and
                             Conduct
@@ -2926,7 +2847,8 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section10'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br> Overview and Customer Fact Find Form Training</h3>
+                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br> Overview
+                    and Customer Fact Find Form Training</h3>
                   <hr>
 
                   <div class="row">
@@ -3047,13 +2969,6 @@
                               <option value="2002">2002</option>
                               <option value="2001">2001</option>
                               <option value="2000">2000</option>
-                              <option value="1999">1999</option>
-                              <option value="1998">1998</option>
-                              <option value="1997">1997</option>
-                              <option value="1996">1996</option>
-                              <option value="1995">1995</option>
-                              <option value="1994">1994</option>
-                              <option value="1993">1993</option>
                             </select>
                           </div>
                         </span>
@@ -3065,11 +2980,12 @@
                   <div class="row margin-top-25 margin-bottom-25">
                     <div class="col-xs-12 col-md-offset-3 col-md-6">
                       <div class="checkbox custom-checkbox-mcis">
-                        <input id="cffAgree" name="cffAgree" type="checkbox"
-                          ng-model="formParams.cffAgree" ng-true-value="1" ng-false-value="0"
-                          ng-required="!multiStepForm.cffAgree.$viewValue">
+                        <input id="cffAgree" name="cffAgree" type="checkbox" ng-model="formParams.cffAgree"
+                          ng-true-value="1" ng-false-value="0" ng-required="!multiStepForm.cffAgree.$viewValue">
                         <label for="cffAgree">
-                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.cffAgree.$error.required}"></div>
+                          <div class="custom-checkbox"
+                            ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.cffAgree.$error.required}">
+                          </div>
                           <span>
                             I hereby agree that my e-signature is required as a consent to the Declaration of Completion
                             for Life Insurance Basic Product Overview and Customer Fact Find Form Training
@@ -3097,7 +3013,8 @@
           <div ng-if="stage == 'stage5' ||  stage == 'stage4'" ng-hide="stage == 'stage5'">
             <div class="row">
               <div class="col-xs-12">
-                <div ng-if="(section == 'section14' && !skipContracted) ||  section == 'section11'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipContracted) ||  section == 'section11'"
+                  ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-25">LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
@@ -3115,7 +3032,8 @@
                     </div>
                   </div>
                 </div>
-                <div ng-if="(section == 'section14' && !skipContracted) ||  section == 'section12'" ng-hide="section == 'section14'">
+                <div ng-if="(section == 'section14' && !skipContracted) ||  section == 'section12'"
+                  ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-25">LIFE INSURANCE ASSOCIATION OF MALAYSIA</h3>
                   <p>Procedures for the Movement Of Agent</p>
 
@@ -3160,7 +3078,8 @@
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group">
                             <input type="text" class="form-control-mcis" id="movementAgentDate" name="movementAgentDate"
-                              disabled ng-model="formParams.movementAgentDate" ng-value="currDateObj.getDate() + '/' + (currDateObj.getMonth() + 1) + '/' + currDateObj.getFullYear()">
+                              disabled ng-model="formParams.movementAgentDate"
+                              ng-value="currDateObj.getDate() + '/' + (currDateObj.getMonth() + 1) + '/' + currDateObj.getFullYear()">
                           </div>
                         </div>
                       </div>
@@ -3174,8 +3093,13 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input class="form-control-mcis" id="movementAgentFrom" name="movementAgentFrom" ng-class="{'error': formValidation && multiStepForm.movementAgentFrom.$error.required}"
-                              ng-model="formParams.movementAgentFrom" placeholder="Contracting Company" required>                              
+                            <input class="form-control-mcis" id="movementAgentFrom" name="movementAgentFrom"
+                              ng-class="{'error': formValidation && multiStepForm.movementAgentFrom.$error.required}"
+                              ng-model="formParams.movementAgentFrom" placeholder="Contracting Company" required>
+                            <span ng-show="formValidation && multiStepForm.movementAgentFrom.$error.format"
+                              class="small text-danger">
+                              Please enter contracting company name.
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -3187,7 +3111,8 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nricNo" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                            <input type="text" class="form-control-mcis" id="nricNo"
+                              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                               maxlength="12" name="nricNo" ng-model="formParams.nricNo"
                               ng-change="textChanged(formParams.nricNo)">
                           </div>
@@ -3202,13 +3127,15 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group custom-mcis-file-input">
-                            <label for="registLetterCopy" class="btn btn-default" ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.registLetterCopy.$error.required)}">BROWSE...</label>
+                            <label for="registLetterCopy" class="btn btn-default"
+                              ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.registLetterCopy.$error.required)}">BROWSE...</label>
                             <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
-                              id="registLetterCopy" ng-model="formParams.registLetterCopy" required valid-file data-extension="'jpeg,png,pdf'">
-                              <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
-                                class="small text-danger">
-                                Invalid file format. Please upload in PDF, JPG or JPEG format only.
-                              </span>                              
+                              id="registLetterCopy" ng-model="formParams.registLetterCopy" required valid-file
+                              data-extension="'jpeg,png,pdf'">
+                            <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
+                              class="small text-danger">
+                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -3226,7 +3153,9 @@
                           with effect from
                           <div class="form-group">
                             <select name="moveAgentDate" id="moveAgentDate" class="form-control-mcis selectpicker"
-                              ng-model="formParams.moveAgentDate">
+                              ng-model="formParams.moveAgentDate"
+                              ng-class="{'error': formValidation && multiStepForm.moveAgentDate.$error.required}"
+                              required>
                               <option value="">Date</option>
                               <option value="01">01</option>
                               <option value="02">02</option>
@@ -3263,7 +3192,9 @@
                           </div>
                           <div class="form-group">
                             <select name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis selectpicker"
-                              ng-model="formParams.moveAgentMonth">
+                              ng-model="formParams.moveAgentMonth"
+                              ng-class="{'error': formValidation && multiStepForm.moveAgentMonth.$error.required}"
+                              required>
                               <option value="">Month</option>
                               <option value="1">January</option>
                               <option value="2">February</option>
@@ -3281,7 +3212,9 @@
                           </div>
                           <div class="form-group">
                             <select name="moveAgentYear" id="moveAgentYear" class="form-control-mcis selectpicker"
-                              ng-model="formParams.moveAgentYear">
+                              ng-model="formParams.moveAgentYear"
+                              ng-class="{'error': formValidation && multiStepForm.moveAgentYear.$error.required}"
+                              required>
                               <option value="">Year</option>
                               <option value="2022">2022</option>
                               <option value="2021">2021</option>
@@ -3306,14 +3239,11 @@
                               <option value="2002">2002</option>
                               <option value="2001">2001</option>
                               <option value="2000">2000</option>
-                              <option value="1999">1999</option>
-                              <option value="1998">1998</option>
-                              <option value="1997">1997</option>
-                              <option value="1996">1996</option>
-                              <option value="1995">1995</option>
-                              <option value="1994">1994</option>
-                              <option value="1993">1993</option>
                             </select>
+                            <span ng-show="formValidation && (multiStepForm.moveAgentDate.$error.format || multiStepForm.moveAgentMonth.$error.format || multiStepForm.moveAgentYear.$error.format)"
+                              class="small text-danger">
+                              Please specify
+                            </span>
                           </div>
                         </span>
                       </div>
@@ -3328,7 +3258,9 @@
                           ng-model="formParams.movementAgree" ng-true-value="1" ng-false-value="0"
                           ng-required="!multiStepForm.movementAgree.$viewValue">
                         <label for="movementAgree">
-                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.movementAgree.$error.required}"></div>
+                          <div class="custom-checkbox"
+                            ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.movementAgree.$error.required}">
+                          </div>
                           <span>
                             I hereby agree that my e-signature is required as a consent for the Liam Movement of Agent
                             Form
@@ -3379,7 +3311,8 @@
                           </label>
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
-                          <input id="commission" name="commission" ng-model="formParams.commission" type="checkbox" ng-true-value="1" ng-false-value="0">
+                          <input id="commission" name="commission" ng-model="formParams.commission" type="checkbox"
+                            ng-true-value="1" ng-false-value="0">
                           <label for="commission">
                             <div class="custom-checkbox"></div>
                             <span>Commission</span>
@@ -3391,7 +3324,8 @@
                   <div class="tabs margin-top-25 margin-bottom-45">
                     <!-- Applicant Information -->
                     <div class="tab">
-                      <input type="checkbox" id="applicantInformation" class="custom-check" ng-true-value="1" ng-false-value="0" checked>
+                      <input type="checkbox" id="applicantInformation" class="custom-check" ng-true-value="1"
+                        ng-false-value="0" checked>
                       <label class="tab-label" for="applicantInformation">Applicant Information</label>
                       <div class="tab-content custom-tab-content">
                         <h3>Applicant Information</h3>
@@ -3479,10 +3413,10 @@
                             <div class="form-group">
                               <input type="text" class="form-control-mcis" id="agencyName" name="agencyName"
                                 ng-model="formParams.agencyName" required>
-                                <span ng-show="formValidation && multiStepForm.agencyName.$error.required"
+                              <span ng-show="formValidation && multiStepForm.agencyName.$error.required"
                                 class="small text-danger">
-                                  Please enter Agency Name.
-                              </span>                                
+                                Please enter Agency Name.
+                              </span>
                             </div>
                           </div>
                           <div class="col-xs-12 col-md-2 pt-15">
@@ -3493,7 +3427,7 @@
                           <div class="col-xs-12 col-md-4 pt-15">
                             <div class="form-group">
                               <textarea class="form-control-mcis"
-                                ng-value="formParams.correspondenceAddress + ', ' + formParams.correspondenceAddress1 + ', ' + formParams.correspondenceAddress2 + ', ' + formParams.city + ', ' + formParams.state + ', ' + formParams.postcode + ', ' + formParams.country"
+                                ng-value="formParams.correspondenceAddress + ' ' + formParams.correspondenceAddress1 + ' ' + formParams.correspondenceAddress2 + ' ' + formParams.city + ' ' + formParams.state + ' ' + formParams.postcode + ' ' + formParams.country"
                                 disabled></textarea>
                             </div>
                           </div>
@@ -3515,7 +3449,8 @@
                     </div>
                     <!-- Group Life Insurance Benefit -->
                     <div class="tab">
-                      <input type="checkbox" id="groupLifeInsuranceTab" ng-true-value="1" ng-false-value="0" class="custom-check">
+                      <input type="checkbox" id="groupLifeInsuranceTab" ng-true-value="1" ng-false-value="0"
+                        class="custom-check">
                       <label class="tab-label" for="groupLifeInsuranceTab">Nominee(s) Information - Group Life Insurance
                         Benefit</label>
                       <div class="tab-content custom-tab-content">
@@ -3606,7 +3541,7 @@
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupShare1.$error.required"
                                       class="small text-danger">
-                                      This field is required
+                                      Please enter the Share (%).
                                     </span>
                                   </div>
                                 </div>
@@ -3738,13 +3673,15 @@
                                       <label for="nomineeGroupApplicantICCopy" class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeGroupApplicantICCopy" id="nomineeGroupApplicantICCopy"
-                                        ng-model="formParams.nomineeGroupApplicantICCopy" valid-file data-extension="'jpeg,png,pdf'"
+                                        ng-model="formParams.nomineeGroupApplicantICCopy" valid-file
+                                        data-extension="'jpeg,png,pdf'"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
-                                        <span ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
-                                          class="small text-danger">
-                                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
-                                        </span>                                            
+                                      <span
+                                        ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
+                                        class="small text-danger">
+                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                      </span>
                                     </div>
                                   </div>
                                 </div>
@@ -3755,15 +3692,15 @@
                                     <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeGroupICCopy" class="btn btn-default">BROWSE...</label>
-                                      <input type="file" class="form-control-mcis-file-input" 
-                                        name="nomineeGroupICCopy" id="nomineeGroupICCopy" 
-                                        ng-model="formParams.nomineeGroupICCopy" valid-file data-extension="'jpeg,png,pdf'"
+                                      <input type="file" class="form-control-mcis-file-input" name="nomineeGroupICCopy"
+                                        id="nomineeGroupICCopy" ng-model="formParams.nomineeGroupICCopy" valid-file
+                                        data-extension="'jpeg,png,pdf'"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
-                                        <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
-                                          class="small text-danger">
-                                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
-                                        </span>                                           
+                                      <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
+                                        class="small text-danger">
+                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                      </span>
                                     </div>
                                   </div>
                                 </div>
@@ -3775,7 +3712,8 @@
                     </div>
                     <!-- Agency Retirement Benefit -->
                     <div class="tab">
-                      <input type="checkbox" ng-true-value="1" ng-false-value="0" id="agencyRetirementBenefitTab" class="custom-check">
+                      <input type="checkbox" ng-true-value="1" ng-false-value="0" id="agencyRetirementBenefitTab"
+                        class="custom-check">
                       <label class="tab-label" for="agencyRetirementBenefitTab">Nominee Information - Agency Retirement
                         Benefit</label>
                       <div class="tab-content custom-tab-content">
@@ -3851,7 +3789,8 @@
                                   <div class="custom-inline">
                                     <span>Applicant IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="nomineeAgencyApplicantICCopy" class="btn btn-default">BROWSE...</label>
+                                      <label for="nomineeAgencyApplicantICCopy"
+                                        class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeAgencyApplicantICCopy" id="nomineeAgencyApplicantICCopy"
                                         ng-model="formParams.nomineeAgencyApplicantICCopy"
@@ -3880,7 +3819,8 @@
                     </div>
                     <!-- Commission-->
                     <div class="tab">
-                      <input type="checkbox" id="agencyNominationTab" ng-true-value="1" ng-false-value="0" class="custom-check">
+                      <input type="checkbox" id="agencyNominationTab" ng-true-value="1" ng-false-value="0"
+                        class="custom-check">
                       <label class="tab-label" for="agencyNominationTab">Nominee Information - Commission</label>
                       <div class="tab-content custom-tab-content">
                         <h3>Nominee Information - Commission</h3>
@@ -3956,7 +3896,8 @@
                                   <div class="custom-inline">
                                     <span>Applicant IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="nomineeCommissionApplicantICCopy" class="btn btn-default">BROWSE...</label>
+                                      <label for="nomineeCommissionApplicantICCopy"
+                                        class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeCommissionApplicantICCopy" id="nomineeCommissionApplicantICCopy"
                                         ng-model="formParams.nomineeCommissionApplicantICCopy"
@@ -3990,10 +3931,12 @@
                     <div class="col-xs-12 col-md-offset-3 col-md-6">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="nominationAgree" name="nominationAgree" type="checkbox"
-                        ng-model="formParams.nominationAgree" ng-true-value="1" ng-false-value="0"
-                        ng-required="!multiStepForm.nominationAgree.$viewValue">
+                          ng-model="formParams.nominationAgree" ng-true-value="1" ng-false-value="0"
+                          ng-required="!multiStepForm.nominationAgree.$viewValue">
                         <label for="nominationAgree">
-                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.nominationAgree.$error.required}"></div>
+                          <div class="custom-checkbox"
+                            ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.nominationAgree.$error.required}">
+                          </div>
                           <span>
                             I hereby agree that my e-signature is required as a consent for the nomination form
                           </span>
@@ -4004,11 +3947,11 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary" ng-click="triggerModal()"
-                      ng-disabled="!multiStepForm.nominationAgree.$viewValue">CLICK HERE TO SIGN AS
+                        ng-disabled="!multiStepForm.nominationAgree.$viewValue">CLICK HERE TO SIGN AS
                         WITNESS</button>
-                      <button type="button" class="btn btn-primary" ng-click="nextSection('section14')" ng-disabled="!formParams.esignFile">ACCEPT & CONTINUE</button>
-                      <button type="button" class="btn btn-default"
-                        ng-click="goBackNomination()">BACK</button>
+                      <button type="button" class="btn btn-primary" ng-click="nextSection('section14')"
+                        ng-disabled="!formParams.esignFile">ACCEPT & CONTINUE</button>
+                      <button type="button" class="btn btn-default" ng-click="goBackNomination()">BACK</button>
                     </div>
                   </div>
                 </div>
@@ -4086,12 +4029,14 @@
             </div>
           </div>
 
-          <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile" onchange="angular.element(this).scope().fileUploaded(event)">
+          <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile"
+            onchange="angular.element(this).scope().fileUploaded(event)">
           <input type="text" class="hidden" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
           <input type="text" class="hidden" id="esignName" name="esignName" ng-model="formParams.esignName">
           <!-- ng-model="formParams.esignFileUpload"> -->
 
-          <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw" ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)">
+          <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw"
+            ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)">
           <!-- <input type="file" class="hidden" id="applicantEsignFileUpload" name="applicantEsignFileUpload"
             ng-model="formParams.applicantEsignFileUpload"> -->
         </div>
@@ -4112,7 +4057,8 @@
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#witness-draw" aria-controls="draw" role="tab"
                     data-toggle="tab">Draw</a></li>
-                <li role="presentation"><a href="#witness-upload" aria-controls="upload" role="tab" data-toggle="tab">Upload</a>
+                <li role="presentation"><a href="#witness-upload" aria-controls="upload" role="tab"
+                    data-toggle="tab">Upload</a>
                 </li>
               </ul>
 
@@ -4128,7 +4074,8 @@
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <button type="button" class="btn btn-primary" ng-click="clearSignaturePad('signature-pad')">Clear</button>
+                          <button type="button" class="btn btn-primary"
+                            ng-click="clearSignaturePad('signature-pad')">Clear</button>
                         </div>
                       </div>
                     </div>
@@ -4137,7 +4084,8 @@
                 <div role="tabpanel" class="tab-pane" id="witness-upload">
                   <div class="signature-pad">
                     <label class="signature-pad--body upload-pad--body" dropzone input-binding="esignFile">
-                      {{ formParams.esignFile ? formParams.esignFile.name : 'Drag a file into this area or select a file (JPEG / JPG file only)'}}
+                      {{ formParams.esignFile ? formParams.esignFile.name : 'Drag a file into this area or select a file
+                      (JPEG / JPG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
@@ -4177,7 +4125,8 @@
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group">
                         <input type="text" class="form-control" id="esignNRIC" name="esignNRIC" maxlength="12"
-                          ng-model="formParams.esignNRIC" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          ng-model="formParams.esignNRIC"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                           ng-class="{'error': formModalValidation && subForm.esignNRIC.$error.required}" required>
                         <span ng-show="formModalValidation && subForm.esignNRIC.$error.required"
                           class="small text-danger">
@@ -4204,7 +4153,9 @@
                         <input id="codeOfEthicsAgreeEsign" name="codeOfEthicsAgreeEsign" type="checkbox"
                           ng-model="formParams.codeOfEthicsAgreeEsign" ng-true-value="1" ng-false-value="0" required>
                         <label for="codeOfEthicsAgreeEsign">
-                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formModalValidation && subForm.codeOfEthicsAgreeEsign.$error.required}"></div>
+                          <div class="custom-checkbox"
+                            ng-class="{'custom-checkbox-error' : formModalValidation && subForm.codeOfEthicsAgreeEsign.$error.required}">
+                          </div>
                           <span class="small">
                             By confirming the below, I agree that my electronic signature will be the representation of
                             my
@@ -4215,7 +4166,8 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.codeOfEthicsAgreeEsign" ng-click="confirmESign('signature-pad')">CONFIRM &
+                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.codeOfEthicsAgreeEsign"
+                      ng-click="confirmESign('signature-pad')">CONFIRM &
                       SUBMIT</button>
                   </div>
                 </div>
@@ -4256,7 +4208,8 @@
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <button type="button" class="btn btn-primary" ng-click="clearSignaturePad('applicant-signature-pad')">Clear</button>
+                          <button type="button" class="btn btn-primary"
+                            ng-click="clearSignaturePad('applicant-signature-pad')">Clear</button>
                         </div>
                       </div>
                     </div>
@@ -4265,7 +4218,8 @@
                 <div role="tabpanel" class="tab-pane" id="upload">
                   <div class="signature-pad">
                     <label class="signature-pad--body upload-pad--body" dropzone input-binding="applicantEsigndraw">
-                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this area or select a file (JPEG / JPG file only)'}}
+                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this
+                      area or select a file (JPEG / JPG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
@@ -4320,7 +4274,9 @@
                         <input id="applicantAgreeEsign" name="applicantAgreeEsign" type="checkbox"
                           ng-model="formParams.applicantAgreeEsign" ng-true-value="1" ng-false-value="0">
                         <label for="applicantAgreeEsign">
-                          <div class="custom-checkbox" ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.codeOfEthicsAgreeEsign.$error.required}"></div>
+                          <div class="custom-checkbox"
+                            ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.codeOfEthicsAgreeEsign.$error.required}">
+                          </div>
                           <span class="small">
                             By confirming the below, I agree that my electronic signature will be the representation of
                             my
@@ -4331,7 +4287,8 @@
                     </div>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.applicantAgreeEsign" ng-click="confirmESign('applicant-signature-pad')">CONFIRM &
+                    <button type="button" class="btn btn-primary" ng-disabled="!formParams.applicantAgreeEsign"
+                      ng-click="confirmESign('applicant-signature-pad')">CONFIRM &
                       SUBMIT</button>
                   </div>
                 </div>
