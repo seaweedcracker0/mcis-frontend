@@ -1355,7 +1355,7 @@
                         </div>
                         <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.format"
                           class="small text-danger">
-                          Please upload in PDF, JPG or JPEG format only.
+                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
                         </span>
                       </div>
                     </div>
@@ -1502,7 +1502,7 @@
                             ng-required="multiStepForm.ceilli.$viewValue">                            
                             <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
                               class="small text-danger">
-                              Please upload in PDF, JPG or JPEG format only.
+                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
                             </span>
                         </div>
                       </div>
@@ -1640,7 +1640,7 @@
                             valid-file data-extension="'jpeg,png,pdf'">
                             <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
                               class="small text-danger">
-                              Please upload in PDF, JPG or JPEG format only.
+                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
                             </span>
                         </div>
                       </div>
@@ -1777,7 +1777,7 @@
                             ng-required="multiStepForm.rfp.$viewValue">
                             <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
                               class="small text-danger">
-                              Please upload in PDF, JPG or JPEG format only.
+                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
                             </span>                            
                         </div>
                       </div>
@@ -1919,7 +1919,7 @@
                             ng-required="multiStepForm.others.$viewValue">
                             <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
                               class="small text-danger">
-                              Please upload in PDF, JPG or JPEG format only.
+                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
                             </span>                              
                         </div>
                       </div>
@@ -3206,7 +3206,7 @@
                               id="registLetterCopy" ng-model="formParams.registLetterCopy" required valid-file data-extension="'jpeg,png,pdf'">
                               <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
                                 class="small text-danger">
-                                Please upload in PDF, JPG or JPEG format only.
+                                Invalid file format. Please upload in PDF, JPG or JPEG format only.
                               </span>                              
                           </div>
                         </div>
@@ -3742,7 +3742,7 @@
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
                                           class="small text-danger">
-                                          Please upload in PDF, JPG or JPEG format only.
+                                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
                                         </span>                                            
                                     </div>
                                   </div>
@@ -3761,7 +3761,7 @@
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
                                           class="small text-danger">
-                                          Please upload in PDF, JPG or JPEG format only.
+                                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
                                         </span>                                           
                                     </div>
                                   </div>
@@ -4136,7 +4136,7 @@
                 <div role="tabpanel" class="tab-pane" id="witness-upload">
                   <div class="signature-pad">
                     <label class="signature-pad--body upload-pad--body" dropzone input-binding="esignFile">
-                      {{ formParams.esignFile ? formParams.esignFile.name : 'Drag a file into this area or select a file'}}
+                      {{ formParams.esignFile ? formParams.esignFile.name : 'Drag a file into this area or select a file (JPEG / JPG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
@@ -4162,7 +4162,7 @@
                           ng-class="{'error': formModalValidation && subForm.esignName.$error.required}" required>
                         <span ng-show="formModalValidation && subForm.esignName.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please enter your name as per NRIC.
                         </span>
                       </div>
                     </div>
@@ -4180,7 +4180,7 @@
                           ng-class="{'error': formModalValidation && subForm.esignNRIC.$error.required}" required>
                         <span ng-show="formModalValidation && subForm.esignNRIC.$error.required"
                           class="small text-danger">
-                          This field is required
+                          Please enter your NRIC number.
                         </span>
                       </div>
                     </div>
@@ -4264,7 +4264,7 @@
                 <div role="tabpanel" class="tab-pane" id="upload">
                   <div class="signature-pad">
                     <label class="signature-pad--body upload-pad--body" dropzone input-binding="applicantEsigndraw">
-                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this area or select a file'}}
+                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this area or select a file (JPEG / JPG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
