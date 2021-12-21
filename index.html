@@ -3409,7 +3409,7 @@
                           <div class="col-xs-12 col-md-4 pt-15">
                             <div class="form-group">
                               <textarea class="form-control-mcis"
-                                ng-value="formParams.correspondenceAddress + ' ' + formParams.correspondenceAddress1 + ' ' + formParams.correspondenceAddress2 + ' ' + formParams.city + ' ' + formParams.state + ' ' + formParams.postcode + ' ' + formParams.country"
+                                ng-value="formParams.correspondenceAddress + (formParams.correspondenceAddress1 ? (' ' + formParams.correspondenceAddress1) : '') + (formParams.correspondenceAddress2 ? (' ' + formParams.correspondenceAddress2) : '') + ' ' + formParams.city + ' ' + formParams.state + ' ' + formParams.postcode + ' ' + formParams.country"
                                 disabled></textarea>
                             </div>
                           </div>
