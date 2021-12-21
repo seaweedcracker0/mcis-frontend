@@ -228,15 +228,16 @@ $scope.formParams = {};
 $scope.stage = "";
 }
 
-$scope.textChanged = function(nric, type) {
+$scope.textChanged = function(nric, type, obj) {
     if (type == 'personal'){
-        if (nric.length >= inputMin) $scope.getICInfo(nric);
+        obj.$setValidity("notYet18", true);
+        if (nric?.length >= inputMin) $scope.getICInfo(nric, obj);
     }else if (type == 'spouse'){
-        if (nric.length >= inputMin) $scope.getSpouseICInfo(nric);
+        if (nric?.length >= inputMin) $scope.getSpouseICInfo(nric);
     }
 };
 
-$scope.getICInfo = function(nric) {
+$scope.getICInfo = function(nric, obj) {
     $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'F' : 'M';
     var dob = moment(nric.substring(0, 6), 'YYMMDD');
     if (dob.isValid() && dob.isAfter(moment())) {
@@ -244,10 +245,15 @@ $scope.getICInfo = function(nric) {
     }
 
     if (dob.isValid()){
-        console.log(dob);
-        $scope.formParams.personalDobDate = dob.format('DD');
-        $scope.formParams.personalDobMonth = dob.format('MM');
-        $scope.formParams.personalDobYear = dob.format('YYYY');            
+        let year =  dob.format('YYYY');
+        if(($scope.currDateObj.getFullYear() - 18) >= Number.parseInt(year)) {
+            $scope.formParams.personalDobDate = dob.format('DD');
+            $scope.formParams.personalDobMonth = dob.format('MM');    
+            $scope.formParams.personalDobYear = year;
+        }     
+        else {
+            obj.$setValidity("notYet18", false);
+        }
     }
 }
 

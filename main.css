@@ -377,6 +377,10 @@ canvas {
   /* min-width: 200px; */
 }
 
+.custom-inline-form .form-group {
+  margin-bottom: 20px;
+}
+
 .custom-inline-form > span > * {
   margin-bottom: 15px;
   margin-left: 15px;
@@ -409,7 +413,9 @@ canvas {
   position: absolute;
   width: 20px;
   height: 20px;
+  top: 50%;
   left: 0;
+  transform: translateY(-50%)
 }
 .custom-checkbox-mcis label .custom-checkbox.custom-checkbox-error {
   border-color: #f44b53;
@@ -418,8 +424,9 @@ canvas {
 .custom-checkbox-mcis label::before {
   content: "";
   position: absolute;
+  top: 50%;
   left: 10px;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: #00386c;
 }
 
@@ -428,7 +435,7 @@ canvas {
 }
 
 .custom-checkbox-mcis label span {
-  padding-left: 1rem;
+  padding-left: 2rem;
 }
 
 .custom-inline {
@@ -490,7 +497,7 @@ label {
 .agreement-section .scrollable-section{
   max-height: 35vh;
   overflow-y: scroll;
-  background-color: #dcdcdc;
+  background-color: #f4f4f4;
   padding: 4px 10px 4px 8px;
 }
 
