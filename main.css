@@ -472,6 +472,11 @@ label {
 
 .form-group:not(.custom-mcis-file-input) label {
   /* transform: translateY(50%); */
+  /* white-space: nowrap; */
+} 
+
+.form-group:not(.custom-mcis-file-input) label.one-line {
+  white-space: nowrap;
 } 
 
 .width-100 {
