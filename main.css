@@ -349,6 +349,10 @@ canvas {
   transform: translateY(-50%);
 }
 
+.custom-mcis-file-input .form-control-mcis-file-input span{
+  display: block;
+}
+
 .employment-history-wrapper {
   padding-top: 10rem;
   padding-bottom: 10rem;
@@ -401,7 +405,8 @@ canvas {
 }
 
 .custom-checkbox-mcis label{
-  position: relative
+  position: relative;
+  padding-left: 40px;
 }
 
 .custom-checkbox-mcis input {
@@ -435,7 +440,7 @@ canvas {
 }
 
 .custom-checkbox-mcis label span {
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
 }
 
 .custom-inline {

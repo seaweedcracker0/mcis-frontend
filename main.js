@@ -51,6 +51,7 @@ return {
             //     ngModel.$setTouched();
             //     ngModel.$setViewValue('');
             // }
+            // console.log(extensions, fileExt)
             if (scope.extension && extensions.indexOf(fileExt) == -1) {
                 ngModel.$setValidity('format', false);
                 ngModel.$setTouched();
@@ -59,6 +60,8 @@ return {
 
             ngModel.$render();
         });
+
+        el.val(null)
     });
     }
 }
@@ -168,7 +171,7 @@ $scope.goBackLandingFn = function() {
 
 $scope.nextSection = function(section) {
     $scope.formValidation = true;
-    // console.log($scope.multiStepForm)
+    // console.log($scope.multiStepForm, $scope.formParams)
 
     if ($scope.multiStepForm.$valid) {
         $scope.direction = 1;

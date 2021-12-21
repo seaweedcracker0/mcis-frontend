@@ -1308,6 +1308,7 @@
                             ng-class="{'custom-upload-error-mcis': formValidation && multiStepForm.pcePcilCert.$error.required}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="pcePcilCert" id="pcePcilCert"
                             required valid-file data-extension="'jpeg,jpg,pdf'" ng-model="formParams.pcePcilCert">
+                          <span>{{formParams.pcePcilCert.name}}</span>
                         </div>
                         <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.format"
                           class="small text-danger">
@@ -1448,6 +1449,7 @@
                           <input type="file" class="form-control-mcis-file-input" name="ceilliCert" id="ceilliCert"
                             ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,jpg,pdf'"
                             ng-required="multiStepForm.ceilli.$viewValue">
+                          <span>{{formParams.ceilliCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -1577,6 +1579,7 @@
                           <input type="file" class="form-control-mcis-file-input" name="bamcCert" id="bamcCert"
                             ng-model="formParams.bamcCert" ng-required="multiStepForm.bamc.$viewValue" valid-file
                             data-extension="'jpeg,jpg,pdf'">
+                          <span>{{formParams.bamcCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -1706,6 +1709,7 @@
                           <input type="file" class="form-control-mcis-file-input" name="rfpCert" id="rfpCert"
                             ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,jpg,pdf'"
                             ng-required="multiStepForm.rfp.$viewValue">
+                          <span>{{formParams.rfpCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -1841,6 +1845,7 @@
                           <input type="file" class="form-control-mcis-file-input" name="othersCert" id="othersCert"
                             ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf'"
                             ng-required="multiStepForm.others.$viewValue">
+                          <span>{{formParams.othersCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -2853,7 +2858,8 @@
                           on
                           <div class="form-group">
                             <select name="cffDeclareDate" id="cffDeclareDate" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareDate" required>
+                              ng-model="formParams.cffDeclareDate" 
+                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareDate.$error.required}" required>
                               <option value="">Date</option>
                               <option value="01">01</option>
                               <option value="02">02</option>
@@ -2890,7 +2896,8 @@
                           </div>
                           <div class="form-group">
                             <select name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareMonth" required>
+                              ng-model="formParams.cffDeclareMonth" 
+                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareMonth.$error.required}" required>
                               <option value="">Month</option>
                               <option value="1">January</option>
                               <option value="2">February</option>
@@ -2908,7 +2915,8 @@
                           </div>
                           <div class="form-group">
                             <select name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareYear" required>
+                              ng-model="formParams.cffDeclareYear" 
+                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareYear.$error.required}" required>
                               <option value="">Year</option>
                               <option value="2022">2022</option>
                               <option value="2021">2021</option>
@@ -2942,7 +2950,7 @@
 
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="cffAgree" name="cffAgree" type="checkbox" ng-model="formParams.cffAgree"
                           ng-true-value="1" ng-false-value="0" ng-required="!multiStepForm.cffAgree.$viewValue">
@@ -3094,6 +3102,7 @@
                             <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
                               id="registLetterCopy" ng-model="formParams.registLetterCopy" required valid-file
                               data-extension="'jpeg,png,pdf'">
+                            <span>{{formParams.registLetterCopy.name}}</span>
                             <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
                               class="small text-danger">
                               Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -3655,6 +3664,7 @@
                                         data-extension="'jpeg,png,pdf'"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
+                                      <span>{{formParams.nomineeGroupApplicantICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
                                         class="small text-danger">
@@ -3677,6 +3687,7 @@
                                         data-extension="'jpeg,png,pdf'"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
+                                      <span>{{formParams.nomineeGroupICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -3797,6 +3808,7 @@
                                         ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
                                         ng-required="multiStepForm.agencyBenefit.$viewValue" valid-file
                                         data-extension="'jpeg,png,pdf'">
+                                      <span>{{formParams.nomineeAgencyApplicantICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.format"
                                         class="small text-danger">
@@ -3818,6 +3830,7 @@
                                         ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
                                         ng-required="multiStepForm.agencyBenefit.$viewValue" valid-file
                                         data-extension="'jpeg,png,pdf'">
+                                      <span>{{formParams.nomineeAgencyICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -3940,6 +3953,7 @@
                                         data-extension="'jpeg,png,pdf'"
                                         ng-required="multiStepForm.commission.$viewValue"
                                         ng-disabled="!multiStepForm.commission.$viewValue">
+                                      <span>{{formParams.nomineeCommissionApplicantICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.format"
                                         class="small text-danger">
@@ -3962,6 +3976,7 @@
                                         ng-required="multiStepForm.commission.$viewValue"
                                         ng-disabled="!multiStepForm.commission.$viewValue" valid-file
                                         data-extension="'jpeg,png,pdf'">
+                                      <span>{{formParams.nomineeCommissionICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.format"
                                         class="small text-danger">
@@ -3979,7 +3994,7 @@
                   </div>
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="nominationAgree" name="nominationAgree" type="checkbox"
                           ng-model="formParams.nominationAgree" ng-true-value="1" ng-false-value="0"
