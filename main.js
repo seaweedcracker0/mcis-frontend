@@ -51,6 +51,7 @@ return {
             //     ngModel.$setTouched();
             //     ngModel.$setViewValue('');
             // }
+            // console.log(extensions, fileExt)
             if (scope.extension && extensions.indexOf(fileExt) == -1) {
                 ngModel.$setValidity('format', false);
                 ngModel.$setTouched();
@@ -59,6 +60,8 @@ return {
 
             ngModel.$render();
         });
+
+        el.val(null)
     });
     }
 }
@@ -168,7 +171,7 @@ $scope.goBackLandingFn = function() {
 
 $scope.nextSection = function(section) {
     $scope.formValidation = true;
-    // console.log($scope.multiStepForm)
+    // console.log($scope.multiStepForm, $scope.formParams)
 
     if ($scope.multiStepForm.$valid) {
         $scope.direction = 1;
@@ -440,8 +443,27 @@ $scope.confirmESign = function(id) {
 }
 
 $scope.fileUploaded = function(ev) {
-    $scope.formParams[ev.target.name] = ev.target.files[0]
-    $scope.$apply()
+    // console.log(ev)
+    let elem = ev.target
+    var files = elem.files[0];
+    var fileExt = files.name.slice((files.name.lastIndexOf(".") - 1 >>> 0) + 2);
+    fileExt = fileExt.toLowerCase();
+    var extensions = elem.dataset?.extension ? elem.dataset?.extension.split(',') : [];
+
+    // Convert all format string to Lower case and compare.
+    if (extensions.length > 0){
+        for (i = 0; i < extensions.length; i++) {
+          extensions[i] = extensions[i].toLowerCase();
+        }
+    }
+    // console.log(extensions, fileExt)
+    if (extensions && extensions.indexOf(fileExt) == -1) {
+        alert("Invalid file format. Please upload in PDF, JPG or JPEG format only.");
+    }            
+    else {
+        $scope.formParams[ev.target.name] = ev.target.files[0]
+        $scope.$apply()
+    }
 }
 
 $scope.noEmployed = function() {

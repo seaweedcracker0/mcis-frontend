@@ -249,7 +249,7 @@
                       <div class="form-group">
                         <input type="text" class="form-control-mcis uppercase" id="nameNric" name="nameNric"
                           ng-minlength="2" ng-model="formParams.nameNric"
-                          ng-class="{'error': formValidation && multiStepForm.nameNric.$error.required}" required
+                          ng-class="{'error': formValidation && !multiStepForm.nameNric.$valid}" required
                           oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
                         <span ng-show="formValidation && multiStepForm.nameNric.$error.required"
                           class="small text-danger">
@@ -481,7 +481,7 @@
                         <label for="city">City <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group">
                         <input type="text" class="form-control-mcis" id="city" name="city" ng-model="formParams.city"
                           ng-class="{'error': formValidation && multiStepForm.city.$error.required}" maxlength="30"
@@ -491,12 +491,12 @@
                         </span>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-2 inblock-top">
+                    <div class="col-xs-12 col-md-1 inblock-top">
                       <div class="form-group">
-                        <label for="postcode">Postcode <span class="text-danger">*</span></label>
+                        <label for="postcode" class="one-line">Postcode <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group">
                         <input type="text" class="form-control-mcis" id="postcode" name="postcode"
                           ng-model="formParams.postcode" maxlength="5" ng-minlength="5"
@@ -522,7 +522,7 @@
                         <label for="state">State <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group margin-bottom-20">
                         <select name="state" id="state" class="form-control-mcis selectpicker"
                           ng-model="formParams.state"
@@ -550,12 +550,12 @@
                         </span>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-2 inblock-top">
+                    <div class="col-xs-12 col-md-1 inblock-top">
                       <div class="form-group">
                         <label for="country">Country <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group margin-bottom-20">
                         <select name="country" id="country" class="form-control-mcis selectpicker"
                           ng-model="formParams.country"
@@ -1090,7 +1090,7 @@
                   <div class="row">
                     <div class="col-xs-12 col-md-3 inblock-top">
                       <div class="form-group">
-                        <label for="relationshipLeader">Relationship with the Immediate Leader <span
+                        <label for="relationshipLeader" class="one-line">Relationship with the Immediate Leader <span
                             class="text-danger">*</span></label>
                       </div>
                     </div>
@@ -1307,7 +1307,8 @@
                           <label for="pcePcilCert" class="btn btn-default"
                             ng-class="{'custom-upload-error-mcis': formValidation && multiStepForm.pcePcilCert.$error.required}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="pcePcilCert" id="pcePcilCert"
-                            required valid-file data-extension="'jpeg,png,pdf'" ng-model="formParams.pcePcilCert">
+                            required valid-file data-extension="'jpeg,jpg,pdf,png'" ng-model="formParams.pcePcilCert">
+                          <span>{{formParams.pcePcilCert.name}}</span>
                         </div>
                         <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.format"
                           class="small text-danger">
@@ -1446,8 +1447,9 @@
                           <label for="ceilliCert" class="btn btn-default"
                             ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.ceilliCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="ceilliCert" id="ceilliCert"
-                            ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,png,pdf'"
+                            ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,jpg,pdf,png'"
                             ng-required="multiStepForm.ceilli.$viewValue">
+                          <span>{{formParams.ceilliCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -1576,7 +1578,8 @@
                             ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.bamcCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="bamcCert" id="bamcCert"
                             ng-model="formParams.bamcCert" ng-required="multiStepForm.bamc.$viewValue" valid-file
-                            data-extension="'jpeg,png,pdf'">
+                            data-extension="'jpeg,jpg,pdf,png'">
+                          <span>{{formParams.bamcCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -1704,8 +1707,9 @@
                           <label for="rfpCert" class="btn btn-default"
                             ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.rfpCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="rfpCert" id="rfpCert"
-                            ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,png,pdf'"
+                            ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,jpg,pdf,png'"
                             ng-required="multiStepForm.rfp.$viewValue">
+                          <span>{{formParams.rfpCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -1839,8 +1843,9 @@
                           <label for="othersCert" class="btn btn-default"
                             ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.othersCert.$error.required)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="othersCert" id="othersCert"
-                            ng-model="formParams.othersCert" valid-file data-extension="'jpeg,png,pdf'"
+                            ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf,png'"
                             ng-required="multiStepForm.others.$viewValue">
+                          <span>{{formParams.othersCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -2853,7 +2858,8 @@
                           on
                           <div class="form-group">
                             <select name="cffDeclareDate" id="cffDeclareDate" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareDate" required>
+                              ng-model="formParams.cffDeclareDate" 
+                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareDate.$error.required}" required>
                               <option value="">Date</option>
                               <option value="01">01</option>
                               <option value="02">02</option>
@@ -2890,7 +2896,8 @@
                           </div>
                           <div class="form-group">
                             <select name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareMonth" required>
+                              ng-model="formParams.cffDeclareMonth" 
+                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareMonth.$error.required}" required>
                               <option value="">Month</option>
                               <option value="1">January</option>
                               <option value="2">February</option>
@@ -2908,7 +2915,8 @@
                           </div>
                           <div class="form-group">
                             <select name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareYear" required>
+                              ng-model="formParams.cffDeclareYear" 
+                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareYear.$error.required}" required>
                               <option value="">Year</option>
                               <option value="2022">2022</option>
                               <option value="2021">2021</option>
@@ -2942,7 +2950,7 @@
 
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="cffAgree" name="cffAgree" type="checkbox" ng-model="formParams.cffAgree"
                           ng-true-value="1" ng-false-value="0" ng-required="!multiStepForm.cffAgree.$viewValue">
@@ -3094,6 +3102,7 @@
                             <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
                               id="registLetterCopy" ng-model="formParams.registLetterCopy" required valid-file
                               data-extension="'jpeg,png,pdf'">
+                            <span>{{formParams.registLetterCopy.name}}</span>
                             <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
                               class="small text-danger">
                               Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -3400,7 +3409,7 @@
                           <div class="col-xs-12 col-md-4 pt-15">
                             <div class="form-group">
                               <textarea class="form-control-mcis"
-                                ng-value="formParams.correspondenceAddress + ' ' + formParams.correspondenceAddress1 + ' ' + formParams.correspondenceAddress2 + ' ' + formParams.city + ' ' + formParams.state + ' ' + formParams.postcode + ' ' + formParams.country"
+                                ng-value="formParams.correspondenceAddress + (formParams.correspondenceAddress1 ? (' ' + formParams.correspondenceAddress1) : '') + (formParams.correspondenceAddress2 ? (' ' + formParams.correspondenceAddress2) : '') + ' ' + formParams.city + ' ' + formParams.state + ' ' + formParams.postcode + ' ' + formParams.country"
                                 disabled></textarea>
                             </div>
                           </div>
@@ -3647,14 +3656,15 @@
                                   <div class="custom-inline">
                                     <span>Applicant IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="nomineeGroupApplicantICCopy" class="btn btn-default">BROWSE...</label>
+                                      <label for="nomineeGroupApplicantICCopy" class="btn btn-default"
+                                      ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupApplicantICCopy.$error.format || multiStepForm.nomineeGroupApplicantICCopy.$error.required)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupApplicantICCopy.$error.format || multiStepForm.nomineeGroupApplicantICCopy.$error.required)}"
                                         name="nomineeGroupApplicantICCopy" id="nomineeGroupApplicantICCopy"
                                         ng-model="formParams.nomineeGroupApplicantICCopy" valid-file
-                                        data-extension="'jpeg,png,pdf'"
+                                        data-extension="'jpeg,jpg,pdf,png'"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
+                                      <span>{{formParams.nomineeGroupApplicantICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
                                         class="small text-danger">
@@ -3669,14 +3679,15 @@
                                   <div class="custom-inline margin-top-20">
                                     <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="nomineeGroupICCopy" class="btn btn-default">BROWSE...</label>
+                                      <label for="nomineeGroupICCopy" class="btn btn-default"
+                                      ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupICCopy.$error.format || multiStepForm.nomineeGroupICCopy.$error.required)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input" name="nomineeGroupICCopy"
                                         id="nomineeGroupICCopy"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupICCopy.$error.format || multiStepForm.nomineeGroupICCopy.$error.required)}"
                                         ng-model="formParams.nomineeGroupICCopy" valid-file
-                                        data-extension="'jpeg,png,pdf'"
+                                        data-extension="'jpeg,jpg,pdf,png'"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
+                                      <span>{{formParams.nomineeGroupICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -3796,7 +3807,8 @@
                                         ng-model="formParams.nomineeAgencyApplicantICCopy"
                                         ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
                                         ng-required="multiStepForm.agencyBenefit.$viewValue" valid-file
-                                        data-extension="'jpeg,png,pdf'">
+                                        data-extension="'jpeg,jpg,pdf,png'">
+                                      <span>{{formParams.nomineeAgencyApplicantICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.format"
                                         class="small text-danger">
@@ -3817,7 +3829,8 @@
                                         id="nomineeAgencyICCopy" ng-model="formParams.nomineeAgencyICCopy"
                                         ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
                                         ng-required="multiStepForm.agencyBenefit.$viewValue" valid-file
-                                        data-extension="'jpeg,png,pdf'">
+                                        data-extension="'jpeg,jpg,pdf,png'">
+                                      <span>{{formParams.nomineeAgencyICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, JPG or JPEG format only.
@@ -3937,9 +3950,10 @@
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeCommissionApplicantICCopy" id="nomineeCommissionApplicantICCopy"
                                         ng-model="formParams.nomineeCommissionApplicantICCopy" valid-file
-                                        data-extension="'jpeg,png,pdf'"
+                                        data-extension="'jpeg,jpg,pdf,png'"
                                         ng-required="multiStepForm.commission.$viewValue"
                                         ng-disabled="!multiStepForm.commission.$viewValue">
+                                      <span>{{formParams.nomineeCommissionApplicantICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.format"
                                         class="small text-danger">
@@ -3961,7 +3975,8 @@
                                         ng-model="formParams.nomineeCommissionICCopy"
                                         ng-required="multiStepForm.commission.$viewValue"
                                         ng-disabled="!multiStepForm.commission.$viewValue" valid-file
-                                        data-extension="'jpeg,png,pdf'">
+                                        data-extension="'jpeg,jpg,pdf,png'">
+                                      <span>{{formParams.nomineeCommissionICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.format"
                                         class="small text-danger">
@@ -3979,7 +3994,7 @@
                   </div>
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="nominationAgree" name="nominationAgree" type="checkbox"
                           ng-model="formParams.nominationAgree" ng-true-value="1" ng-false-value="0"
@@ -4081,15 +4096,13 @@
           </div>
 
           <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile"
-            onchange="angular.element(this).scope().fileUploaded(event)">
+            onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png">
           <input type="text" class="hidden" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
           <input type="text" class="hidden" id="esignName" name="esignName" ng-model="formParams.esignName">
-          <!-- ng-model="formParams.esignFileUpload"> -->
 
           <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw"
-            ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)">
-          <!-- <input type="file" class="hidden" id="applicantEsignFileUpload" name="applicantEsignFileUpload"
-            ng-model="formParams.applicantEsignFileUpload"> -->
+            ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)"
+            data-extension="jpeg,jpg,png">
         </div>
       </form>
     </div>
@@ -4158,12 +4171,16 @@
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group">
                         <input type="text" class="form-control uppercase" id="esignName" name="esignName"
-                          ng-model="formParams.esignName"
-                          ng-class="{'error': formModalValidation && subForm.esignName.$error.required}"
+                          ng-minlength="2" ng-model="formParams.esignName"
+                          ng-class="{'error': formModalValidation && !subForm.esignName.$valid}"
                           oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')" required>
                         <span ng-show="formModalValidation && subForm.esignName.$error.required"
                           class="small text-danger">
                           Please enter your name as per NRIC.
+                        </span>
+                        <span ng-show="formModalValidation && subForm.esignName.$error.minlength"
+                          class="small text-danger">
+                          Your name must be at least 2 characters
                         </span>
                       </div>
                     </div>
@@ -4176,13 +4193,16 @@
                     </div>
                     <div class="col-xs-12 col-md-5 inblock-top">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="esignNRIC" name="esignNRIC" maxlength="12"
-                          ng-model="formParams.esignNRIC"
+                        <input type="text" class="form-control" id="esignNRIC"
                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                          ng-class="{'error': formModalValidation && subForm.esignNRIC.$error.required}" required>
+                          maxlength="12" name="esignNRIC" ng-model="formParams.esignNRIC" ng-minlength="12"
+                          ng-class="{'error': formModalValidation && !subForm.esignNRIC.$valid}" required>
                         <span ng-show="formModalValidation && subForm.esignNRIC.$error.required"
                           class="small text-danger">
-                          Please enter your NRIC number.
+                          Please enter 12 digits NRIC number
+                        </span>
+                        <span ng-show="formModalValidation && subForm.esignNRIC.$error.minlength" class="small text-danger">
+                          Please enter 12 digits NRIC number
                         </span>
                       </div>
                     </div>
