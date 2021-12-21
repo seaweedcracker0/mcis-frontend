@@ -109,6 +109,13 @@ $scope.skipEmploymentHistory = false;
 $scope.skipContracted = false;
 var inputMin = 12;
 
+$scope.nricYear = []
+
+let years18BeforeNow = ($scope.currDateObj.getFullYear() - 18)
+for(let i = 0; i < 100; i++) {
+    $scope.nricYear.push(years18BeforeNow - i);
+}
+
 $scope.signaturePadObj = {}
 
 $scope.triggerModal = function() {
