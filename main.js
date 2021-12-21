@@ -109,6 +109,13 @@ $scope.skipEmploymentHistory = false;
 $scope.skipContracted = false;
 var inputMin = 12;
 
+$scope.nricYear = []
+
+let years18BeforeNow = ($scope.currDateObj.getFullYear() - 18)
+for(let i = 0; i < 100; i++) {
+    $scope.nricYear.push(years18BeforeNow - i);
+}
+
 $scope.signaturePadObj = {}
 
 $scope.triggerModal = function() {
@@ -228,14 +235,23 @@ $scope.formParams = {};
 $scope.stage = "";
 }
 
-$scope.textChanged = function(nric, type, obj) {
+$scope.textChanged = function(value, type, obj) {
     if (type == 'personal'){
         obj.$setValidity("notYet18", true);
-        if (nric?.length >= inputMin) $scope.getICInfo(nric, obj);
+        if (value?.length >= inputMin) $scope.getICInfo(value, obj);
     }else if (type == 'spouse'){
-        if (nric?.length >= inputMin) $scope.getSpouseICInfo(nric);
+        if (value?.length >= inputMin) $scope.getSpouseICInfo(value);
+    }else if (type == 'phone') {
+        obj.$setValidity("prefixNot0", true);
+        if (value) $scope.checkPrefix(value, obj);
     }
 };
+
+$scope.checkPrefix = function(prefix, obj) {
+    if(prefix[0] != "0") {
+        obj.$setValidity("prefixNot0", false);
+    }
+}
 
 $scope.getICInfo = function(nric, obj) {
     $scope.formParams.gender = Number(nric.substring(11, 12)) % 2 == 0 ? 'F' : 'M';
