@@ -463,7 +463,7 @@ canvas {
   margin: 0 1.75rem;
 }
 
-.custom-upload-error-mcis {
+.btn.gray.custom-upload-error-mcis {
   border-color: #f44b53;
 }
 
