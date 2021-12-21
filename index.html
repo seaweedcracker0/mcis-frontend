@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="erecruit-form-container" ng-controller="formController"
-    ng-style="stagePdpa && {'background-color': '#dcdcdc'}">
+    ng-style="stagePdpa && {'background-color': '#f4f4f4'}">
     <div class="margin-bottom-25 page-title" ng-if="stagePolicy && section != 'section14'">
       <h3 ng-if="stage == 'stage1'">Agent Application</h3>
       <h3 ng-if="stage == 'stage2'">Liam Code of Ethics and Conduct</h3>
@@ -249,7 +249,8 @@
                       <div class="form-group">
                         <input type="text" class="form-control-mcis uppercase" id="nameNric" name="nameNric"
                           ng-minlength="2" ng-model="formParams.nameNric"
-                          ng-class="{'error': formValidation && multiStepForm.nameNric.$error.required}" required>
+                          ng-class="{'error': formValidation && multiStepForm.nameNric.$error.required}" required
+                          oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
                         <span ng-show="formValidation && multiStepForm.nameNric.$error.required"
                           class="small text-danger">
                           Please enter name as per NRIC
@@ -274,13 +275,16 @@
                         <input type="text" class="form-control-mcis" id="nric"
                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                           maxlength="12" name="nric" ng-model="formParams.nric" ng-minlength="12"
-                          ng-change="textChanged(formParams.nric, 'personal')"
-                          ng-class="{'input-error': formValidation && multiStepForm.nric.$error.required}" required>
+                          ng-change="textChanged(formParams.nric, 'personal', multiStepForm.nric)"
+                          ng-class="{'error': formValidation && !multiStepForm.nric.$valid}" required>
                         <span ng-show="formValidation && multiStepForm.nric.$error.required" class="small text-danger">
                           Please enter 12 digits NRIC number.
                         </span>
                         <span ng-show="formValidation && multiStepForm.nric.$error.minlength" class="small text-danger">
                           Please enter 12 digits NRIC number
+                        </span>
+                        <span ng-show="formValidation && multiStepForm.nric.$error.notYet18" class="small text-danger">
+                          Minimum age to apply is 18 years old.
                         </span>
                       </div>
                     </div>
@@ -786,10 +790,11 @@
                           <input type="text" class="form-control-mcis uppercase" id="spouseNameNric"
                             name="spouseNameNric" ng-model="formParams.spouseNameNric"
                             ng-class="{'error': formValidation && multiStepForm.spouseNameNric.$error.required}"
-                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
+                            ng-required="multiStepForm.maritalStatus.$viewValue == '2'"
+                            oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')">
                           <span ng-show="formValidation && multiStepForm.spouseNameNric.$error.required"
                             class="small text-danger">
-                            This field is required
+                            Please enter name as per NRIC.
                           </span>
                         </div>
                       </div>
@@ -811,7 +816,7 @@
                             ng-required="multiStepForm.maritalStatus.$viewValue == '2'">
                           <span ng-show="formValidation && multiStepForm.spouseNricNo.$error.required"
                             class="small text-danger">
-                            This field is required
+                            Please enter 12 digits NRIC number.
                           </span>
                         </div>
                       </div>
@@ -2810,7 +2815,7 @@
 
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-4 col-md-5">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox"
                           ng-model="formParams.codeOfEthicsAgree" ng-true-value="1" ng-false-value="0"
@@ -2889,7 +2894,7 @@
                           on
                           <div class="form-group">
                             <select name="cffDeclareDate" id="cffDeclareDate" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareDate">
+                              ng-model="formParams.cffDeclareDate" required>
                               <option value="">Date</option>
                               <option value="01">01</option>
                               <option value="02">02</option>
@@ -2926,7 +2931,7 @@
                           </div>
                           <div class="form-group">
                             <select name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareMonth">
+                              ng-model="formParams.cffDeclareMonth" required>
                               <option value="">Month</option>
                               <option value="1">January</option>
                               <option value="2">February</option>
@@ -2944,7 +2949,7 @@
                           </div>
                           <div class="form-group">
                             <select name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis selectpicker"
-                              ng-model="formParams.cffDeclareYear">
+                              ng-model="formParams.cffDeclareYear" required>
                               <option value="">Year</option>
                               <option value="2022">2022</option>
                               <option value="2021">2021</option>
@@ -3111,10 +3116,8 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nricNo"
-                              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                              maxlength="12" name="nricNo" ng-model="formParams.nricNo"
-                              ng-change="textChanged(formParams.nricNo)">
+                            <input type="text" class="form-control-mcis"
+                              maxlength="12" ng-model="formParams.nric" disabled>
                           </div>
                         </div>
                       </div>
@@ -3273,7 +3276,7 @@
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
                         ng-click="nextStep('stage5'); nextSection('section13')"
-                        ng-disabled="!multiStepForm.movementAgree.$viewValue">Yes</button>
+                        ng-disabled="!multiStepForm.movementAgree.$viewValue">Accept & Continue</button>
                       <button type="button" class="btn btn-default" ng-click="backSection('section11')">Back</button>
                     </div>
                   </div>
@@ -3400,7 +3403,7 @@
                           <div class="col-xs-12 col-md-4 pt-15">
                             <div class="form-group">
                               <input type="text" class="form-control-mcis" name="agentCode" disabled
-                                ng-model="formParams.agentCode">
+                                ng-model="formParams.nric">
                             </div>
                           </div>
                           <div class="col-xs-12 col-md-2 pt-15">
@@ -4190,7 +4193,8 @@
                       <div class="form-group">
                         <input type="text" class="form-control uppercase" id="esignName" name="esignName"
                           ng-model="formParams.esignName"
-                          ng-class="{'error': formModalValidation && subForm.esignName.$error.required}" required>
+                          ng-class="{'error': formModalValidation && subForm.esignName.$error.required}"
+                          oninput="this.value = this.value.replace(/[^A-Za-z]/g, '')" required>
                         <span ng-show="formModalValidation && subForm.esignName.$error.required"
                           class="small text-danger">
                           Please enter your name as per NRIC.
