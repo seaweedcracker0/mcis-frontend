@@ -3101,7 +3101,7 @@
                               ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.registLetterCopy.$error.required)}">BROWSE...</label>
                             <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
                               id="registLetterCopy" ng-model="formParams.registLetterCopy" required valid-file
-                              data-extension="'jpeg,png,pdf'">
+                              data-extension="'jpeg,jpg,png,pdf'">
                             <span>{{formParams.registLetterCopy.name}}</span>
                             <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
                               class="small text-danger">
@@ -3268,7 +3268,7 @@
                         <span>Please tick the option where applicable: </span>
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="groupBenefit" name="groupBenefit"
-                            ng-required="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
+                            ng-required="!multiStepForm.commission.$viewValue && !multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue)"
                             ng-model="formParams.groupBenefit" type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="groupBenefit">
                             <div class="custom-checkbox"></div>
@@ -3277,7 +3277,7 @@
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="agencyBenefit" name="agencyBenefit"
-                            ng-required="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
+                            ng-required="!multiStepForm.commission.$viewValue && !multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue"
                             ng-model="formParams.agencyBenefit" type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="agencyBenefit">
                             <div class="custom-checkbox"></div>
@@ -3286,7 +3286,7 @@
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="commission" name="commission" ng-model="formParams.commission" type="checkbox"
-                            ng-required="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
+                            ng-required="!multiStepForm.commission.$viewValue && !multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue"
                             ng-true-value="1" ng-false-value="0">
                           <label for="commission">
                             <div class="custom-checkbox"></div>
@@ -3297,7 +3297,7 @@
                     </div>
                     <div class="col-xs-12">
                       <span
-                        ng-show="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
+                        ng-show="!multiStepForm.commission.$viewValue && !multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue"
                         class="small text-danger">
                         Please select at least 1 option
                       </span>

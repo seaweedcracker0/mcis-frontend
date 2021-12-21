@@ -346,6 +346,7 @@ canvas {
   position: absolute;
   top: 50%;
   width: 30px;
+  opacity: 0;
   transform: translateY(-50%);
 }
 
