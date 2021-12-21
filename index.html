@@ -3670,6 +3670,7 @@
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeGroupApplicantICCopy" class="btn btn-default">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
+                                      ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupApplicantICCopy.$error.format || multiStepForm.nomineeGroupApplicantICCopy.$error.required)}"
                                         name="nomineeGroupApplicantICCopy" id="nomineeGroupApplicantICCopy"
                                         ng-model="formParams.nomineeGroupApplicantICCopy" valid-file
                                         data-extension="'jpeg,png,pdf'"
@@ -3690,9 +3691,10 @@
                                     <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeGroupICCopy" class="btn btn-default">BROWSE...</label>
-                                      <input type="file" class="form-control-mcis-file-input" name="nomineeGroupICCopy"
-                                        id="nomineeGroupICCopy" ng-model="formParams.nomineeGroupICCopy" valid-file
-                                        data-extension="'jpeg,png,pdf'"
+                                      <input type="file" class="form-control-mcis-file-input" 
+                                        name="nomineeGroupICCopy" id="nomineeGroupICCopy"
+                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupICCopy.$error.format || multiStepForm.nomineeGroupICCopy.$error.required)}"
+                                        ng-model="formParams.nomineeGroupICCopy" valid-file data-extension="'jpeg,png,pdf'"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
                                       <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
@@ -3753,23 +3755,41 @@
                                 </div>
                                 <div class="col-xs-3 pt-15">
                                   <div class="form-group">
-                                    <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
+                                      <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
                                       ng-model="formParams.nomineeAgencyRelationship" class="form-control-mcis"
-                                      ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
+                                      ng-class="{'error': formValidation && multiStepForm.agencyBenefit.$error.required}"
+                                      ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
+                                      ng-required="multiStepForm.agencyBenefit.$viewValue">
+                                      <span ng-show="formValidation && multiStepForm.nomineeAgencyRelationship.$error.required"
+                                        class="small text-danger">
+                                        Please enter your relationship with the nominee.
+                                      </span>                                        
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeAgencyName" name="nomineeAgencyName"
                                       ng-model="formParams.nomineeAgencyName" class="form-control-mcis"
-                                      ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
+                                      ng-class="{'error': formValidation && multiStepForm.nomineeAgencyName.$error.required}"
+                                      ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
+                                      ng-required="multiStepForm.agencyBenefit.$viewValue">
+                                      <span ng-show="formValidation && multiStepForm.nomineeAgencyRelationship.$error.required"
+                                        class="small text-danger">
+                                        Please enter Name of Nominee (as per IC).
+                                      </span>                                        
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeAgencyNRIC" name="nomineeAgencyNRIC"
                                       ng-model="formParams.nomineeAgencyNRIC" class="form-control-mcis"
-                                      ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
+                                      ng-class="{'error': formValidation && multiStepForm.nomineeAgencyNRIC.$error.required}"
+                                      ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
+                                      ng-required="multiStepForm.agencyBenefit.$viewValue">
+                                      <span ng-show="formValidation && multiStepForm.nomineeAgencyNRIC.$error.required"
+                                        class="small text-danger">
+                                        Please enter your nominee’s NRIC No.
+                                      </span>                                         
                                   </div>
                                 </div>
                               </div>
@@ -3788,11 +3808,17 @@
                                     <span>Applicant IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeAgencyApplicantICCopy"
-                                        class="btn btn-default">BROWSE...</label>
+                                        class="btn btn-default" ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeAgencyApplicantICCopy.$error.required)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeAgencyApplicantICCopy" id="nomineeAgencyApplicantICCopy"
                                         ng-model="formParams.nomineeAgencyApplicantICCopy"
-                                        ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
+                                        ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
+                                        ng-required="multiStepForm.agencyBenefit.$viewValue"
+                                        valid-file data-extension="'jpeg,png,pdf'">
+                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.format"
+                                          class="small text-danger">
+                                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        </span>                                                                                
                                     </div>
                                   </div>
                                 </div>
@@ -3802,10 +3828,16 @@
                                   <div class="custom-inline margin-top-20">
                                     <span>Nominee IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="nomineeAgencyICCopy" class="btn btn-default">BROWSE...</label>
+                                      <label for="nomineeAgencyICCopy" class="btn btn-default" ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeAgencyICCopy.$error.required)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input" name="nomineeAgencyICCopy"
                                         id="nomineeAgencyICCopy" ng-model="formParams.nomineeAgencyICCopy"
-                                        ng-disabled="!multiStepForm.agencyBenefit.$viewValue">
+                                        ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
+                                        ng-required="multiStepForm.agencyBenefit.$viewValue"
+                                        valid-file data-extension="'jpeg,png,pdf'">
+                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.format"
+                                          class="small text-danger">
+                                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        </span>                                          
                                     </div>
                                   </div>
                                 </div>
@@ -3861,8 +3893,15 @@
                                   <div class="form-group">
                                     <input type="text" id="nomineeCommissionRelationship"
                                       name="nomineeCommissionRelationship"
-                                      ng-model="formParams.nomineeCommissionRelationship" class="form-control-mcis"
+                                      ng-model="formParams.nomineeCommissionRelationship"
+                                      class="form-control-mcis"
+                                      ng-class="{'custom-checkbox-error' : formValidation && multiStepForm.nomineeCommissionRelationship.$error.required}"
+                                      ng-required="!multiStepForm.commission.$viewValue" 
                                       ng-disabled="!multiStepForm.commission.$viewValue">
+                                      <span ng-show="formValidation && multiStepForm.nomineeCommissionRelationship.$error.required"
+                                        class="small text-danger">
+                                        Please enter your relationship with the nominee.
+                                      </span>
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
@@ -3870,6 +3909,10 @@
                                     <input type="text" id="nomineeCommissionName" name="nomineeCommissionName"
                                       ng-model="formParams.nomineeCommissionName" class="form-control-mcis"
                                       ng-disabled="!multiStepForm.commission.$viewValue">
+                                      <span ng-show="formValidation && multiStepForm.nomineeCommissionName.$error.required"
+                                        class="small text-danger">
+                                        Please enter Name of Nominee (as per IC).
+                                      </span>                                      
                                   </div>
                                 </div>
                                 <div class="col-xs-4 pt-15">
@@ -3877,7 +3920,11 @@
                                     <input type="text" id="nomineeCommissionNRIC" name="nomineeCommissionNRIC"
                                       ng-model="formParams.nomineeCommissionNRIC" class="form-control-mcis"
                                       ng-disabled="!multiStepForm.commission.$viewValue">
-                                  </div>
+                                      <span ng-show="formValidation && multiStepForm.nomineeCommissionNRIC.$error.required"
+                                        class="small text-danger">
+                                        Please enter your nominee’s NRIC No.
+                                      </span> 
+                                  </div>                                 
                                 </div>
                               </div>
                               <div class="row">
