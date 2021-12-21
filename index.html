@@ -3295,7 +3295,9 @@
                       <div class="custom-inline-checkbox">
                         <span>Please tick the option where applicable: </span>
                         <div class="checkbox custom-checkbox-mcis">
-                          <input id="groupBenefit" name="groupBenefit" ng-model="formParams.groupBenefit"
+                          <input id="groupBenefit" name="groupBenefit" 
+                            ng-required="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
+                            ng-model="formParams.groupBenefit"
                             type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="groupBenefit">
                             <div class="custom-checkbox"></div>
@@ -3303,7 +3305,9 @@
                           </label>
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
-                          <input id="agencyBenefit" name="agencyBenefit" ng-model="formParams.agencyBenefit"
+                          <input id="agencyBenefit" name="agencyBenefit" 
+                            ng-required="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
+                            ng-model="formParams.agencyBenefit"
                             type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="agencyBenefit">
                             <div class="custom-checkbox"></div>
@@ -3311,7 +3315,9 @@
                           </label>
                         </div>
                         <div class="checkbox custom-checkbox-mcis">
-                          <input id="commission" name="commission" ng-model="formParams.commission" type="checkbox"
+                          <input id="commission" name="commission" 
+                            ng-model="formParams.commission" type="checkbox"
+                            ng-required="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
                             ng-true-value="1" ng-false-value="0">
                           <label for="commission">
                             <div class="custom-checkbox"></div>
@@ -3319,6 +3325,12 @@
                           </label>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-xs-12">
+                      <span ng-show="formValidation && (!multiStepForm.commission.$viewValue || !multiStepForm.agencyBenefit.$viewValue || !multiStepForm.groupBenefit.$viewValue)"
+                        class="small text-danger">
+                          Please select at least 1 option
+                      </span>
                     </div>
                   </div>
                   <div class="tabs margin-top-25 margin-bottom-45">
@@ -3499,7 +3511,9 @@
                                 <div class="col-xs-2 pt-15">
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupRelationship1" name="nomineeGroupRelationship1"
-                                      ng-model="formParams.nomineeGroupRelationship1" class="form-control-mcis"
+                                      ng-model="formParams.nomineeGroupRelationship1" 
+                                      ng-class="{'error': formValidation && multiStepForm.nomineeGroupRelationship1.$error.required}"
+                                      class="form-control-mcis"
                                       ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span
@@ -3514,6 +3528,7 @@
                                     <input type="text" id="nomineeGroupName1" name="nomineeGroupName1"
                                       ng-model="formParams.nomineeGroupName1" class="form-control-mcis"
                                       ng-required="multiStepForm.groupBenefit.$viewValue"
+                                      ng-class="{'error': formValidation && multiStepForm.nomineeGroupName1.$error.required}"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupName1.$error.required"
                                       class="small text-danger">
@@ -3526,6 +3541,7 @@
                                     <input type="text" id="nomineeGroupNRIC1" name="nomineeGroupNRIC1"
                                       ng-model="formParams.nomineeGroupNRIC1" class="form-control-mcis"
                                       ng-required="multiStepForm.groupBenefit.$viewValue"
+                                      ng-class="{'error': formValidation && multiStepForm.nomineeGroupNRIC1.$error.required}"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC1.$error.required"
                                       class="small text-danger">
@@ -3537,6 +3553,7 @@
                                   <div class="form-group">
                                     <input type="text" id="nomineeGroupShare1" name="nomineeGroupShare1"
                                       ng-model="formParams.nomineeGroupShare1" class="form-control-mcis"
+                                      ng-class="{'error': formValidation && multiStepForm.nomineeGroupShare1.$error.required}"
                                       ng-required="multiStepForm.groupBenefit.$viewValue"
                                       ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                     <span ng-show="formValidation && multiStepForm.nomineeGroupShare1.$error.required"
@@ -3759,7 +3776,7 @@
                                   <div class="form-group">
                                       <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
                                       ng-model="formParams.nomineeAgencyRelationship" class="form-control-mcis"
-                                      ng-class="{'error': formValidation && multiStepForm.agencyBenefit.$error.required}"
+                                      ng-class="{'error': formValidation && multiStepForm.nomineeAgencyRelationship.$error.required}"
                                       ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
                                       ng-required="multiStepForm.agencyBenefit.$viewValue">
                                       <span ng-show="formValidation && multiStepForm.nomineeAgencyRelationship.$error.required"
