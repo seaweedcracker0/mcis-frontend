@@ -349,7 +349,7 @@ canvas {
   transform: translateY(-50%);
 }
 
-.custom-mcis-file-input .form-control-mcis-file-input span{
+.custom-mcis-file-input span{
   display: block;
 }
 
