@@ -19,8 +19,15 @@
 </head>
 
 <body>
-  <div class="erecruit-form-container" ng-controller="formController"
-    ng-style="true && {'background-color': '#dcdcdc'}">
+  <div class="erecruit-form-container review-form" ng-controller="formController"
+    ng-style="true && {'background-color': '#f4f4f4'}">
+    <div class="margin-bottom-25 page-title" ng-if="section != 'section14'">
+      <h3 ng-if="stage == 'stage1'">Agent Application</h3>
+      <h3 ng-if="stage == 'stage2'">Liam Code of Ethics and Conduct</h3>
+      <h3 ng-if="stage == 'stage3'">Declaration of Life Insurance Product Overview & CFF Training</h3>
+      <h3 ng-if="stage == 'stage4'">Liam Movement of Agents</h3>
+      <h3 ng-if="stage == 'stage5'">Nomination Form</h3>
+    </div>
     <div class="erecruit-form">
       <ul class="erecruit-steps" ng-if="section != 'section14'">
         <li ng-class="stage == 'stage1' ? 'active' : ''">Agent Application</li>
@@ -203,18 +210,18 @@
                         <label for="city">City <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group">
                         <input type="text" class="form-control-mcis uppercase" id="city" name="city"
                           value="Bandar Melaka" disabled>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-2 inblock-top">
+                    <div class="col-xs-12 col-md-1 inblock-top">
                       <div class="form-group">
-                        <label for="postcode">Postcode <span class="text-danger">*</span></label>
+                        <label for="postcode" class="one-line">Postcode <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group">
                         <input type="text" class="form-control-mcis" id="postcode" name="postcode" value="75100"
                           disabled>
@@ -229,17 +236,17 @@
                         <label for="state">State <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group margin-bottom-20">
                         <input name="state" id="state" class="form-control-mcis uppercase" value="Melaka" disabled>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-2 inblock-top">
+                    <div class="col-xs-12 col-md-1 inblock-top">
                       <div class="form-group">
                         <label for="country">Country <span class="text-danger">*</span></label>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-md-3 inblock-top">
+                    <div class="col-xs-12 col-md-2 inblock-top">
                       <div class="form-group margin-bottom-20">
                         <input name="country" id="country" class="form-control-mcis uppercase" value="Malaysia"
                           disabled>
@@ -688,8 +695,8 @@
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
-                          <label for="pcePcilCert" class="btn btn-default" disabled>BROWSE...</label>
-                          <label>PCE1029212.pdf</label>
+                          <label for="pcePcilCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                          <a href="#">PCE1029212.pdf</a>
                         </div>
                       </div>
                     </div>
@@ -743,8 +750,8 @@
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
-                          <label for="ceilliCert" class="btn btn-default" disabled>BROWSE...</label>
-                          <label>Wohoo</label>
+                          <label for="ceilliCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                          <a href="#">Wohoo</a>
                         </div>
                       </div>
                     </div>
@@ -784,8 +791,8 @@
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
-                          <label for="bamcCert" class="btn btn-default" disabled>BROWSE...</label>
-                          <label></label>
+                          <label for="bamcCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                          <a href="#"></a>
                         </div>
                       </div>
                     </div>
@@ -825,8 +832,8 @@
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
-                          <label for="rfpCert" class="btn btn-default" disabled>BROWSE...</label>
-                          <label></label>
+                          <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                          <a href="#"></a>
                         </div>
                       </div>
                     </div>
@@ -868,8 +875,8 @@
                       </div>
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
-                          <label for="othersCert" class="btn btn-default" disabled>BROWSE...</label>
-                          <label></label>
+                          <label for="othersCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                          <a href="#"></a>
                         </div>
                       </div>
                     </div>
@@ -1086,7 +1093,7 @@
                         <div class="row border">
                           <div class="col-xs-12 col-md-3 pt-15">
                             <div class="form-group">
-                              <label for="eh2Reasons">Reasons For Leaving <span class="text-danger">*</span></label>
+                              <label for="eh2Reasons">Reasons For Leaving</label>
                             </div>
                           </div>
                           <div class="col-xs-12 col-md-5 pt-15">
@@ -1183,7 +1190,7 @@
                         <div class="row border">
                           <div class="col-xs-12 col-md-3 pt-15">
                             <div class="form-group">
-                              <label for="eh3Reasons">Reasons For Leaving <span class="text-danger">*</span></label>
+                              <label for="eh3Reasons">Reasons For Leaving</label>
                             </div>
                           </div>
                           <div class="col-xs-12 col-md-5 pt-15">
@@ -1281,23 +1288,24 @@
                       </div>
                     </div>
                     <div class="col-xs-12 col-md-5 inblock-top">
-                      <div class="form-group margin-bottom-20">
-                        <select name="undischargedBankrupt" id="undischargedBankrupt"
-                          class="form-control-mcis selectpicker" disabled>
-                          <option value="">Please Select</option>
-                          <option value="1" selected>Yes</option>
-                          <option value="0">No</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Show if Yes -->
-                  <div class="row">
-                    <div class="col-xs-12 col-md-3 inblock-top"></div>
-                    <div class="col-xs-12 col-md-5 inblock-top">
-                      <div class="form-group margin-bottom-20">
-                        <textarea name="undischargedBankruptSpecify" rows="10" id="undischargedBankruptSpecify"
-                          class="form-control-mcis" disabled>Bankrupt 2020</textarea>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div class="form-group margin-bottom-20">
+                            <select name="undischargedBankrupt" id="undischargedBankrupt"
+                              class="form-control-mcis selectpicker" disabled>
+                              <option value="">Please Select</option>
+                              <option value="1" selected>Yes</option>
+                              <option value="0">No</option>
+                            </select>
+                          </div>
+                        </div>
+                        <!-- Show if Yes -->
+                        <div class="col-xs-12">
+                          <div class="form-group margin-bottom-20">
+                            <textarea name="undischargedBankruptSpecify" rows="10" id="undischargedBankruptSpecify"
+                              class="form-control-mcis" disabled>Bankrupt 2020</textarea>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1365,7 +1373,7 @@
                           </div>
                         </div>
                         <!-- Reasons for Leaving -->
-                        <div class="row border-top-left-right">
+                        <div class="row border-top-left-right border-bottom">
                           <div class="col-xs-12 col-md-3 pt-15">
                             <div class="form-group">
                               <label for="agencyContractReasons">Reasons for Leaving <span
@@ -1407,19 +1415,19 @@
                   <hr>
 
                   <div class="row">
-                    <div class="col-xs-12 col-md-offset-3 col-md-7">
+                    <div class="col-xs-12 col-md-offset-1 col-md-10">
                       <div class="custom-inline-form">
                         <span>I, <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="salutation" name="salutation" disabled
-                              value="Mr">
+                            <input type="text" class="form-control-mcis text-center" id="salutation" name="salutation" disabled
+                              value="Mr" style="width:70px!important">
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis uppercase" id="nameNric" name="nameNric"
+                            <input type="text" class="form-control-mcis text-center" id="nameNric" name="nameNric"
                               disabled value="Mohammad Fareeze Bin Jamal">
                           </div>
                           Bearer of NRIC No.
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
+                            <input type="text" class="form-control-mcis text-center" id="nric" name="nric" disabled
                               value="920505025547">
                           </div>
                           being an
@@ -1433,7 +1441,7 @@
                           </div>
                           of
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="codeEthicsCompany" name="codeEthicsCompany"
+                            <input type="text" class="form-control-mcis text-center" id="codeEthicsCompany" name="codeEthicsCompany"
                               disabled value="MCIS Insurance Berhad">
                           </div>
                           hereby declare and confirm that I have read and understood the contents of the Code of Ethics
@@ -1446,7 +1454,7 @@
 
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-4 col-md-5">
+                    <div class="col-xs-12 text-center">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox" checked disabled>
                         <label for="codeOfEthicsAgree">
@@ -1480,56 +1488,57 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section10'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">CODE OF ETHICS AND CONDUCT</h3>
-                  <p>Life Insurance Association of Malaysia</p>
+                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br><br>
+                    Overview
+                    and Customer Fact Find Form Training</h3>
                   <hr>
 
                   <div class="row">
-                    <div class="col-xs-12 col-md-offset-2 col-md-8">
+                    <div class="col-xs-12 col-md-offset-1 col-md-10">
                       <div class="custom-inline-form">
                         <span>I,
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis uppercase" id="nameNric" name="nameNric"
+                            <input type="text" class="form-control-mcis text-center" id="nameNric" name="nameNric"
                               disabled value="Mohammad Fareez Bin Jamal">
                           </div>
                           Bearer of NRIC No.
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
+                            <input type="text" class="form-control-mcis text-center" id="nric" name="nric" disabled
                               value="920505025547">
                           </div>
                           hereby confirmed that I have completed the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
                           FACT FIND training provided by
                           Leader Name:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="leaderName" name="leaderName" disabled
+                            <input type="text" class="form-control-mcis text-center" id="leaderName" name="leaderName" disabled
                               value="K KUMAR A/L K KARUPPAJAH">
                           </div>
                           Agent Code:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="agentCode" name="agentCode" disabled
-                              value="A1230860">
+                            <input type="text" class="form-control-mcis text-center" id="agentCode" name="agentCode" disabled
+                              value="A1230860" style="width:150px!important">
                           </div>
                           Unit No:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="unitNo" name="unitNo" disabled value="199">
+                            <input type="text" class="form-control-mcis text-center" id="unitNo" name="unitNo" disabled value="199" style="width: 90px!important">
                           </div>
                           Branch:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="branch" name="branch" disabled
-                              value="MCIS Melaka">
+                            <input type="text" class="form-control-mcis text-center" id="branch" name="branch" disabled
+                              value="MCIS Melaka" style="width:150px!important">
                           </div>
                           on
                           <div class="form-group">
-                            <input name="cffDeclareDate" id="cffDeclareDate" class="form-control-mcis" value="09"
-                              disabled>
+                            <input name="cffDeclareDate" id="cffDeclareDate" class="form-control-mcis text-center" value="09"
+                              disabled style="width:70px!important">
                           </div>
                           <div class="form-group">
-                            <input name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis" value="09"
-                              disabled>
+                            <input name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis text-center" value="09"
+                              disabled style="width:70px!important">
                           </div>
                           <div class="form-group">
-                            <input name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis" value="2021"
-                              disabled>
+                            <input name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis text-center" value="2021"
+                              disabled style="width:90px!important">
                           </div>
                         </span>
                       </div>
@@ -1538,7 +1547,7 @@
 
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="cffAgree" name="cffAgree" type="checkbox" checked disabled>
                         <label for="cffAgree">
@@ -1675,8 +1684,8 @@
                         </div>
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group custom-mcis-file-input">
-                            <label for="registLetterCopy" class="btn btn-default" disabled>BROWSE...</label>
-                            <label>No file selected</label>
+                            <label for="registLetterCopy" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                            <a href="#">No file selected</a>
                           </div>
                         </div>
                       </div>
@@ -1692,16 +1701,16 @@
                           </div>
                           with effect from
                           <div class="form-group">
-                            <input name="moveAgentDate" id="moveAgentDate" class="form-control-mcis" value="09"
-                              disabled>
+                            <input name="moveAgentDate" id="moveAgentDate" class="form-control-mcis text-center" value="09"
+                              disabled style="width:70px!important">
                           </div>
                           <div class="form-group">
-                            <input name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis" value="09"
-                              disabled>
+                            <input name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis text-center" value="09"
+                              disabled style="width:70px!important">
                           </div>
                           <div class="form-group">
-                            <input name="moveAgentYear" id="moveAgentYear" class="form-control-mcis" value="2021"
-                              disabled>
+                            <input name="moveAgentYear" id="moveAgentYear" class="form-control-mcis text-center" value="2021"
+                              disabled style="width:90px!important">
                           </div>
                         </span>
                       </div>
@@ -2076,8 +2085,8 @@
                                   <div class="custom-inline">
                                     <span>Applicant IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default" disabled>BROWSE...</label>
-                                      <label>IC212032.PDF</label>
+                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                      <a href="#">IC212032.PDF</a>
                                     </div>
                                   </div>
                                 </div>
@@ -2087,8 +2096,8 @@
                                   <div class="custom-inline margin-top-20">
                                     <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default" disabled>BROWSE...</label>
-                                      <label>IC093312322.JPG</label>
+                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                      <a href="#">IC093312322.JPG</a>
                                     </div>
                                   </div>
                                 </div>
@@ -2173,8 +2182,8 @@
                                   <div class="custom-inline">
                                     <span>Applicant IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default" disabled>BROWSE...</label>
-                                      <label></label>
+                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                      <a href="#"></a>
                                     </div>
                                   </div>
                                 </div>
@@ -2184,8 +2193,8 @@
                                   <div class="custom-inline margin-top-20">
                                     <span>Nominee IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default" disabled>BROWSE...</label>
-                                      <label></label>
+                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                      <a href="#"></a>
                                     </div>
                                   </div>
                                 </div>
@@ -2269,8 +2278,8 @@
                                   <div class="custom-inline">
                                     <span>Applicant IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default" disabled>BROWSE...</label>
-                                      <label></label>
+                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                      <a href="#"></a>
                                     </div>
                                   </div>
                                 </div>
@@ -2280,8 +2289,8 @@
                                   <div class="custom-inline margin-top-20">
                                     <span>Nominee IC Copy</span>
                                     <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default" disabled>BROWSE...</label>
-                                      <label></label>
+                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                      <a href="#"></a>
                                     </div>
                                   </div>
                                 </div>
@@ -2294,7 +2303,7 @@
                   </div>
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-3 col-md-6">
+                    <div class="col-xs-12 col-md-offset-2 col-md-8">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="nominationAgree" name="nominationAgree" type="checkbox" checked disabled>
                         <label for="nominationAgree">
@@ -2327,21 +2336,21 @@
                       <div class="custom-inline-form">
                         <span>I,
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis uppercase" id="nameNric" name="nameNric"
+                            <input type="text" class="form-control-mcis text-center" id="nameNric" name="nameNric"
                               disabled value="Mohammad Fareez Bin Jamal">
                           </div>
                           Agent Code:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="agentCode" name="agentCode" disabled
-                              value="A1230860">
+                            <input type="text" class="form-control-mcis text-center" id="agentCode" name="agentCode" disabled
+                              value="A1230860" style="width: 150px!important">
                           </div>
                           Unit No:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="unitNo" name="unitNo" disabled value="199">
+                            <input type="text" class="form-control-mcis text-center" id="unitNo" name="unitNo" disabled value="199" style="width: 150px!important">
                           </div>
                           Branch:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="branch" name="branch" disabled
+                            <input type="text" class="form-control-mcis text-center" id="branch" name="branch" disabled
                               value="MCIS Melaka">
                           </div>
                           hereby confirmed that I have provided the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
@@ -2364,7 +2373,7 @@
           </div>
 
           <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw"
-            ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)">
+            ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png">
           <input type="text" id="rejectReason" name="rejectReason" ng-model="formParams.rejectReason">
         </div>
       </form>
@@ -2450,8 +2459,8 @@
                 <div role="tabpanel" class="tab-pane" id="upload">
                   <div class="signature-pad">
                     <label class="signature-pad--body upload-pad--body" dropzone input-binding="applicantEsigndraw">
-                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this
-                      area or select a file'}}
+                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this area or select a file
+                      (JPEG / JPG / PNG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">

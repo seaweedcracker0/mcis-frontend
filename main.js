@@ -404,7 +404,7 @@ $scope.initSignaturePad = function(id) {
     //             $scope.signdone();
     //             $scope.formModalValidation = false;    
     //         } else {            
-    //             alert("Please provide a signature first.");
+    //             alert("Please provide your signature.");
     //         }
     //     }
         
@@ -430,7 +430,7 @@ $scope.confirmESign = function(id) {
                 $scope.signdone();
                 $scope.formModalValidation = false; 
             }  else {
-                alert("Please provide a signature first.");
+                alert("Please provide your signature.");
             }
         }
     }  
@@ -442,7 +442,7 @@ $scope.confirmESign = function(id) {
             }
             $scope.triggerSubmit()
         }  else {
-            alert("Please provide a signature first.");
+            alert("Please provide your signature.");
         }
     }
 }
