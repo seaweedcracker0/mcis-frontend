@@ -376,10 +376,17 @@ canvas {
 /* .custom-inline-form .form-group {
   margin-bottom: 0
 } */
-
-.custom-inline-form .form-group, .custom-inline-form .form-group input, .custom-inline-form .form-group select {
+.custom-inline-form .form-group {
   width: auto!important;
-  /* min-width: 200px; */
+}
+
+.custom-inline-form .form-group input, .custom-inline-form .form-group select {
+  width: auto!important;
+  min-width: 150px;
+}
+
+.custom-inline-form .form-group select.date-field {
+  min-width: 100px;
 }
 
 .custom-inline-form .form-group {
