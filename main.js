@@ -113,10 +113,15 @@ $scope.skipContracted = false;
 var inputMin = 12;
 
 $scope.nricYear = []
+$scope.yearList = []
 
 let years18BeforeNow = ($scope.currDateObj.getFullYear() - 18)
-for(let i = 0; i < 100; i++) {
+for(let i = 0; (i < 100 - 18); i++) {
     $scope.nricYear.push(years18BeforeNow - i);
+}
+
+for(let i = 0; i < 100; i++) {
+    $scope.yearList.push($scope.currDateObj.getFullYear() - i);
 }
 
 $scope.signaturePadObj = {}
