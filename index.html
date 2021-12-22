@@ -73,7 +73,7 @@
                         <p class="margin-bottom-5">You can apply your agent application online now.</p>
                         <p class="margin-bottom-25">Please click Start to begin the application.</p>
                         <div class="form-group">
-                          <div class="row">
+                          <div class="row d-flex align-items-center">
                             <div class="col-xs-3">
                               <label for="agentRank">Appointment as</label>
                             </div>
@@ -1312,7 +1312,7 @@
                         </div>
                         <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.format"
                           class="small text-danger">
-                          Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                          Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                         </span>
                       </div>
                     </div>
@@ -1452,7 +1452,7 @@
                           <span>{{formParams.ceilliCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
                             class="small text-danger">
-                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                            Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                           </span>
                         </div>
                       </div>
@@ -1582,7 +1582,7 @@
                           <span>{{formParams.bamcCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
                             class="small text-danger">
-                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                            Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                           </span>
                         </div>
                       </div>
@@ -1712,7 +1712,7 @@
                           <span>{{formParams.rfpCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
                             class="small text-danger">
-                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                            Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                           </span>
                         </div>
                       </div>
@@ -1848,7 +1848,7 @@
                           <span>{{formParams.othersCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
                             class="small text-danger">
-                            Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                            Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                           </span>
                         </div>
                       </div>
@@ -2741,16 +2741,16 @@
                     <div class="col-xs-12 col-md-offset-1 col-md-10">
                       <div class="custom-inline-form">
                         <span>I, <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="salutation" name="salutation" disabled
-                              ng-model="formParams.salutation">
+                            <input type="text" class="form-control-mcis text-center" id="salutation" name="salutation" disabled
+                              ng-model="formParams.salutation" style="width:70px!important">
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nameNric" name="nameNric" disabled
+                            <input type="text" class="form-control-mcis text-center" id="nameNric" name="nameNric" disabled
                               ng-model="formParams.nameNric">
                           </div>
                           Bearer of NRIC No.
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
+                            <input type="text" class="form-control-mcis text-center" id="nric" name="nric" disabled
                               ng-model="formParams.nric">
                           </div>
                           being an
@@ -2766,7 +2766,7 @@
                           </div>
                           of
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="codeEthicsCompany" name="codeEthicsCompany"
+                            <input type="text" class="form-control-mcis text-center" id="codeEthicsCompany" name="codeEthicsCompany"
                               disabled ng-model="formParams.codeEthicsCompany" ng-value="'MCIS Insurance Berhad'">
                           </div>
                           hereby declare and confirm that I have read and understood the contents of the Code of Ethics
@@ -2779,7 +2779,7 @@
 
                   <hr>
                   <div class="row margin-top-25 margin-bottom-25">
-                    <div class="col-xs-12 col-md-offset-2 col-md-8">
+                    <div class="col-xs-12 text-center">
                       <div class="checkbox custom-checkbox-mcis">
                         <input id="codeOfEthicsAgree" name="codeOfEthicsAgree" type="checkbox"
                           ng-model="formParams.codeOfEthicsAgree" ng-true-value="1" ng-false-value="0"
@@ -2816,7 +2816,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section10'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br> Overview
+                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br><br> Overview
                     and Customer Fact Find Form Training</h3>
                   <hr>
 
@@ -2825,35 +2825,39 @@
                       <div class="custom-inline-form">
                         <span>I,
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nameNric" name="nameNric" disabled
-                              ng-model="formParams.nameNric">
+                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.nameNric}}</div> -->
+                            <input type="text" class="form-control-mcis text-center" disabled ng-model="formParams.nameNric">
                           </div>
                           Bearer of NRIC No.
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="nric" name="nric" disabled
-                              ng-model="formParams.nric">
+                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.nric}}</div> -->
+                            <input type="text" class="form-control-mcis text-center" disabled ng-model="formParams.nric">
                           </div>
                           hereby confirmed that I have completed the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
                           FACT FIND training provided by
                           Leader Name:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="leaderName" name="leaderName" disabled
+                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.leaderName}}</div> -->
+                            <input type="text" class="form-control-mcis text-center" id="leaderName" name="leaderName" disabled
                               ng-model="formParams.leaderName" ng-value="'K KUMAR A/L K KARUPPAJAH'">
                           </div>
                           Agent Code:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="agentCode" name="agentCode" disabled
-                              ng-model="formParams.agentCode" ng-value="'A1230860'">
+                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.agentCode}}</div> -->
+                            <input type="text" class="form-control-mcis text-center" id="agentCode" name="agentCode" disabled
+                              ng-model="formParams.agentCode" ng-value="'A1230860'" style="width:150px!important">
                           </div>
                           Unit No:
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" id="unitNo" name="unitNo" disabled
-                              ng-model="formParams.unitNo" ng-value="'199'">
+                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.unitNo}}</div> -->
+                            <input type="text" class="form-control-mcis text-center" id="unitNo" name="unitNo" disabled
+                              ng-model="formParams.unitNo" ng-value="'199'" style="width: 90px!important">
                           </div>
                           Branch:
                           <div class="form-group">
+                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.branch}}</div> -->
                             <input type="text" class="form-control-mcis" id="branch" name="branch" disabled
-                              ng-model="formParams.branch" ng-value="'MCIS Melaka'">
+                              ng-model="formParams.branch" ng-value="'MCIS Melaka'" style="width:150px!important">
                           </div>
                           on
                           <div class="form-group">
@@ -3105,7 +3109,7 @@
                             <span>{{formParams.registLetterCopy.name}}</span>
                             <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
                               class="small text-danger">
-                              Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                              Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                             </span>
                           </div>
                         </div>
@@ -3409,7 +3413,7 @@
                           <div class="col-xs-12 col-md-4 pt-15">
                             <div class="form-group">
                               <textarea class="form-control-mcis"
-                                ng-value="formParams.correspondenceAddress + (formParams.correspondenceAddress1 ? (' ' + formParams.correspondenceAddress1) : '') + (formParams.correspondenceAddress2 ? (' ' + formParams.correspondenceAddress2) : '') + ' ' + formParams.city + ' ' + formParams.state + ' ' + formParams.postcode + ' ' + formParams.country"
+                                ng-value="formParams.correspondenceAddress + (formParams.correspondenceAddress1 ? (', ' + formParams.correspondenceAddress1) : '') + (formParams.correspondenceAddress2 ? (', ' + formParams.correspondenceAddress2) : '') + ', ' + formParams.city + ', ' + formParams.state + ', ' + formParams.postcode + ', ' + formParams.country"
                                 disabled></textarea>
                             </div>
                           </div>
@@ -3679,7 +3683,7 @@
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
                                         class="small text-danger">
-                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                                       </span>
                                     </div>
                                   </div>
@@ -3701,7 +3705,7 @@
                                       <span>{{formParams.nomineeGroupICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
                                         class="small text-danger">
-                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                                       </span>
                                     </div>
                                   </div>
@@ -3752,7 +3756,7 @@
                               <div class="row border-bottom border-top-left-right">
                                 <div class="col-xs-1 pt-15">
                                   <div class="form-group">
-                                    <label for="nomineeAgencyRelationship">1</label>
+                                    <label for="nomineeAgencyRelationship">1 <span class="text-danger">*</span></label>
                                   </div>
                                 </div>
                                 <div class="col-xs-3 pt-15">
@@ -3819,7 +3823,7 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline">
-                                    <span>Applicant IC Copy</span>
+                                    <span>Applicant IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeAgencyApplicantICCopy" class="btn btn-default btn gray minwidth-150px"
                                         ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeAgencyApplicantICCopy.$error.required)}">BROWSE...</label>
@@ -3833,7 +3837,7 @@
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.format"
                                         class="small text-danger">
-                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                                       </span>
                                     </div>
                                   </div>
@@ -3842,7 +3846,7 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline margin-top-20">
-                                    <span>Nominee IC Copy</span>
+                                    <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeAgencyICCopy" class="btn btn-default btn gray minwidth-150px"
                                         ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeAgencyICCopy.$error.required)}">BROWSE...</label>
@@ -3854,7 +3858,7 @@
                                       <span>{{formParams.nomineeAgencyICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.format"
                                         class="small text-danger">
-                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                                       </span>
                                     </div>
                                   </div>
@@ -3904,7 +3908,7 @@
                               <div class="row border-bottom border-top-left-right">
                                 <div class="col-xs-1 pt-15">
                                   <div class="form-group">
-                                    <label for="nomineeCommissionRelationship">1</label>
+                                    <label for="nomineeCommissionRelationship">1 <span class="text-danger">*</span></label>
                                   </div>
                                 </div>
                                 <div class="col-xs-3 pt-15">
@@ -3963,16 +3967,17 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) Nominee must be at least 18 years of age.</h6>
-                                  <h6>2) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee.</h6>
-                                  <h6>3) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <h6>1) The arrangement can be referring to the Rules & Regulations in the latest <strong>Agency Handbook</strong></h6>
+                                  <h6>2) Any future residual commissions (including overriding if deceased is a leader) for premium collected from block of business under the deceased's servicing before event date shall continue to be payable to the next of kin. Any bonus or Balanced Score Card (BSC) variable commission entitlement shall be subjected to the qualification of the bonus requirement accordingly.</h6>
+                                  <h6>3) Nominee must be at least 18 years of age.</h6>
+                                  <h6>4) Photocopies of I/C (front & back) are required for both applicant and each Nominee.</h6>
+                                  <h6>5) Photocopies of I/C in JPEG or PDF format only.</h6>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline">
-                                    <span>Applicant IC Copy</span>
+                                    <span>Applicant IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeCommissionApplicantICCopy"
                                         ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeCommissionApplicantICCopy.$error.format || multiStepForm.nomineeCommissionApplicantICCopy.$error.required)}"
@@ -3987,7 +3992,7 @@
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.format"
                                         class="small text-danger">
-                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                                       </span>
                                     </div>
                                   </div>
@@ -3996,7 +4001,7 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <div class="custom-inline margin-top-20">
-                                    <span>Nominee IC Copy</span>
+                                    <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeCommissionICCopy" class="btn btn-default btn gray minwidth-150px"
                                         ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeCommissionICCopy.$error.format || multiStepForm.nomineeCommissionICCopy.$error.required)}">BROWSE...</label>
@@ -4010,7 +4015,7 @@
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.format"
                                         class="small text-danger">
-                                        Invalid file format. Please upload in PDF, JPG or JPEG format only.
+                                        Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                                       </span>
                                     </div>
                                   </div>
@@ -4179,7 +4184,7 @@
                   <div class="signature-pad">
                     <label class="signature-pad--body upload-pad--body" dropzone input-binding="esignFile">
                       {{ formParams.esignFile ? formParams.esignFile.name : 'Drag a file into this area or select a file
-                      (JPEG / JPG file only)'}}
+                      (JPEG / JPG / PNG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
@@ -4321,7 +4326,7 @@
                   <div class="signature-pad">
                     <label class="signature-pad--body upload-pad--body" dropzone input-binding="applicantEsigndraw">
                       {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this
-                      area or select a file (JPEG / JPG file only)'}}
+                      area or select a file (JPEG / JPG / PNG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">

@@ -463,7 +463,7 @@ $scope.fileUploaded = function(ev) {
     }
     // console.log(extensions, fileExt)
     if (extensions && extensions.indexOf(fileExt) == -1) {
-        alert("Invalid file format. Please upload in PDF, JPG or JPEG format only.");
+        alert("Invalid file format. Please upload in PNG, JPG or JPEG format only.");
     }            
     else {
         $scope.formParams[ev.target.name] = ev.target.files[0]

@@ -377,17 +377,19 @@ canvas {
 /* .custom-inline-form .form-group {
   margin-bottom: 0
 } */
-.custom-inline-form .form-group {
+.custom-inline-form .form-group,
+.custom-inline-form .form-group input {
   width: auto!important;
 }
 
-.custom-inline-form .form-group input, .custom-inline-form .form-group select {
+.custom-inline-form .form-group select {
   width: auto!important;
-  min-width: 150px;
+  /* min-width: 150px; */
+  padding-right: 40px!important
 }
 
 .custom-inline-form .form-group select.date-field {
-  min-width: 100px;
+  /* min-width: 130px; */
 }
 
 .custom-inline-form .form-group {
@@ -404,7 +406,7 @@ canvas {
   display: inline-block;
 }
 
-.form-control-mcis:disabled {
+.form-control-mcis:disabled, .form-control-mcis.custom-disabled {
   color: #808080!important;
   background-color: #DFDFDF!important;
 }
