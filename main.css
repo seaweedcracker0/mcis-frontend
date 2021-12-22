@@ -351,7 +351,7 @@ canvas {
   transform: translateY(-50%);
 }
 
-.custom-mcis-file-input span{
+.custom-mcis-file-input span, .custom-mcis-file-input a{
   display: block;
 }
 
@@ -543,4 +543,8 @@ label {
 
 .border-black {
   border-color: #000000;
+}
+
+.review-form input:disabled, .review-form select:disabled, .review-form textarea:disabled {
+  font-weight: bold;
 }
