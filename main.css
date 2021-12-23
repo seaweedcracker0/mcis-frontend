@@ -548,3 +548,11 @@ label {
 .review-form input:disabled, .review-form select:disabled, .review-form textarea:disabled {
   font-weight: bold;
 }
+
+ol {
+  padding-left: 20px;
+}
+
+ol li{
+  margin-bottom: 8px;
+}

@@ -1458,7 +1458,7 @@
                             ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                             ng-disabled="!multiStepForm.ceilli.$viewValue"
                             ng-required="multiStepForm.ceilli.$viewValue">
-                          <span>{{formParams.ceilliCert.name}}</span>
+                          <span ng-if="multiStepForm.ceilli.$viewValue">{{formParams.ceilliCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
@@ -1592,7 +1592,7 @@
                           <input type="file" class="form-control-mcis-file-input" name="bamcCert" id="bamcCert"
                             ng-model="formParams.bamcCert" ng-required="multiStepForm.bamc.$viewValue" valid-file
                             ng-disabled="!multiStepForm.bamc.$viewValue" data-extension="'jpeg,jpg,pdf,png'" data-size="10">
-                          <span>{{formParams.bamcCert.name}}</span>
+                          <span ng-if="multiStepForm.bamc.$viewValue">{{formParams.bamcCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
@@ -1726,7 +1726,7 @@
                           <input type="file" class="form-control-mcis-file-input" name="rfpCert" id="rfpCert"
                             ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                             ng-disabled="!multiStepForm.rfp.$viewValue" ng-required="multiStepForm.rfp.$viewValue">
-                          <span>{{formParams.rfpCert.name}}</span>
+                          <span ng-if="multiStepForm.rfp.$viewValue">{{formParams.rfpCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
@@ -1871,7 +1871,7 @@
                             ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                             ng-disabled="!multiStepForm.others.$viewValue"
                             ng-required="multiStepForm.others.$viewValue">
-                          <span>{{formParams.othersCert.name}}</span>
+                          <span ng-if="multiStepForm.others.$viewValue">{{formParams.othersCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
@@ -2849,9 +2849,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section10'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br><br>
-                    Overview
-                    and Customer Fact Find Form Training</h3>
+                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product Overview and Customer Fact Find Form Training</h3>
                   <hr>
 
                   <div class="row">
@@ -3304,9 +3302,11 @@
 
           <!-- Nomination -->
           <div ng-if="stage == 'stage5'">
+          <!-- <div> -->
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section13'" ng-hide="section == 'section14'">
+                <!-- <div> -->
                   <h3 class="margin-bottom-45">Applying for Nomination</h3>
                   <hr>
 
@@ -3707,12 +3707,13 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) If you are a Muslim, kindly inform you Nominee of their duties in accodance to
-                                    the applicable Islamic Inheritance Laws.</h6>
-                                  <h6>2) Nominee(s) must be at least 18 years of age.</h6>
-                                  <h6>3) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee(s).</h6>
-                                  <h6>4) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>If you are a Muslim, kindly inform you Nominee of their duties in accodance to the applicable Islamic Inheritance Laws.</li>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -3872,10 +3873,12 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) Nominee must be at least 18 years of age.</h6>
-                                  <h6>2) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee.</h6>
-                                  <h6>3) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -4041,17 +4044,18 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) The arrangement can be referring to the Rules & Regulations in the latest
-                                    <strong>Agency Handbook</strong></h6>
-                                  <h6>2) Any future residual commissions (including overriding if deceased is a leader)
-                                    for premium collected from block of business under the deceased's servicing before
-                                    event date shall continue to be payable to the next of kin. Any bonus or Balanced
-                                    Score Card (BSC) variable commission entitlement shall be subjected to the
-                                    qualification of the bonus requirement accordingly.</h6>
-                                  <h6>3) Nominee must be at least 18 years of age.</h6>
-                                  <h6>4) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee.</h6>
-                                  <h6>5) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>The arrangement can be referring to the Rules & Regulations in the latest <strong>Agency Handbook</strong></li>
+                                    <li>Any future residual commissions (including overriding if deceased is a leader)
+                                      for premium collected from block of business under the deceased's servicing before
+                                      event date shall continue to be payable to the next of kin. Any bonus or Balanced
+                                      Score Card (BSC) variable commission entitlement shall be subjected to the
+                                      qualification of the bonus requirement accordingly.</li>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
