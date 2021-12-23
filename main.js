@@ -138,6 +138,7 @@ var inputMin = 12;
 
 $scope.nricYear = []
 $scope.yearList = []
+$scope.years = []
 
 let years18BeforeNow = ($scope.currDateObj.getFullYear() - 18)
 for(let i = 0; (i < 100 - 18); i++) {
@@ -145,7 +146,17 @@ for(let i = 0; (i < 100 - 18); i++) {
 }
 
 for(let i = 0; i < 100; i++) {
-    $scope.yearList.push($scope.currDateObj.getFullYear() - i);
+    $scope.yearList.push($scope.currDateObj.getFullYear() - i)
+}
+for(let i = 0; i > -1; i++) {
+    let year = $scope.currDateObj.getFullYear() - i
+    // console.log(year, i)
+    if(year == 1999) {
+        break;
+    }
+    else {
+        $scope.years.push(year)
+    }
 }
 
 $scope.signaturePadObj = {}
