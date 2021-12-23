@@ -84,6 +84,9 @@ directive('dropzone', ['$http', function($http) {
             element.on('drop', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
+                if (e.originalEvent) {
+                    e = e.originalEvent
+                }
                 if (e.dataTransfer){
                     if (e.dataTransfer.files.length > 0) {
                         let elem = scope.multiStepForm[attrs.inputBinding].$$element[0]
