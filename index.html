@@ -3323,7 +3323,7 @@
                         <span>Please tick the option where applicable: </span>
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="groupBenefit" name="groupBenefit"
-                            ng-required="!multiStepForm.commission.$viewValue && !multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue)"
+                            ng-required="!multiStepForm.commission.$viewValue && (!multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue)"
                             ng-model="formParams.groupBenefit" type="checkbox" ng-true-value="1" ng-false-value="0">
                           <label for="groupBenefit">
                             <div class="custom-checkbox"></div>
