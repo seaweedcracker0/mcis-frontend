@@ -9,6 +9,7 @@
 .erecruit-form {  
   padding: 20px 60px 10px 60px;
   background-color: #ffffff;
+  word-break: break-word;
 }
 .uppercase {
   text-transform: uppercase;
@@ -88,7 +89,6 @@
 }
 .tabs {
   overflow: hidden;
-  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
 }
 
 .tab {
