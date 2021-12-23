@@ -121,7 +121,7 @@
   padding: 0 1em;
   color: #2c3e50;
   background: white;
-  transition: all 0.35s;
+  /* transition: all 0.35s; */
 }
 .tab-close {
   display: flex;
@@ -142,7 +142,7 @@ input:checked + .tab-label::after {
   transform: rotate(90deg);
 }
 input:checked ~ .tab-content.custom-tab-content {
-  max-height: 100vh;
+  max-height: none;
   overflow-x: hidden;
   padding-bottom: 2rem;
   /* padding: 1em; */
