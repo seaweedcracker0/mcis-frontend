@@ -144,6 +144,7 @@ input:checked + .tab-label::after {
 input:checked ~ .tab-content.custom-tab-content {
   max-height: 100vh;
   overflow-x: hidden;
+  padding-bottom: 2rem;
   /* padding: 1em; */
 }
 

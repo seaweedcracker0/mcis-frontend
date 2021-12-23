@@ -118,7 +118,7 @@ directive('dropzone', ['$http', function($http) {
         }
     };
 }]).
-controller('formController', function($scope, $http) {
+controller('formController', function($scope, $http, $timeout) {
 $scope.formParams = {};
 $scope.stage = "stage1";
 $scope.section = "section1";
@@ -527,5 +527,29 @@ $scope.goBackNomination = function() {
         $scope.backStep('stage4'); 
         $scope.backSection('section12')
     }
+}
+
+$scope.clearChecked = function(val, label) {
+    $timeout(() => {
+        if(val) {
+            $scope.multiStepForm[label+"CertDate"].$setViewValue("")
+            $scope.formParams[label+"CertDate"] = ""
+            $("#"+label+"CertDate").val("")
+
+            $scope.multiStepForm[label+"CertMonth"].$setViewValue("")
+            $scope.formParams[label+"CertMonth"] = ""
+            $("#"+label+"CertMonth").val("")
+
+            $scope.multiStepForm[label+"CertYear"].$setViewValue("")
+            $scope.formParams[label+"CertYear"] = ""
+            $("#"+label+"CertYear").val("")
+
+            if($("#"+label+"Qualifications").length > 0) {
+                $scope.multiStepForm[label+"Qualifications"].$setViewValue("")
+                $scope.formParams[label+"Qualifications"] = ""
+                $("#"+label+"Qualifications").val("")
+            }
+        }
+    })
 }
 });
