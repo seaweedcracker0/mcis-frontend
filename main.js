@@ -30,7 +30,7 @@ return {
     el.bind('change',function(){
         scope.$apply(function(){
             var files = el[0].files[0];
-            // var fileSize = ((files.size/1024)/1024).toFixed(4);
+            var fileSize = ((files.size/1024)/1024).toFixed(4);
             var fileExt = files.name.slice((files.name.lastIndexOf(".") - 1 >>> 0) + 2);
             fileExt = fileExt.toLowerCase();
             var extensions = scope.extension ? scope.extension.split(',') : [];
@@ -46,11 +46,11 @@ return {
             ngModel.$setValidity('size', true);
             ngModel.$setValidity('format', true);
 
-            // if (parseInt(scope.size) && parseInt(fileSize) > parseInt(scope.size)) {              
-            //     ngModel.$setValidity('size', false);
-            //     ngModel.$setTouched();
-            //     ngModel.$setViewValue('');
-            // }
+            if (parseInt(scope.size) && parseInt(fileSize) > parseInt(scope.size)) {              
+                ngModel.$setValidity('size', false);
+                ngModel.$setTouched();
+                ngModel.$setViewValue('');
+            }
             // console.log(extensions, fileExt)
             if (scope.extension && extensions.indexOf(fileExt) == -1) {
                 ngModel.$setValidity('format', false);
@@ -86,10 +86,31 @@ directive('dropzone', ['$http', function($http) {
                 e.stopPropagation();
                 if (e.dataTransfer){
                     if (e.dataTransfer.files.length > 0) {
-                        // console.log(e.dataTransfer.files[0])
-                        scope.formParams[attrs.inputBinding] = e.dataTransfer.files[0];
-                        // console.log(scope.formParams)
-                        scope.$apply()
+                        let elem = scope.multiStepForm[attrs.inputBinding].$$element[0]
+                        var files = e.dataTransfer.files[0];
+                        var fileSize = ((files.size/1024)/1024).toFixed(4);
+                        var fileExt = files.name.slice((files.name.lastIndexOf(".") - 1 >>> 0) + 2);
+                        fileExt = fileExt.toLowerCase();
+                        var extensions = elem.dataset?.extension ? elem.dataset?.extension.split(',') : [];
+                        var size = elem.dataset?.size;
+                    
+                        // Convert all format string to Lower case and compare.
+                        if (extensions.length > 0){
+                            for (i = 0; i < extensions.length; i++) {
+                              extensions[i] = extensions[i].toLowerCase();
+                            }
+                        }
+                        console.log(size, fileSize)
+                        if (size && parseInt(fileSize) > parseInt(size)) {         
+                            alert("Please upload file size that is less than 10mb.");
+                        }
+                        else if (extensions && extensions.indexOf(fileExt) == -1) {
+                            alert("Invalid file format. Please upload in PNG, JPG or JPEG format only.");
+                        }            
+                        else {
+                            scope.formParams[attrs.inputBinding] = e.dataTransfer.files[0];
+                            scope.$apply()
+                        }
                     }
                 }
                 return false;
@@ -451,9 +472,11 @@ $scope.fileUploaded = function(ev) {
     // console.log(ev)
     let elem = ev.target
     var files = elem.files[0];
+    var fileSize = ((files.size/1024)/1024).toFixed(4);
     var fileExt = files.name.slice((files.name.lastIndexOf(".") - 1 >>> 0) + 2);
     fileExt = fileExt.toLowerCase();
     var extensions = elem.dataset?.extension ? elem.dataset?.extension.split(',') : [];
+    var size = elem.dataset?.size;
 
     // Convert all format string to Lower case and compare.
     if (extensions.length > 0){
@@ -461,8 +484,11 @@ $scope.fileUploaded = function(ev) {
           extensions[i] = extensions[i].toLowerCase();
         }
     }
-    // console.log(extensions, fileExt)
-    if (extensions && extensions.indexOf(fileExt) == -1) {
+    console.log(size, fileSize)
+    if (size && parseInt(fileSize) > parseInt(size)) {         
+        alert("Please upload file size that is less than 10mb.");
+    }
+    else if (extensions && extensions.indexOf(fileExt) == -1) {
         alert("Invalid file format. Please upload in PNG, JPG or JPEG format only.");
     }            
     else {

@@ -1306,14 +1306,18 @@
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="pcePcilCert" class="btn btn-default btn gray minwidth-150px"
-                            ng-class="{'custom-upload-error-mcis': formValidation && multiStepForm.pcePcilCert.$error.required}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && !multiStepForm.pcePcilCert.$valid}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="pcePcilCert" id="pcePcilCert"
-                            required valid-file data-extension="'jpeg,jpg,pdf,png'" ng-model="formParams.pcePcilCert">
+                            required valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10" ng-model="formParams.pcePcilCert">
                           <span>{{formParams.pcePcilCert.name}}</span>
                         </div>
                         <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.format"
                           class="small text-danger">
                           Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                        </span>
+                        <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.size"
+                          class="small text-danger">
+                          Please upload file size that is less than 10mb.
                         </span>
                       </div>
                     </div>
@@ -1449,15 +1453,19 @@
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="ceilliCert" class="btn btn-default btn gray minwidth-150px"
-                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.ceilliCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.ceilliCert.$valid)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="ceilliCert" id="ceilliCert"
-                            ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,jpg,pdf,png'"
+                            ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                             ng-disabled="!multiStepForm.ceilli.$viewValue"
                             ng-required="multiStepForm.ceilli.$viewValue">
-                          <span>{{formParams.ceilliCert.name}}</span>
+                          <span ng-if="multiStepForm.ceilli.$viewValue">{{formParams.ceilliCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.ceilliCert.$error.size"
+                            class="small text-danger">
+                            Please upload file size that is less than 10mb.
                           </span>
                         </div>
                       </div>
@@ -1580,14 +1588,18 @@
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="bamcCert" class="btn btn-default btn gray minwidth-150px"
-                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.bamcCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.bamcCert.$valid)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="bamcCert" id="bamcCert"
                             ng-model="formParams.bamcCert" ng-required="multiStepForm.bamc.$viewValue" valid-file
-                            ng-disabled="!multiStepForm.bamc.$viewValue" data-extension="'jpeg,jpg,pdf,png'">
-                          <span>{{formParams.bamcCert.name}}</span>
+                            ng-disabled="!multiStepForm.bamc.$viewValue" data-extension="'jpeg,jpg,pdf,png'" data-size="10">
+                          <span ng-if="multiStepForm.bamc.$viewValue">{{formParams.bamcCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.bamcCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.bamcCert.$error.size"
+                            class="small text-danger">
+                            Please upload file size that is less than 10mb.
                           </span>
                         </div>
                       </div>
@@ -1710,14 +1722,18 @@
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="rfpCert" class="btn btn-default btn gray minwidth-150px"
-                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.rfpCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.rfpCert.$valid)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="rfpCert" id="rfpCert"
-                            ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,jpg,pdf,png'"
+                            ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                             ng-disabled="!multiStepForm.rfp.$viewValue" ng-required="multiStepForm.rfp.$viewValue">
-                          <span>{{formParams.rfpCert.name}}</span>
+                          <span ng-if="multiStepForm.rfp.$viewValue">{{formParams.rfpCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.rfpCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.rfpCert.$error.size"
+                            class="small text-danger">
+                            Please upload file size that is less than 10mb.
                           </span>
                         </div>
                       </div>
@@ -1850,15 +1866,19 @@
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="othersCert" class="btn btn-default btn gray minwidth-150px"
-                            ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.othersCert.$error.required)}">BROWSE...</label>
+                            ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.othersCert.$valid)}">BROWSE...</label>
                           <input type="file" class="form-control-mcis-file-input" name="othersCert" id="othersCert"
-                            ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf,png'"
+                            ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                             ng-disabled="!multiStepForm.others.$viewValue"
                             ng-required="multiStepForm.others.$viewValue">
-                          <span>{{formParams.othersCert.name}}</span>
+                          <span ng-if="multiStepForm.others.$viewValue">{{formParams.othersCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.othersCert.$error.size"
+                            class="small text-danger">
+                            Please upload file size that is less than 10mb.
                           </span>
                         </div>
                       </div>
@@ -2829,9 +2849,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section10'" ng-hide="section == 'section14'">
-                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product <br><br>
-                    Overview
-                    and Customer Fact Find Form Training</h3>
+                  <h3 class="margin-bottom-45">Declaration of Completion for Life Insurance Basic Product Overview and Customer Fact Find Form Training</h3>
                   <hr>
 
                   <div class="row">
@@ -3122,14 +3140,18 @@
                         <div class="col-xs-12 col-md-9">
                           <div class="form-group custom-mcis-file-input">
                             <label for="registLetterCopy" class="btn btn-default btn gray minwidth-150px"
-                              ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.registLetterCopy.$error.required)}">BROWSE...</label>
+                              ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.registLetterCopy.$valid)}">BROWSE...</label>
                             <input type="file" class="form-control-mcis-file-input" name="registLetterCopy"
                               id="registLetterCopy" ng-model="formParams.registLetterCopy" required valid-file
-                              data-extension="'jpeg,jpg,png,pdf'">
+                              data-extension="'jpeg,jpg,png,pdf'" data-size="10">
                             <span>{{formParams.registLetterCopy.name}}</span>
                             <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.format"
                               class="small text-danger">
                               Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                            </span>
+                            <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.size"
+                              class="small text-danger">
+                              Please upload file size that is less than 10mb.
                             </span>
                           </div>
                         </div>
@@ -3280,9 +3302,11 @@
 
           <!-- Nomination -->
           <div ng-if="stage == 'stage5'">
+          <!-- <div> -->
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section13'" ng-hide="section == 'section14'">
+                <!-- <div> -->
                   <h3 class="margin-bottom-45">Applying for Nomination</h3>
                   <hr>
 
@@ -3683,12 +3707,13 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) If you are a Muslim, kindly inform you Nominee of their duties in accodance to
-                                    the applicable Islamic Inheritance Laws.</h6>
-                                  <h6>2) Nominee(s) must be at least 18 years of age.</h6>
-                                  <h6>3) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee(s).</h6>
-                                  <h6>4) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>If you are a Muslim, kindly inform you Nominee of their duties in accodance to the applicable Islamic Inheritance Laws.</li>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -3698,11 +3723,11 @@
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeGroupApplicantICCopy"
                                         class="btn btn-default btn gray minwidth-150px"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupApplicantICCopy.$error.format || multiStepForm.nomineeGroupApplicantICCopy.$error.required)}">BROWSE...</label>
+                                        ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.nomineeGroupApplicantICCopy.$valid)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeGroupApplicantICCopy" id="nomineeGroupApplicantICCopy"
                                         ng-model="formParams.nomineeGroupApplicantICCopy" valid-file
-                                        data-extension="'jpeg,jpg,pdf,png'"
+                                        data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
                                       <span>{{formParams.nomineeGroupApplicantICCopy.name}}</span>
@@ -3710,6 +3735,10 @@
                                         ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                                      </span>
+                                      <span ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.size"
+                                        class="small text-danger">
+                                        Please upload file size that is less than 10mb.
                                       </span>
                                     </div>
                                   </div>
@@ -3721,16 +3750,20 @@
                                     <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeGroupICCopy" class="btn btn-default btn gray minwidth-150px"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeGroupICCopy.$error.format || multiStepForm.nomineeGroupICCopy.$error.required)}">BROWSE...</label>
+                                        ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.nomineeGroupICCopy.$valid)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input" name="nomineeGroupICCopy"
                                         id="nomineeGroupICCopy" ng-model="formParams.nomineeGroupICCopy" valid-file
-                                        data-extension="'jpeg,jpg,pdf,png'"
+                                        data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
                                         ng-required="multiStepForm.groupBenefit.$viewValue">
                                       <span>{{formParams.nomineeGroupICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                                      </span>
+                                      <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.size"
+                                        class="small text-danger">
+                                        Please upload file size that is less than 10mb.
                                       </span>
                                     </div>
                                   </div>
@@ -3840,10 +3873,12 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) Nominee must be at least 18 years of age.</h6>
-                                  <h6>2) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee.</h6>
-                                  <h6>3) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -3853,18 +3888,22 @@
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeAgencyApplicantICCopy"
                                         class="btn btn-default btn gray minwidth-150px"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeAgencyApplicantICCopy.$error.required)}">BROWSE...</label>
+                                        ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.nomineeAgencyApplicantICCopy.$valid)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeAgencyApplicantICCopy" id="nomineeAgencyApplicantICCopy"
                                         ng-model="formParams.nomineeAgencyApplicantICCopy"
                                         ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
                                         ng-required="multiStepForm.agencyBenefit.$viewValue" valid-file
-                                        data-extension="'jpeg,jpg,pdf,png'">
+                                        data-extension="'jpeg,jpg,pdf,png'" data-size="10">
                                       <span>{{formParams.nomineeAgencyApplicantICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                                      </span>
+                                      <span ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.size"
+                                        class="small text-danger">
+                                        Please upload file size that is less than 10mb.
                                       </span>
                                     </div>
                                   </div>
@@ -3876,16 +3915,20 @@
                                     <span>Nominee IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeAgencyICCopy" class="btn btn-default btn gray minwidth-150px"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeAgencyICCopy.$error.required)}">BROWSE...</label>
+                                        ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.nomineeAgencyICCopy.$valid)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input" name="nomineeAgencyICCopy"
                                         id="nomineeAgencyICCopy" ng-model="formParams.nomineeAgencyICCopy"
                                         ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
                                         ng-required="multiStepForm.agencyBenefit.$viewValue" valid-file
-                                        data-extension="'jpeg,jpg,pdf,png'">
+                                        data-extension="'jpeg,jpg,pdf,png'" data-size="10">
                                       <span>{{formParams.nomineeAgencyICCopy.name}}</span>
                                       <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                                      </span>
+                                      <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.size"
+                                        class="small text-danger">
+                                        Please upload file size that is less than 10mb.
                                       </span>
                                     </div>
                                   </div>
@@ -4001,17 +4044,18 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) The arrangement can be referring to the Rules & Regulations in the latest
-                                    <strong>Agency Handbook</strong></h6>
-                                  <h6>2) Any future residual commissions (including overriding if deceased is a leader)
-                                    for premium collected from block of business under the deceased's servicing before
-                                    event date shall continue to be payable to the next of kin. Any bonus or Balanced
-                                    Score Card (BSC) variable commission entitlement shall be subjected to the
-                                    qualification of the bonus requirement accordingly.</h6>
-                                  <h6>3) Nominee must be at least 18 years of age.</h6>
-                                  <h6>4) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee.</h6>
-                                  <h6>5) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>The arrangement can be referring to the Rules & Regulations in the latest <strong>Agency Handbook</strong></li>
+                                    <li>Any future residual commissions (including overriding if deceased is a leader)
+                                      for premium collected from block of business under the deceased's servicing before
+                                      event date shall continue to be payable to the next of kin. Any bonus or Balanced
+                                      Score Card (BSC) variable commission entitlement shall be subjected to the
+                                      qualification of the bonus requirement accordingly.</li>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -4020,12 +4064,12 @@
                                     <span>Applicant IC Copy <span class="text-danger">*</span></span>
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeCommissionApplicantICCopy"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeCommissionApplicantICCopy.$error.format || multiStepForm.nomineeCommissionApplicantICCopy.$error.required)}"
+                                        ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.nomineeCommissionApplicantICCopy.$valid)}"
                                         class="btn btn-default btn gray minwidth-150px">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeCommissionApplicantICCopy" id="nomineeCommissionApplicantICCopy"
                                         ng-model="formParams.nomineeCommissionApplicantICCopy" valid-file
-                                        data-extension="'jpeg,jpg,pdf,png'"
+                                        data-extension="'jpeg,jpg,pdf,png'" data-size="10"
                                         ng-required="multiStepForm.commission.$viewValue"
                                         ng-disabled="!multiStepForm.commission.$viewValue">
                                       <span>{{formParams.nomineeCommissionApplicantICCopy.name}}</span>
@@ -4033,6 +4077,10 @@
                                         ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                                      </span>
+                                      <span ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.size"
+                                        class="small text-danger">
+                                        Please upload file size that is less than 10mb.
                                       </span>
                                     </div>
                                   </div>
@@ -4045,18 +4093,22 @@
                                     <div class="form-group custom-mcis-file-input">
                                       <label for="nomineeCommissionICCopy"
                                         class="btn btn-default btn gray minwidth-150px"
-                                        ng-class="{'custom-upload-error-mcis': formValidation && (multiStepForm.nomineeCommissionICCopy.$error.format || multiStepForm.nomineeCommissionICCopy.$error.required)}">BROWSE...</label>
+                                        ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.nomineeCommissionICCopy.$valid)}">BROWSE...</label>
                                       <input type="file" class="form-control-mcis-file-input"
                                         name="nomineeCommissionICCopy" id="nomineeCommissionICCopy"
                                         ng-model="formParams.nomineeCommissionICCopy"
                                         ng-required="multiStepForm.commission.$viewValue"
                                         ng-disabled="!multiStepForm.commission.$viewValue" valid-file
-                                        data-extension="'jpeg,jpg,pdf,png'">
+                                        data-extension="'jpeg,jpg,pdf,png'" data-size="10">
                                       <span>{{formParams.nomineeCommissionICCopy.name}}</span>
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.format"
                                         class="small text-danger">
                                         Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
+                                      </span>
+                                      <span ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.size"
+                                        class="small text-danger">
+                                        Please upload file size that is less than 10mb.
                                       </span>
                                     </div>
                                   </div>
@@ -4172,13 +4224,15 @@
           </div>
 
           <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile"
-            onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png">
+            onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png" data-size="10">
           <input type="text" class="hidden" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
           <input type="text" class="hidden" id="esignName" name="esignName" ng-model="formParams.esignName">
 
           <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw"
             ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)"
-            data-extension="jpeg,jpg,png">
+            data-extension="jpeg,jpg,png" data-size="10">
+          <button type="button" class="btn btn-primary" ng-click="triggerModal()">CLICK HERE TO SIGN AS
+            WITNESS</button>
         </div>
       </form>
     </div>
