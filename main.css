@@ -581,5 +581,9 @@ ol li{
 }
 
 .success-screen {
-  height: 100vh;
+  height: 42vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
