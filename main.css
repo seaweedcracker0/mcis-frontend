@@ -95,11 +95,28 @@
   width: 100%;
   color: white;
   overflow: hidden;
+  position: relative;
+}
+.tab .plus {
+  top: 17px;
+  left: 15px;
+  position: absolute;
+  background: white;
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tab .plus::before {
+  content: "+";
+  color: #1a252f;
 }
 .tab-label {
   display: flex;
   justify-content: space-between;
-  padding: 15px 15px;
+  padding: 15px 42px;
   background: #00386c;
   font-weight: bold;
   cursor: pointer;
@@ -146,6 +163,11 @@ input:checked ~ .tab-content.custom-tab-content {
   overflow-x: hidden;
   padding-bottom: 2rem;
   /* padding: 1em; */
+}
+input:checked ~ .plus::before {
+  content: "-";
+  font-size: 22px;
+  margin-top: -5px;
 }
 
 /* e signature */
@@ -487,7 +509,7 @@ label {
   /* white-space: nowrap; */
 } 
 
-.form-group:not(.custom-mcis-file-input) label.one-line {
+.one-line {
   white-space: nowrap;
 } 
 
