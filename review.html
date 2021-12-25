@@ -908,7 +908,7 @@
                 <div ng-if="section == 'section14' ||  section == 'section7'" ng-hide="section == 'section14'">
                   <h3 class="margin-bottom-45">Employment History</h3>
 
-                  <div class="tabs margin-top-25 margin-bottom-45">
+                  <div class="tabs margin-top-25 margin-bottom-15">
                     <!-- Employment History 1 -->
                     <div class="tab">
                       <input type="checkbox" id="eh1" class="custom-check" checked>
@@ -1532,7 +1532,7 @@
                           </div>
                           <div class="form-group">
                             <input name="cffDeclareMonth" id="cffDeclareMonth" class="form-control-mcis text-center" value="09"
-                              disabled style="width:70px!important">
+                              disabled style="width:130px!important">
                           </div>
                           <div class="form-group">
                             <input name="cffDeclareYear" id="cffDeclareYear" class="form-control-mcis text-center" value="2021"
@@ -1563,8 +1563,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
-                        ng-click="nextStep('stage4'); nextSection('section11')">Accept &
-                        Continue</button>
+                        ng-click="nextStep('stage4'); nextSection('section11')">Continue</button>
                       <button type="button" class="btn btn-primary"
                         ng-click="backStep('stage2'); backSection('section9')">Back</button>
                     </div>
@@ -1704,7 +1703,7 @@
                           </div>
                           <div class="form-group">
                             <input name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis text-center" value="09"
-                              disabled style="width:70px!important">
+                              disabled style="width:130px!important">
                           </div>
                           <div class="form-group">
                             <input name="moveAgentYear" id="moveAgentYear" class="form-control-mcis text-center" value="2021"
@@ -1733,7 +1732,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
-                        ng-click="nextStep('stage5'); nextSection('section13')">Yes</button>
+                        ng-click="nextStep('stage5'); nextSection('section13')">Continue</button>
                       <button type="button" class="btn btn-primary" ng-click="backSection('section11')">Back</button>
                     </div>
                   </div>
@@ -1778,7 +1777,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="tabs margin-top-25 margin-bottom-45">
+                  <div class="tabs margin-top-25 margin-bottom-15">
                     <!-- Applicant Information -->
                     <div class="tab">
                       <input type="checkbox" id="applicantInformation" class="custom-check" checked>
@@ -2070,12 +2069,13 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) If you are a Muslim, kindly inform you Nominee of their duties in accodance to
-                                    the applicable Islamic Inheritance Laws.</h6>
-                                  <h6>2) Nominee(s) must be at least 18 years of age.</h6>
-                                  <h6>3) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee(s).</h6>
-                                  <h6>4) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>If you are a Muslim, kindly inform you Nominee of their duties in accodance to the applicable Islamic Inheritance Laws.</li>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -2169,10 +2169,12 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) Nominee must be at least 18 years of age.</h6>
-                                  <h6>2) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee.</h6>
-                                  <h6>3) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -2265,10 +2267,18 @@
                               <div class="row">
                                 <div class="col-xs-12">
                                   <h5>Note:</h5>
-                                  <h6>1) Nominee must be at least 18 years of age.</h6>
-                                  <h6>2) Photocopies of I/C (front & back) are required for both applicant and each
-                                    Nominee.</h6>
-                                  <h6>3) Photocopies of I/C in JPEG or PDF format only.</h6>
+                                  <ol>
+                                    <li>The arrangement can be referring to the Rules & Regulations in the latest <strong>Agency Handbook</strong></li>
+                                    <li>Any future residual commissions (including overriding if deceased is a leader)
+                                      for premium collected from block of business under the deceased's servicing before
+                                      event date shall continue to be payable to the next of kin. Any bonus or Balanced
+                                      Score Card (BSC) variable commission entitlement shall be subjected to the
+                                      qualification of the bonus requirement accordingly.</li>
+                                    <li>Nominee(s) must be at least 18 years of age.</li>
+                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                      Nominee(s).</li>
+                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                  </ol>
                                 </div>
                               </div>
                               <div class="row">
@@ -2372,7 +2382,7 @@
 
           <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw"
             ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png">
-          <input type="text" id="rejectReason" name="rejectReason" ng-model="formParams.rejectReason">
+          <input type="hidden" id="rejectReason" name="rejectReason" ng-model="formParams.rejectReason">
         </div>
       </form>
     </div>

@@ -487,7 +487,7 @@ label {
   /* white-space: nowrap; */
 } 
 
-.form-group:not(.custom-mcis-file-input) label.one-line {
+.one-line {
   white-space: nowrap;
 } 
 
