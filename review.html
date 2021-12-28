@@ -29,6 +29,15 @@
       <h3 ng-if="stage == 'stage5'">Nomination Form</h3>
     </div>
     <div class="erecruit-form">
+      [#if actionResult == "success"]
+      <div class="success-screen">
+        <h3 class="text-center margin-bottom-45">You Have Successfully Submitted the Online Agent Application</h3>
+          <p class="display-block md-text-center margin-bottom-45">
+              MCIS personnel will contact you if your application is successful
+          </p>
+        <button style="display:block;" type="button" class="btn btn-primary" aria-label="Close">Close</button>
+      </div>
+      [#else]      
       <ul class="erecruit-steps" ng-if="section != 'section14'">
         <li ng-class="stage == 'stage1' ? 'active' : ''">Agent Application</li>
         <li ng-class="stage == 'stage2' ? 'active' : ''">Liam COE and Conduct</li>
@@ -1475,8 +1484,7 @@
                   <div class="row">
                     <div class="col-md-12 d-flex-center">
                       <button type="button" class="btn btn-primary"
-                        ng-click="nextStep('stage3'); nextSection('section10')">Accept &
-                        Continue</button>
+                        ng-click="nextStep('stage3'); nextSection('section10')">Continue</button>
                       <button type="button" class="btn btn-primary"
                         ng-click="backStep('stage1'); backSection('section8')">Back</button>
                     </div>
@@ -2079,7 +2087,7 @@
                                     <li>Nominee(s) must be at least 18 years of age.</li>
                                     <li>Photocopies of I/C (front & back) are required for both applicant and each
                                       Nominee(s).</li>
-                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                    <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
                                   </ol>
                                 </div>
                               </div>
@@ -2179,7 +2187,7 @@
                                     <li>Nominee(s) must be at least 18 years of age.</li>
                                     <li>Photocopies of I/C (front & back) are required for both applicant and each
                                       Nominee(s).</li>
-                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                    <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
                                   </ol>
                                 </div>
                               </div>
@@ -2284,7 +2292,7 @@
                                     <li>Nominee(s) must be at least 18 years of age.</li>
                                     <li>Photocopies of I/C (front & back) are required for both applicant and each
                                       Nominee(s).</li>
-                                    <li>Photocopies of I/C in JPEG or PDF format only.</li>
+                                    <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
                                   </ol>
                                 </div>
                               </div>
@@ -2392,6 +2400,7 @@
           <input type="hidden" id="rejectReason" name="rejectReason" ng-model="formParams.rejectReason">
         </div>
       </form>
+      [/#if]
     </div>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="reject-reason-modal">
