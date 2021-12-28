@@ -3953,14 +3953,19 @@
             </div>
           </div>
 
-          <input type="file" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile"
-            onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png" data-size="10">
           <input type="text" class="hidden" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
           <input type="text" class="hidden" id="esignName" name="esignName" ng-model="formParams.esignName">
 
-          <input type="file" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw"
-            ng-model="formParams.applicantEsigndraw" onchange="angular.element(this).scope().fileUploaded(event)"
+          <!-- Esign fields -->
+          <input type="file" class="hidden" id="esignFileUpload" name="esignFileUpload" ng-model="formParams.esignFileUpload"
+            onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png" data-size="10">
+          <input type="text" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
+          
+          <input type="file" class="hidden" id="applicantEsigndrawUpload" name="applicantEsigndrawUpload"
+            ng-model="formParams.applicantEsigndrawUpload" onchange="angular.element(this).scope().fileUploaded(event)"
             data-extension="jpeg,jpg,png" data-size="10">
+            <input type="text" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw" ng-model="formParams.applicantEsigndraw">
+          <!-- Esign fields -->
         </div>
       </form>
       [/#if]      
@@ -4006,15 +4011,15 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="witness-upload">
                   <div class="signature-pad">
-                    <label class="signature-pad--body upload-pad--body" dropzone input-binding="esignFile">
-                      {{ formParams.esignFile ? formParams.esignFile.name : 'Drag a file into this area or select a file
+                    <label class="signature-pad--body upload-pad--body" dropzone input-binding="esignFileUpload">
+                      {{ formParams.esignFileUpload ? formParams.esignFileUpload.name : 'Drag a file into this area or select a file
                       (JPEG / JPG / PNG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <label for="esignFile" class="btn btn-primary">Upload</label>
+                          <label for="esignFileUpload" class="btn btn-primary">Upload</label>
                         </div>
                       </div>
                     </div>
@@ -4150,15 +4155,15 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="upload">
                   <div class="signature-pad">
-                    <label class="signature-pad--body upload-pad--body" dropzone input-binding="applicantEsigndraw">
-                      {{ formParams.applicantEsigndraw ? formParams.applicantEsigndraw.name : 'Drag a file into this
+                    <label class="signature-pad--body upload-pad--body" dropzone input-binding="applicantEsigndrawUpload">
+                      {{ formParams.applicantEsigndrawUpload ? formParams.applicantEsigndrawUpload.name : 'Drag a file into this
                       area or select a file (JPEG / JPG / PNG file only)'}}
                     </label>
                     <div class="signature-pad--footer">
                       <div class="signature-pad--actions">
                         <div>
                           <!-- <button type="button" class="btn btn-primary">Upload</button> -->
-                          <label for="applicantEsigndraw" class="btn btn-primary">Upload</label>
+                          <label for="applicantEsigndrawUpload" class="btn btn-primary">Upload</label>
                         </div>
                       </div>
                     </div>
