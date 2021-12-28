@@ -581,7 +581,7 @@ ol li{
 }
 
 .success-screen {
-  height: 42vh;
+  height: calc(100vh - 250px);
   display: flex;
   flex-direction: column;
   justify-content: center;
