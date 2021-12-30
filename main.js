@@ -489,7 +489,7 @@ angular.module('MCIS', []).
 
                     $scope.formParams.applicantEsigndraw = dataUrl;
                     $timeout(function () {
-                        // $scope.triggerSubmit()
+                        $scope.triggerSubmit()
                     })
                 } else {
                     alert("Please provide your signature.");
