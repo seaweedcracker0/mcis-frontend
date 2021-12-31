@@ -1753,11 +1753,7 @@
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="othersCert" class="btn btn-default btn gray minwidth-150px"
-                            ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.othersCert.$valid)}">BROWSE...</label>
-                          <input type="file" class="form-control-mcis-file-input" name="othersCert" id="othersCert"
-                            ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
-                            ng-disabled="!multiStepForm.others.$viewValue"
-                            ng-required="multiStepForm.others.$viewValue">
+                            ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.othersCert.$valid)}">BROWSE...</label>                          
                           <span ng-if="multiStepForm.others.$viewValue">{{formParams.othersCert.name}}</span>
                           <span ng-show="formValidation && multiStepForm.othersCert.$error.format"
                             class="small text-danger">
@@ -3922,7 +3918,11 @@
             ng-disabled="!multiStepForm.bamc.$viewValue" data-extension="'jpeg,jpg,pdf,png'" data-size="10">
           <input type="file" class="hidden" name="rfpCert" id="rfpCert"
             ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
-            ng-disabled="!multiStepForm.rfp.$viewValue" ng-required="multiStepForm.rfp.$viewValue && section == 'section5'">
+            ng-disabled="!multiStepForm.rfp.$viewValue" ng-required="multiStepForm.rfp.$viewValue && section == 'section5'">            
+          <input type="file" class="form-control-mcis-file-input" name="othersCert" id="othersCert"
+            ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            ng-disabled="!multiStepForm.others.$viewValue"
+            ng-required="multiStepForm.others.$viewValue && section == 'section5'">
           <input type="file" class="hidden" name="registLetterCopy"
             id="registLetterCopy" ng-model="formParams.registLetterCopy" ng-required="section == 'section12'" valid-file
             data-extension="'jpeg,jpg,png,pdf'" data-size="10">
