@@ -606,7 +606,7 @@ ol li {
 }
 
 .success-screen {
-  height: calc(100vh - 250px);
+  height: calc(100vh - 340px);
   display: flex;
   flex-direction: column;
   justify-content: center;
