@@ -453,6 +453,13 @@ angular.module('MCIS', []).
             $scope.signaturePadObj[id].clear()
         }
 
+        $scope.toBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+
         $scope.confirmESign = function (id) {
             if (id == 'signature-pad') {
                 $scope.formModalValidation = true;
@@ -460,18 +467,28 @@ angular.module('MCIS', []).
                     if ($scope.formParams.esignFileUpload || !$scope.signaturePadObj[id].isEmpty()) {
                         var dataUrl
                         if ($scope.formParams.esignFileUpload) {
-                            dataUrl = $scope.formParams.esignFileUpload.toDataURL();
+                            $scope.toBase64($scope.formParams.esignFileUpload).then((fileContent) => {
+                                dataUrl = fileContent
+
+                                $scope.formParams.esignFile = dataUrl;
+        
+                                $timeout(function () {
+                                    $scope.signdone();
+                                    $scope.formModalValidation = false;
+                                    $scope.formParams.esignFileUpload = null;
+                                })
+                            })
                         }
                         else {
                             dataUrl = $scope.signaturePadObj[id].toDataURL();
+                            $scope.formParams.esignFile = dataUrl;
+        
+                            $timeout(function () {
+                                $scope.signdone();
+                                $scope.formModalValidation = false;
+                                $scope.formParams.esignFileUpload = null;
+                            })
                         }
-                        $scope.formParams.esignFile = dataUrl;
-
-                        $timeout(function () {
-                            $scope.signdone();
-                            $scope.formModalValidation = false;
-                            $scope.formParams.esignFileUpload = null;
-                        })
                     } else {
                         alert("Please provide your signature.");
                     }
@@ -481,16 +498,22 @@ angular.module('MCIS', []).
                 if ($scope.formParams.applicantEsigndrawUpload || !$scope.signaturePadObj[id].isEmpty()) {
                     var dataUrl
                     if ($scope.formParams.applicantEsigndrawUpload) {
-                        dataUrl = $scope.formParams.applicantEsigndrawUpload.toDataURL();
+                        $scope.toBase64($scope.formParams.applicantEsigndrawUpload).then((fileContent) => {
+                            dataUrl = fileContent
+
+                            $scope.formParams.applicantEsigndraw = dataUrl;
+                            $timeout(function () {
+                                $scope.triggerSubmit()
+                            })
+                        })
                     }
                     else {
-                        var dataUrl = $scope.signaturePadObj[id].toDataURL();
+                        dataUrl = $scope.signaturePadObj[id].toDataURL();
+                        $scope.formParams.applicantEsigndraw = dataUrl;
+                        $timeout(function () {
+                            $scope.triggerSubmit()
+                        })
                     }
-
-                    $scope.formParams.applicantEsigndraw = dataUrl;
-                    $timeout(function () {
-                        $scope.triggerSubmit()
-                    })
                 } else {
                     alert("Please provide your signature.");
                 }
