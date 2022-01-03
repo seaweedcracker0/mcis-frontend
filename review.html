@@ -60,7 +60,7 @@
             [/#if]
           </div><!-- end form-item-hidden -->
           <!-- Agent Application -->
-          <div ng-if="stage == 'stage5' ||  stage == 'stage1'" ng-hide="stage == 'stage5'">
+          <div class="section" ng-if="stage == 'stage5' ||  stage == 'stage1'" ng-hide="stage == 'stage5'">
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section1'" ng-hide="section == 'section14'">
@@ -463,8 +463,7 @@
                     <div class="row border-top-left-right border-bottom">
                       <div class="col-xs-12 col-md-3 pt-15">
                         <div class="form-group">
-                          <label for="isImmediatelyFamily">Is your spouse or immediately family members was an Insurance
-                            agent OR Staff with MCIS INSURANCE or any other Insurers? <span
+                          <label for="isImmediatelyFamily">Is your spouse/immediate family member an agent or have ever been an agent with MCIS INSURANCE or any other insurance companies? <span
                               class="text-danger">*</span></label>
                         </div>
                       </div>
@@ -1418,7 +1417,7 @@
           </div>
 
           <!-- Liam COE and Conduct -->
-          <div ng-if="stage == 'stage5' ||  stage == 'stage2'" ng-hide="stage == 'stage5'">
+          <div class="section" ng-if="stage == 'stage5' ||  stage == 'stage2'" ng-hide="stage == 'stage5'">
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section9'" ng-hide="section == 'section14'">
@@ -1495,7 +1494,7 @@
           </div>
 
           <!-- Product Overview & CTF -->
-          <div ng-if="stage == 'stage5' ||  stage == 'stage3'" ng-hide="stage == 'stage5'">
+          <div class="section" ng-if="stage == 'stage5' ||  stage == 'stage3'" ng-hide="stage == 'stage5'">
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section10'" ng-hide="section == 'section14'">
@@ -1585,7 +1584,7 @@
           </div>
 
           <!-- Liam Movement -->
-          <div ng-if="stage == 'stage5' ||  stage == 'stage4'" ng-hide="stage == 'stage5'">
+          <div class="section" ng-if="stage == 'stage5' ||  stage == 'stage4'" ng-hide="stage == 'stage5'">
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section11'" ng-hide="section == 'section14'">
@@ -1753,7 +1752,7 @@
           </div>
 
           <!-- Nomination -->
-          <div ng-if="stage == 'stage5'">
+          <div class="section" ng-if="stage == 'stage5'">
             <div class="row">
               <div class="col-xs-12">
                 <div ng-if="section == 'section14' ||  section == 'section13'" ng-hide="section == 'section14'">
@@ -1923,192 +1922,194 @@
                         <div class="row">
                           <div class="col-xs-12">
                             <!-- Spouse Particulars -->
-                            <div class="with-heading-wrapper">
-                              <div class="row custom-row-border">
-                                <div class="col-xs-1 inblock-top">
-                                  <div class="section-label">
-                                    No.
+                            <div class="with-heading-wrapper nomination-accordion">
+                              <div class="with-content">
+                                <div class="row custom-row-border">
+                                  <div class="col-xs-1 inblock-top">
+                                    <div class="section-label">
+                                      No.
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-2 inblock-top">
-                                  <div class="section-label">
-                                    Relationship
+                                  <div class="col-xs-2 inblock-top">
+                                    <div class="section-label">
+                                      Relationship
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-4 inblock-top">
-                                  <div class="section-label">
-                                    Name of Nominee (as per IC)
+                                  <div class="col-xs-4 inblock-top">
+                                    <div class="section-label">
+                                      Name of Nominee (as per IC)
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-3 inblock-top">
-                                  <div class="section-label">
-                                    NRIC No.
+                                  <div class="col-xs-3 inblock-top">
+                                    <div class="section-label">
+                                      NRIC No.
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-1 inblock-top">
-                                  <div class="section-label">
-                                    Share (%)
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- 1 -->
-                              <div class="row border-top-left-right">
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <label for="nomineeGroupRelationship1">1 <span class="text-danger">*</span></label>
-                                  </div>
-                                </div>
-                                <div class="col-xs-2 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupRelationship1" name="nomineeGroupRelationship1"
-                                      class="form-control-mcis" value="Sibling" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupName1" name="nomineeGroupName1"
-                                      class="form-control-mcis uppercase" value="Mohd Adi Bin Jamal" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-3 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupNRIC1" name="nomineeGroupNRIC1"
-                                      class="form-control-mcis" value="860909105767" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupShare1" name="nomineeGroupShare1"
-                                      class="form-control-mcis" value="100" disabled>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- 2 -->
-                              <div class="row border-top-left-right">
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <label for="nomineeGroupRelationship2">2</label>
-                                  </div>
-                                </div>
-                                <div class="col-xs-2 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupRelationship2" name="nomineeGroupRelationship2"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupName2" name="nomineeGroupName2"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-3 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupNRIC2" name="nomineeGroupNRIC2"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupShare2" name="nomineeGroupShare2"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- 3 -->
-                              <div class="row border-top-left-right">
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <label for="nomineeGroupRelationship3">3</label>
-                                  </div>
-                                </div>
-                                <div class="col-xs-2 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupRelationship3" name="nomineeGroupRelationship3"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupName3" name="nomineeGroupName3"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-3 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupNRIC3" name="nomineeGroupNRIC3"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupShare3" name="nomineeGroupShare3"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- 4 -->
-                              <div class="row border-bottom border-top-left-right">
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <label for="nomineeGroupRelationship4">4</label>
-                                  </div>
-                                </div>
-                                <div class="col-xs-2 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupRelationship4" name="nomineeGroupRelationship4"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupName4" name="nomineeGroupName4"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-3 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupNRIC4" name="nomineeGroupNRIC4"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeGroupShare4" name="nomineeGroupShare4"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <h5>Note:</h5>
-                                  <ol>
-                                    <li>If you are a Muslim, kindly inform you Nominee of their duties in accodance to the applicable Islamic Inheritance Laws.</li>
-                                    <li>Nominee(s) must be at least 18 years of age.</li>
-                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
-                                      Nominee(s).</li>
-                                    <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
-                                  </ol>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="custom-inline">
-                                    <span>Applicant IC Copy <span class="text-danger">*</span></span>
-                                    <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
-                                      <a href="#">IC212032.PDF</a>
+                                  <div class="col-xs-2 inblock-top">
+                                    <div class="section-label">
+                                      Share (%)
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="custom-inline margin-top-20">
-                                    <span>Nominee IC Copy <span class="text-danger">*</span></span>
-                                    <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
-                                      <a href="#">IC093312322.JPG</a>
+                                <!-- 1 -->
+                                <div class="row border-top-left-right">
+                                  <div class="col-xs-1 pt-15">
+                                    <div class="form-group">
+                                      <label for="nomineeGroupRelationship1">1 <span class="text-danger">*</span></label>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupRelationship1" name="nomineeGroupRelationship1"
+                                        class="form-control-mcis" value="Sibling" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupName1" name="nomineeGroupName1"
+                                        class="form-control-mcis uppercase" value="Mohd Adi Bin Jamal" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupNRIC1" name="nomineeGroupNRIC1"
+                                        class="form-control-mcis" value="860909105767" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupShare1" name="nomineeGroupShare1"
+                                        class="form-control-mcis" value="100" disabled>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- 2 -->
+                                <div class="row border-top-left-right">
+                                  <div class="col-xs-1 pt-15">
+                                    <div class="form-group">
+                                      <label for="nomineeGroupRelationship2">2</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupRelationship2" name="nomineeGroupRelationship2"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupName2" name="nomineeGroupName2"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupNRIC2" name="nomineeGroupNRIC2"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupShare2" name="nomineeGroupShare2"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- 3 -->
+                                <div class="row border-top-left-right">
+                                  <div class="col-xs-1 pt-15">
+                                    <div class="form-group">
+                                      <label for="nomineeGroupRelationship3">3</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupRelationship3" name="nomineeGroupRelationship3"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupName3" name="nomineeGroupName3"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupNRIC3" name="nomineeGroupNRIC3"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupShare3" name="nomineeGroupShare3"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- 4 -->
+                                <div class="row border-bottom border-top-left-right">
+                                  <div class="col-xs-1 pt-15">
+                                    <div class="form-group">
+                                      <label for="nomineeGroupRelationship4">4</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupRelationship4" name="nomineeGroupRelationship4"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupName4" name="nomineeGroupName4"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupNRIC4" name="nomineeGroupNRIC4"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-2 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeGroupShare4" name="nomineeGroupShare4"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <h5>Note:</h5>
+                                    <ol>
+                                      <li>If you are a Muslim, kindly inform you Nominee of their duties in accodance to the applicable Islamic Inheritance Laws.</li>
+                                      <li>Nominee(s) must be at least 18 years of age.</li>
+                                      <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                        Nominee(s).</li>
+                                      <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
+                                    </ol>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <div class="custom-inline">
+                                      <span>Applicant IC Copy <span class="text-danger">*</span></span>
+                                      <div class="form-group custom-mcis-file-input">
+                                        <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                        <a href="#">IC212032.PDF</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <div class="custom-inline margin-top-20">
+                                      <span>Nominee IC Copy <span class="text-danger">*</span></span>
+                                      <div class="form-group custom-mcis-file-input">
+                                        <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                        <a href="#">IC093312322.JPG</a>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -2132,83 +2133,85 @@
                         <div class="row">
                           <div class="col-xs-12">
                             <!-- Spouse Particulars -->
-                            <div class="with-heading-wrapper">
-                              <div class="row custom-row-border">
-                                <div class="col-xs-1 inblock-top">
-                                  <div class="section-label">
-                                    No.
+                            <div class="with-heading-wrapper nomination-accordion">
+                              <div class="with-content">
+                                <div class="row custom-row-border">
+                                  <div class="col-xs-1 inblock-top">
+                                    <div class="section-label">
+                                      No.
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-3 inblock-top">
-                                  <div class="section-label">
-                                    Relationship
+                                  <div class="col-xs-3 inblock-top">
+                                    <div class="section-label">
+                                      Relationship
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-4 inblock-top">
-                                  <div class="section-label">
-                                    Name of Nominee (as per IC)
+                                  <div class="col-xs-4 inblock-top">
+                                    <div class="section-label">
+                                      Name of Nominee (as per IC)
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-4 inblock-top">
-                                  <div class="section-label">
-                                    NRIC No.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row border-bottom border-top-left-right">
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <label for="nomineeAgencyRelationship">1</label>
-                                  </div>
-                                </div>
-                                <div class="col-xs-3 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeAgencyName" name="nomineeAgencyName"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeAgencyNRIC" name="nomineeAgencyNRIC"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <h5>Note:</h5>
-                                  <ol>
-                                    <li>Nominee(s) must be at least 18 years of age.</li>
-                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
-                                      Nominee(s).</li>
-                                    <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
-                                  </ol>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="custom-inline">
-                                    <span>Applicant IC Copy</span>
-                                    <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
-                                      <a href="#"></a>
+                                  <div class="col-xs-4 inblock-top">
+                                    <div class="section-label">
+                                      NRIC No.
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="custom-inline margin-top-20">
-                                    <span>Nominee IC Copy</span>
-                                    <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
-                                      <a href="#"></a>
+                                <div class="row border-bottom border-top-left-right">
+                                  <div class="col-xs-1 pt-15">
+                                    <div class="form-group">
+                                      <label for="nomineeAgencyRelationship">1</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeAgencyRelationship" name="nomineeAgencyRelationship"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeAgencyName" name="nomineeAgencyName"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeAgencyNRIC" name="nomineeAgencyNRIC"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <h5>Note:</h5>
+                                    <ol>
+                                      <li>Nominee(s) must be at least 18 years of age.</li>
+                                      <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                        Nominee(s).</li>
+                                      <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
+                                    </ol>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <div class="custom-inline">
+                                      <span>Applicant IC Copy</span>
+                                      <div class="form-group custom-mcis-file-input">
+                                        <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                        <a href="#"></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <div class="custom-inline margin-top-20">
+                                      <span>Nominee IC Copy</span>
+                                      <div class="form-group custom-mcis-file-input">
+                                        <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                        <a href="#"></a>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -2231,89 +2234,91 @@
                         <div class="row">
                           <div class="col-xs-12">
                             <!-- Spouse Particulars -->
-                            <div class="with-heading-wrapper">
-                              <div class="row custom-row-border">
-                                <div class="col-xs-1 inblock-top">
-                                  <div class="section-label">
-                                    No.
+                            <div class="with-heading-wrapper nomination-accordion">
+                              <div class="with-content">
+                                <div class="row custom-row-border">
+                                  <div class="col-xs-1 inblock-top">
+                                    <div class="section-label">
+                                      No.
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-3 inblock-top">
-                                  <div class="section-label">
-                                    Relationship
+                                  <div class="col-xs-3 inblock-top">
+                                    <div class="section-label">
+                                      Relationship
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-4 inblock-top">
-                                  <div class="section-label">
-                                    Name of Nominee (as per IC)
+                                  <div class="col-xs-4 inblock-top">
+                                    <div class="section-label">
+                                      Name of Nominee (as per IC)
+                                    </div>
                                   </div>
-                                </div>
-                                <div class="col-xs-4 inblock-top">
-                                  <div class="section-label">
-                                    NRIC No.
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row border-bottom border-top-left-right">
-                                <div class="col-xs-1 pt-15">
-                                  <div class="form-group">
-                                    <label for="nomineeCommissionRelationship">1</label>
-                                  </div>
-                                </div>
-                                <div class="col-xs-3 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeCommissionRelationship"
-                                      name="nomineeCommissionRelationship" class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeCommissionName" name="nomineeCommissionName"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                                <div class="col-xs-4 pt-15">
-                                  <div class="form-group">
-                                    <input type="text" id="nomineeCommissionNRIC" name="nomineeCommissionNRIC"
-                                      class="form-control-mcis" value="" disabled>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <h5>Note:</h5>
-                                  <ol>
-                                    <li>The arrangement can be referring to the Rules & Regulations in the latest <strong>Agency Handbook</strong></li>
-                                    <li>Any future residual commissions (including overriding if deceased is a leader)
-                                      for premium collected from block of business under the deceased's servicing before
-                                      event date shall continue to be payable to the next of kin. Any bonus or Balanced
-                                      Score Card (BSC) variable commission entitlement shall be subjected to the
-                                      qualification of the bonus requirement accordingly.</li>
-                                    <li>Nominee(s) must be at least 18 years of age.</li>
-                                    <li>Photocopies of I/C (front & back) are required for both applicant and each
-                                      Nominee(s).</li>
-                                    <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
-                                  </ol>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="custom-inline">
-                                    <span>Applicant IC Copy</span>
-                                    <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
-                                      <a href="#"></a>
+                                  <div class="col-xs-4 inblock-top">
+                                    <div class="section-label">
+                                      NRIC No.
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="custom-inline margin-top-20">
-                                    <span>Nominee IC Copy</span>
-                                    <div class="form-group custom-mcis-file-input">
-                                      <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
-                                      <a href="#"></a>
+                                <div class="row border-bottom border-top-left-right">
+                                  <div class="col-xs-1 pt-15">
+                                    <div class="form-group">
+                                      <label for="nomineeCommissionRelationship">1</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-3 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeCommissionRelationship"
+                                        name="nomineeCommissionRelationship" class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeCommissionName" name="nomineeCommissionName"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                  <div class="col-xs-4 pt-15">
+                                    <div class="form-group">
+                                      <input type="text" id="nomineeCommissionNRIC" name="nomineeCommissionNRIC"
+                                        class="form-control-mcis" value="" disabled>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <h5>Note:</h5>
+                                    <ol>
+                                      <li>The arrangement can be referring to the Rules & Regulations in the latest <strong>Agency Handbook</strong></li>
+                                      <li>Any future residual commissions (including overriding if deceased is a leader)
+                                        for premium collected from block of business under the deceased's servicing before
+                                        event date shall continue to be payable to the next of kin. Any bonus or Balanced
+                                        Score Card (BSC) variable commission entitlement shall be subjected to the
+                                        qualification of the bonus requirement accordingly.</li>
+                                      <li>Nominee(s) must be at least 18 years of age.</li>
+                                      <li>Photocopies of I/C (front & back) are required for both applicant and each
+                                        Nominee(s).</li>
+                                      <li>Photocopies of I/C in PDF, PNG, JPG or JPEG format only.</li>
+                                    </ol>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <div class="custom-inline">
+                                      <span>Applicant IC Copy</span>
+                                      <div class="form-group custom-mcis-file-input">
+                                        <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                        <a href="#"></a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-xs-12">
+                                    <div class="custom-inline margin-top-20">
+                                      <span>Nominee IC Copy</span>
+                                      <div class="form-group custom-mcis-file-input">
+                                        <label for="rfpCert" class="btn btn-default btn gray minwidth-150px" disabled>BROWSE...</label>
+                                        <a href="#"></a>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -2431,7 +2436,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="text-center">
+                <div class="d-flex-center">
                   <button type="button" class="btn btn-primary" ng-click="submitRejectReason()">CONFIRM &
                     SUBMIT</button>
                   <button type="button" class="btn btn-default" data-dismiss="modal">CANCEL</button>
@@ -2499,7 +2504,7 @@
                 <div class="esign-content">
                   <div class="row">
                     <div class="col-xs-12 col-md-4 inblock-top">
-                      <div class="form-group text-right">
+                      <div class="form-group text-md-right">
                         <label>Name as per NRIC: </label>
                       </div>
                     </div>
@@ -2511,7 +2516,7 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-12 col-md-4 inblock-top">
-                      <div class="form-group text-right">
+                      <div class="form-group text-md-right">
                         <label>Agency No:</label>
                       </div>
                     </div>
@@ -2523,7 +2528,7 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-12 col-md-4 inblock-top">
-                      <div class="form-group text-right">
+                      <div class="form-group text-md-right">
                         <label>Date:</label>
                       </div>
                     </div>
