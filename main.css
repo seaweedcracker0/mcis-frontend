@@ -353,8 +353,15 @@ input:checked ~ .plus::before {
 .with-heading-wrapper {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.with-heading-wrapper.nomination-accordion {
   overflow-x: auto;
   white-space: nowrap;
+}
+
+.with-heading-wrapper.nomination-accordion .form-group {
+  white-space: normal;
 }
 
 .with-heading-wrapper .with-content {
@@ -668,10 +675,6 @@ ol li {
   .custom-inline-checkbox .custom-checkbox-mcis {
     margin: 0 1.75rem;
   }
-
-  .with-heading-wrapper {
-    white-space: normal;
-  }
   
   .with-heading-wrapper .with-content {
     display: block;
@@ -686,5 +689,10 @@ ol li {
   .custom-inline-form > span {
     display: block;
     flex-direction: auto;
+  }
+
+  .with-heading-wrapper.nomination-accordion {
+    overflow-x: auto;
+    white-space: normal;
   }
 }
