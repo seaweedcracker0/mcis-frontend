@@ -2541,10 +2541,9 @@
                           being an
                           <div class="form-group">
                             <select name="codeEthicsRelationship" id="codeEthicsRelationship"
-                              class="form-control-mcis selectpicker" ng-model="formParams.codeEthicsRelationship"
+                              class="form-control-mcis selectpicker" ng-model="formParams.codeEthicsRelationship" ng-init="formParams.codeEthicsRelationship = '2'"
                               ng-class="{'error': formValidation && multiStepForm.codeEthicsRelationship.$error.required}"
                               required>
-                              <option value="">Please Select</option>
                               <option value="1">Employee</option>
                               <option value="2">Intermediary</option>
                             </select>
