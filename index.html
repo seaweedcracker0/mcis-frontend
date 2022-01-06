@@ -1215,7 +1215,7 @@
                           <label for="pcePcilCertDate">Certification Date</label>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-1 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <select name="pcePcilCertDate" id="pcePcilCertDate" class="form-control-mcis selectpicker"
                             ng-model="formParams.pcePcilCertDate"
@@ -1289,7 +1289,7 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-3 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="pcePcilCert" class="btn btn-default btn gray minwidth-150px"
                             ng-class="{'custom-upload-error-mcis': formValidation && !multiStepForm.pcePcilCert.$valid}">BROWSE...</label>
@@ -1302,6 +1302,10 @@
                         <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.size"
                           class="small text-danger">
                           Please upload file size that is less than 10mb.
+                        </span>
+                        <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.required"
+                          class="small text-danger">
+                          Please upload your certification in PDF, PNG, JPG or JPEG format.
                         </span>
                       </div>
                     </div>
@@ -1335,7 +1339,7 @@
                           <label for="ceilliCertDate">Certification Date</label>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-1 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <select name="ceilliCertDate" id="ceilliCertDate" class="form-control-mcis selectpicker"
                             ng-model="formParams.ceilliCertDate"
@@ -1412,7 +1416,7 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-3 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="ceilliCert" class="btn btn-default btn gray minwidth-150px"
                             ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.ceilliCert.$valid)}">BROWSE...</label>                          
@@ -1424,6 +1428,10 @@
                           <span ng-show="formValidation && multiStepForm.ceilliCert.$error.size"
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.ceilliCert.$error.required"
+                            class="small text-danger">
+                            Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
                         </div>
                       </div>
@@ -1447,7 +1455,7 @@
                           <label for="bamcCertDate">Certification Date</label>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-1 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <select name="bamcCertDate" id="bamcCertDate" class="form-control-mcis selectpicker"
                             ng-model="formParams.bamcCertDate"
@@ -1521,7 +1529,7 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-3 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="bamcCert" class="btn btn-default btn gray minwidth-150px"
                             ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.bamcCert.$valid)}">BROWSE...</label>
@@ -1533,6 +1541,10 @@
                           <span ng-show="formValidation && multiStepForm.bamcCert.$error.size"
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.bamcCert.$error.required"
+                            class="small text-danger">
+                            Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
                         </div>
                       </div>
@@ -1556,7 +1568,7 @@
                           <label for="rfpCertDate">Certification Date</label>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-1 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <select name="rfpCertDate" id="rfpCertDate" class="form-control-mcis selectpicker"
                             ng-model="formParams.rfpCertDate"
@@ -1630,7 +1642,7 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-3 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="rfpCert" class="btn btn-default btn gray minwidth-150px"
                             ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.rfpCert.$valid)}">BROWSE...</label>
@@ -1642,6 +1654,10 @@
                           <span ng-show="formValidation && multiStepForm.rfpCert.$error.size"
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.rfpCert.$error.required"
+                            class="small text-danger">
+                            Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
                         </div>
                       </div>
@@ -1672,7 +1688,7 @@
                           <label for="othersCertDate">Certification Date</label>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-1 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group">
                           <select name="othersCertDate" id="othersCertDate" class="form-control-mcis selectpicker"
                             ng-model="formParams.othersCertDate"
@@ -1749,7 +1765,7 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-xs-12 col-md-3 pt-15">
+                      <div class="col-xs-12 col-md-2 pt-15">
                         <div class="form-group custom-mcis-file-input">
                           <label for="othersCert" class="btn btn-default btn gray minwidth-150px"
                             ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.othersCert.$valid)}">BROWSE...</label>                          
@@ -1761,6 +1777,10 @@
                           <span ng-show="formValidation && multiStepForm.othersCert.$error.size"
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
+                          </span>
+                          <span ng-show="formValidation && multiStepForm.othersCert.$error.required"
+                            class="small text-danger">
+                            Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
                         </div>
                       </div>
@@ -2523,22 +2543,50 @@
                   <hr>
 
                   <div class="row">
-                    <div class="col-xs-12 col-md-offset-1 col-md-10">
-                      <div class="custom-inline-form">
-                        <span>I, <div class="form-group">
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label>Name</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                          <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="salutation" name="salutation"
-                              disabled ng-model="formParams.salutation" style="width:70px!important">
+                              disabled ng-model="formParams.salutation">
                           </div>
+                        </div>
+                        <div class="col-xs-8 col-md-6">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis text-center" id="nameNric" name="nameNric"
-                              disabled ng-model="formParams.nameNric">
+                            <input type="text" class="form-control-mcis text-center" disabled
+                              ng-model="formParams.nameNric">
                           </div>
-                          Bearer of NRIC No.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis text-center" id="nric" name="nric" disabled
+                            <label>Bearer of NRIC No.</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
+                            <input type="text" class="form-control-mcis text-center" disabled
                               ng-model="formParams.nric">
                           </div>
-                          being an
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label>being an</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
                           <div class="form-group">
                             <select name="codeEthicsRelationship" id="codeEthicsRelationship"
                               class="form-control-mcis selectpicker" ng-model="formParams.codeEthicsRelationship" ng-init="formParams.codeEthicsRelationship = '2'"
@@ -2548,17 +2596,29 @@
                               <option value="2">Intermediary</option>
                             </select>
                           </div>
-                          of
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <div class="form-group">
+                            <label>of</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
                           <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="codeEthicsCompany"
                               name="codeEthicsCompany" disabled ng-model="formParams.codeEthicsCompany"
                               ng-value="'MCIS Insurance Berhad'">
                           </div>
-                          hereby declare and confirm that I have read and understood the contents of the Code of Ethics
-                          and Conduct which are applicable
-                          to me, and further declare that I shall comply and abide by the rules contained therein.
-                        </span>
+                        </div>
                       </div>
+                    </div>
+                    <div class="col-xs-12 margin-top-15 margin-bottom-25">
+                      I hereby declare and confirm that I have read and understood the contents of the Code of Ethics
+                      and Conduct which are applicable
+                      to me, and further declare that I shall comply and abide by the rules contained therein.
                     </div>
                   </div>
 
@@ -2605,117 +2665,180 @@
                   <hr>
 
                   <div class="row">
-                    <div class="col-xs-12 col-md-offset-1 col-md-10">
-                      <div class="custom-inline-form">
-                        <span>I,
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.nameNric}}</div> -->
+                            <label>Name</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" disabled
                               ng-model="formParams.nameNric">
                           </div>
-                          Bearer of NRIC No.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.nric}}</div> -->
+                            <label>Bearer of NRIC No.</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" disabled
                               ng-model="formParams.nric">
                           </div>
-                          hereby confirmed that I have completed the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
-                          FACT FIND training provided by
-                          Leader Name:
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 margin-top-15 margin-bottom-25">
+                      I, hereby confirmed that I have completed the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
+                      FACT FIND training provided by
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.leaderName}}</div> -->
+                            <label>Leader Name:</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="leaderName" name="leaderName"
                               disabled ng-model="formParams.leaderName" ng-value="'K KUMAR A/L K KARUPPAJAH'">
                           </div>
-                          Agent Code:
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.agentCode}}</div> -->
+                            <label>Agent Code:</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="agentCode" name="agentCode"
-                              disabled ng-model="formParams.agentCode" ng-value="'A1230860'"
-                              style="width:150px!important">
+                              disabled ng-model="formParams.agentCode" ng-value="'A1230860'">
                           </div>
-                          Unit No:
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.unitNo}}</div> -->
+                            <label>Unit No:</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="unitNo" name="unitNo" disabled
-                              ng-model="formParams.unitNo" ng-value="'199'" style="width: 90px!important">
+                              ng-model="formParams.unitNo" ng-value="'199'">
                           </div>
-                          Branch:
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <!-- <div class="form-control-mcis custom-disabled">{{formParams.branch}}</div> -->
+                            <label>Branch:</label>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                          <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="branch" name="branch" disabled
-                              ng-model="formParams.branch" ng-value="'MCIS Melaka'" style="width:150px!important">
+                              ng-model="formParams.branch" ng-value="'MCIS Melaka'">
                           </div>
-                          on
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row d-flex align-items-center flex-wrap">
+                        <div class="col-md-3">
                           <div class="form-group">
-                            <select name="cffDeclareDate" id="cffDeclareDate"
-                              class="form-control-mcis selectpicker date-field" ng-model="formParams.cffDeclareDate"
-                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareDate.$error.required}"
-                              required>
-                              <option value="">Date</option>
-                              <option value="01">01</option>
-                              <option value="02">02</option>
-                              <option value="03">03</option>
-                              <option value="04">04</option>
-                              <option value="05">05</option>
-                              <option value="06">06</option>
-                              <option value="07">07</option>
-                              <option value="08">08</option>
-                              <option value="09">09</option>
-                              <option value="10">10</option>
-                              <option value="11">11</option>
-                              <option value="12">12</option>
-                              <option value="13">13</option>
-                              <option value="14">14</option>
-                              <option value="15">15</option>
-                              <option value="16">16</option>
-                              <option value="17">17</option>
-                              <option value="18">18</option>
-                              <option value="19">19</option>
-                              <option value="20">20</option>
-                              <option value="21">21</option>
-                              <option value="22">22</option>
-                              <option value="23">23</option>
-                              <option value="24">24</option>
-                              <option value="25">25</option>
-                              <option value="26">26</option>
-                              <option value="27">27</option>
-                              <option value="28">28</option>
-                              <option value="29">29</option>
-                              <option value="30">30</option>
-                              <option value="31">31</option>
-                            </select>
+                            <label>on</label>
                           </div>
-                          <div class="form-group">
-                            <select name="cffDeclareMonth" id="cffDeclareMonth"
-                              class="form-control-mcis selectpicker date-field" ng-model="formParams.cffDeclareMonth"
-                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareMonth.$error.required}"
-                              required>
-                              <option value="">Month</option>
-                              <option value="1">January</option>
-                              <option value="2">February</option>
-                              <option value="3">March</option>
-                              <option value="4">April</option>
-                              <option value="5">May</option>
-                              <option value="6">June</option>
-                              <option value="7">July</option>
-                              <option value="8">August</option>
-                              <option value="9">September</option>
-                              <option value="10">October</option>
-                              <option value="11">November</option>
-                              <option value="12">December</option>
-                            </select>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="custom-inline-form d-flex align-items-center">
+                            
+                            <div class="form-group">
+                              <select name="cffDeclareDate" id="cffDeclareDate"
+                                class="form-control-mcis selectpicker date-field" ng-model="formParams.cffDeclareDate"
+                                ng-class="{'error' : formValidation && multiStepForm.cffDeclareDate.$error.required}"
+                                required>
+                                <option value="">Date</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                              </select>
+                            </div>
+                            <div class="form-group margin-left-15 margin-right-15">
+                              <select name="cffDeclareMonth" id="cffDeclareMonth"
+                                class="form-control-mcis selectpicker date-field" ng-model="formParams.cffDeclareMonth"
+                                ng-class="{'error' : formValidation && multiStepForm.cffDeclareMonth.$error.required}"
+                                required>
+                                <option value="">Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <select name="cffDeclareYear" id="cffDeclareYear"
+                                class="form-control-mcis selectpicker date-field" ng-model="formParams.cffDeclareYear"
+                                ng-class="{'error' : formValidation && multiStepForm.cffDeclareYear.$error.required}"
+                                required>
+                                <option value="">Year</option>
+                                <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+                              </select>
+                            </div>
                           </div>
-                          <div class="form-group">
-                            <select name="cffDeclareYear" id="cffDeclareYear"
-                              class="form-control-mcis selectpicker date-field" ng-model="formParams.cffDeclareYear"
-                              ng-class="{'error' : formValidation && multiStepForm.cffDeclareYear.$error.required}"
-                              required>
-                              <option value="">Year</option>
-                              <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
-                            </select>
-                          </div>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2879,6 +3002,10 @@
                             <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.size"
                               class="small text-danger">
                               Please upload file size that is less than 10mb.
+                            </span>
+                            <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.required"
+                              class="small text-danger">
+                              Please upload your certification in PDF, PNG, JPG or JPEG format.
                             </span>
                           </div>
                         </div>
@@ -3442,6 +3569,10 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
+                                        <span ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.required"
+                                          class="small text-danger">
+                                          Please upload your certification in PDF, PNG, JPG or JPEG format.
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -3461,6 +3592,10 @@
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.size"
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
+                                        </span>
+                                        <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.required"
+                                          class="small text-danger">
+                                          Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
                                       </div>
                                     </div>
@@ -3599,6 +3734,10 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
+                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.required"
+                                          class="small text-danger">
+                                          Please upload your certification in PDF, PNG, JPG or JPEG format.
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -3618,6 +3757,10 @@
                                         <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.size"
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
+                                        </span>
+                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.required"
+                                          class="small text-danger">
+                                          Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
                                       </div>
                                     </div>
@@ -3768,6 +3911,10 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
+                                        <span ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.required"
+                                          class="small text-danger">
+                                          Please upload your certification in PDF, PNG, JPG or JPEG format.
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -3789,6 +3936,10 @@
                                         <span ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.size"
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
+                                        </span>
+                                        <span ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.required"
+                                          class="small text-danger">
+                                          Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
                                       </div>
                                     </div>

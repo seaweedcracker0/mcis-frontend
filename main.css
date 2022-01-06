@@ -320,7 +320,7 @@ input:checked ~ .plus::before {
 
 .section-label {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   color: #ffffff;
 }
@@ -411,51 +411,6 @@ input:checked ~ .plus::before {
 /* .tabs {
   box-shadow: none;
 } */
-
-/* .custom-inline-form {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-} */
-
-/* .custom-inline-form .form-group {
-  margin-bottom: 0
-} */
-.custom-inline-form .form-group,
-.custom-inline-form .form-group input {
-  width: auto !important;
-}
-
-.custom-inline-form .form-group select {
-  width: auto !important;
-  /* min-width: 150px; */
-  padding-right: 40px !important;
-}
-
-.custom-inline-form .form-group select.date-field {
-  /* min-width: 130px; */
-}
-
-.custom-inline-form .form-group {
-  margin-bottom: 20px;
-}
-
-.custom-inline-form > span > * {
-  margin-bottom: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.custom-inline-form > span > .form-group {
-  display: inline-block;
-  margin-top: 15px;
-  margin-left: 0;
-}
-
-.custom-inline-form > span {
-  display: flex;
-  flex-direction: column
-}
 
 .form-control-mcis:disabled,
 .form-control-mcis.custom-disabled {
@@ -627,6 +582,29 @@ ol li {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap
+}
+
+@media only screen and (max-width: 375px) {
+  .d-flex.flex-wrap {
+    flex-direction: column;
+    align-items: stretch
+  }
+  .custom-inline-form {
+    flex-direction: column
+  }
+  .custom-inline-form .form-group {
+    width: 100%!important;
+    margin-left: 0!important;
+    margin-right: 0!important;
+  }
+  .custom-inline-form .form-group select,
+  .custom-inline-form .form-group input {
+    width: 100%!important;
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .section {
     padding: 0
@@ -678,6 +656,10 @@ ol li {
   .with-heading-wrapper .with-content {
     display: block;
     /* float: left; */
+  }
+
+  .custom-inline-form .form-group {
+    margin-bottom: 0;
   }
 
   .custom-inline-form > span > .form-group {
