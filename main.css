@@ -11,6 +11,7 @@
 }
 
 .erecruit-form {
+  padding-top: 5px;
   background-color: #ffffff;
   word-break: break-word;
 }
@@ -596,6 +597,14 @@ ol li {
   flex-wrap: wrap
 }
 
+.commission-tab .nomination-accordion .with-content{
+  max-width: 612px;
+}
+
+.commission-tab .nomination-accordion .with-content ol{
+  white-space: normal;
+}
+
 @media only screen and (max-width: 375px) {
   .d-flex.flex-wrap {
     flex-direction: column;
@@ -697,5 +706,13 @@ ol li {
   }
   .movement-agent-inline-form .form-group{
     /* margin-bottom: 0; */
+  }
+
+  .commission-tab .nomination-accordion .with-content{
+    max-width: none;
+  }
+  
+  .commission-tab .nomination-accordion .with-content ol{
+    white-space: auto;
   }
 }

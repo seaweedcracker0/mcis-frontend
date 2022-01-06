@@ -1430,7 +1430,7 @@
                       <div class="row">
                         <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <label>Name</label>
+                            <label>Name as per NRIC</label>
                           </div>
                         </div>
                         <div class="col-xs-4 col-md-3">
@@ -1496,7 +1496,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-xs-12 margin-top-15 margin-bottom-25">
+                    <div class="col-xs-12 margin-top-5 margin-bottom-15">
                       I hereby declare and confirm that I have read and understood the contents of the Code of Ethics
                       and Conduct which are applicable
                       to me, and further declare that I shall comply and abide by the rules contained therein.
@@ -1572,8 +1572,8 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-xs-12 margin-top-15 margin-bottom-25">
-                      I, hereby confirmed that I have completed the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
+                    <div class="col-xs-12 margin-top-5 margin-bottom-15">
+                      I hereby confirmed that I have completed the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
                       FACT FIND training provided by
                     </div>
                     <div class="col-xs-12 col-md-6">
@@ -1769,7 +1769,7 @@
                       <div class="row">
                         <div class="col-xs-12 col-md-3">
                           <div class="form-group">
-                            <label for="salutation">From <span class="text-danger">*</span></label>
+                            <label for="salutation">Resigned From <span class="text-danger">*</span></label>
                           </div>
                         </div>
                         <div class="col-xs-12 col-md-9">
@@ -1807,29 +1807,30 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <div class="custom-inline-form">
-                        <span>
-                          I hereby notify you that I have resigned from
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row d-flex align-items-center flex-wrap">
+                        <div class="col-md-3">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis" disabled value="Contracting Company">
+                            <label>with effect from</label>
                           </div>
-                          with effect from
-                          <div class="form-group">
-                            <input name="moveAgentDate" id="moveAgentDate" class="form-control-mcis text-center" value="09"
-                              disabled style="width:70px!important">
+                        </div>
+                        <div class="col-md-9">
+                          <div class="custom-inline-form d-flex align-items-center">
+                            
+                            <div class="form-group">
+                              <input name="moveAgentDate" id="moveAgentDate" class="form-control-mcis text-center" value="09"
+                                disabled>
+                            </div>
+                            <div class="form-group margin-left-15 margin-right-15">
+                              <input name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis text-center" value="09"
+                                disabled>
+                            </div>
+                            <div class="form-group">
+                              <input name="moveAgentYear" id="moveAgentYear" class="form-control-mcis text-center" value="2021"
+                                disabled>
+                            </div>
                           </div>
-                          <div class="form-group">
-                            <input name="moveAgentMonth" id="moveAgentMonth" class="form-control-mcis text-center" value="09"
-                              disabled style="width:130px!important">
-                          </div>
-                          <div class="form-group">
-                            <input name="moveAgentYear" id="moveAgentYear" class="form-control-mcis text-center" value="2021"
-                              disabled style="width:90px!important">
-                          </div>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2332,7 +2333,7 @@
                       </div>
                     </div>
                     <!-- Commission-->
-                    <div class="tab">
+                    <div class="tab commission-tab">
                       <input type="checkbox" id="agencyNominationTab" class="custom-check">
                       <div class="plus"></div>
                       <label class="tab-label" for="agencyNominationTab">Nominee Information - Commission</label>
@@ -2470,31 +2471,60 @@
                   <hr>
 
                   <div class="row">
-                    <div class="col-xs-12 col-md-offset-2 col-md-8">
-                      <div class="custom-inline-form">
-                        <span>I,
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <label>Name as per NRIC</label>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis text-center" id="nameNric" name="nameNric"
+                            <input type="text" class="form-control-mcis uppercase" id="nameNric" name="nameNric"
                               disabled value="Mohammad Fareez Bin Jamal">
                           </div>
-                          Agent Code:
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <label>Agent Code:</label>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
                           <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="agentCode" name="agentCode" disabled
-                              value="A1230860" style="width: 150px!important">
+                              value="A1230860">
                           </div>
-                          Unit No:
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <label>Unit No:</label>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
                           <div class="form-group">
-                            <input type="text" class="form-control-mcis text-center" id="unitNo" name="unitNo" disabled value="199" style="width: 150px!important">
+                            <input type="text" class="form-control-mcis text-center" id="unitNo" name="unitNo" disabled value="199">
                           </div>
-                          Branch:
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                          <label>Branch:</label>
+                        </div>
+                        <div class="col-xs-12 col-md-9">
                           <div class="form-group">
                             <input type="text" class="form-control-mcis text-center" id="branch" name="branch" disabled
                               value="MCIS Melaka">
                           </div>
-                          hereby confirmed that I have provided the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
-                          FACT FIND training to the above new agent on the date stated above
-                        </span>
+                        </div>
                       </div>
+                    </div>
+                    <div class="col-xs-12 margin-top-5 margin-bottom-15">
+                      I hereby confirmed that I have provided the LIFE INSURANCE BASIC PRODUCT OVERVIEW AND CUSTOMER
+                      FACT FIND training to the above new agent on the date stated above
                     </div>
                   </div>
 
