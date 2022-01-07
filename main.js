@@ -23,7 +23,8 @@ angular.module('MCIS', []).
             require: "ngModel",
             scope: {
                 extension: '=',
-                size: '='
+                size: '=',
+                custom: '='
             },
             link: function (scope, el, attrs, ngModel) {
                 //change event is fired when file is selected
@@ -55,6 +56,11 @@ angular.module('MCIS', []).
                         if (scope.extension && extensions.indexOf(fileExt) == -1) {
                             ngModel.$setValidity('format', false);
                             ngModel.$setTouched();
+                            ngModel.$setViewValue('');
+                        }
+                        if (custom) {
+                            ngModel.$setValidity('size', null);
+                            ngModel.$setValidity('format', null);
                             ngModel.$setViewValue('');
                         }
 
@@ -213,8 +219,8 @@ angular.module('MCIS', []).
 
         $scope.nextSection = function (section) {
             $scope.formValidation = true;
-            // console.log($scope.multiStepForm, $scope.formParams)
-
+            console.log($scope.multiStepForm, $scope.formParams)
+            console.log($scope.multiStepForm.$valid);
             if ($scope.multiStepForm.$valid) {
                 $scope.direction = 1;
                 $scope.section = section;
@@ -225,13 +231,18 @@ angular.module('MCIS', []).
         $scope.backSection = function (section) {
             $scope.direction = 0;
             $scope.section = section;
+
+            angular.forEach($scope.multiStepForm.$$controls, (field) => {
+                //Touch the field first
+                if (field.$$element[0].type == 'file') {                    
+                    field.$setValidity('format', null);
+                    field.$setValidity('size', null);
+                }
+            });
         }
 
         // Navigation functions
-        $scope.nextStep = function (stage) {
-            //$scope.direction = 1;
-            //$scope.stage = stage;
-
+        $scope.nextStep = function (stage) {            
             $scope.formValidation = true;
 
             if ($scope.multiStepForm.$valid) {

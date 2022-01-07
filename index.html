@@ -1302,7 +1302,7 @@
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
                           </span>
-                          <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.required"
+                          <span ng-show="formValidation && multiStepForm.pcePcilCert.$error.required && !multiStepForm.pcePcilCert.$error.size && !multiStepForm.pcePcilCert.$error.format"
                             class="small text-danger">
                             Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
@@ -1421,15 +1421,15 @@
                           <label for="ceilliCert" class="btn btn-default btn gray minwidth-150px"
                             ng-class="{'custom-upload-error-mcis': formValidation && (!multiStepForm.ceilliCert.$valid)}">BROWSE...</label>                          
                           <span ng-if="multiStepForm.ceilli.$viewValue">{{formParams.ceilliCert.name}}</span>
-                          <span ng-show="formValidation && multiStepForm.ceilliCert.$error.format"
+                          <span ng-show="multiStepForm.ceilli.$viewValue && formValidation && multiStepForm.ceilliCert.$error.format"
                             class="small text-danger">
                             Invalid file format. Please upload in PDF, PNG, JPG or JPEG format only.
                           </span>
-                          <span ng-show="formValidation && multiStepForm.ceilliCert.$error.size"
+                          <span ng-show="multiStepForm.ceilli.$viewValue && formValidation && multiStepForm.ceilliCert.$error.size"
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
                           </span>
-                          <span ng-show="formValidation && multiStepForm.ceilliCert.$error.required"
+                          <span ng-show="multiStepForm.ceilli.$viewValue && formValidation && multiStepForm.ceilliCert.$error.required && !multiStepForm.ceilliCert.$error.size && !multiStepForm.ceilliCert.$error.format"
                             class="small text-danger">
                             Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
@@ -1542,7 +1542,7 @@
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
                           </span>
-                          <span ng-show="formValidation && multiStepForm.bamcCert.$error.required"
+                          <span ng-show="formValidation && multiStepForm.bamcCert.$error.required && !multiStepForm.bamcCert.$error.size && !multiStepForm.bamcCert.$error.format"
                             class="small text-danger">
                             Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
@@ -1655,7 +1655,7 @@
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
                           </span>
-                          <span ng-show="formValidation && multiStepForm.rfpCert.$error.required"
+                          <span ng-show="formValidation && multiStepForm.rfpCert.$error.required && !multiStepForm.rfpCert.$error.size && !multiStepForm.rfpCert.$error.format"
                             class="small text-danger">
                             Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
@@ -1778,7 +1778,7 @@
                             class="small text-danger">
                             Please upload file size that is less than 10mb.
                           </span>
-                          <span ng-show="formValidation && multiStepForm.othersCert.$error.required"
+                          <span ng-show="formValidation && multiStepForm.othersCert.$error.required && !multiStepForm.othersCert.$error.size && !multiStepForm.othersCert.$error.format"
                             class="small text-danger">
                             Please upload your certification in PDF, PNG, JPG or JPEG format.
                           </span>
@@ -3003,7 +3003,7 @@
                               class="small text-danger">
                               Please upload file size that is less than 10mb.
                             </span>
-                            <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.required"
+                            <span ng-show="formValidation && multiStepForm.registLetterCopy.$error.required && !multiStepForm.registLetterCopy.$error.size && !multiStepForm.registLetterCopy.$error.format"
                               class="small text-danger">
                               Please upload your certification in PDF, PNG, JPG or JPEG format.
                             </span>
@@ -3563,7 +3563,7 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
-                                        <span ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.required"
+                                        <span ng-show="formValidation && multiStepForm.nomineeGroupApplicantICCopy.$error.required && !multiStepForm.nomineeGroupApplicantICCopy.$error.size && !multiStepForm.nomineeGroupApplicantICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
@@ -3587,7 +3587,7 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
-                                        <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.required"
+                                        <span ng-show="formValidation && multiStepForm.nomineeGroupICCopy.$error.required && !multiStepForm.nomineeGroupICCopy.$error.size && !multiStepForm.nomineeGroupICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
@@ -3728,7 +3728,7 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
-                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.required"
+                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyApplicantICCopy.$error.required && !multiStepForm.nomineeAgencyApplicantICCopy.$error.size && !multiStepForm.nomineeAgencyApplicantICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
@@ -3752,7 +3752,7 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
-                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.required"
+                                        <span ng-show="formValidation && multiStepForm.nomineeAgencyICCopy.$error.required && !multiStepForm.nomineeAgencyICCopy.$error.size && !multiStepForm.nomineeAgencyICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
@@ -3905,7 +3905,7 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
-                                        <span ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.required"
+                                        <span ng-show="formValidation && multiStepForm.nomineeCommissionApplicantICCopy.$error.required && !multiStepForm.nomineeCommissionApplicantICCopy.$error.size && !multiStepForm.nomineeCommissionApplicantICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
@@ -3931,7 +3931,7 @@
                                           class="small text-danger">
                                           Please upload file size that is less than 10mb.
                                         </span>
-                                        <span ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.required"
+                                        <span ng-show="formValidation && multiStepForm.nomineeCommissionICCopy.$error.required && !multiStepForm.nomineeCommissionICCopy.$error.size && !multiStepForm.nomineeCommissionICCopy.$error.format"
                                           class="small text-danger">
                                           Please upload your certification in PDF, PNG, JPG or JPEG format.
                                         </span>
@@ -4054,16 +4054,19 @@
             ng-required="section == 'section5'">
           <input type="file" class="hidden" name="ceilliCert" id="ceilliCert"
             ng-model="formParams.ceilliCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
-            ng-disabled="!multiStepForm.ceilli.$viewValue"
+            ng-disabled="!multiStepForm.ceilli.$viewValue" data-custom="multiStepForm.ceilli.$viewValue"
             ng-required="multiStepForm.ceilli.$viewValue && section == 'section5'">
           <input type="file" class="hidden" name="bamcCert" id="bamcCert"
             ng-model="formParams.bamcCert" ng-required="multiStepForm.bamc.$viewValue && section == 'section5'" valid-file
-            ng-disabled="!multiStepForm.bamc.$viewValue" data-extension="'jpeg,jpg,pdf,png'" data-size="10">
+            ng-disabled="!multiStepForm.bamc.$viewValue" 
+            data-extension="'jpeg,jpg,pdf,png'" data-size="10" data-custom="multiStepForm.bamc.$viewValue">
           <input type="file" class="hidden" name="rfpCert" id="rfpCert"
             ng-model="formParams.rfpCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.rfpCert.$viewValue"
             ng-disabled="!multiStepForm.rfp.$viewValue" ng-required="multiStepForm.rfp.$viewValue && section == 'section5'">            
           <input type="file" class="hidden" name="othersCert" id="othersCert"
             ng-model="formParams.othersCert" valid-file data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.othersCert.$viewValue"
             ng-disabled="!multiStepForm.others.$viewValue"
             ng-required="multiStepForm.others.$viewValue && section == 'section5'">
           <input type="file" class="hidden" name="registLetterCopy"
@@ -4073,11 +4076,13 @@
             name="nomineeGroupApplicantICCopy" id="nomineeGroupApplicantICCopy"
             ng-model="formParams.nomineeGroupApplicantICCopy" valid-file
             data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.groupBenefit.$viewValue"
             ng-disabled="!multiStepForm.groupBenefit.$viewValue"
             ng-required="multiStepForm.groupBenefit.$viewValue && section == 'section13'">
           <input type="file" class="hidden" name="nomineeGroupICCopy"
             id="nomineeGroupICCopy" ng-model="formParams.nomineeGroupICCopy" valid-file
             data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.groupBenefit.$viewValue"
             ng-disabled="!multiStepForm.groupBenefit.$viewValue"
             ng-required="multiStepForm.groupBenefit.$viewValue && section == 'section13'">
           <input type="file" class="hidden"
@@ -4085,16 +4090,19 @@
             ng-model="formParams.nomineeAgencyApplicantICCopy"
             ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
             ng-required="multiStepForm.agencyBenefit.$viewValue && section == 'section13'" valid-file
-            data-extension="'jpeg,jpg,pdf,png'" data-size="10">
+            data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.agencyBenefit.$viewValue">
           <input type="file" class="hidden" name="nomineeAgencyICCopy"
             id="nomineeAgencyICCopy" ng-model="formParams.nomineeAgencyICCopy"
             ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
             ng-required="multiStepForm.agencyBenefit.$viewValue && section == 'section13'" valid-file
-            data-extension="'jpeg,jpg,pdf,png'" data-size="10">
+            data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.agencyBenefit.$viewValue">
           <input type="file" class="hidden"
             name="nomineeCommissionApplicantICCopy" id="nomineeCommissionApplicantICCopy"
             ng-model="formParams.nomineeCommissionApplicantICCopy" valid-file
             data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.commission.$viewValue"
             ng-required="multiStepForm.commission.$viewValue && section == 'section13'"
             ng-disabled="!multiStepForm.commission.$viewValue">
           <input type="file" class="hidden"
@@ -4102,7 +4110,8 @@
             ng-model="formParams.nomineeCommissionICCopy"
             ng-required="multiStepForm.commission.$viewValue"
             ng-disabled="!multiStepForm.commission.$viewValue && section == 'section13'" valid-file
-            data-extension="'jpeg,jpg,pdf,png'" data-size="10">
+            data-extension="'jpeg,jpg,pdf,png'" data-size="10"
+            data-custom="multiStepForm.commission.$viewValue">
 
           <input type="text" class="hidden" id="esignNRIC" name="esignNRIC" ng-model="formParams.esignNRIC">
           <input type="text" class="hidden" id="esignName" name="esignName" ng-model="formParams.esignName">

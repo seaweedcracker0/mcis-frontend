@@ -527,7 +527,7 @@ label {
 
 .flex-50 {
   flex-basis: 50%;
-  padding: 0 16px;
+  padding: 0;
 }
 
 .margin-right-0 {
@@ -548,10 +548,16 @@ label {
 .d-block-important {
   display: block !important;
 }
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
 
 .agent-details-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .agent-details-wrapper .agent-details {
@@ -605,6 +611,14 @@ ol li {
   white-space: normal;
 }
 
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 375px) {
   .d-flex.flex-wrap {
     flex-direction: column;
@@ -624,13 +638,18 @@ ol li {
   }
 }
 
-
 @media only screen and (min-width: 768px) {
   .movement-agent-inline-form > *{
     display: inline-block;
     width: auto!important;
     /* margin-left: 15px; */
     margin-right: 15px;
+  }
+  .d-sm-block {
+    display: block;
+  }
+  .d-sm-none {
+    display: none;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -714,5 +733,24 @@ ol li {
   
   .commission-tab .nomination-accordion .with-content ol{
     white-space: auto;
+  }
+
+  .agent-details-wrapper {
+    justify-content: flex-end;
+  }
+
+  .d-md-none {
+    display: none;
+  }
+  .d-md-block {
+    display: block;
+  }
+
+  .margin-md-right-50 {
+    margin-right: 50px;
+  }
+
+  .flex-50 {   
+    padding: 0 16px;
   }
 }
