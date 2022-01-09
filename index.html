@@ -3143,7 +3143,7 @@
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="groupBenefit" name="groupBenefit"
                             ng-required="!multiStepForm.commission.$viewValue && (!multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue)"
-                            ng-model="formParams.groupBenefit" type="checkbox" ng-true-value="1" ng-false-value="0">
+                            ng-model="formParams.groupBenefit" type="checkbox" ng-true-value="1" ng-false-value="0" ng-click="clearNominationChecked(formParams.groupBenefit, 'nomineeGroup')">
                           <label for="groupBenefit">
                             <div class="custom-checkbox"></div>
                             <span>Group Life Insurance Benefit</span>
@@ -3152,7 +3152,7 @@
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="agencyBenefit" name="agencyBenefit"
                             ng-required="!multiStepForm.commission.$viewValue && !multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue"
-                            ng-model="formParams.agencyBenefit" type="checkbox" ng-true-value="1" ng-false-value="0">
+                            ng-model="formParams.agencyBenefit" type="checkbox" ng-true-value="1" ng-false-value="0" ng-click="clearNominationChecked(formParams.agencyBenefit, 'nomineeAgency')">
                           <label for="agencyBenefit">
                             <div class="custom-checkbox"></div>
                             <span>Agency Retirement Benefit</span>
@@ -3161,7 +3161,7 @@
                         <div class="checkbox custom-checkbox-mcis">
                           <input id="commission" name="commission" ng-model="formParams.commission" type="checkbox"
                             ng-required="!multiStepForm.commission.$viewValue && !multiStepForm.agencyBenefit.$viewValue && !multiStepForm.groupBenefit.$viewValue"
-                            ng-true-value="1" ng-false-value="0">
+                            ng-true-value="1" ng-false-value="0" ng-click="clearNominationChecked(formParams.commission, 'nomineeCommission')">
                           <label for="commission">
                             <div class="custom-checkbox"></div>
                             <span>Commission</span>

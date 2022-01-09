@@ -612,6 +612,22 @@ angular.module('MCIS', []).
                         $scope.formParams[label + "Qualifications"] = ""
                         $("#" + label + "Qualifications").val("")
                     }
+
+                    $scope.multiStepForm[label + "Cert"].$setValidity('format', null);
+                    $scope.multiStepForm[label + "Cert"].$setValidity('size', null);
+                }
+            })
+        }
+
+        $scope.clearNominationChecked = function (val, label) {
+            $timeout(() => {
+                if (val) {                  
+                    $scope.multiStepForm[label + "ApplicantICCopy"].$setValidity('format', null);
+                    $scope.multiStepForm[label + "ApplicantICCopy"].$setValidity('size', null);
+                    $scope.multiStepForm[label + "ApplicantICCopy"].$setViewValue("");
+                    $scope.multiStepForm[label + "ICCopy"].$setValidity('format', null);
+                    $scope.multiStepForm[label + "ICCopy"].$setValidity('size', null);                    
+                    $scope.multiStepForm[label + "ICCopy"].$setViewValue("");
                 }
             })
         }
