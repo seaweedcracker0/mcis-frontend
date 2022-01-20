@@ -4119,12 +4119,13 @@
           <!-- Esign fields -->
           <input type="file" class="hidden" id="esignFileUpload" name="esignFileUpload" ng-model="formParams.esignFileUpload"
             onchange="angular.element(this).scope().fileUploaded(event)" data-extension="jpeg,jpg,png" data-size="10">
-          <input type="text" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile">
-          
+          <input type="text" class="hidden" id="esignFile" name="esignFile" ng-model="formParams.esignFile">          
           <input type="file" class="hidden" id="applicantEsigndrawUpload" name="applicantEsigndrawUpload"
             ng-model="formParams.applicantEsigndrawUpload" onchange="angular.element(this).scope().fileUploaded(event)"
             data-extension="jpeg,jpg,png" data-size="10">
             <input type="text" class="hidden" id="applicantEsigndraw" name="applicantEsigndraw" ng-model="formParams.applicantEsigndraw">
+            <input type="checkbox" class="hidden" id="applicantAgreeEsignValue" name="applicantAgreeEsignValue" ng-checked="formParams.applicantAgreeEsign" ng-model="formParams.applicantAgreeEsignValue"> 
+            <input type="checkbox" class="hidden" id="codeOfEthicsAgreeEsignValue" name="codeOfEthicsAgreeEsignValue" ng-checked="formParams.codeOfEthicsAgreeEsign" ng-model="formParams.codeOfEthicsAgreeEsignValue">
           <!-- Esign fields -->
         </div>
       </form>
