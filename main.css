@@ -619,6 +619,12 @@ ol li {
   margin-bottom: 10px;
 }
 
+select.selectpicker[readonly] {
+  background-color: #dfdfdf !important; /*Simular campo inativo - Sugestão @GabrielRodrigues*/
+  pointer-events: none;
+  touch-action: none;
+}
+
 @media only screen and (max-width: 375px) {
   .d-flex.flex-wrap {
     flex-direction: column;
