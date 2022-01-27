@@ -71,7 +71,7 @@ angular.module('MCIS', []).
                 });
             }
         }
-    }).
+    }).  
     directive('dropzone', ['$http', function ($http) {
         return {
             restrict: 'A',
@@ -294,9 +294,11 @@ angular.module('MCIS', []).
         $scope.textChanged = function (value, type, obj) {
             if (type == 'personal') {
                 obj.$setValidity("notYet18", true);
+                obj.$setValidity("dateinvalid", true);
                 if (value?.length >= inputMin) $scope.getICInfo(value, obj);
             } else if (type == 'spouse') {
-                if (value?.length >= inputMin) $scope.getSpouseICInfo(value);
+                obj.$setValidity("dateinvalid", true);
+                if (value?.length >= inputMin) $scope.getSpouseICInfo(value, obj);
             } else if (type == 'phone') {
                 obj.$setValidity("prefixNot0", true);
                 if (value) $scope.checkPrefix(value, obj);
@@ -326,10 +328,12 @@ angular.module('MCIS', []).
                 else {
                     obj.$setValidity("notYet18", false);
                 }
+            }else {
+                obj.$setValidity("dateinvalid", false);
             }
         }
 
-        $scope.getSpouseICInfo = function (nric) {
+        $scope.getSpouseICInfo = function (nric, obj) {
             var dob = moment(nric.substring(0, 6), 'YYMMDD');
             if (dob.isValid() && dob.isAfter(moment())) {
                 dob.subtract(100, 'years');
@@ -340,6 +344,8 @@ angular.module('MCIS', []).
                 $scope.formParams.spouseDobDate = dob.format('DD');
                 $scope.formParams.spouseDobMonth = dob.format('MM');
                 $scope.formParams.spouseDobYear = dob.format('YYYY');
+            }else {
+                obj.$setValidity("dateinvalid", false);
             }
         }
 
@@ -595,15 +601,19 @@ angular.module('MCIS', []).
         $scope.clearChecked = function (val, label) {
             $timeout(() => {
                 if (val) {
-                    $scope.multiStepForm[label + "CertDate"].$setViewValue("")
+                    $scope.multiStepForm[label + "CertDate"].$setValidity('datevalid', null);
+                    $scope.multiStepForm[label + "CertMonth"].$setValidity('datevalid', null);
+                    $scope.multiStepForm[label + "CertYear"].$setValidity('datevalid', null);
+                    
+                    $scope.multiStepForm[label + "CertDate"].$setViewValue("");
                     $scope.formParams[label + "CertDate"] = ""
                     $("#" + label + "CertDate").val("")
 
-                    $scope.multiStepForm[label + "CertMonth"].$setViewValue("")
+                    $scope.multiStepForm[label + "CertMonth"].$setViewValue("");
                     $scope.formParams[label + "CertMonth"] = ""
                     $("#" + label + "CertMonth").val("")
 
-                    $scope.multiStepForm[label + "CertYear"].$setViewValue("")
+                    $scope.multiStepForm[label + "CertYear"].$setViewValue("");
                     $scope.formParams[label + "CertYear"] = ""
                     $("#" + label + "CertYear").val("")
 
@@ -630,5 +640,48 @@ angular.module('MCIS', []).
                     $scope.multiStepForm[label + "ICCopy"].$setViewValue("");
                 }
             })
+        }
+
+        $scope.updateDate = function(name, obj1, obj2, obj3) {
+            var dateChecking = $scope.formParams[name + 'Date'] + $scope.formParams[name + 'Month'] + $scope.formParams[name + 'Year'];
+            var dob = moment(dateChecking, 'DDMMYYYY');
+            if (!dob.isValid() || dob.isAfter(moment())){
+                console.log('datevalid', 'false');
+                obj1.$setValidity('datevalid', false);
+                obj1.$setTouched();
+                obj2.$setValidity('datevalid', false);
+                obj2.$setTouched();
+                obj3.$setValidity('datevalid', false);
+                obj3.$setTouched();
+            }else {
+                obj1.$setValidity('datevalid', null);
+                obj2.$setValidity('datevalid', null);
+                obj3.$setValidity('datevalid', null);
+            }
+        }
+
+        $scope.updateDateOptional = function(name, obj1, obj2, obj3, option) {
+            if (option) {
+                var dateChecking = $scope.formParams[name + 'Date'] + $scope.formParams[name + 'Month'] + $scope.formParams[name + 'Year'];
+                console.log('dateChecking..',dateChecking);
+                var dob = moment(dateChecking, 'DDMMYYYY');
+                if (!dob.isValid() || dob.isAfter(moment())){
+                    console.log('datevalid', 'false');
+                    obj1.$setValidity('datevalid', false);
+                    obj1.$setTouched();
+                    obj2.$setValidity('datevalid', false);
+                    obj2.$setTouched();
+                    obj3.$setValidity('datevalid', false);
+                    obj3.$setTouched();
+                }else {
+                    obj1.$setValidity('datevalid', null);
+                    obj2.$setValidity('datevalid', null);
+                    obj3.$setValidity('datevalid', null);
+                }
+            }else {
+                obj1.$setValidity('datevalid', null);
+                obj2.$setValidity('datevalid', null);
+                obj3.$setValidity('datevalid', null);
+            }          
         }
     });
