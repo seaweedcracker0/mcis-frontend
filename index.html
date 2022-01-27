@@ -1886,27 +1886,35 @@
                                   <select name="eh1EmploymentPeriodFromMonth" id="eh1EmploymentPeriodFromMonth"
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh1EmploymentPeriodFromMonth"
+                                    ng-change="updateMonthYear('eh1EmploymentPeriodFrom', 'eh1EmploymentPeriodTo')"
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.required}"
                                     required>
                                     <option value="">Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
                                     <option value="10">October</option>
                                     <option value="11">November</option>
                                     <option value="12">December</option>
                                   </select>
-                                  <span
-                                    ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.required"
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.required"
                                     class="small text-danger">
-                                    Please select month and year.
+                                      Please select month and year.
                                   </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.datevalid"
+                                    class="small text-danger">
+                                      Month and Year cannot be greater than system date
+                                  </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromMonth.$error.daterange"
+                                    class="small text-danger">
+                                      From Date cannot be greater than To Date
+                                  </span>                                  
                                 </div>
                               </div>
                               <div class="col-xs-12 col-md-6">
@@ -1914,16 +1922,24 @@
                                   <select name="eh1EmploymentPeriodFromYear" id="eh1EmploymentPeriodFromYear"
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh1EmploymentPeriodFromYear"
+                                    ng-change="updateMonthYear('eh1EmploymentPeriodFrom', 'eh1EmploymentPeriodTo')"
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.required}"
                                     required>
                                     <option value="">Year</option>
                                     <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
                                   </select>
-                                  <span
-                                    ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.required"
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.required"
                                     class="small text-danger">
-                                    Please select month and year.
+                                      Please select month and year.
                                   </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.datevalid"
+                                    class="small text-danger">
+                                      Month and Year cannot be greater than system date
+                                  </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodFromYear.$error.daterange"
+                                    class="small text-danger">
+                                      From Date cannot be greater than To Date
+                                  </span>                                      
                                 </div>
                               </div>
                             </div>
@@ -1944,27 +1960,35 @@
                                   <select name="eh1EmploymentPeriodToMonth" id="eh1EmploymentPeriodToMonth"
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh1EmploymentPeriodToMonth"
+                                    ng-change="updateMonthYear('eh1EmploymentPeriodFrom', 'eh1EmploymentPeriodTo')"
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.required}"
                                     required>
                                     <option value="">Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
                                     <option value="10">October</option>
                                     <option value="11">November</option>
                                     <option value="12">December</option>
                                   </select>
-                                  <span
-                                    ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.required"
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.required"
                                     class="small text-danger">
-                                    Please select month and year.
+                                      Please select month and year.
                                   </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.datevalid"
+                                    class="small text-danger">
+                                      Month and Year cannot be greater than system date
+                                  </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToMonth.$error.daterange"
+                                    class="small text-danger">
+                                      From Date cannot be greater than To Date
+                                  </span>                                      
                                 </div>
                               </div>
                               <div class="col-xs-12 col-md-6">
@@ -1972,15 +1996,23 @@
                                   <select name="eh1EmploymentPeriodToYear" id="eh1EmploymentPeriodToYear"
                                     class="form-control-mcis selectpicker"
                                     ng-model="formParams.eh1EmploymentPeriodToYear"
+                                    ng-change="updateMonthYear('eh1EmploymentPeriodFrom', 'eh1EmploymentPeriodTo')"
                                     ng-class="{'error': formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.required}"
                                     required>
                                     <option value="">Year</option>
                                     <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
                                   </select>
-                                  <span
-                                    ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.required"
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.required"
                                     class="small text-danger">
-                                    Please select month and year.
+                                      Please select month and year.
+                                  </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.datevalid"
+                                    class="small text-danger">
+                                      Month and Year cannot be greater than system date
+                                  </span>
+                                  <span ng-show="formValidation && multiStepForm.eh1EmploymentPeriodToYear.$error.daterange"
+                                    class="small text-danger">
+                                      From Date cannot be greater than To Date
                                   </span>
                                 </div>
                               </div>

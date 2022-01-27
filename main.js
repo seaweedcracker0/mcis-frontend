@@ -684,4 +684,59 @@ angular.module('MCIS', []).
                 obj3.$setValidity('datevalid', null);
             }          
         }
+
+        $scope.updateMonthYear = function(from, to) {
+            var fromDateChecking = $scope.formParams[from + 'Month'] + $scope.formParams[from + 'Year'];
+            var toDateChecking = $scope.formParams[to + 'Month'] + $scope.formParams[to + 'Year'];
+            var fromDob = moment(fromDateChecking, 'MMYYYY');
+            var toDob = moment(toDateChecking, 'MMYYYY');
+
+            $scope.multiStepForm[from + 'Month'].$setValidity('datevalid', true);
+            $scope.multiStepForm[from + 'Month'].$setTouched();
+            $scope.multiStepForm[from + 'Year'].$setValidity('datevalid', true);
+            $scope.multiStepForm[from + 'Year'].$setTouched();
+
+            $scope.multiStepForm[to + 'Month'].$setValidity('datevalid', true);
+            $scope.multiStepForm[to + 'Month'].$setTouched();
+            $scope.multiStepForm[to + 'Year'].$setValidity('datevalid', true);
+            $scope.multiStepForm[to + 'Year'].$setTouched();
+
+            $scope.multiStepForm[from + 'Month'].$setValidity('daterange', true);
+            $scope.multiStepForm[from + 'Month'].$setTouched();
+            $scope.multiStepForm[from + 'Year'].$setValidity('daterange', true);
+            $scope.multiStepForm[from + 'Year'].$setTouched();
+            $scope.multiStepForm[to + 'Month'].$setValidity('daterange', true);
+            $scope.multiStepForm[to + 'Month'].$setTouched();
+            $scope.multiStepForm[to + 'Year'].$setValidity('daterange', true);
+            $scope.multiStepForm[to + 'Year'].$setTouched();
+
+            if (!fromDob.isValid() || fromDob.isAfter(moment())){
+                $scope.multiStepForm[from + 'Month'].$setValidity('datevalid', false);
+                $scope.multiStepForm[from + 'Month'].$setTouched();
+                $scope.multiStepForm[from + 'Year'].$setValidity('datevalid', false);
+                $scope.multiStepForm[from + 'Year'].$setTouched();
+            }
+
+            if (!toDob.isValid() || toDob.isAfter(moment())){
+                $scope.multiStepForm[to + 'Month'].$setValidity('datevalid', false);
+                $scope.multiStepForm[to + 'Month'].$setTouched();
+                $scope.multiStepForm[to + 'Year'].$setValidity('datevalid', false);
+                $scope.multiStepForm[to + 'Year'].$setTouched();
+            }
+
+            if (fromDob.isValid() && toDob.isValid()) {
+                var mStart = moment(fromDob);
+                var mEnd = moment(toDob);
+                if (mStart.isAfter(mEnd)) {
+                    $scope.multiStepForm[from + 'Month'].$setValidity('daterange', false);
+                    $scope.multiStepForm[from + 'Month'].$setTouched();
+                    $scope.multiStepForm[from + 'Year'].$setValidity('daterange', false);
+                    $scope.multiStepForm[from + 'Year'].$setTouched();
+                    $scope.multiStepForm[to + 'Month'].$setValidity('daterange', false);
+                    $scope.multiStepForm[to + 'Month'].$setTouched();
+                    $scope.multiStepForm[to + 'Year'].$setValidity('daterange', false);
+                    $scope.multiStepForm[to + 'Year'].$setTouched();
+                }
+            }
+        }
     });
