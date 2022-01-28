@@ -167,6 +167,10 @@ angular.module('MCIS', []).
 
         $scope.signaturePadObj = {}
 
+        $timeout(function () {
+            $scope.formParams.primaryHandphoneNo = '01'
+        })        
+
         $scope.triggerModal = function () {
             $scope.formParams.esignFile = null
             $scope.formParams.esignFileUpload = null
@@ -299,6 +303,10 @@ angular.module('MCIS', []).
             } else if (type == 'spouse') {
                 obj.$setValidity("dateinvalid", true);
                 if (value?.length >= inputMin) $scope.getSpouseICInfo(value, obj);
+            } else if (type == 'nomination') {
+                obj.$setValidity("notYet18", true);
+                obj.$setValidity("dateinvalid", true);
+                if (value?.length >= inputMin) $scope.getNominationInfo(value, obj);
             } else if (type == 'phone') {
                 obj.$setValidity("prefixNot0", true);
                 if (value) $scope.checkPrefix(value, obj);
@@ -346,6 +354,24 @@ angular.module('MCIS', []).
                 $scope.formParams.spouseDobYear = dob.format('YYYY');
             }else {
                 obj.$setValidity("dateinvalid", false);
+            }
+        }
+
+        $scope.getNominationInfo = function (nric, obj) {
+            var dob = moment(nric.substring(0, 6), 'YYMMDD');
+            if (dob.isValid() && dob.isAfter(moment())) {
+                dob.subtract(100, 'years');
+            }
+
+            if (dob.isValid()) {
+                let year = dob.format('YYYY');
+                if (($scope.currDateObj.getFullYear() - 18) >= Number.parseInt(year)) {
+                  
+                }else {
+                    obj.$setValidity("notYet18", false);
+                }
+            }else {
+              obj.$setValidity("dateinvalid", false);
             }
         }
 
