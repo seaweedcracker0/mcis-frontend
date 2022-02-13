@@ -169,6 +169,12 @@ angular.module('MCIS', []).
 
         $timeout(function () {
             $scope.formParams.primaryHandphoneNo = '01'
+            $scope.formParams.secondaryHandphoneNo = '01'
+
+            var currentDate = moment(moment(), 'YYMMDD');
+            $scope.formParams.cffDeclareDate = currentDate.format('DD');
+            $scope.formParams.cffDeclareMonth = currentDate.format('MM');
+            $scope.formParams.cffDeclareYear = currentDate.format('YYYY');
         })        
 
         $scope.triggerModal = function () {
@@ -221,10 +227,53 @@ angular.module('MCIS', []).
             $scope.stagePdpa = false;
         }
 
+        $scope.validateCitizen = function(value, obj) {
+            if(value == '0'){
+              obj.$setValidity("notCitizen", false);
+            }else{
+              obj.$setValidity("notCitizen", true);
+            }
+        }
+
         $scope.nextSection = function (section) {
+            console.log('section: ', section);
             $scope.formValidation = true;
             console.log($scope.multiStepForm, $scope.formParams)
             console.log($scope.multiStepForm.$valid);
+  
+            if (section == 'section6') {
+                $scope.updateDate('pcePcilCert', $scope.multiStepForm.pcePcilCertDate, $scope.multiStepForm.pcePcilCertMonth, $scope.multiStepForm.pcePcilCertYear);
+                $scope.updateDateOptional('ceilliCert', $scope.multiStepForm.ceilliCertDate, $scope.multiStepForm.ceilliCertMonth, $scope.multiStepForm.ceilliCertYear, $scope.multiStepForm.ceilli.$viewValue);
+                $scope.updateDateOptional('bamcCert', $scope.multiStepForm.bamcCertDate, $scope.multiStepForm.bamcCertMonth, $scope.multiStepForm.bamcCertYear, $scope.multiStepForm.bamc.$viewValue);
+                $scope.updateDateOptional('rfpCert', $scope.multiStepForm.rfpCertDate, $scope.multiStepForm.rfpCertMonth, $scope.multiStepForm.rfpCertYear, $scope.multiStepForm.rfp.$viewValue);
+                $scope.updateDateOptional('othersCert', $scope.multiStepForm.othersCertDate, $scope.multiStepForm.othersCertMonth, $scope.multiStepForm.othersCertYear, $scope.multiStepForm.others.$viewValue);
+            }
+  
+            console.log('section', section);
+            console.log('skipEmploymentHistory', !$scope.skipEmploymentHistory);
+
+            if (section == 'section8' && !$scope.skipEmploymentHistory) {                
+                $scope.updateMonthYear('eh1EmploymentPeriodFrom', 'eh1EmploymentPeriodTo');
+                // $scope.updateMonthYear('eh2EmploymentPeriodFrom', 'eh2EmploymentPeriodTo');
+                // $scope.updateMonthYear('eh3EmploymentPeriodFrom', 'eh3EmploymentPeriodTo');
+            }
+  
+            if (section == 'section13') {
+                $scope.updateDateOptional('moveAgent', $scope.multiStepForm.moveAgentDate, $scope.multiStepForm.moveAgentMonth, $scope.multiStepForm.moveAgentYear, $scope.multiStepForm.moveAgentDate.$viewValue);
+                $scope.updateDateOptional('moveAgent', $scope.multiStepForm.moveAgentDate, $scope.multiStepForm.moveAgentMonth, $scope.multiStepForm.moveAgentYear, $scope.multiStepForm.moveAgentMonth.$viewValue);
+                $scope.updateDateOptional('moveAgent', $scope.multiStepForm.moveAgentDate, $scope.multiStepForm.moveAgentMonth, $scope.multiStepForm.moveAgentYear, $scope.multiStepForm.moveAgentYear.$viewValue);
+            }
+
+            if (section == 'section14') {
+                $scope.textChangedOptional($scope.formParams.nomineeGroupNRIC1, 'nomination', $scope.multiStepForm.nomineeGroupNRIC1, $scope.multiStepForm.groupBenefit.$viewValue);
+                $scope.textChangedOptional($scope.formParams.nomineeGroupNRIC2, 'nomination', $scope.multiStepForm.nomineeGroupNRIC2, $scope.multiStepForm.groupBenefit.$viewValue);
+                $scope.textChangedOptional($scope.formParams.nomineeGroupNRIC3, 'nomination', $scope.multiStepForm.nomineeGroupNRIC3, $scope.multiStepForm.groupBenefit.$viewValue);
+                $scope.textChangedOptional($scope.formParams.nomineeGroupNRIC4, 'nomination', $scope.multiStepForm.nomineeGroupNRIC4, $scope.multiStepForm.groupBenefit.$viewValue);
+                $scope.textChangedOptional($scope.formParams.nomineeAgencyNRIC, 'nomination', $scope.multiStepForm.nomineeAgencyNRIC, $scope.multiStepForm.agencyBenefit.$viewValue);
+                $scope.textChangedOptional($scope.formParams.nomineeCommissionNRIC, 'nomination', $scope.multiStepForm.nomineeCommissionNRIC, $scope.multiStepForm.commission.$viewValue);
+            }
+
+              
             if ($scope.multiStepForm.$valid) {
                 $scope.direction = 1;
                 $scope.section = section;
@@ -248,6 +297,12 @@ angular.module('MCIS', []).
         // Navigation functions
         $scope.nextStep = function (stage) {            
             $scope.formValidation = true;
+
+            if (stage == 'stage5') {
+                $scope.updateDateOptional('moveAgent', $scope.multiStepForm.moveAgentDate, $scope.multiStepForm.moveAgentMonth, $scope.multiStepForm.moveAgentYear, $scope.multiStepForm.moveAgentDate.$viewValue);
+                $scope.updateDateOptional('moveAgent', $scope.multiStepForm.moveAgentDate, $scope.multiStepForm.moveAgentMonth, $scope.multiStepForm.moveAgentYear, $scope.multiStepForm.moveAgentMonth.$viewValue);
+                $scope.updateDateOptional('moveAgent', $scope.multiStepForm.moveAgentDate, $scope.multiStepForm.moveAgentMonth, $scope.multiStepForm.moveAgentYear, $scope.multiStepForm.moveAgentYear.$viewValue);
+            }
 
             if ($scope.multiStepForm.$valid) {
                 $scope.direction = 1;
@@ -310,6 +365,21 @@ angular.module('MCIS', []).
             } else if (type == 'phone') {
                 obj.$setValidity("prefixNot0", true);
                 if (value) $scope.checkPrefix(value, obj);
+            }
+        };
+        
+        $scope.textChangedOptional = function (value, type, obj, option) {
+            if (option) {
+                if (value != '') {
+                    if (type == 'nomination') {
+                        obj.$setValidity("notYet18", true);
+                        obj.$setValidity("dateinvalid", true);
+                        if (value?.length >= inputMin) $scope.getNominationInfo(value, obj);
+                    }
+                }else {
+                    obj.$setValidity("notYet18", null);
+                    obj.$setValidity("dateinvalid", null);
+                }
             }
         };
 

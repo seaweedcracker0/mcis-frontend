@@ -791,7 +791,7 @@
                           <input type="text" class="form-control-mcis" id="spouseNricNo"
                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                             maxlength="12" name="spouseNricNo" ng-model="formParams.spouseNricNo" ng-minlength="12"
-                            ng-change="textChanged(formParams.spouseNricNo, 'spouse')"
+                            ng-change="textChanged(formParams.spouseNricNo, 'spouse', multiStepForm.spouseNricNo)"
                             ng-class="{'error': formValidation && !multiStepForm.spouseNricNo.$valid}"
                             ng-required="multiStepForm.maritalStatus.$viewValue == '2'"
                             ng-init="formParams.spouseNricNo = ''">
@@ -2854,15 +2854,15 @@
                                 ng-class="{'error' : formValidation && multiStepForm.cffDeclareMonth.$error.required}"
                                 required>
                                 <option value="">Month</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
                                 <option value="10">October</option>
                                 <option value="11">November</option>
                                 <option value="12">December</option>
@@ -3064,6 +3064,7 @@
                               <select name="moveAgentDate" id="moveAgentDate"
                                 class="form-control-mcis selectpicker date-field" ng-model="formParams.moveAgentDate"
                                 ng-class="{'error': formValidation && multiStepForm.moveAgentDate.$error.required}"
+                                ng-change="updateDateOptional('moveAgent', multiStepForm.moveAgentDate, multiStepForm.moveAgentMonth, multiStepForm.moveAgentYear, multiStepForm.moveAgentDate.$viewValue)"
                                 required>
                                 <option value="">Date</option>
                                 <option value="01">01</option>
@@ -3097,23 +3098,24 @@
                                 <option value="29">29</option>
                                 <option value="30">30</option>
                                 <option value="31">31</option>
-                              </select>
+                              </select>                              
                             </div>
                             <div class="form-group margin-left-15 margin-right-15">
                               <select name="moveAgentMonth" id="moveAgentMonth"
                                 class="form-control-mcis selectpicker date-field" ng-model="formParams.moveAgentMonth"
                                 ng-class="{'error': formValidation && multiStepForm.moveAgentMonth.$error.required}"
+                                ng-change="updateDateOptional('moveAgent', multiStepForm.moveAgentDate, multiStepForm.moveAgentMonth, multiStepForm.moveAgentYear, multiStepForm.moveAgentMonth.$viewValue)"
                                 required>
                                 <option value="">Month</option>
-                                <option value="1">January</option>
-                                <option value="2">February</option>
-                                <option value="3">March</option>
-                                <option value="4">April</option>
-                                <option value="5">May</option>
-                                <option value="6">June</option>
-                                <option value="7">July</option>
-                                <option value="8">August</option>
-                                <option value="9">September</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
                                 <option value="10">October</option>
                                 <option value="11">November</option>
                                 <option value="12">December</option>
@@ -3123,12 +3125,17 @@
                               <select name="moveAgentYear" id="moveAgentYear"
                                 class="form-control-mcis selectpicker date-field" ng-model="formParams.moveAgentYear"
                                 ng-class="{'error': formValidation && multiStepForm.moveAgentYear.$error.required}"
+                                ng-change="updateDateOptional('moveAgent', multiStepForm.moveAgentDate, multiStepForm.moveAgentMonth, multiStepForm.moveAgentYear, multiStepForm.moveAgentYear.$viewValue)"                                
                                 required>
                                 <option value="">Year</option>
                                 <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
                               </select>
-                            </div>
+                            </div>                           
                           </div>
+                          <span ng-show="formValidation && multiStepForm.moveAgentDate.$error.datevalid"
+                            class="small text-danger">
+                              Movement Date cannot be greater than system date
+                        </span>
                         </div>
                       </div>
                     </div>
@@ -3433,11 +3440,10 @@
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                                         maxlength="12" name="nomineeGroupNRIC1" ng-model="formParams.nomineeGroupNRIC1"
                                         ng-minlength="12"
-                                        ng-change="textChanged(formParams.nomineeGroupNRIC1, 'nomination', multiStepForm.nomineeGroupNRIC1)"
+                                        ng-change="textChangedOptional(formParams.nomineeGroupNRIC1, 'nomination', multiStepForm.nomineeGroupNRIC1, multiStepForm.groupBenefit.$viewValue)"
                                         ng-class="{'error': formValidation && !multiStepForm.nomineeGroupNRIC1.$valid}"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue"
-                                        ng-required="multiStepForm.groupBenefit.$viewValue"
-                                        ng-init="formParams.nomineeGroupNRIC1 = ''">
+                                        ng-required="multiStepForm.groupBenefit.$viewValue">
                                       <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC1.$error.required"
                                         class="small text-danger">
                                         Please enter your nominee’s NRIC No.
@@ -3498,7 +3504,7 @@
                                         ng-model="formParams.nomineeGroupNRIC2" class="form-control-mcis"
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                                         maxlength="12" ng-minlength="12"
-                                        ng-change="textChanged(formParams.nomineeGroupNRIC2, 'nomination', multiStepForm.nomineeGroupNRIC2)"
+                                        ng-change="textChangedOptional(formParams.nomineeGroupNRIC2, 'nomination', multiStepForm.nomineeGroupNRIC2, multiStepForm.groupBenefit.$viewValue)"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC2.$error.minlength"
                                           class="small text-danger">
@@ -3550,7 +3556,7 @@
                                         ng-model="formParams.nomineeGroupNRIC3" class="form-control-mcis"
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                                         maxlength="12" ng-minlength="12"
-                                        ng-change="textChanged(formParams.nomineeGroupNRIC3, 'nomination', multiStepForm.nomineeGroupNRIC3)"
+                                        ng-change="textChangedOptional(formParams.nomineeGroupNRIC3, 'nomination', multiStepForm.nomineeGroupNRIC3, multiStepForm.groupBenefit.$viewValue)"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC3.$error.minlength"
                                           class="small text-danger">
@@ -3602,7 +3608,7 @@
                                         ng-model="formParams.nomineeGroupNRIC4" class="form-control-mcis"
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                                         maxlength="12" ng-minlength="12"
-                                        ng-change="textChanged(formParams.nomineeGroupNRIC4, 'nomination', multiStepForm.nomineeGroupNRIC4)"
+                                        ng-change="textChangedOptional(formParams.nomineeGroupNRIC4, 'nomination', multiStepForm.nomineeGroupNRIC4, multiStepForm.groupBenefit.$viewValue)"
                                         ng-disabled="!multiStepForm.groupBenefit.$viewValue">
                                         <span ng-show="formValidation && multiStepForm.nomineeGroupNRIC4.$error.minlength"
                                           class="small text-danger">
@@ -3778,11 +3784,10 @@
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                                         name="nomineeAgencyNRIC" ng-model="formParams.nomineeAgencyNRIC"
                                         maxlength="12" ng-minlength="12"
-                                        ng-change="textChanged(formParams.nomineeAgencyNRIC, 'nomination', multiStepForm.nomineeAgencyNRIC)"
+                                        ng-change="textChangedOptional(formParams.nomineeAgencyNRIC, 'nomination', multiStepForm.nomineeAgencyNRIC, multiStepForm.agencyBenefit.$viewValue)"
                                         ng-class="{'error': formValidation && !multiStepForm.nomineeAgencyNRIC.$valid}"
                                         ng-disabled="!multiStepForm.agencyBenefit.$viewValue"
-                                        ng-required="multiStepForm.agencyBenefit.$viewValue"
-                                        ng-init="formParams.nomineeAgencyNRIC = ''">
+                                        ng-required="multiStepForm.agencyBenefit.$viewValue">
                                       <span ng-show="formValidation && multiStepForm.nomineeAgencyNRIC.$error.required"
                                         class="small text-danger">
                                           Please enter your nominee’s NRIC No.
@@ -3956,11 +3961,10 @@
                                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                                         maxlength="12" name="nomineeCommissionNRIC"
                                         ng-model="formParams.nomineeCommissionNRIC" ng-minlength="12"
-                                        ng-change="textChanged(formParams.nomineeCommissionNRIC, 'nomination', multiStepForm.nomineeCommissionNRIC)"
+                                        ng-change="textChangedOptional(formParams.nomineeCommissionNRIC, 'nomination', multiStepForm.nomineeCommissionNRIC, multiStepForm.commission.$viewValue)"
                                         ng-class="{'error': formValidation && !multiStepForm.nomineeCommissionNRIC.$valid}"
                                         ng-disabled="!multiStepForm.commission.$viewValue"
-                                        ng-required="multiStepForm.commission.$viewValue"
-                                        ng-init="formParams.nomineeCommissionNRIC = ''">
+                                        ng-required="multiStepForm.commission.$viewValue">
                                       <span
                                         ng-show="formValidation && multiStepForm.nomineeCommissionNRIC.$error.required"
                                         class="small text-danger">
