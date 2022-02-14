@@ -365,6 +365,10 @@ angular.module('MCIS', []).
             } else if (type == 'phone') {
                 obj.$setValidity("prefixNot0", true);
                 if (value) $scope.checkPrefix(value, obj);
+            } else if (type == 'secondphone') {
+                obj.$setValidity("prefixNot0", true);
+                obj.$setValidity("manualminlength", true);
+                if (value) $scope.checkPrefixSecondPhone(value, obj);
             }
         };
         
@@ -386,6 +390,19 @@ angular.module('MCIS', []).
         $scope.checkPrefix = function (prefix, obj) {
             if (prefix[0] != "0") {
                 obj.$setValidity("prefixNot0", false);
+            }
+        }
+
+        $scope.checkPrefixSecondPhone = function (prefix, obj) {
+            if (prefix[0] != "0") {
+                obj.$setValidity("prefixNot0", false);
+            }
+            
+            if (prefix.length > 2) {
+                obj.$setValidity("manualminlength", false);                
+                if (prefix.length > 9) {
+                    obj.$setValidity("manualminlength", true);
+                }
             }
         }
 
