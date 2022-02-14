@@ -241,6 +241,10 @@ angular.module('MCIS', []).
             console.log($scope.multiStepForm, $scope.formParams)
             console.log($scope.multiStepForm.$valid);
   
+            if (section == 'section4') {
+                $scope.textChanged($scope.formParams.secondaryHandphoneNo, 'secondphone', $scope.multiStepForm.secondaryHandphoneNo);
+            }
+
             if (section == 'section6') {
                 $scope.updateDate('pcePcilCert', $scope.multiStepForm.pcePcilCertDate, $scope.multiStepForm.pcePcilCertMonth, $scope.multiStepForm.pcePcilCertYear);
                 $scope.updateDateOptional('ceilliCert', $scope.multiStepForm.ceilliCertDate, $scope.multiStepForm.ceilliCertMonth, $scope.multiStepForm.ceilliCertYear, $scope.multiStepForm.ceilli.$viewValue);
